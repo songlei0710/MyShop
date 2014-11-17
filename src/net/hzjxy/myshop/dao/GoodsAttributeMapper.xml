@@ -4,16 +4,81 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsAttributeDao">
 
-    <update id="updateGoodsAttribute"></update>
-    <update id="updateGoodsAttributeGoodsTypeName"></update>
-    <update id="updateGoodsAttributeIsSearchByGoodsAttributeId"></update>
-    <update id="updateGoodsAttributeIsSameToLinkByGoodsAttributeId"></update>
-    <delete id="delGoodsAttribute"></delete>
-    <select id="findGoodsAttributeBygoodsTypeId" resultType="net.hzjxy.myshop.entity.GoodsAttribute"></select>
-    <select id="findAllGoodsAttribute" resultType="net.hzjxy.myshop.entity.GoodsAttribute"></select>
-    <select id="findGoodsAttributeByGoodsTypeName" resultType="net.hzjxy.myshop.entity.GoodsAttribute"></select>
-    <select id="findGoodsAttributeByGoodsTypeId" resultType="net.hzjxy.myshop.entity.GoodsAttribute"></select>
-    <select id="sortAllGoodsAttribute" resultType="net.hzjxy.myshop.entity.GoodsAttribute"></select>
-    <select id="countFindAllGoodsAttribute" resultType="java.lang.Integer"></select>
-    <select id="countSortAllGoodsAttribute" resultType="java.lang.Integer"></select>
+    <update id="updateGoodsAttribute">
+        UPDATE  GoodsAttribute
+        <set>
+            <if test="goodSatTributeName!=null">
+                goodSatTributeName=#{goodSatTributeName},
+            </if>
+            <if test="goodsTypeId!=null">
+                goodsTypeId=#{goodsTypeId},
+            </if>
+            <if test="goodsTypeName!=null">
+                goodsTypeName=#{goodsTypeName},
+            </if>
+            <if test="createTime!=null">
+                createTime=#{createTime},
+            </if>
+            <if test="state!=null">
+                state=#{state},
+            </if>
+            <if test="creatorId !=null">
+                creatorId=#{creatorId},
+            </if>
+            <if test="attributeType!=null">
+                attributeType=#{attributeType},
+            </if>
+            <if test="attributeList!=null">
+                attributeList=#{attributeList},
+            </if>
+            <if test="sort!=null">
+                sort=#{sort},
+            </if>
+            <if test="attributeIndex!=null">
+                attributeIndex=#{attributeIndex},
+            </if>
+            <if test="isSearch!=null">
+                isSearch=#{isSearch},
+            </if>
+            <if test="isSameToLink!=null">
+                isSameToLink=#{isSameToLink},
+            </if>
+        </set>
+    </update>
+    <update id="updateGoodsAttributeGoodsTypeName" parameterType="map">
+        UPDATE GoodsAttribute SET goodsTypeName=#{goodsTypeName} WHERE goodsTypeId=#{goodsTypeId}
+    </update>
+    <update id="updateGoodsAttributeIsSearchByGoodsAttributeId" parameterType="map">
+    UPDATE  GoodsAttribute SET goodsattributeId=#{goodsattributeId} where isSearch=#{isSearch}
+    </update>
+    <update id="updateGoodsAttributeIsSameToLinkByGoodsAttributeId" parameterType="map">
+        UPDATE GoodsAttribute SET  goodsAttributeId=#{goodsAttributeId} WHERE isSameToLink=#{isSameToLink}
+    </update>
+    <delete id="delGoodsAttribute">
+        DELETE FROM GoodsAttribute WHERE goodSatTributeId IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+    <select id="findGoodsAttributeBygoodsTypeId" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
+        SELECT * FROM goodSatTributeId WHERE goodsTypeId=#{goodsTypeId}
+    </select>
+    <select id="findAllGoodsAttribute" resultType="net.hzjxy.myshop.entity.GoodsAttribute">
+
+    </select>
+    <select id="findGoodsAttributeByGoodsTypeName" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
+        SELECT * FROM goodSatTributeId WHERE goodsTypeName=#{goodsTypeName}
+    </select>
+    <select id="findGoodsAttributeByGoodsTypeId" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
+         SELECT * FROM goodSatTributeId WHERE goodsTypeId=#{goodsTypeId}
+    </select>
+    <select id="sortAllGoodsAttribute" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="map">
+
+    </select>
+    <select id="countFindAllGoodsAttribute" resultType="java.lang.Integer">
+        SELECT COUNT (*) from GoodsAttribute
+    </select>
+    <select id="countSortAllGoodsAttribute" resultType="java.lang.Integer" parameterType="string">
+        SELECT COUNT (*) FROM GoodsAttribute WHERE queryString=#{queryString}
+    </select>
 </mapper>

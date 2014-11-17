@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * Created by Lenovo on 2014/12/4.
+ * Created by 赵翠翠 on 2014/12/4.
  */
 public interface GoodsAttributeDao {
     /**
