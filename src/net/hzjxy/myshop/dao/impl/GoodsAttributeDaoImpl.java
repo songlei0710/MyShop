@@ -3,6 +3,7 @@ package net.hzjxy.myshop.dao.impl;
 import net.hzjxy.myshop.dao.GoodsAttributeDao;
 import net.hzjxy.myshop.entity.GoodsAttribute;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
@@ -13,12 +14,16 @@ public class GoodsAttributeDaoImpl implements GoodsAttributeDao {
 
     @Override
     public int updateGoodsAttribute(GoodsAttribute gat) {
+
         return 0;
     }
 
     @Override
     public GoodsAttribute findGoodsAttributeBygoodsTypeId(String goodsTypeId) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        GoodsAttribute goodsAttribute=goodsAttributeDao.findGoodsAttributeBygoodsTypeId(goodsTypeId);
+        return goodsAttribute;
     }
 
     @Override
