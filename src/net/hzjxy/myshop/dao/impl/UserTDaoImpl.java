@@ -30,7 +30,10 @@ public class UserTDaoImpl implements UserTDao {
 
     @Override
     public List<UserT> findAllUserT(int currentPage, int lineSize) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        List<UserT> users =userTDao.findAllUserT(currentPage,lineSize);
+        return users;
     }
 
     @Override
