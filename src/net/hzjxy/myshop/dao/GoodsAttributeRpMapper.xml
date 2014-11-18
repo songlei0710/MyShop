@@ -3,8 +3,14 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsAttributeRpDao">
-    <delete id="delBygoodsId"></delete>
+    <delete id="delBygoodsId" parameterType="string">
+        DELETE from GoodsAttributeRp WHERE goodsId=#{goodsId}
+    </delete>
 
-    <select id="findGoodsAttributeRpByGoodsId" resultType="net.hzjxy.myshop.entity.GoodsAttributeRp"></select>
-    <select id="findGoodsIdsByAttr" resultType="net.hzjxy.myshop.entity.GoodsAttributeRp"></select>
+    <select id="findGoodsAttributeRpByGoodsId" resultType="net.hzjxy.myshop.entity.GoodsAttributeRp" parameterType="string">
+        SELECT * FROM GoodsAttributeRp WHERE goodsId=#{goodsId}
+    </select>
+    <select id="findGoodsIdsByAttr" resultType="net.hzjxy.myshop.entity.GoodsAttributeRp" parameterType="string">
+        SELECT id FROM GoodsAttributeRp WHERE attrVal=#{attrVal}
+    </select>
 </mapper>
