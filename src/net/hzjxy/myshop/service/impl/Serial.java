@@ -13,7 +13,7 @@ public class Serial {
     public static final String BRAND="Brand";
 
     public static final String ARTICLE="article";
-
+    public static final String GOODSATTRIBUTE="goodsattribute";
 
 
     private SerialService serialService;
