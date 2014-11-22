@@ -16,8 +16,8 @@
   <div class="navbar-innert">
     <a class="brand" href="#">
       <img src="<%=basePath%>admin/ui/assets/img/logo.png" width="175" height="30" alt=""></a>
-    <a class="dttitle" href="#">关联销售商品信息管理 </a>
-    <a class="brand2">编辑关联销售商品信息</a>
+    <a class="brand" href="#">关联销售商品信息管理 </a>
+    <a id="dttitle" class="brand2">编辑关联销售商品信息</a>
   </div>
 </div>
 <div class="container-fluid containerb">

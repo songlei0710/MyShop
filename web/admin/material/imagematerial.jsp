@@ -8,9 +8,66 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>图片素材设置</title>
+  <title>图片素材设置</title>
 </head>
-<body>
-
+<body data-spy="scroll" data-target=".subnav" data-offset-top="40">
+<%@include file="/admin/header.jsp"%>
+<div id="navigation" class="navbar">
+  <div class="navbar-innert">
+    <a class="img" href="#">
+      <img src="<%=basePath%>admin/ui/assets/img/logo.png" width="175" height="30" alt=""></a>
+    <a class="img" href="#">图片素材管理 </a>
+    <a class="img2">编辑图片素材 </a>
+  </div>
+</div>
+<div class="container-fluid containerb">
+  <div class="row-fluid">
+    <div class="span2">
+      <!-- 引入左侧导航 -->
+      <%@include file="/admin/left.jsp"%>
+    </div>
+    <div id="mainlogic" class="span10">
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>说明</strong> 请根据需要编辑图片素材
+      </div>
+      <div id="alerterror" style="display: none;" claass="alert alert-error">
+        <a class="close" data-dismiss="alert" href="#">&times;</a> <strong></strong>
+      </div>
+      <div id="alertinfo" style="display: none;" class="alert alert-info">
+        <a class="close" data-dismiss="alert" href="#">&times;</a> <strong></strong>U
+      </div>
+      <div class="line-dotted"></div>
+      <div class="btn-group">
+        <button id="btnback" type="button" class="btn btn-success">返回</button>
+      </div>
+      <!-- 开始显示商品类型form表单 -->
+      <form id="brandsform">
+        <div class="form-actions">
+          <div class="form-inline">
+            <span class="label label-required">存放目录: </span>
+            <input id="usedGoodsid" name="usedGoodsid" type="text" class="medium" required />
+        </div>
+          <div class="form-inline">
+            <span class="label label-required">上传图片素材: </span>
+            <input id="des" name="des" type="text" value="" class="medium" />
+          </div>
+          <div class="form-inline">
+            <span class="label label-required">排序: </span>
+            <input id="sort"	name="sort" type="text" value="" class="small" required/>
+          </div>
+          <div class="form-inline">
+            <label class="label label-submit"></label>
+            <input type="hidden" id="hidBrandId" name="hidBrandId" value="" />
+            <input class="btn btn-success" type="button" id="submit" name="submit" value="提交" />
+            <input class="btn btn-success" type="button" id="update" name="update" value="更新" style="display: none;" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="<%=basePath%>admin/js/brands/brandsmentjs.js"></script>
+<%@include file="/admin/footer.jsp"%>
 </body>
 </html>

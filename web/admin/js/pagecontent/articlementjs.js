@@ -14,8 +14,9 @@ $(function() {
         this.value = "提交中";
         this.disabled = true;
         $.post("addArticle.action", {
-            "brandName": brandName,
-            "url": url,
+            "articleName": articleName,
+            "title":title,
+            "tipContent":tipContent,
             "sort": sort
         }, function (data) {
             if (data.sucflag) {
@@ -65,8 +66,9 @@ $(function() {
             }
         });
         $.post("updateArticle.action", {
-            "brandName": brandName,
-            "url": url,
+            "articleName": articleName,
+            "title":title,
+            "tipContent":tipContent,
             "sort": sort
         },function(data){
             if (data.sucflag) {
