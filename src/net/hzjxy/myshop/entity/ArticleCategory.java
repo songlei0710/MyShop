@@ -13,7 +13,7 @@ public class ArticleCategory {
     private String metaDes;             //页面描述
     private String name;                //名称
     private String status;              //状态
-    private Date createtime;            //创建时间
+    private Date createTime;            //创建时间
     private String creatorId;           //创建人Id
     private int sort;                   //排序序号
     private String parentId;            //父类别编号
