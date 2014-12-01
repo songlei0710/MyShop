@@ -12,6 +12,186 @@
             <if test="BrandName!=null">
                 BrandName=#{brandName},
             </if>
+            <if test="brandName!=null">
+                brandName=#{brandName},
+            </if>
+            <if test="nName!=null">
+                nName=#{nName},
+            </if>
+            <if test="lName!=null">
+                lName=#{lName},
+            </if>
+            <if test="sName!=null">
+                sName=#{sName},
+            </if>
+            <if test="fName!=null">
+                fName=#{fName},
+            </if>
+            <if test="navId!=null">
+                navId=#{navId},
+            </if>
+            <if test="lTypeId!=null">
+                lTypeId=#{lTypeId},
+            </if>
+            <if test="sTypeId!=null">
+                sTypeId=#{sTypeId},
+            </if>
+            <if test="price!=0">
+                price=#{price},
+            </if>
+            <if test="memberPrice!=null">
+                memberPrice=#{memberPrice},
+            </if>
+            <if test="points!=null">
+                points=#{points},
+            </if>
+            <if test="pictureUrl!=null">
+                pictureUrl=#{pictureUrl},
+            </if>
+            <if test="quantity!=0">
+                quantity=#{quantity},
+            </if>
+            <if test="saleState!=null">
+                saleState=#{saleState},
+            </if>
+            <if test="unitName!=null">
+                unitName=#{unitName},
+            </if>
+            <if test="keywordName!=null">
+                keywordName=#{keywordId},
+            </if>
+            <if test="weight!=null">
+                weight=#{weight},
+            </if>
+            <if test="readCount!=null">
+                readCount=#{recommended},
+            </if>
+            <if test="relatedProductId!=null">
+                relatedProductId=#{relatedProductId},
+            </if>
+            <if test="recommended!=null">
+                recommended=#{recommended},
+            </if>
+            <if test="hotSale!=null">
+                hotSale=#{hotSale},
+            </if>
+            <if test="bargainPrice!=null">
+                bargainPrice=#{bargainPrice},
+            </if>
+            <if test="sort!=null">
+                sort=#{sort},
+            </if>
+            <if test="createTime!=null">
+                createTime=#{createTime},
+            </if>
+            <if test="creatorId!=null">
+                creatorId=#{creatorId},
+            </if>
+            <if test="replyCount!=null">
+                replyCount=#{replyCount},
+            </if>
+            <if test="brandId!=null">
+                brandId=#{brandId},
+            </if>
+            <if test="placeStore!=null">
+                placeStore=#{placeStore},
+            </if>
+            <if test="metaKeywords!=null">
+                metaKeywords=#{metaKeywords},
+            </if>
+            <if test="metaDescription!=null">
+                metaDescription=#{metaDescription},
+            </if>
+            <if test="cost!=null">
+                cost=#{cost},
+            </if>
+            <if test="salePrice!=0">
+                salePrice=#{salePrice},
+            </if>
+            <if test="isNew!=nll">
+                isNew=#{isNew},
+            </if>
+            <if test="htmlPath!=null">
+                htmlPath=#{htmlPath},
+            </if>
+            <if test="productSn!=null">
+                productSn=#{productSn},
+            </if>
+            <if test="goodsParameterValue!=null">
+                goodsParameterValue=#{goodsParameterValue},
+            </if>
+            <if test="freezeStore!=null">
+                freezeStore=#{freezeStore},
+            </if>
+            <if test="keywordId!=null">
+                keywordId=#{keywordId},
+            </if>
+            <if test="unitNameId!=null">
+                unitNameId=#{unitNameId},
+            </if>
+            <if test="goodsTypeId!=null">
+                goodsTypeId=#{goodsTypeId},
+            </if>
+            <if test="goodsTypeName!=null">
+                goodsTypeName=#{goodsTypeId},
+            </if>
+            <if test="userSetNum!=null">
+                userSetNum=#{userSetNum},
+            </if>
+            <if test="isSpecificationsOpen!=null">
+                isSpecificationsOpen=#{isSpecificationsOpen},
+            </if>
+            <if test="totalStar!=0">
+                totalStar=#{totalStar},
+            </if>
+            <if test="totalStarUser!=0">
+                totalStarUser=#{totalStarUser},
+            </if>
+            <if test="totalComment!=0">
+                totalComment=#{totalComment},
+            </if>
+            <if test="isVirtualSale!=null">
+                isVirtualSale=#{isVirtualSale},
+            </if>
+            <if test="isMobilePlatformGoods!=null">
+                isMobilePlatformGoods=#{isMobilePlatformGoods},
+            </if>
+            <if test="sales!=0">
+                sales=#{sales},
+            </if>
+            <if test="realSales!=0">
+                realSales=#{realSales},
+            </if>
+            <if test="updateTime!=0">
+                updateTime=#{updateTime},
+            </if>
+            <if test="version!=0">
+                version=#{version},
+            </if>
+            <if test="commodityList!=null">
+                commodityList=#{commodityList},
+            </if>
+            <if test="isOutSite!=null">
+                isOutSite=#{isOutSite},
+            </if>
+            <if test="outSiteLink!=null">
+                outSiteLink=#{outSiteLink},
+            </if>
+            <if test="subGoodsName!=null">
+                subGoodsName=#{subGoodsName},
+            </if>
+            <if test="shopId!=null">
+                shopId=#{shopId},
+            </if>
+            <if test="shopName!=null">
+                shopName=#{shopName},
+            </if>
+            <if test="isGroup!=null">
+                isGroup=#{isGroup},
+            </if>
+            <if test="isSecondKill!=null">
+                isSecondKill=#{isSecondKill},
+            </if>
         </set>
         WHERE GoodsId=#{goodId}
     </update>
@@ -53,17 +233,35 @@
         UPDATE Goods SET sort=#{sort} where goodsid=#{goodsid}
     </update>
     <update id="updateGoodssortid" parameterType="map">
-        update  set  =  where ;
+        UPDATE Goods SET goodsortid=#{goodsortid} where goodsid=#{goodsid}
     </update>
-    <update id="updateGoodssortname"></update>
-    <update id="updateGoodsreplycount"></update>
-    <update id="updateHtmlPath"></update>
-    <update id="updatestarsumBygoodsid"></update>
-    <update id="updatestarusersumBygoodsid"></update>
-    <update id="updatecommentsumBygoodsid"></update>
-    <update id="updateGoodsTypeNameBygoodsTypeId"></update>
-    <update id="updateGoodsCategoryBynlsid"></update>
-    <update id="updateGoodsQuantityByGoodsId"></update>
+    <update id="updateGoodssortname" parameterType="map">
+        UPDATE  Goods SET goodssortname=#{goodssortname} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsreplycount" parameterType="string">
+        UPDATE Goods SET quantity=#{quantity} where goodsid=#{goodsid}
+    </update>
+    <update id="updateHtmlPath" parameterType="map">
+        UPDATE Goods SET htmlPath=#{htmlPath} where goodsid=#{goodsid}
+    </update>
+    <update id="updatestarsumBygoodsid" parameterType="map">
+        UPDATE  Goods SET star=#{star} where goodsid=#{goodsid}
+    </update>
+    <update id="updatestarusersumBygoodsid" parameterType="map">
+        UPDATE Goods SET staruser=#{staruser} where goodsid=#{goodsid}
+    </update>
+    <update id="updatecommentsumBygoodsid" parameterType="map">
+        UPDATE Goods SET totalcomment=#{totalcomment} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsTypeNameBygoodsTypeId" parameterType="map">
+        UPDATE Goods SET goodsTypeName=#{goodsTypeName} where goodsTypeId=#{goodsTypeId}
+    </update>
+    <update id="updateGoodsCategoryBynlsid" parameterType="string">
+        UPDATE Goods SET queryString=#{queryString} where lTypeId=#{lTypeId}
+    </update>
+    <update id="updateGoodsQuantityByGoodsId" parameterType="map">
+        UPDATE Goods SET quantity:=oldQuantity=#{oldQuantity}+newQuantity=#{newQuantity} where goodsid=#{goodsid}
+    </update>
 
     <delete id="delGoods">
         DELETE FROM Goods WHERE CreatorId IN
@@ -71,62 +269,137 @@
             #{item}
         </foreach>
     </delete>
-    <select id="findAllGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoods" resultType="net.hzjxy.myshop.entity.Goods">
+        SELECT * FROM Goods
+    </select>
     <select id="findAllGoodsByPageId" resultType="net.hzjxy.myshop.entity.Goods"></select>
     <select id="findAllGoodsByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countAllGoods" resultType="java.lang.Integer"></select>
-    <select id="countAllGoodsById" resultType="java.lang.Integer"></select>
-    <select id="countAllGoodsBysql" resultType="java.lang.Integer"></select>
-    <select id="findGoodsById" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsByNavid" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindGoodsByNavid" resultType="java.lang.Integer"></select>
-    <select id="findGoodsByLtypeid" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindGoodsByLtypeid" resultType="java.lang.Integer"></select>
-    <select id="findGoodsByStypeid" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsBybrand" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsByGoodsname" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsBymodel" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsByprice" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countAllGoods" resultType="java.lang.Integer">
+        SELECT  count(*) FROM Goods
+    </select>
+    <select id="countAllGoodsById" resultType="java.lang.Integer" parameterType="string">
+        SELECT * FROM Goods WHERE creatorid=#{creatorid}
+    </select>
+    <select id="countAllGoodsBysql" resultType="java.lang.Integer" parameterType="string">
+        SELECT * FROM Goods WHERE queryString=#{queryString}
+    </select>
+    <select id="findGoodsById" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT * FROM Goods WHERE goodsid=#{goodsid}
+    </select>
+    <select id="findGoodsByNavid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT salestate=#{salestate},ismobileplatformgoods=#{ismobileplatformgoods} FROM Goods where navid=#{navid}
+    </select>
+    <select id="countfindGoodsByNavid" resultType="java.lang.Integer" parameterType="map">
+        SELECT count(salestate) from Goods where navid=#{navid}
+    </select>
+    <select id="findGoodsByLtypeid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT salestate=#{salestate} from Goods where ltypeid=#{ltypeid}
+    </select>
+    <select id="countfindGoodsByLtypeid" resultType="java.lang.Integer" parameterType="map">
+        SELECT count(salestate) FROM Goods WHERE ltypeid=#{ltypeid}
+    </select>
+    <select id="findGoodsByStypeid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT salestate=#{salestate} from Goods where stypeid=#{stypeid}
+    </select>
+    <select id="findGoodsBybrand" resultType="net.hzjxy.myshop.entity.Goods" parameterType="string">
+        SELECT brand FROM Goods
+    </select>
+    <select id="findGoodsByGoodsname" resultType="net.hzjxy.myshop.entity.Goods">    </select>
+    <select id="findGoodsBymodel" resultType="net.hzjxy.myshop.entity.Goods" parameterType="string">
+        SELECT * FROM Goods WHERE model=#{model}
+    </select>
+    <select id="findGoodsByprice" resultType="net.hzjxy.myshop.entity.Goods" parameterType="string">
+        SELECT * FROM  Goods WHERE price=#{price}
+    </select>
     <select id="findGoodsByKeyword" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindGoodsByKeyword" resultType="java.lang.Integer"></select>
-    <select id="findGoodsByusersetnum" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsForoptiontransferselect" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindGoodsByKeyword" resultType="java.lang.Integer" parameterType="string">
+        SELECT * FROM Goods WHERE keywordid=#{keywordid}
+    </select>
+    <select id="findGoodsByusersetnum" resultType="net.hzjxy.myshop.entity.Goods" parameterType="string">
+        SELECT * FROM Goods WHERE usersetnum=#{usersetnum}
+    </select>
+    <select id="findGoodsForoptiontransferselect" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT * FROM Goods WHERE navid=#{navid},ltypeid=#{ltypeid},stypeid=#{stypeid} and goodsname=#{goodsname}
+    </select>
     <select id="findAllGoodstWithoutSplitpage" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsLimitByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findSamepriceGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsLimitByGoodsType" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT limit=#{limit} where  nlstypeid=#{nlstypeid}
+    </select>
+    <select id="findSamepriceGoods" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT * BETWEEN minprice=#{minprice} and maxprice=#{maxprice} FROM Goods WHERE goodsid={goodsid}
+    </select>
     <select id="findMoreGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindMoreGoodsByGoodsType" resultType="java.lang.Integer"></select>
+    <select id="countfindMoreGoodsByGoodsType" resultType="java.lang.Integer" parameterType="string">
+        SELECT count(nlstypeid) FROM Goods WHERE
+    </select>
     <select id="findSearchGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindSearchGoods" resultType="java.lang.Integer"></select>
+    <select id="countfindSearchGoods" resultType="java.lang.Integer" parameterType="string">
+        SELECT count(megoodsna) FROM Goods
+    </select>
     <select id="findAllGoodslistMore" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindAllGoodslistMore" resultType="java.lang.Integer"></select>
+    <select id="countfindAllGoodslistMore" resultType="java.lang.Integer" parameterType="string">
+        SELECT count(salestate) FROM Goods
+    </select>
     <select id="findMoreHotSaleGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindMoreHotSaleGoodsByGoodsType" resultType="java.lang.Integer"></select>
+    <select id="countfindMoreHotSaleGoodsByGoodsType" resultType="java.lang.Integer" parameterType="string">
+        SELECT count(nlstypeid) FROM Goods
+    </select>
     <select id="findMoreBargainPriceGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindMoreBargainPriceGoodsByGoodsType" resultType="java.lang.Integer"></select>
+    <select id="countfindMoreBargainPriceGoodsByGoodsType" resultType="java.lang.Integer" parameterType="string">
+        SELECT count(nlstypeid) FROM Goods
+    </select>
     <select id="findMoreRecommendedGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindMoreRecommendedGoodsByGoodsType" resultType="java.lang.Integer"></select>
+    <select id="countfindMoreRecommendedGoodsByGoodsType" resultType="java.lang.Integer" parameterType="string">
+        SELECT count(nlstypeid) FROM Goods
+    </select>
     <select id="findMoreBargainPriceGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindMoreBargainPriceGoods" resultType="java.lang.Integer"></select>
+    <select id="countfindMoreBargainPriceGoods" resultType="java.lang.Integer">
+        SELECT  count(bargainPriceGoods) FROM  Goods   //
+    </select>
     <select id="findAllGoodsByismobileplatformgoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsByismobileplatformgoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindAllGoodsByismobileplatformgoods" resultType="java.lang.Integer"></select>
-    <select id="findAllGoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsByLtypeidByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="finaAllGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBynavidorderbyParams" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsByLtypeidorderbyParams" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsByismobileplatformgoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT navid,ismobileplatformgoods FROM Goods WHERE statesal=#{salestate}
+    </select>
+    <select id="countfindAllGoodsByismobileplatformgoods" resultType="java.lang.Integer" parameterType="map">
+        SELECT count(*) FROM Goods WHERE isMobilePlatformGoods=#{isMobilePlatformGoods}
+    </select>
+    <select id="findAllGoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT salestate=#{salestate} from Goods where navid=#{navid}
+    </select>
+    <select id="findGoodsByLtypeidByPage" resultType="net.hzjxy.myshop.entity.Goods" >    </select>
+    <select id="finaAllGoodsT" resultType="net.hzjxy.myshop.entity.Goods" parameterType="string">
+        SELECT * FROM  Goods
+    </select>
+    <select id="findAllGoodsBynavidorderbyParams" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT isNew=#{isNew},salestate=#{salestate},sales=#{sales},memberprice=#{memberprice},totalcomment=#{totalcomment},bargainprice=#{bargainprice},hotsale=#{hotsale},recommended=#{recommended} and value=#{value}  order by params from Goods where navid=#{navid}
+    </select>
+    <select id="findAllGoodsByLtypeidorderbyParams" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT salestate=#{salestate},sales=#{sales},memberprice=#{memberprice},totalcomment=#{totalcomment},bargainprice=#{bargainprice},hotsale=#{hotsale},recommended=#{recommended},
+        isNew=#{isNew} and value=#{value} order by params from Goods where ltypeid=#{ltypeid}
+    </select>
     <select id="findAllGoodsBysql" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsForImgT" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsForImgT" resultType="net.hzjxy.myshop.entity.Goods">
+        SELECT  * FROM Goods
+    </select>
     <select id="findshuffleGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
     <select id="findGoodsByattrs" resultType="net.hzjxy.myshop.entity.Goods"></select>
     <select id="findGoodsByNavidByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBynavidSO" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBynavidandltypeid" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBynavidandltypeidandstypeid" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsBynavidSO" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT salestate=#{salestate},isSpecificationsOpen=#{isSpecificationsOpen} from Goods where navid=#{navid}
+    </select>
+    <select id="findAllGoodsBynavidandltypeid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT salestate=#{salestate},isSpecificationsOpen=#{isSpecificationsOpen} from Goods where navid=#{navid} and ltypeid=#{ltypeid}
+    </select>
+    <select id="findAllGoodsBynavidandltypeidandstypeid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT salestate=#{salestate},isSpecificationsOpen=#{isSpecificationsOpen} from Goods where navid=#{navid} and ltypeid=#{ltypeid} and stypeid=#{stypeids}
+    </select>
     <select id="findAllGoodsByattribute" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindAllGoodsByattribute" resultType="java.lang.Integer"></select>
+    <select id="countfindAllGoodsByattribute" resultType="java.lang.Integer" parameterType="map">
+        SELECT * FROM Goods WHERE attribute=#{attribute}
+    </select>
     <select id="findrecommendedGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
     <select id="findvirtualsaleGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindvirtualsaleGoodsT" resultType="java.lang.Integer"></select>
+    <select id="countfindvirtualsaleGoodsT" resultType="java.lang.Integer" parameterType="string">
+        SELECT count(isvirtualsale) FROM Goods
+    </select>
 </mapper>

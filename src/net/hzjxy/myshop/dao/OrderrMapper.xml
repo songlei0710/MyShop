@@ -6,12 +6,24 @@
     <update id="updateOrder">
         UPDATE orderr set OrderId=#{OrderId}
     </update>
-    <update id="updateOrderPayStateByOrderId"></update>
-    <update id="updateOrderShippingStateByOrderId"></update>
-    <update id="updateOrderStateByOrderId"></update>
-    <update id="updateOrderPayShippingState"></update>
-    <update id="updateExpressNumberByOrderId"></update>
-    <update id="updateInvoiceNumberByOrderId"></update>
+    <update id="updateOrderPayStateByOrderId">
+        UPDATE orderr set payState=#{payState} where OrderId=#{OrderId}
+    </update>
+    <update id="updateOrderShippingStateByOrderId">
+        UPDATE orderr set shippingState=#{shippingState} where OrderId=#{OrderId}
+    </update>
+    <update id="updateOrderStateByOrderId">
+        UPDATE orderr set orderState=#{orderState} where OrderId=#{OrderId
+    </update>
+    <update id="updateOrderPayShippingState">
+        UPDATE orderr SET GoodsId=#{goodsid} And orderState=#{orderState} And payState=#{payState} AND WHERE GOODSSPPRRPTID=#{goodsSpecificationsProductRpTid}
+    </update>
+    <update id="updateExpressNumberByOrderId">
+        UPDATE orderr set payState=#{payState} where OrderId=#{OrderId
+    </update>
+    <update id="updateInvoiceNumberByOrderId">
+        UPDATE orderr set payState=#{payState} where OrderId=#{OrderId
+    </update>
     <update id="updateInvoiceByOrderId"></update>
     <delete id="delOrderByOrderId">
         DELETE FROM ORDERr WHERE OrderId IN

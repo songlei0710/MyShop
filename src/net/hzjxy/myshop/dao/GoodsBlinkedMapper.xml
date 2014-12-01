@@ -6,13 +6,13 @@
 
         <update id="updateGoodsBelinked"></update>
         <delete id="delGoodsBelinkedBymaingoodsid" parameterType="map">
-                 UPDATE GoodsBelinked SET rolEmId=#{roleName} And rolEmName=#{roleName} WHERE Maingoodsid =#{maingoodsid}
+                UPDATE GoodsBelinked SET rolEmId=#{roleName} And rolEmName=#{roleName} WHERE Maingoodsid =#{maingoodsid}
         </delete>
         <delete id="delGoodsBelinkedBymaingoodsidandsxlinkedgoodsid" parameterType="map">
-                 UPDATE GoodsBelinked SET headPath=#{headPath} WHERE Maingoodsid=#{maingoodsid}
+                UPDATE GoodsBelinked SET headPath=#{headPath} WHERE Maingoodsid=#{maingoodsid}
         </delete>
         <delete id="delGoodsBelinked" parameterType="map">
-                  UPDATE GoodsBelinked
+                UPDATE GoodsBelinked
                 <set>
                         <if test="id!=null">
                                 id=#{id},
@@ -24,28 +24,28 @@
                                 beLinkedProductInfo=#{beLinkedProductInfo},
                         </if>
                         <if test="bMode!=null">
-                                 bMode=#{bMode},
+                                bMode=#{bMode},
                         </if>
                         <if test="state!=null">
                                 state=#{state},
                         </if>
                         <if test="creatorId!=null">
-                        creatorId=#{creatorId},
+                                creatorId=#{creatorId},
                         </if>
                         <if test="updateTime!=null">
-                        updateTime=#{updateTime},
+                                updateTime=#{updateTime},
                         </if>
                         <if test="sxLinkedGoodsId!=null">
-                        sxLinkedGoodsId=#{sxLinkedGoodsId},
+                                sxLinkedGoodsId=#{sxLinkedGoodsId},
                         </if>
                         <if test="mainProductId!=null">
-                        mainProductId=#{mainProductId},
+                                mainProductId=#{mainProductId},
                         </if>
                         <if test="shopId!=null">
-                        shopId=#{shopId},
+                                shopId=#{shopId},
                         </if>
                         <if test="mainGoodsName!=null">
-                        mainGoodsName=#{mainGoodsName},
+                                mainGoodsName=#{mainGoodsName},
                         </if>
                 </set>
                 WHERE maingoodsid=#{maingoodsid}
