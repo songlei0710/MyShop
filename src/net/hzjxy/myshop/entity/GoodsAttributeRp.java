@@ -6,6 +6,30 @@ package net.hzjxy.myshop.entity;
  */
 public class GoodsAttributeRp {
     private String id;      //编号
-    private String goodsid; //商品编号
-    private String attrval; //商品属性值
+    private String goodsId; //商品编号
+    private String attrVal; //商品属性值
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getGoodsId() {
+        return goodsId;
+    }
+
+    public void setGoodsId(String goodsId) {
+        this.goodsId = goodsId;
+    }
+
+    public String getAttrVal() {
+        return attrVal;
+    }
+
+    public void setAttrVal(String attrVal) {
+        this.attrVal = attrVal;
+    }
 }
