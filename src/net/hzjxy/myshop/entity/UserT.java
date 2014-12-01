@@ -11,7 +11,7 @@ public class UserT {
     private String username;    //用户名
     private String realName;    //真名
     private String email;       //邮箱
-    private String telno;       //固定电话
+    private String telNo;       //固定电话
     private String mobile;      //手机
     private String question;    //安全问题
     private String answer;      //安全答案
@@ -21,14 +21,14 @@ public class UserT {
     private String positionId;  //用户所属职位Id  0：不属于任何职位
     private String groupId;     //用户所属的组别Id  0：游客组
     private String qq;          //QQ号码
-    private String sinaweibo;   //新浪微博
-    private String rolemname;   //用户所属角色名称
-    private String rolemid;     //用户所属角色Id
+    private String siNaWeiBo;   //新浪微博
+    private String rolEmName;   //用户所属角色名称
+    private String rolEmId;     //用户所属角色Id
     private String state;       //1：普通用户  2：一般管理员  3：超级管理员  4：手机用户
-    private String headpath;    //头像地址
-    private String weixin;      //微信号
-    private Date createtime;    //创建时间
-    private Date updatetime;    //更新时间
+    private String headPath;    //头像地址
+    private String weiXin;      //微信号
+    private Date createTime;    //创建时间
+    private Date updateTime;    //更新时间
     private String creatorId;   //创建人Id
     private Integer postingCount;   //发布帖子总数
 
@@ -64,12 +64,12 @@ public class UserT {
         this.email = email;
     }
 
-    public String getTelno() {
-        return telno;
+    public String getTelNo() {
+        return telNo;
     }
 
-    public void setTelno(String telno) {
-        this.telno = telno;
+    public void setTelNo(String telNo) {
+        this.telNo = telNo;
     }
 
     public String getMobile() {
@@ -144,28 +144,28 @@ public class UserT {
         this.qq = qq;
     }
 
-    public String getSinaweibo() {
-        return sinaweibo;
+    public String getSiNaWeiBo() {
+        return siNaWeiBo;
     }
 
-    public void setSinaweibo(String sinaweibo) {
-        this.sinaweibo = sinaweibo;
+    public void setSiNaWeiBo(String siNaWeiBo) {
+        this.siNaWeiBo = siNaWeiBo;
     }
 
-    public String getRolemname() {
-        return rolemname;
+    public String getRolEmName() {
+        return rolEmName;
     }
 
-    public void setRolemname(String rolemname) {
-        this.rolemname = rolemname;
+    public void setRolEmName(String rolEmName) {
+        this.rolEmName = rolEmName;
     }
 
-    public String getRolemid() {
-        return rolemid;
+    public String getRolEmId() {
+        return rolEmId;
     }
 
-    public void setRolemid(String rolemid) {
-        this.rolemid = rolemid;
+    public void setRolEmId(String rolEmId) {
+        this.rolEmId = rolEmId;
     }
 
     public String getState() {
@@ -176,36 +176,36 @@ public class UserT {
         this.state = state;
     }
 
-    public String getHeadpath() {
-        return headpath;
+    public String getHeadPath() {
+        return headPath;
     }
 
-    public void setHeadpath(String headpath) {
-        this.headpath = headpath;
+    public void setHeadPath(String headPath) {
+        this.headPath = headPath;
     }
 
-    public String getWeixin() {
-        return weixin;
+    public String getWeiXin() {
+        return weiXin;
     }
 
-    public void setWeixin(String weixin) {
-        this.weixin = weixin;
+    public void setWeiXin(String weiXin) {
+        this.weiXin = weiXin;
     }
 
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getUpdatetime() {
-        return updatetime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdatetime(Date updatetime) {
-        this.updatetime = updatetime;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public String getCreatorId() {
