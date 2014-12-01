@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 /**
  * Created by 磊 on 2014/11/30.
  */
-public class UserTDaoImlp implements UserTDao {
+public class UserTDaoImpl implements UserTDao {
     @Override
     public UserT login(UserT userT) {
         SqlSession session=MybatisUtil.currentSession();

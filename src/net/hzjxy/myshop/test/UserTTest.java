@@ -1,6 +1,6 @@
 package net.hzjxy.myshop.test;
 
-import net.hzjxy.myshop.dao.impl.UserTDaoImlp;
+import net.hzjxy.myshop.dao.impl.UserTDaoImpl;
 import net.hzjxy.myshop.entity.UserT;
 
 /**
@@ -8,12 +8,12 @@ import net.hzjxy.myshop.entity.UserT;
  */
 public class UserTTest {
     public static void main(String[] args) {
-        UserTDaoImlp imlp = new UserTDaoImlp();
+        UserTDaoImpl impl = new UserTDaoImpl();
         UserT userT = new UserT();
         userT.setUsername("admin");
         userT.setPassword("123");
 
-        UserT returnUser = imlp.login(userT);
+        UserT returnUser = impl.login(userT);
 
         System.out.println(returnUser.getEmail());
 
