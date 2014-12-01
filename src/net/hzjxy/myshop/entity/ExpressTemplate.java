@@ -6,7 +6,7 @@ package net.hzjxy.myshop.entity;
  */
 public class ExpressTemplate {
     private String expressTemplateId;   //编号
-    private String sendName;            //发送者名称
+    private String sendName;             //发送者名称
     private String sendCountry;         //发送者国际
     private String sendProvince;        //发送者省份
     private String sendCity;            //发送者城市

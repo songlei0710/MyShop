@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by 磊 on 2014/11/30.
  */
 public class DeliverAddress {
-    private String addressId;   //收货地址编号
+    private String addressId;     //收货地址编号
     private String memberId;        //地址所有者Id
     private String shipPingUserName;    //收货人名称
     private String province;    //省份

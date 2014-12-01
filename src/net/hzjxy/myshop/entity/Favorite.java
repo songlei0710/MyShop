@@ -10,7 +10,7 @@ public class Favorite {
     private String favoriteId;  //收藏夹编号
     private String title;       //标题
     private String goodsId;     //商品编号
-    private String tag;         //标签
+    private String tag;          //标签
     private String describe;    //描述
     private String memberId;    //会员编号
     private String state;       //状态

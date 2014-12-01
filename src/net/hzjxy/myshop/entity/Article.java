@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by 磊 on 2014/11/30.
  */
 public class Article {
-    private String articleId;       //文章编号
+    private String articleId;      //文章编号
     private String title;           //标题
     private String metaKeywords;    //页面关键字
     private String metaDes;         //页面描述

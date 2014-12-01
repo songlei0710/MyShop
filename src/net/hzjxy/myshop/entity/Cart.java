@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by 磊 on 2014/11/30.
  */
 public class Cart {
-    private String cartId;      //购物车Id
+    private String cartId;     //购物车Id
     private String orderId;     //所属订单Id
     private String goodsId;     //商品Id
     private String goodsName;   //商品名称
