@@ -18,6 +18,7 @@
       <root url="jar://$PROJECT_DIR$/lib/struts2-convention-plugin-2.3.16.3.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/struts2-json-plugin-2.3.16.3.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/mybatis-3.2.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ojdbc6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
