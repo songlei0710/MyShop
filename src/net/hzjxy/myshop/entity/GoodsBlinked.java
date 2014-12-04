@@ -10,7 +10,7 @@ public class GoodsBlinked {
     private String id;                      //编号
     private String mainGoodsId;             //主商品Id
     private String beLinkedProductInfo;     //关联商品信息
-    private String mode;
+    private String bMode;
     private String state;
     private String creatorId;
     private Date createTime;
@@ -44,12 +44,12 @@ public class GoodsBlinked {
         this.beLinkedProductInfo = beLinkedProductInfo;
     }
 
-    public String getMode() {
-        return mode;
+    public String getbMode() {
+        return bMode;
     }
 
-    public void setMode(String mode) {
-        this.mode = mode;
+    public void setbMode(String bMode) {
+        this.bMode = bMode;
     }
 
     public String getState() {
