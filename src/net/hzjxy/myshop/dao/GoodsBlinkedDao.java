@@ -37,9 +37,6 @@ public interface GoodsBlinkedDao {
 
     /**
      * 统计所有关联商品
-     *
-     * @param currentPage
-     * @param lineSize
      * @return
      */
     public int countfindAllGoodsBelinked();

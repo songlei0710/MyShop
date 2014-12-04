@@ -8,19 +8,19 @@ import java.util.Date;
  */
 public class MemberGrade {
     private String id;
-    private String type;
-    private String name;
-    private double start;
-    private double end;
-    private Double increment;
-    private Double multiplyPower;
-    private String mpState;
-    private Double mpChangePower;
-    private Date updateTime;
-    private int versionT;
+    private String typeA;
+    private String nameA;
+    private double startＡ;
+    private double endA;
+    private Double incrementＡ;
+    private Double multiplypower;
+    private String mpstate;
+    private Double mpchangepower;
+    private Date updatetime;
+    private int versiontＡ;
     private Double discount;
-    private Date createTime;
-    private String creatorId;
+    private Date createtime;
+    private String creatorid;
 
     public String getId() {
         return id;
@@ -30,84 +30,84 @@ public class MemberGrade {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getTypeA() {
+        return typeA;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeA(String typeA) {
+        this.typeA = typeA;
     }
 
-    public String getName() {
-        return name;
+    public String getNameA() {
+        return nameA;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameA(String nameA) {
+        this.nameA = nameA;
     }
 
-    public double getStart() {
-        return start;
+    public double getStartＡ() {
+        return startＡ;
     }
 
-    public void setStart(double start) {
-        this.start = start;
+    public void setStartＡ(double startＡ) {
+        this.startＡ = startＡ;
     }
 
-    public double getEnd() {
-        return end;
+    public double getEndA() {
+        return endA;
     }
 
-    public void setEnd(double end) {
-        this.end = end;
+    public void setEndA(double endA) {
+        this.endA = endA;
     }
 
-    public Double getIncrement() {
-        return increment;
+    public Double getIncrementＡ() {
+        return incrementＡ;
     }
 
-    public void setIncrement(Double increment) {
-        this.increment = increment;
+    public void setIncrementＡ(Double incrementＡ) {
+        this.incrementＡ = incrementＡ;
     }
 
-    public Double getMultiplyPower() {
-        return multiplyPower;
+    public Double getMultiplypower() {
+        return multiplypower;
     }
 
-    public void setMultiplyPower(Double multiplyPower) {
-        this.multiplyPower = multiplyPower;
+    public void setMultiplypower(Double multiplypower) {
+        this.multiplypower = multiplypower;
     }
 
-    public String getMpState() {
-        return mpState;
+    public String getMpstate() {
+        return mpstate;
     }
 
-    public void setMpState(String mpState) {
-        this.mpState = mpState;
+    public void setMpstate(String mpstate) {
+        this.mpstate = mpstate;
     }
 
-    public Double getMpChangePower() {
-        return mpChangePower;
+    public Double getMpchangepower() {
+        return mpchangepower;
     }
 
-    public void setMpChangePower(Double mpChangePower) {
-        this.mpChangePower = mpChangePower;
+    public void setMpchangepower(Double mpchangepower) {
+        this.mpchangepower = mpchangepower;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getUpdatetime() {
+        return updatetime;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
     }
 
-    public int getVersionT() {
-        return versionT;
+    public int getVersiontＡ() {
+        return versiontＡ;
     }
 
-    public void setVersionT(int versionT) {
-        this.versionT = versionT;
+    public void setVersiontＡ(int versiontＡ) {
+        this.versiontＡ = versiontＡ;
     }
 
     public Double getDiscount() {
@@ -118,19 +118,19 @@ public class MemberGrade {
         this.discount = discount;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
-    public String getCreatorId() {
-        return creatorId;
+    public String getCreatorid() {
+        return creatorid;
     }
 
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
+    public void setCreatorid(String creatorid) {
+        this.creatorid = creatorid;
     }
 }

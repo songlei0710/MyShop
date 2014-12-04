@@ -80,9 +80,10 @@ public interface GoodsDao {
 
     /**
      * 根据导航id获取商品列表
-     *
      * @param navid
-     * @param state
+     * @param salestate
+     * @param currentPage
+     * @param lineSize
      * @return
      */
     public List<Goods> findGoodsByNavid(final String navid,
@@ -99,9 +100,10 @@ public interface GoodsDao {
 
     /**
      * 根据二级分类id获取商品列表
-     *
      * @param ltypeid
-     * @param state
+     * @param salestate
+     * @param currentPage
+     * @param lineSize
      * @return
      */
     public List<Goods> findGoodsByLtypeid(final String ltypeid,
@@ -109,18 +111,16 @@ public interface GoodsDao {
 
     /**
      * 统计根据二级分类id获取商品列表
-     *
      * @param ltypeid
-     * @param state
+     * @param salestate
      * @return
      */
     public int countfindGoodsByLtypeid(String ltypeid, String salestate);
 
     /**
      * 根据三级分类id获取商品列表
-     *
      * @param stypeid
-     * @param state
+     * @param salestate
      * @return
      */
     public List<Goods> findGoodsByStypeid(String stypeid, String salestate);
@@ -182,10 +182,9 @@ public interface GoodsDao {
 
     /**
      * 根据关键字查询商品信息
-     *
      * @param keywordid
-     * @param currentpage
-     * @param linesize
+     * @param currentPage
+     * @param lineSize
      * @return
      */
     public List<Goods> findGoodsByKeyword(String keywordid, int currentPage,
@@ -581,27 +580,24 @@ public interface GoodsDao {
 
     /**
      * 增加星级评分
-     *
      * @param goodsid
-     * @param starsum
+     * @param star
      * @return
      */
     public int updatestarsumBygoodsid(String goodsid, int star);
 
     /**
      * 更新商品总打分人数
-     *
      * @param goodsid
-     * @param starusersum
+     * @param staruser
      * @return
      */
     public int updatestarusersumBygoodsid(String goodsid, int staruser);
 
     /**
      * 更新商品总评分人数
-     *
      * @param goodsid
-     * @param commentsum
+     * @param totalcomment
      * @return
      */
     public int updatecommentsumBygoodsid(String goodsid, int totalcomment);
@@ -629,8 +625,7 @@ public interface GoodsDao {
 
     /**
      * 根据传入的状态查询对应的商品
-     *
-     * @param navid
+     * @param ltypeid
      * @param salestate
      * @param sales
      * @param memberprice
@@ -649,11 +644,9 @@ public interface GoodsDao {
 
     /**
      * 根据排序字段按照排序方式排序
-     *
      * @param currentPage
      * @param lineSize
      * @param queryString
-     * @param creatorid
      * @return
      */
     public List<Goods> findAllGoodsBysql(final int currentPage, final int lineSize,final String queryString);
@@ -763,9 +756,11 @@ public interface GoodsDao {
      * @return
      */
     public int countfindAllGoodsByattribute(String queryString);
+
     /**
      * 更新商品库存 库存由货物相加
-     * @param quantity
+     * @param oldQuantity
+     * @param newQuantity
      * @param goodsid
      * @return
      */

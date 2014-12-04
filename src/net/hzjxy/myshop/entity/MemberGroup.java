@@ -8,13 +8,14 @@ import java.util.Date;
  */
 public class MemberGroup {
     private String id;
-    private String name;
+    private String nameA;
     private String status;
     private Date createTime;
     private String creatorId;
     private Date updateTime;
     private Integer versionT;
-
+    private String attrs;
+    
     public String getId() {
         return id;
     }
@@ -23,12 +24,12 @@ public class MemberGroup {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameA() {
+        return nameA;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameA(String nameA) {
+        this.nameA = nameA;
     }
 
     public String getStatus() {
@@ -79,5 +80,5 @@ public class MemberGroup {
         this.attrs = attrs;
     }
 
-    private String attrs;
+
 }

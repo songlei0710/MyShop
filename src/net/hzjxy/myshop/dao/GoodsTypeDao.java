@@ -43,8 +43,7 @@ public interface GoodsTypeDao {
 
     /**
      * 根据id获取商品类型
-     *
-     * @param goodstypetnid
+     * @param goodsTypeId
      * @return
      */
     public List<GoodsType> findGoodsTypeTNById(String goodsTypeId);

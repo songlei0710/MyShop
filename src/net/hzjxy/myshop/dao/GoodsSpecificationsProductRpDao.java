@@ -29,15 +29,13 @@ public interface GoodsSpecificationsProductRpDao {
 
     /**
      * 更新商品规格
-     * @param goodsSetId
-     * @param specidicationsId
-     * @return
+     * @param gsrt
      */
     public void updateGoodsAssociatedProductById(GoodsSpecificationsProductRp gsrt);
 
     /**
      * 删除商品规格
-     * @param goodsSetId
+     * @param goodsid
      * @return
      */
     public int delGoodsAssociatedProductById(final String goodsid);

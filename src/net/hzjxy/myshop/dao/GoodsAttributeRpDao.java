@@ -18,8 +18,8 @@ public interface GoodsAttributeRpDao {
 
     /**
      * 根据goodsid删除商品的属性关联
-     *
-     * @param goodsid
+     * @param property
+     * @param entity
      */
     public void delByProperty(String property, Object entity);
 

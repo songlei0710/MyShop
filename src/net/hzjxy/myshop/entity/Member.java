@@ -37,7 +37,7 @@ public class Member {
     private String creatorId;
     private Date updateTime;
     private String mobile;
-    private int versionT;
+    private int versiontA;
     private String mid;
     private String payPassword;
     private String memberGroupId;
@@ -285,12 +285,12 @@ public class Member {
         this.mobile = mobile;
     }
 
-    public int getVersionT() {
-        return versionT;
+    public int getVersiontA() {
+        return versiontA;
     }
 
-    public void setVersionT(int versionT) {
-        this.versionT = versionT;
+    public void setVersiontA(int versiontA) {
+        this.versiontA = versiontA;
     }
 
     public String getMid() {

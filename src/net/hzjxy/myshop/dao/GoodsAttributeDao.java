@@ -17,9 +17,8 @@ public interface GoodsAttributeDao {
     public int updateGoodsAttributeT(GoodsAttribute gat);
 
     /**
-     * 根据goodstypeid获取参数
-     *
-     * @param goodsattributeid
+     *  根据goodstypeid获取参数
+     * @param goodstypeid
      * @return
      */
     public GoodsAttribute findGoodsAttributeTBygoodstypeId(String goodstypeid);
@@ -60,8 +59,7 @@ public interface GoodsAttributeDao {
 
     /**
      * 根据商品类型名称获取商品属性参数
-     *
-     * @param goodsTypeName
+     * @param goodsTypeId
      * @return
      */
     public List<GoodsAttribute> findGoodsAttributeTBygoodsTypeId(
