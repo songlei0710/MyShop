@@ -10,7 +10,6 @@ public class Orderr {
     private String OrderId;
     private String memberid;
     private String membername;
-    private String  membername;
     private String paymentname;
     private String delivermode;
     private String deliverynumber;
