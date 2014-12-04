@@ -4,17 +4,17 @@ package net.hzjxy.myshop.entity;
  * Created by 磊 on 2014/11/30.
  */
 public class GoodsSpecificationsProductRp {
-    private String goodsSpecificationsProductRpTid;
+    private String goodsSpPrRpTid;  //goodsSpecificationsProductRpTid
     private String goodsId;
     private String specificationsId;
     private String productId;
 
     public String getGoodsSpecificationsProductRpTid() {
-        return goodsSpecificationsProductRpTid;
+        return goodsSpPrRpTid;
     }
 
     public void setGoodsSpecificationsProductRpTid(String goodsSpecificationsProductRpTid) {
-        this.goodsSpecificationsProductRpTid = goodsSpecificationsProductRpTid;
+        this.goodsSpPrRpTid = goodsSpecificationsProductRpTid;
     }
 
     public String getGoodsId() {
