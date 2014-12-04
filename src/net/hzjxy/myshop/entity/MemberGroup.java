@@ -14,7 +14,8 @@ public class MemberGroup {
     private String creatorId;
     private Date updateTime;
     private Integer versionT;
-
+    private String attrs;
+    
     public String getId() {
         return id;
     }
@@ -79,5 +80,5 @@ public class MemberGroup {
         this.attrs = attrs;
     }
 
-    private String attrs;
+
 }
