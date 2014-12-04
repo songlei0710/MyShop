@@ -19,5 +19,10 @@ public interface SerialTDao{
      */
     public int updateByBaseId(String biz);
 
+    /**
+     * 添加
+     * @param serialT
+     * @return
+     */
     public int addSerialT(SerialT serialT);
 }
