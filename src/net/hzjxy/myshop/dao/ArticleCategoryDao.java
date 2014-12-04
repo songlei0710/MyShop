@@ -5,31 +5,34 @@ import net.hzjxy.myshop.entity.ArticleCategory;
 import java.util.List;
 
 /**
+ * 文章分类Dao
  * Created by Administrator on 2014/12/4.
  */
 public interface ArticleCategoryDao {
     /**
      * 获取父路径数据
-     * @param parentId
+     * @param parentId 父路径Id
+     * @param creatorId 创建者Id
      * @return
      */
-    public ArticleCategory findPathParentIdByParentId(String parentId, String creatorid);
+    public ArticleCategory findPathParentIdByParentId(String parentId, String creatorId);
 
     /**
      * 根据分类级数获取文章分类
      * @param grade
-     * @param state
+     * @param status
+     * @param creatorId
      * @return
      */
-    public List<ArticleCategory> findArticleCategoryByGrade(String grade, String status, String creatorid);
+    public List<ArticleCategory> findArticleCategoryByGrade(String grade, String status, String creatorId);
 
     /**
      * 检测文章分类名称
      * @param name
-     * @param creatorid
+     * @param creatorId
      * @return
      */
-    public int checkArticleCategoryName(String name, String creatorid);
+    public int checkArticleCategoryName(String name, String creatorId);
 
     /**
      * 检测文章分类名称
@@ -44,7 +47,7 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public int checkArticleCategorySign(String sign, String creatorid);
+    public int checkArticleCategorySign(String sign, String creatorId);
 
     /**
      * 检测文章分类标记
@@ -56,21 +59,15 @@ public interface ArticleCategoryDao {
 
     /**
      * 删除文章分类status=0
-     *
-     * @param articlecategoryTid
-     * @param status
-     * @param creatorid
      * @return
      */
-    // public int delArticleCategoryT(String articlecategoryTid,String
-    // status,String creatorid);
-    public void delArticleCategoryT(ArticleCategory act);
+    public void delArticleCategory(ArticleCategory act);
     /**
      * 删除文章分类
      * @param strs
      * @return
      */
-    public void delArticleCategoryT(String strs[]);
+    public void delArticleCategory(String strs[]);
 
     /**
      * 获取所有激活的文章分类status=1
