@@ -7,15 +7,17 @@ import net.hzjxy.myshop.entity.SerialT;
  */
 public interface SerialTDao{
     /**
-     * 查找新的逻辑id
-     * @param baseid
+     * 根据id查找
+     * @param biz 编号
      * @return
      */
     public  SerialT findByBaseId(String biz);
     /**
-     * 更新新的逻辑id
-     * @param baseid
+     * 更新 update SerialT as st set st.lastid=st.lastid+st.increment where st.biz=:biz
+     * @param biz
      * @return
      */
-    public  int updateByBaseId(SerialT transientInstance);
+    public int updateByBaseId(String biz);
+
+    public int addSerialT(SerialT serialT);
 }
