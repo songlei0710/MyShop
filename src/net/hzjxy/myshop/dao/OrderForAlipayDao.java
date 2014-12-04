@@ -6,29 +6,26 @@ package net.hzjxy.myshop.dao;
 public interface OrderForAlipayDao {
     /**
      * 支付宝返回数据，更新订单是否付款标记
-     *
-     * @param orderid
-     * @param paystate
+     * @param orderId
+     * @param payState
      * @return
      */
-    public int updateOrderPaystateByorderid(String orderid, String paystate);
+    public int updateOrderPayStateByOrderId(String orderId, String payState);
 
     /**
      * 支付宝返回数据，更新订单是否发货
-     *
-     * @param orderid
-     * @param shippingstate
+     * @param orderId
+     * @param shippingState
      * @return
      */
-    public int updateOrderShippingstateByorderid(String orderid,
-                                                 String shippingstate);
+    public int updateOrderShippingStateByOrderId(String orderId, String shippingState);
 
     /**
      * 支付宝返回数据，更新订单状态
      *
-     * @param orderid
-     * @param orderstate
+     * @param orderId
+     * @param orderState
      * @return
      */
-    public int updateOrderStateByorderid(String orderid, String orderstate);
+    public int updateOrderStateByorderId(String orderId, String orderState);
 }

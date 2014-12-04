@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.hzjxy.myshop.dao.OrderInvoiceDao">
+        <update id="updateOrderInvoiceState"></update>
 
-<!DOCTYPE struts PUBLIC
-        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
-        "http://struts.apache.org/dtds/struts-2.3.dtd">
-
-<struts>
-</struts>
+        <delete id="delOrderInvoice"></delete>
+        <select id="findAllOrderIvoice" resultType="net.hzjxy.myshop.entity.OrderInvoice"></select>
+        <select id="countFindAllOrderIvoice" resultType="java.lang.Integer"></select>
+</mapper>

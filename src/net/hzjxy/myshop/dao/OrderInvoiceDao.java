@@ -10,7 +10,6 @@ import java.util.List;
 public interface OrderInvoiceDao {
     /**
      * 删除订单发票记录
-     *
      * @param list
      * @return
      */
@@ -18,28 +17,24 @@ public interface OrderInvoiceDao {
 
     /**
      * 更新是否已经开过发票
-     *
-     * @param orderinvoiceid
+     * @param orderInvoiceId
      * @param state
      * @return
      */
-    public int updateOrderInvoiceState(String[] orderinvoiceid, String state);
+    public int updateOrderInvoiceState(String[] orderInvoiceId, String state);
 
     /**
      * 获取所有订单发票信息
-     *
      * @param currentPage
      * @param lineSize
      * @return
      */
-    public List<OrderInvoice> findAllOrderIvoice(final int currentPage,
-                                                  final int lineSize);
+    public List<OrderInvoice> findAllOrderIvoice(final int currentPage,final int lineSize);
 
     /**
      * 统计获取所有订单发票信息
-     *
      * @return
      */
-    public int countfindAllOrderIvoice();
+    public int countFindAllOrderIvoice();
 
 }
