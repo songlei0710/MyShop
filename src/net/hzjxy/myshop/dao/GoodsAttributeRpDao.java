@@ -10,29 +10,20 @@ import java.util.List;
 public interface GoodsAttributeRpDao {
     /**
      * 根据goodsid获取商品的属性
-     *
-     * @param goodsid
+     * @param goodsId
      * @return
      */
-    public List<GoodsAttributeRp> findGoodsAttributeRpTBygoodsid(String goodsid);
-
-    /**
-     * 根据goodsid删除商品的属性关联
-     * @param property
-     * @param entity
-     */
-    public void delByProperty(String property, Object entity);
+    public List<GoodsAttributeRp> findGoodsAttributeRpByGoodsId(String goodsId);
 
     /**
      * 根据goodsid删除数据
-     *
-     * @param goodsid
+     * @param goodsId
      */
-    public int delBygoodsid(String goodsid);
+    public int delBygoodsId(String goodsId);
     /**
      * 根据属性值获取商品id集合
-     * @param attrval
+     * @param attrVal
      * @return
      */
-    public List<GoodsAttributeRp>findGoodsIdsByAttr(String attrval);
+    public List<GoodsAttributeRp> findGoodsIdsByAttr(String attrVal);
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.hzjxy.myshop.dao.GoodsAttributeRpDao">
+    <delete id="delBygoodsId"></delete>
+
+    <select id="findGoodsAttributeRpByGoodsId" resultType="net.hzjxy.myshop.entity.GoodsAttributeRp"></select>
+    <select id="findGoodsIdsByAttr" resultType="net.hzjxy.myshop.entity.GoodsAttributeRp"></select>
+</mapper>
