@@ -8,4 +8,28 @@ public class RoleFunction {
     private String id;
     private String roleid;
     private String functionid;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getRoleid() {
+        return roleid;
+    }
+
+    public void setRoleid(String roleid) {
+        this.roleid = roleid;
+    }
+
+    public String getFunctionid() {
+        return functionid;
+    }
+
+    public void setFunctionid(String functionid) {
+        this.functionid = functionid;
+    }
 }
