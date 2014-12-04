@@ -1,4 +1,4 @@
-package net.hzjxy.myshop.dao.impl;
+package net.hzjxy.myshop.dao;
 
 /**
  * Created by Administrator on 2014/12/4.
