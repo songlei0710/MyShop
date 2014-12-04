@@ -1,7 +1,7 @@
 package net.hzjxy.myshop.entity;
 
 import java.util.Date;
-/**
+/**.
  * 网站消息
  * Created by 磊 on 2014/11/30.
  */

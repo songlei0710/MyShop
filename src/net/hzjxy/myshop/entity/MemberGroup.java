@@ -70,4 +70,14 @@ public class MemberGroup {
     public void setVersionT(Integer versionT) {
         this.versionT = versionT;
     }
+
+    public String getAttrs() {
+        return attrs;
+    }
+
+    public void setAttrs(String attrs) {
+        this.attrs = attrs;
+    }
+
+    private String attrs;
 }
