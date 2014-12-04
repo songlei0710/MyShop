@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * 发货地址
- * Created by 磊 on 2014/11/30.
+ * Created by 磊 on 2014/11/30...
  */
 public class ShippingAddress {
     private String shippingaddressid;

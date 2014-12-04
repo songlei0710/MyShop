@@ -30,7 +30,7 @@ public class UserT {
     private Date createTime;    //创建时间
     private Date updateTime;    //更新时间
     private String creatorId;   //创建人Id
-    private Integer postingCount;   //发布帖子总数
+    private Integer postingCount;   //发布帖子总数..
 
     public String getUserId() {
         return userId;
