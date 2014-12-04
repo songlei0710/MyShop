@@ -7,13 +7,13 @@ import java.util.Date;
  * Created by 磊 on 2014/11/30.
  */
 public class Article {
-    private String articleId;      //文章编号
+    private String articleId;       //文章编号
     private String title;           //标题
     private String metaKeywords;    //页面关键字
     private String metaDes;         //页面描述
     private String contentValue;    //页面内容
     private String status;           //文章状态
-    private Date createTime;        //创建时间
+    private Date createtime;        //创建时间
     private String creatorId;       //创建者Id
     private String author;          //作者
     private String isPublication;   //是否发布
@@ -22,16 +22,24 @@ public class Article {
     private int readCount;          //阅读次数
     private String htmlPath;        //Html路径
     private String isNotice;        //是否公告
-    private Date updateTime;        //更新时间
+    private Date updatetime;        //更新时间
     private String tipContent;      //正文简介
-    private String sName;           //二级分类名称
-    private String fName;           //一级分类名称
-    private String fTypeId;         //一级分类Id
-    private String sTypeId;          //二级分类Id
+    private String sname;           //二级分类名称
+    private String fname;           //一级分类名称
+    private String ftypeid;         //一级分类Id
+    private String stypeid;         //二级分类Id
     private int sort;               //排序序号
     private String mainPicture;     //主图
-    private String isOutSite;       //是否外链
-    private String outSiteLink;     //外链地址
+    private String isOutsite;       //是否外链
+    private String outsitelink;     //外链地址
+
+    public String getIsPublication() {
+        return isPublication;
+    }
+
+    public void setIsPublication(String isPublication) {
+        this.isPublication = isPublication;
+    }
 
     public String getArticleId() {
         return articleId;
@@ -81,12 +89,12 @@ public class Article {
         this.status = status;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
     public String getCreatorId() {
@@ -103,14 +111,6 @@ public class Article {
 
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    public String getIsPublication() {
-        return isPublication;
-    }
-
-    public void setIsPublication(String isPublication) {
-        this.isPublication = isPublication;
     }
 
     public String getIsRecommend() {
@@ -153,12 +153,12 @@ public class Article {
         this.isNotice = isNotice;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getUpdatetime() {
+        return updatetime;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
     }
 
     public String getTipContent() {
@@ -169,36 +169,36 @@ public class Article {
         this.tipContent = tipContent;
     }
 
-    public String getsName() {
-        return sName;
+    public String getSname() {
+        return sname;
     }
 
-    public void setsName(String sName) {
-        this.sName = sName;
+    public void setSname(String sname) {
+        this.sname = sname;
     }
 
-    public String getfName() {
-        return fName;
+    public String getFname() {
+        return fname;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public void setFname(String fname) {
+        this.fname = fname;
     }
 
-    public String getfTypeId() {
-        return fTypeId;
+    public String getFtypeid() {
+        return ftypeid;
     }
 
-    public void setfTypeId(String fTypeId) {
-        this.fTypeId = fTypeId;
+    public void setFtypeid(String ftypeid) {
+        this.ftypeid = ftypeid;
     }
 
-    public String getsTypeId() {
-        return sTypeId;
+    public String getStypeid() {
+        return stypeid;
     }
 
-    public void setsTypeId(String sTypeId) {
-        this.sTypeId = sTypeId;
+    public void setStypeid(String stypeid) {
+        this.stypeid = stypeid;
     }
 
     public int getSort() {
@@ -217,19 +217,19 @@ public class Article {
         this.mainPicture = mainPicture;
     }
 
-    public String getIsOutSite() {
-        return isOutSite;
+    public String getIsOutsite() {
+        return isOutsite;
     }
 
-    public void setIsOutSite(String isOutSite) {
-        this.isOutSite = isOutSite;
+    public void setIsOutsite(String isOutsite) {
+        this.isOutsite = isOutsite;
     }
 
-    public String getOutSiteLink() {
-        return outSiteLink;
+    public String getOutsitelink() {
+        return outsitelink;
     }
 
-    public void setOutSiteLink(String outSiteLink) {
-        this.outSiteLink = outSiteLink;
+    public void setOutsitelink(String outsitelink) {
+        this.outsitelink = outsitelink;
     }
 }
