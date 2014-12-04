@@ -25,6 +25,5 @@ public class UserTServiceImpl implements UserTService {
 
     @Override
     public void addUserT(UserT userT) {
-        getUserTDao().addUserT(userT);
     }
 }
