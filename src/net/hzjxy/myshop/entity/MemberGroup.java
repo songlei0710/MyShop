@@ -10,9 +10,74 @@ public class MemberGroup {
     private String id;
     private String name;
     private String status;
-    private Date createtime;
-    private String creatorid;
-    private Date updatetime;
-    private Integer versiont;
+    private Date createTime;
+    private String creatorId;
+    private Date updateTime;
+    private Integer versionT;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Integer getVersionT() {
+        return versionT;
+    }
+
+    public void setVersionT(Integer versionT) {
+        this.versionT = versionT;
+    }
+
+    public String getAttrs() {
+        return attrs;
+    }
+
+    public void setAttrs(String attrs) {
+        this.attrs = attrs;
+    }
+
     private String attrs;
 }

@@ -7,7 +7,8 @@ import java.util.Date;
  * Created by 磊 on 2014/11/30.
  */
 public class MsgText {
-    private String msgtextid;
+    private String msgTextId;
     private String text;
-    private Date sendtime;
+    private Date sendTime;
+
 }
