@@ -10,31 +10,27 @@ import java.util.List;
 public interface RoleDao {
     /**
      * 更新角色
-     *
-     * @param rm
+     * @param role
      */
-    public void updateRoleM(Role rm);
+    public void updateRole(Role role);
 
     /**
      * 根据id获取角色信息
-     *
      * @param id
      * @return
      */
-    public Role findRoleMById(String id);
+    public Role findRoleById(String id);
 
     /**
      * 删除角色
-     *
      * @param strs
      * @return
      */
-    public int delRoleM(String[] strs);
+    public int delRole(String[] strs);
 
     /**
      * 获取所有角色列表
-     *
      * @return
      */
-    public List<Role> findAllRoleM();
+    public List<Role> findAllRole();
 }

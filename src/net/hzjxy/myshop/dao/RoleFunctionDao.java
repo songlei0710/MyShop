@@ -10,16 +10,16 @@ import java.util.List;
 public interface RoleFunctionDao {
     /**
      * 根据角色获取权限列表
-     *
+     * from RoleFunctionM as rfm where rfm.roleid=:roleid
+     * @param roleId 用户角色Id
      * @return
      */
-    public List<RoleFunction> findAllRoleFunctionMByroleid(String roleid);
+    public List<RoleFunction> findAllRoleFunctionByRoleId(String roleId);
 
     /**
      * 根据角色id删除权限关系
-     *
-     * @param roleid
+     * @param roleId
      * @return
      */
-    public int delRoleFunctionM(String roleid);
+    public int delRoleFunction(String roleId);
 }
