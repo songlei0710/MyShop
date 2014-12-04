@@ -6,6 +6,8 @@ package net.hzjxy.myshop.entity;
  */
 public class UserRole {
     private String id;
+    private String userid;
+    private String roleid;
 
     public String getId() {
         return id;
@@ -31,6 +33,4 @@ public class UserRole {
         this.roleid = roleid;
     }
 
-    private String userid;
-    private String roleid;
 }
