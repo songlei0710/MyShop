@@ -8,16 +8,16 @@ import java.util.Date;
  */
 public class MemberGrade {
     private String id;
-    private String type;
-    private String name;
-    private double start;
-    private double end;
-    private Double increment;
+    private String typeA;
+    private String nameA;
+    private double startA;
+    private double endA;
+    private Double incrementA;
     private Double multiplyPower;
     private String mpState;
     private Double mpChangePower;
     private Date updateTime;
-    private int versionT;
+    private int versionTA;
     private Double discount;
     private Date createTime;
     private String creatorId;
@@ -30,44 +30,44 @@ public class MemberGrade {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getTypeA() {
+        return typeA;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeA(String typeA) {
+        this.typeA = typeA;
     }
 
-    public String getName() {
-        return name;
+    public String getNameA() {
+        return nameA;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameA(String nameA) {
+        this.nameA = nameA;
     }
 
-    public double getStart() {
-        return start;
+    public double getStartA() {
+        return startA;
     }
 
-    public void setStart(double start) {
-        this.start = start;
+    public void setStartA(double startA) {
+        this.startA = startA;
     }
 
-    public double getEnd() {
-        return end;
+    public double getEndA() {
+        return endA;
     }
 
-    public void setEnd(double end) {
-        this.end = end;
+    public void setEndA(double endA) {
+        this.endA = endA;
     }
 
-    public Double getIncrement() {
-        return increment;
+    public Double getIncrementA() {
+        return incrementA;
     }
 
-    public void setIncrement(Double increment) {
-        this.increment = increment;
+    public void setIncrementA(Double incrementA) {
+        this.incrementA = incrementA;
     }
 
     public Double getMultiplyPower() {
@@ -102,12 +102,12 @@ public class MemberGrade {
         this.updateTime = updateTime;
     }
 
-    public int getVersionT() {
-        return versionT;
+    public int getVersionTA() {
+        return versionTA;
     }
 
-    public void setVersionT(int versionT) {
-        this.versionT = versionT;
+    public void setVersionTA(int versionTA) {
+        this.versionTA = versionTA;
     }
 
     public Double getDiscount() {
