@@ -44,8 +44,9 @@ public interface GoodsCategoryDao {
 
     /**
      * 删除商品分类state=0
-     *
-     * @param goodscategoryid
+     * @param goodsCategoryTid
+     * @param state
+     * @return
      */
     public int delGoodscategoryT(String goodsCategoryTid, String state);
 
@@ -162,18 +163,14 @@ public interface GoodsCategoryDao {
 
     /**
      * 更新商品分类静态页路劲
-     *
-     * @param goodscategoryId
-     * @param htmlPath
+     * @param goodsCategoryTid
+     * @param htmlpath
      * @return
      */
     public int updateHtmlPath(String goodsCategoryTid, String htmlpath);
 
     /**
      * 获取所有激活的商品分类state=1
-     *
-     * @param currentPage
-     * @param lineSize
      * @param state
      * @return
      */
