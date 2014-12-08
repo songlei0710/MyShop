@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.hzjxy.myshop.dao.GoodsTypeDao">
+    <update id="updateGoodsTypeTN"></update>
+
+    <delete id="delGoodsTypeTN"></delete>
+    <select id="findAllGoodsTypeTN" resultType="net.hzjxy.myshop.entity.GoodsType"></select>
+    <select id="countfindAllGoodsTypeTN" resultType="java.lang.Integer"></select>
+    <select id="findGoodsTypeTNById" resultType="net.hzjxy.myshop.entity.GoodsType"></select>
+    <select id="findAllGoodsTypeTNNopage" resultType="net.hzjxy.myshop.entity.GoodsType"></select>
+    <select id="sortAllGoodsTypeTN" resultType="net.hzjxy.myshop.entity.GoodsType"></select>
+    <select id="countsortAllGoodsTypeTN" resultType="java.lang.Integer"></select>
+    <select id="findGoodsTypeTNByName" resultType="net.hzjxy.myshop.entity.GoodsType"></select>
+</mapper>
