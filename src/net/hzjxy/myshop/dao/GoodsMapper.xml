@@ -20,12 +20,6 @@
     <update id="updateGoodssortname"></update>
     <update id="updateGoodsreplycount"></update>
     <update id="updateHtmlPath"></update>
-    <update id="updatestarsumBygoodsid"></update>
-    <update id="updatestarusersumBygoodsid"></update>
-    <update id="updatecommentsumBygoodsid"></update>
-    <update id="updateGoodsTypeNameBygoodsTypeId"></update>
-    <update id="updateGoodsCategoryBynlsid"></update>
-    <update id="updateGoodsQuantityByGoodsId"></update>
 
     <delete id="delGoods"></delete>
     <select id="findAllGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
@@ -70,20 +64,4 @@
     <select id="countfindAllGoodsByismobileplatformgoods" resultType="java.lang.Integer"></select>
     <select id="findAllGoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods"></select>
     <select id="findGoodsByLtypeidByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="finaAllGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBynavidorderbyParams" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsByLtypeidorderbyParams" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBysql" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsForImgT" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findshuffleGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsByattrs" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsByNavidByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBynavidSO" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBynavidandltypeid" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBynavidandltypeidandstypeid" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsByattribute" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindAllGoodsByattribute" resultType="java.lang.Integer"></select>
-    <select id="findrecommendedGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findvirtualsaleGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindvirtualsaleGoodsT" resultType="java.lang.Integer"></select>
 </mapper>

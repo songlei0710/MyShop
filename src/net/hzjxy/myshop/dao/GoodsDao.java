@@ -86,7 +86,7 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods> findGoodsByNavidByPage(final String navid,
+    public List<Goods> findGoodsByNavid(final String navid,
                                          final String salestate, final int currentPage, final int lineSize);
 
     /**
@@ -713,7 +713,7 @@ public interface GoodsDao {
      * @param salestate
      * @return
      */
-    public List<Goods> findAllGoodsBynavidSO(String navid, String salestate,
+    public List<Goods> findAllGoodsBynavid(String navid, String salestate,
                                             String isSpecificationsOpen);
 
     /**
@@ -774,7 +774,7 @@ public interface GoodsDao {
      */
     public List<Goods>findrecommendedGoodsT(String salestate,String recommended,int lineSize);
     /**
-     * 获取虚拟商品
+     *  获取虚拟商品
      * @param currentPage
      * @param lineSize
      * @param isvirtualsale
