@@ -8,14 +8,7 @@ import net.hzjxy.myshop.entity.UserT;
  */
 public class UserTTest {
     public static void main(String[] args) {
-        UserTDaoImpl impl = new UserTDaoImpl();
-        UserT userT = new UserT();
-        userT.setUsername("admin");
-        userT.setPassword("123");
 
-        UserT returnUser = impl.login(userT);
-
-        System.out.println(returnUser.getEmail());
 
     }
 }
