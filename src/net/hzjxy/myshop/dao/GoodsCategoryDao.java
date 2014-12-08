@@ -48,7 +48,7 @@ public interface GoodsCategoryDao {
      * @param state
      * @return
      */
-    public int delGoodscategoryT(String goodsCategoryTid, String state);
+    public int delGoodscategoryS(String goodsCategoryTid, String state);
 
     /**
      * 删除商品分类
@@ -73,7 +73,7 @@ public interface GoodsCategoryDao {
      * @param state
      * @return
      */
-    public List<GoodsCategory> findAllGoodsCategoryT(final int currentPage,
+    public List<GoodsCategory> findAllGoodsCategoryTByPage(final int currentPage,
                                                       final int lineSize, final String state);
 
     /**

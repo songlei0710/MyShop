@@ -2,9 +2,23 @@
 <!DOCTYPE mapper PUBLIC
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.hzjxy.myshop.dao.ArticleDao">
-    <delete id="delArticleT">
+<mapper namespace="net.hzjxy.myshop.dao.ArticleCategoryDao">
+    <update id="checkArticleCategoryName"></update>
+    <update id="checkArticleCategorySign"></update>
+    <update id="checkArticleCategoryNamewithoutMe"></update>
+    <update id="checkArticleCategorySignwithoutMe"></update>
+    <delete id="delArticleCategory"></delete>
 
-
-    </delete>
+    <select id="findPathParentIdByParentId" resultType="net.hzjxy.myshop.entity.ArticleCategory"></select>
+    <select id="findArticleCategoryByGrade" resultType="net.hzjxy.myshop.entity.ArticleCategory"></select>
+    <select id="findAllArticleCategoryT" resultType="net.hzjxy.myshop.entity.ArticleCategory"></select>
+    <select id="countfindAllArticleCategoryT" resultType="java.lang.Integer"></select>
+    <select id="findAllArticleCategoryTByGrade" resultType="net.hzjxy.myshop.entity.ArticleCategory"></select>
+    <select id="countfindAllArticleCategoryTByGrade" resultType="java.lang.Integer"></select>
+    <select id="findArticleCategoryByarticleCategoryTid" resultType="net.hzjxy.myshop.entity.ArticleCategory"></select>
+    <select id="findArticleCategoryByparentId" resultType="net.hzjxy.myshop.entity.ArticleCategory"></select>
+    <select id="findArticleCategoryByparentIdnull" resultType="net.hzjxy.myshop.entity.ArticleCategory"></select>
+    <select id="findAllArticleCategoryBycreatorid" resultType="net.hzjxy.myshop.entity.ArticleCategory"></select>
+    <select id="findArticleCategoryByposition" resultType="net.hzjxy.myshop.entity.ArticleCategory"></select>
+    <select id="sortAllArticleCategoryT" resultType="net.hzjxy.myshop.entity.ArticleCategory"></select>
 </mapper>
