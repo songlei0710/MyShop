@@ -85,7 +85,7 @@ public interface UserTDao {
      * @param password 密码
      * @return
      */
-    public UserT checkUsernameAndPassword(String username,String password);
+    public UserT checkUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
     /**
      * 修改管理员密码
@@ -120,7 +120,7 @@ public interface UserTDao {
      * @param queryString 查询字符串
      * @return
      */
-    public List<UserT> sortAllUserT(final int currentPage, final int lineSize, String queryString);
+    public List<UserT> sortAllUserT(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize, @Param("queryString") String queryString);
 
     /**
      * 查询所有Email
@@ -161,7 +161,7 @@ public interface UserTDao {
      * @param roleName
      * @return
      */
-    public int updateUserRoleByUserId(String userId, String roleId,String roleName);
+    public int updateUserRoleByUserId(@Param("userId") String userId, @Param("roleId") String roleId, @Param("roleName") String roleName);
 
     /**
      * 上传用户的头像路径
@@ -169,7 +169,7 @@ public interface UserTDao {
      * @param headPath 头像路径
      * @return
      */
-    public int updateUserHeadPathByUserId(String userId,String headPath);
+    public int updateUserHeadPathByUserId(@Param("userId") String userId, @Param("headPath") String headPath);
 
     /**
      * 更新系统用户
