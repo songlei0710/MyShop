@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.GoodsComment;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -67,8 +68,8 @@ public interface GoodsCommentDao {
      * @param queryString
      * @return
      */
-    public List<GoodsComment> sortAllGoodsComment(final int currentPage,
-                                                   final int lineSize, String queryString);
+    public List<GoodsComment> sortAllGoodsComment(final @Param("currentPage") int currentPage,
+                                                   final @Param("lineSize") int lineSize, @Param("queryString") String queryString);
     /**
      * 根据评论id获取商品评论
      * @param id

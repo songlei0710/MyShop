@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.GoodsCategory;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -23,8 +24,8 @@ public interface GoodsCategoryDao {
      * @param grade
      * @return
      */
-    public List<GoodsCategory> findGoodsCategoryByGrade(String grade,
-                                                         String state);
+    public List<GoodsCategory> findGoodsCategoryByGrade(@Param("grade") String grade,
+                                                         @Param("state") String state);
 
     /**
      * 检测商品分类名称
@@ -48,7 +49,7 @@ public interface GoodsCategoryDao {
      * @param state
      * @return
      */
-    public int delGoodscategoryS(String goodsCategoryTid, String state);
+    public int delGoodscategoryS(@Param("goodsCategoryTid") String goodsCategoryTid, @Param("state") String state);
 
     /**
      * 删除商品分类
@@ -73,8 +74,8 @@ public interface GoodsCategoryDao {
      * @param state
      * @return
      */
-    public List<GoodsCategory> findAllGoodsCategoryTByPage(final int currentPage,
-                                                      final int lineSize, final String state);
+    public List<GoodsCategory> findAllGoodsCategoryTByPage(final @Param("currentPage") int currentPage,
+                                                      final @Param("lineSize") int lineSize, final @Param("state") String state);
 
     /**
      * 统计所有激活的商品分类
@@ -94,8 +95,8 @@ public interface GoodsCategoryDao {
      * @return
      */
     public List<GoodsCategory> findAllGoodsCategoryTByGrade(
-            final int currentPage, final int lineSize, final String grade,
-            final String state);
+            final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize, final @Param("grade") String grade,
+            final @Param("state") String state);
 
     /**
      * 统计根据分类级数获取商品分类
@@ -104,7 +105,7 @@ public interface GoodsCategoryDao {
      * @param state
      * @return
      */
-    public int countfindAllGoodsCategoryTByGrade(String grade, String state);
+    public int countfindAllGoodsCategoryTByGrade(@Param("grade") String grade, @Param("state") String state);
 
     /**
      * 根据分类id获取商品分类
@@ -122,8 +123,8 @@ public interface GoodsCategoryDao {
      * @param name
      * @return
      */
-    public int checkGoodscategoryNamewithoutMe(String goodsCategoryTid,
-                                               String name);
+    public int checkGoodscategoryNamewithoutMe(@Param("goodsCategoryTid") String goodsCategoryTid,
+                                               @Param("name") String name);
 
     /**
      * 排除自己检测商品分级
@@ -132,8 +133,8 @@ public interface GoodsCategoryDao {
      * @param sign
      * @return
      */
-    public int checkGoodscategorySignwithoutMe(String goodsCategoryTid,
-                                               String sign);
+    public int checkGoodscategorySignwithoutMe(@Param("goodsCategoryTid") String goodsCategoryTid,
+                                               @Param("sign") String sign);
 
     /**
      * 根据parentid获取商品分类
@@ -142,8 +143,8 @@ public interface GoodsCategoryDao {
      * @param parentId
      * @return
      */
-    public List<GoodsCategory> findGoodscategoryByparentId(String state,
-                                                            String parentId);
+    public List<GoodsCategory> findGoodscategoryByparentId(@Param("state") String state,
+                                                            @Param("parentId") String parentId);
 
     /**
      * 获取parentid null的商品分类
@@ -185,8 +186,8 @@ public interface GoodsCategoryDao {
      * @param queryString
      * @return
      */
-    public List<GoodsCategory> sortAllGoodsCategoryT(final int currentPage,
-                                                      final int lineSize, final String state, String queryString);
+    public List<GoodsCategory> sortAllGoodsCategoryT(final @Param("currentPage") int currentPage,
+                                                      final @Param("lineSize") int lineSize, final @Param("state") String state, @Param("queryString") String queryString);
 
     /**
      * 查询所有没有条件商品分类

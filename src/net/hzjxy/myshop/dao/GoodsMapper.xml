@@ -3,7 +3,18 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsDao">
-    <update id="updateGoods"></update>
+    <update id="updateGoods" parameterType="net.hzjxy.myshop.entity.Goods">
+        UPDATE Goods
+        <set>
+            <if test="GoodsName!=null">
+                GoodsName=#{goodsName},
+            </if>
+            <if test="BrandName!=null">
+                BrandName=#{brandName},
+            </if>
+        </set>
+        WHERE GoodsId=#{goodId}
+    </update>
     <update id="updateGoodsSaleState"></update>
     <update id="updateGoodsSaleStateById"></update>
     <update id="updateGoodsreadcount"></update>
@@ -27,7 +38,12 @@
     <update id="updateGoodsCategoryBynlsid"></update>
     <update id="updateGoodsQuantityByGoodsId"></update>
 
-    <delete id="delGoods"></delete>
+    <delete id="delGoods">
+        DELETE FROM Goods WHERE CreatorId IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
     <select id="findAllGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
     <select id="findAllGoodsByPageId" resultType="net.hzjxy.myshop.entity.Goods"></select>
     <select id="findAllGoodsByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>

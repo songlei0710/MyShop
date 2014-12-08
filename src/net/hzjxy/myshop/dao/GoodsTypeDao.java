@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.GoodsType;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -31,8 +32,8 @@ public interface GoodsTypeDao {
      * @param lineSize
      * @return
      */
-    public List<GoodsType> findAllGoodsTypeTN(final int currentPage,
-                                                final int lineSize);
+    public List<GoodsType> findAllGoodsTypeTN(final @Param("currentPage") int currentPage,
+                                                final @Param("lineSize") int lineSize);
 
     /**
      * 统计查询所有商品类型
@@ -62,8 +63,8 @@ public interface GoodsTypeDao {
      * @param lineSize
      * @return
      */
-    public List<GoodsType> sortAllGoodsTypeTN(final int currentPage,
-                                                final int lineSize, String queryString);
+    public List<GoodsType> sortAllGoodsTypeTN(final @Param("currentPage") int currentPage,
+                                                final @Param("lineSize") int lineSize, @Param("queryString") String queryString);
 
     /**
      * 根据参数统计搜索结果计数

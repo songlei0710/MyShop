@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.GoodsAttribute;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public interface GoodsAttributeDao {
      * @param lineSize
      * @return
      */
-    public List<GoodsAttribute> findAllGoodsAttribute(final int currentPage, final int lineSize);
+    public List<GoodsAttribute> findAllGoodsAttribute(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize);
 
     /**
      * 统计所有的商品参数
@@ -72,7 +73,7 @@ public interface GoodsAttributeDao {
      * @param queryString
      * @return
      */
-    public List<GoodsAttribute> sortAllGoodsAttribute(final int currentPage, final int lineSize, String queryString);
+    public List<GoodsAttribute> sortAllGoodsAttribute(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize, @Param("queryString") String queryString);
 
     /**
      * 更新商品参数表中的商品类型名称
@@ -80,7 +81,7 @@ public interface GoodsAttributeDao {
      * @param goodsTypeId
      * @return
      */
-    public int updateGoodsAttributeGoodsTypeName(String goodsTypeName,String goodsTypeId);
+    public int updateGoodsAttributeGoodsTypeName(@Param("goodsTypeName") String goodsTypeName, @Param("goodsTypeId") String goodsTypeId);
 
     /**
      * 根据id更新是否支持检索
@@ -88,7 +89,7 @@ public interface GoodsAttributeDao {
      * @param isSearch
      * @return
      */
-    public int updateGoodsAttributeIsSearchByGoodsAttributeId(String[] goodsattributeId, String isSearch);
+    public int updateGoodsAttributeIsSearchByGoodsAttributeId(@Param("goodsattributeId") String[] goodsattributeId, @Param("isSearch") String isSearch);
 
     /**
      * 根据id更新是否支持关联检索
@@ -96,6 +97,6 @@ public interface GoodsAttributeDao {
      * @param isSameToLink
      * @return
      */
-    public int updateGoodsAttributeIsSameToLinkByGoodsAttributeId(String[] goodsAttributeId, String isSameToLink);
+    public int updateGoodsAttributeIsSameToLinkByGoodsAttributeId(@Param("goodsAttributeId") String[] goodsAttributeId, @Param("isSameToLink") String isSameToLink);
 
 }

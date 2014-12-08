@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.GoodsBlinked;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -32,8 +33,8 @@ public interface GoodsBlinkedDao {
      * @param lineSize
      * @return
      */
-    public List<GoodsBlinked> findAllGoodsBelinked(int currentPage,
-                                                     int lineSize);
+    public List<GoodsBlinked> findAllGoodsBelinked(@Param("currentPage") int currentPage,
+                                                     @Param("lineSize") int lineSize);
 
     /**
      * 统计所有关联商品
@@ -57,7 +58,7 @@ public interface GoodsBlinkedDao {
      * @return
      */
     public int delGoodsBelinkedBymaingoodsidandsxlinkedgoodsid(
-            String maingoodsid, String sxlinkedgoodsid);
+            @Param("maingoodsid") String maingoodsid, @Param("sxlinkedgoodsid") String sxlinkedgoodsid);
 
     /**
      * 根据主键删除关联商品记录

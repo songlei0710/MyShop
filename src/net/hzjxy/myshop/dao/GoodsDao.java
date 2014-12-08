@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.Goods;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
 import java.util.List;
@@ -10,20 +11,20 @@ import java.util.List;
  */
 public interface GoodsDao {
     /**
-     * 批量删除商品
      *
      * @param list
+     * @param creatorid
      * @return
      */
-    public int delGoods(String[] list, String creatorid);
+    public int delGoods(@Param("list") String[] list, @Param("creatorid") String creatorid);
 
     /**
      * 更新商品
      *
-     * @param g
+     * @param goods
      * @return
      */
-    public void updateGoods(Goods g);
+    public void updateGoods(Goods goods);
 
     /**
      * 查询所有商品信息
@@ -33,8 +34,8 @@ public interface GoodsDao {
      * @param creatorid
      * @return
      */
-    public List<Goods> findAllGoodsByPageId(final int currentPage, final int lineSize,
-                                     final String creatorid);
+    public List<Goods> findAllGoodsByPageId(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize,
+                                     final @Param("creatorid") String creatorid);
     /**
      * 查询所有商品信息
      *
@@ -42,7 +43,7 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods> findAllGoodsByPage(final int currentPage, final int lineSize);
+    public List<Goods> findAllGoodsByPage(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize);
     /**
      * 查询所有没有条件商品
      *
@@ -86,8 +87,8 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods> findGoodsByNavidByPage(final String navid,
-                                         final String salestate, final int currentPage, final int lineSize);
+    public List<Goods> findGoodsByNavidByPage(final @Param("navid") String navid,
+                                         final @Param("salestate") String salestate, final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize);
 
     /**
      * 统计根据导航id获取商品列表
@@ -96,7 +97,7 @@ public interface GoodsDao {
      * @param salestate
      * @return
      */
-    public int countfindGoodsByNavid(String navid, String salestate);
+    public int countfindGoodsByNavid(@Param("navid") String navid, @Param("salestate") String salestate);
 
     /**
      * 根据二级分类id获取商品列表
@@ -106,8 +107,8 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods> findGoodsByLtypeidByPage(final String ltypeid,
-                                           final String salestate, final int currentPage, final int lineSize);
+    public List<Goods> findGoodsByLtypeidByPage(final @Param("ltypeid") String ltypeid,
+                                           final @Param("salestate") String salestate, final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize);
 
     /**
      * 统计根据二级分类id获取商品列表
@@ -115,7 +116,7 @@ public interface GoodsDao {
      * @param salestate
      * @return
      */
-    public int countfindGoodsByLtypeid(String ltypeid, String salestate);
+    public int countfindGoodsByLtypeid(@Param("ltypeid") String ltypeid, @Param("salestate") String salestate);
 
     /**
      * 根据三级分类id获取商品列表
@@ -123,7 +124,7 @@ public interface GoodsDao {
      * @param salestate
      * @return
      */
-    public List<Goods> findGoodsByStypeid(String stypeid, String salestate);
+    public List<Goods> findGoodsByStypeid(@Param("stypeid") String stypeid, @Param("salestate") String salestate);
 
     /**
      * 批量更新商品上下架
@@ -133,8 +134,8 @@ public interface GoodsDao {
      * @param creatorid
      * @return
      */
-    public int updateGoodsSaleStateById(String[] goodsid, String salestate,
-                                    String creatorid);
+    public int updateGoodsSaleStateById(@Param("goodsid") String[] goodsid, @Param("salestate") String salestate,
+                                    @Param("creatorid") String creatorid);
 
     /**
      * 根据商品类型id下架商品
@@ -143,7 +144,7 @@ public interface GoodsDao {
      * @param salestate
      * @return
      */
-    public int updateGoodsSaleState(String goodsTypeId, String salestate);
+    public int updateGoodsSaleState(@Param("goodsTypeId") String goodsTypeId, @Param("salestate") String salestate);
 
     /**
      * 根据商品品牌获取商品信息
@@ -161,8 +162,8 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods> findGoodsByGoodsname(final int currentPage,
-                                             final int lineSize, String salestate,final String goodsname);
+    public List<Goods> findGoodsByGoodsname(final @Param("currentPage") int currentPage,
+                                             final @Param("lineSize") int lineSize, @Param("salestate") String salestate,final @Param("goodsname") String goodsname);
 
     /**
      * 根据商品型号获取商品信息
@@ -187,8 +188,8 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods> findGoodsByKeyword(String keywordid, int currentPage,
-                                           int lineSize);
+    public List<Goods> findGoodsByKeyword(@Param("keywordid") String keywordid, @Param("currentPage") int currentPage,
+                                           @Param("lineSize") int lineSize);
 
     /**
      * 统计根据关键字查询商品信息
@@ -220,7 +221,7 @@ public interface GoodsDao {
      * @param list
      * @return
      */
-    public int updateGoodsrelatedfit(String goodsid, String list);
+    public int updateGoodsrelatedfit(@Param("goodsid") String goodsid, @Param("list") String list);
 
     /**
      * 根据商品id更新关联商品（现在已经使用到）
@@ -228,7 +229,7 @@ public interface GoodsDao {
      * @param list
      * @return
      */
-    public int updateGoodsrelatedgoods(String goodsid, String list);
+    public int updateGoodsrelatedgoods(@Param("goodsid") String goodsid, @Param("list") String list);
 
     /**
      * 根据商品id更新5种商品状态
@@ -240,9 +241,9 @@ public interface GoodsDao {
      * @param ismobileplatformgoods
      * @return
      */
-    public int updateFiveGoodsState(String[] goodsid, String recommended,
-                                    String hotsale, String bargainprice, String isNew,
-                                    String ismobileplatformgoods);
+    public int updateFiveGoodsState(@Param("goodsid") String[] goodsid, @Param("recommended") String recommended,
+                                    @Param("hotsale") String hotsale, @Param("bargainprice") String bargainprice, @Param("isNew") String isNew,
+                                    @Param("ismobileplatformgoods") String ismobileplatformgoods);
 
     /**
      * 根据商品id更新商品是否推荐
@@ -252,8 +253,8 @@ public interface GoodsDao {
      * @param creatorid
      * @return
      */
-    public int updateGoodsrecommended(String[] goodsid, String recommended,
-                                      String creatorid);
+    public int updateGoodsrecommended(@Param("goodsid") String[] goodsid, @Param("recommended") String recommended,
+                                      @Param("creatorid") String creatorid);
 
     /**
      * 根据商品id更新商品是否热销
@@ -263,8 +264,8 @@ public interface GoodsDao {
      * @param creatorid
      * @return
      */
-    public int updateGoodshotsale(String[] goodsid, String hotsale,
-                                  String creatorid);
+    public int updateGoodshotsale(@Param("goodsid") String[] goodsid, @Param("hotsale") String hotsale,
+                                  @Param("creatorid") String creatorid);
 
     /**
      * 根据商品id更新商品是否特价
@@ -274,8 +275,8 @@ public interface GoodsDao {
      * @param creatorid
      * @return
      */
-    public int updateGoodsbargainprice(String[] goodsid, String bargainprice,
-                                       String creatorid);
+    public int updateGoodsbargainprice(@Param("goodsid") String[] goodsid, @Param("bargainprice") String bargainprice,
+                                       @Param("creatorid") String creatorid);
 
     /**
      * 根据商品id更新是否新品
@@ -285,7 +286,7 @@ public interface GoodsDao {
      * @param creatorid
      * @return
      */
-    public int updateGoodsisNew(String[] goodsid, String isNew, String creatorid);
+    public int updateGoodsisNew(@Param("goodsid") String[] goodsid, @Param("isNew") String isNew, @Param("creatorid") String creatorid);
 
     /**
      * 根据商品id更新是否同步到移动平台
@@ -295,8 +296,8 @@ public interface GoodsDao {
      * @param creatorid
      * @return
      */
-    public int updateGoodsismobileplatformgoods(String[] goodsid,
-                                                String ismobileplatformgoods, String creatorid);
+    public int updateGoodsismobileplatformgoods(@Param("goodsid") String[] goodsid,
+                                                @Param("ismobileplatformgoods") String ismobileplatformgoods, @Param("creatorid") String creatorid);
 
     /**
      * 根据商品id更新商品排序
@@ -305,7 +306,7 @@ public interface GoodsDao {
      * @param sort
      * @return
      */
-    public int updateSort(String goodsid, Integer sort);
+    public int updateSort(@Param("goodsid") String goodsid, @Param("sort") Integer sort);
 
     /**
      * 根据商品id更新商品对应的种类
@@ -314,7 +315,7 @@ public interface GoodsDao {
      * @param goodsortid
      * @return
      */
-    public int updateGoodssortid(String goodsid, String goodsortid);
+    public int updateGoodssortid(@Param("goodsid") String goodsid, @Param("goodsortid") String goodsortid);
 
     /**
      * 根据商品id更新商品种类名称
@@ -323,7 +324,7 @@ public interface GoodsDao {
      * @param goodssortname
      * @return
      */
-    public int updateGoodssortname(String goodsid, String goodssortname);
+    public int updateGoodssortname(@Param("goodsid") String goodsid, @Param("goodssortname") String goodssortname);
 
     /**
      * 更新商品id更新商品回复数量
@@ -342,8 +343,8 @@ public interface GoodsDao {
      * @param goodsname
      * @return
      */
-    public List<Goods> findGoodsForoptiontransferselect(final String navid,
-                                                         final String ltypeid, final String stypeid, final String goodsname);
+    public List<Goods> findGoodsForoptiontransferselect(final @Param("navid") String navid,
+                                                         final @Param("ltypeid") String ltypeid, final @Param("stypeid") String stypeid, final @Param("goodsname") String goodsname);
 
     /**
      * 查询所有商品没有分页
@@ -359,7 +360,7 @@ public interface GoodsDao {
      * @param limit
      * @return
      */
-    public List<Goods> findGoodsLimitByGoodsType(String nlstypeid, int limit);
+    public List<Goods> findGoodsLimitByGoodsType(@Param("nlstypeid") String nlstypeid, @Param("limit") int limit);
 
     /**
      * 获取同价位商品集合
@@ -369,8 +370,8 @@ public interface GoodsDao {
      * @param goodsid
      * @return
      */
-    public List<Goods> findSamepriceGoods(int limit, double minprice,
-                                           double maxprice, String goodsid);
+    public List<Goods> findSamepriceGoods(@Param("limit") int limit, @Param("minprice") double minprice,
+                                           @Param("maxprice") double maxprice, @Param("goodsid") String goodsid);
 
     /**
      * 获取更多商品
@@ -380,8 +381,8 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods> findMoreGoodsByGoodsType(final String nlstypeid,
-                                                 final int currentPage, int lineSize);
+    public List<Goods> findMoreGoodsByGoodsType(final @Param("nlstypeid") String nlstypeid,
+                                                 final @Param("currentPage") int currentPage, @Param("lineSize") int lineSize);
 
     /**
      * 统计获取更多商品
@@ -399,8 +400,8 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods> findSearchGoods(final String goodsname,
-                                        final int currentPage, int lineSize);
+    public List<Goods> findSearchGoods(final @Param("goodsname") String goodsname,
+                                        final @Param("currentPage") int currentPage, @Param("lineSize") int lineSize);
 
     /**
      * 统计搜索商品
@@ -418,8 +419,8 @@ public interface GoodsDao {
      * @param salestate
      * @return
      */
-    public List<Goods> findAllGoodslistMore(final int currentPage,
-                                             final int lineSize, String salestate);
+    public List<Goods> findAllGoodslistMore(final @Param("currentPage") int currentPage,
+                                             final @Param("lineSize") int lineSize, @Param("salestate") String salestate);
 
     /**
      * 统计获取更多上架商品
@@ -437,8 +438,8 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods> findMoreHotSaleGoodsByGoodsType(final String nlstypeid,
-                                                        final int currentPage, int lineSize);
+    public List<Goods> findMoreHotSaleGoodsByGoodsType(final @Param("nlstypeid") String nlstypeid,
+                                                        final @Param("currentPage") int currentPage, @Param("lineSize") int lineSize);
 
     /**
      * 统计根据商品类型获取更多热卖商品
@@ -457,7 +458,7 @@ public interface GoodsDao {
      * @return
      */
     public List<Goods> findMoreBargainPriceGoodsByGoodsType(
-            final String nlstypeid, final int currentPage, int lineSize);
+            final @Param("nlstypeid") String nlstypeid, final @Param("currentPage") int currentPage, @Param("lineSize") int lineSize);
 
     /**
      * 统计根据商品类型获取更多特价商品
@@ -476,7 +477,7 @@ public interface GoodsDao {
      * @return
      */
     public List<Goods> findMoreRecommendedGoodsByGoodsType(
-            final String nlstypeid, final int currentPage, int lineSize);
+            final @Param("nlstypeid") String nlstypeid, final @Param("currentPage") int currentPage, @Param("lineSize") int lineSize);
 
     /**
      * 统计根据商品类型获取更多推荐商品
@@ -493,8 +494,8 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods> findMoreBargainPriceGoods(final int currentPage,
-                                                  int lineSize);
+    public List<Goods> findMoreBargainPriceGoods(final @Param("currentPage") int currentPage,
+                                                  @Param("lineSize") int lineSize);
 
     /**
      * 统计获取更多特价商品
@@ -512,7 +513,7 @@ public interface GoodsDao {
      * @return
      */
     public List<Goods> findAllGoodsByismobileplatformgoods(
-            final int currentPage, int lineSize, String creatorid);
+            final @Param("currentPage") int currentPage, @Param("lineSize") int lineSize, @Param("creatorid") String creatorid);
 
     /**
      * 根据顶级分类获取手机端商品
@@ -523,7 +524,7 @@ public interface GoodsDao {
      * @return
      */
     public List<Goods> findAllGoodsByismobileplatformgoodsBynavid(
-            String navid, String salestate, String ismobileplatformgoods);
+            @Param("navid") String navid, @Param("salestate") String salestate, @Param("ismobileplatformgoods") String ismobileplatformgoods);
 
     /**
      * 统计获取商品数据给手机客户端
@@ -540,7 +541,7 @@ public interface GoodsDao {
      * @param salestate
      * @return
      */
-    public List<Goods> findAllGoodsBynavid(String navid, String salestate);
+    public List<Goods> findAllGoodsBynavid(@Param("navid") String navid, @Param("salestate") String salestate);
 
     /**
      * 根据一级分类获旗下商品
@@ -549,7 +550,7 @@ public interface GoodsDao {
      * @param salestate
      * @return
      */
-    public List<Goods> findGoodsByLtypeid(String ltypeid, String salestate);
+    public List<Goods> findGoodsByLtypeid(@Param("ltypeid") String ltypeid, @Param("salestate") String salestate);
 
     /**
      * 根据商品id更新htmlpath
@@ -568,7 +569,7 @@ public interface GoodsDao {
      * @param updatetime
      * @return
      */
-    public int updateHtmlPath(String goodsid, String htmlPath, Date updatetime);
+    public int updateHtmlPath(@Param("goodsid") String goodsid, @Param("htmlPath") String htmlPath, @Param("updatetime") Date updatetime);
 
     /**
      * 获取所有商品用于安装程序生成静态页
@@ -584,7 +585,7 @@ public interface GoodsDao {
      * @param star
      * @return
      */
-    public int updatestarsumBygoodsid(String goodsid, int star);
+    public int updatestarsumBygoodsid(@Param("goodsid") String goodsid, @Param("star") int star);
 
     /**
      * 更新商品总打分人数
@@ -592,7 +593,7 @@ public interface GoodsDao {
      * @param staruser
      * @return
      */
-    public int updatestarusersumBygoodsid(String goodsid, int staruser);
+    public int updatestarusersumBygoodsid(@Param("goodsid") String goodsid, @Param("staruser") int staruser);
 
     /**
      * 更新商品总评分人数
@@ -600,7 +601,7 @@ public interface GoodsDao {
      * @param totalcomment
      * @return
      */
-    public int updatecommentsumBygoodsid(String goodsid, int totalcomment);
+    public int updatecommentsumBygoodsid(@Param("goodsid") String goodsid, @Param("totalcomment") int totalcomment);
 
     /**
      * 根据传入的状态查询对应的商品顶级分类数据
@@ -618,10 +619,10 @@ public interface GoodsDao {
      *            筛选值1/0
      * @return
      */
-    public List<Goods> findAllGoodsBynavidorderbyParams(String navid,
-                                                         String salestate, String sales, String memberprice,
-                                                         String totalcomment, String bargainprice, String hotsale,
-                                                         String recommended, String isNew, String value);
+    public List<Goods> findAllGoodsBynavidorderbyParams(@Param("navid") String navid,
+                                                         @Param("salestate") String salestate, @Param("sales") String sales, @Param("memberprice") String memberprice,
+                                                         @Param("totalcomment") String totalcomment, @Param("bargainprice") String bargainprice, @Param("hotsale") String hotsale,
+                                                         @Param("recommended") String recommended, @Param("isNew") String isNew, @Param("value") String value);
 
     /**
      * 根据传入的状态查询对应的商品
@@ -637,10 +638,10 @@ public interface GoodsDao {
      * @param value
      * @return
      */
-    public List<Goods> findAllGoodsByLtypeidorderbyParams(String ltypeid,
-                                                           String salestate, String sales, String memberprice,
-                                                           String totalcomment, String bargainprice, String hotsale,
-                                                           String recommended, String isNew, String value);
+    public List<Goods> findAllGoodsByLtypeidorderbyParams(@Param("ltypeid") String ltypeid,
+                                                           @Param("salestate") String salestate, @Param("sales") String sales, @Param("memberprice") String memberprice,
+                                                           @Param("totalcomment") String totalcomment, @Param("bargainprice") String bargainprice, @Param("hotsale") String hotsale,
+                                                           @Param("recommended") String recommended, @Param("isNew") String isNew, @Param("value") String value);
 
     /**
      * 根据排序字段按照排序方式排序
@@ -649,7 +650,7 @@ public interface GoodsDao {
      * @param queryString
      * @return
      */
-    public List<Goods> findAllGoodsBysql(final int currentPage, final int lineSize,final String queryString);
+    public List<Goods> findAllGoodsBysql(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize,final @Param("queryString") String queryString);
 
     /**
      * 根据商品类型ID更新商品类型名称
@@ -658,8 +659,8 @@ public interface GoodsDao {
      * @param goodsTypeId
      * @return
      */
-    public int updateGoodsTypeNameBygoodsTypeId(String goodsTypeName,
-                                                String goodsTypeId);
+    public int updateGoodsTypeNameBygoodsTypeId(@Param("goodsTypeName") String goodsTypeName,
+                                                @Param("goodsTypeId") String goodsTypeId);
 
     /**
      * 根据商品分类的id更新商品分类的名称
@@ -680,8 +681,8 @@ public interface GoodsDao {
      * @param recommended
      * @return
      */
-    public List<Goods> findshuffleGoods(final int currentPage,
-                                         final int lineSize, final String salestate, final String recommended);
+    public List<Goods> findshuffleGoods(final @Param("currentPage") int currentPage,
+                                         final @Param("lineSize") int lineSize, final @Param("salestate") String salestate, final @Param("recommended") String recommended);
 
     /**
      * 根据属性获取商品列表
@@ -692,8 +693,8 @@ public interface GoodsDao {
      * @param salestate
      * @return
      */
-    public List<Goods> findGoodsByattrs(final int currentPage,
-                                         final int lineSize, final String attr, final String salestate);
+    public List<Goods> findGoodsByattrs(final @Param("currentPage") int currentPage,
+                                         final @Param("lineSize") int lineSize, final @Param("attr") String attr, final @Param("salestate") String salestate);
 
     /**
      * 根据商品顶级分类获取移动平台的商品数据
@@ -703,8 +704,8 @@ public interface GoodsDao {
      * @param ismobileplatformgoods
      * @return
      */
-    public List<Goods> findGoodsByNavid(String navid, String salestate,
-                                         String ismobileplatformgoods);
+    public List<Goods> findGoodsByNavid(@Param("navid") String navid, @Param("salestate") String salestate,
+                                         @Param("ismobileplatformgoods") String ismobileplatformgoods);
 
     /**
      * 根据顶级分类获取旗下商品不包含规格值
@@ -713,8 +714,8 @@ public interface GoodsDao {
      * @param salestate
      * @return
      */
-    public List<Goods> findAllGoodsBynavidSO(String navid, String salestate,
-                                            String isSpecificationsOpen);
+    public List<Goods> findAllGoodsBynavidSO(@Param("navid") String navid, @Param("salestate") String salestate,
+                                            @Param("isSpecificationsOpen") String isSpecificationsOpen);
 
     /**
      * 根据传入的商品分类数据查询商品集合不包含规格值
@@ -725,8 +726,8 @@ public interface GoodsDao {
      * @param isSpecificationsOpen
      * @return
      */
-    public List<Goods> findAllGoodsBynavidandltypeid(String navid,
-                                                      String ltypeid, String salestate, String isSpecificationsOpen);
+    public List<Goods> findAllGoodsBynavidandltypeid(@Param("navid") String navid,
+                                                      @Param("ltypeid") String ltypeid, @Param("salestate") String salestate, @Param("isSpecificationsOpen") String isSpecificationsOpen);
 
     /**
      * 根据传入的商品分类数据查询商品集合不包含规格值
@@ -738,9 +739,9 @@ public interface GoodsDao {
      * @param isSpecificationsOpen
      * @return
      */
-    public List<Goods> findAllGoodsBynavidandltypeidandstypeid(String navid,
-                                                                String ltypeid, String stypeid, String salestate,
-                                                                String isSpecificationsOpen);
+    public List<Goods> findAllGoodsBynavidandltypeidandstypeid(@Param("navid") String navid,
+                                                                @Param("ltypeid") String ltypeid, @Param("stypeid") String stypeid, @Param("salestate") String salestate,
+                                                                @Param("isSpecificationsOpen") String isSpecificationsOpen);
 
     /**
      * 根据属性查询商品信息
@@ -749,7 +750,7 @@ public interface GoodsDao {
      * @param queryString
      * @return
      */
-    public List<Goods>findAllGoodsByattribute(int currentPage,int lineSize,String queryString);
+    public List<Goods>findAllGoodsByattribute(@Param("currentPage") int currentPage, @Param("lineSize") int lineSize, @Param("queryString") String queryString);
     /**
      * 统计根据属性查询商品信息
      * @param queryString
@@ -764,7 +765,7 @@ public interface GoodsDao {
      * @param goodsid
      * @return
      */
-    public int updateGoodsQuantityByGoodsId(int oldQuantity,int newQuantity,String goodsid);
+    public int updateGoodsQuantityByGoodsId(@Param("oldQuantity") int oldQuantity, @Param("newQuantity") int newQuantity, @Param("goodsid") String goodsid);
     /**
      * 获取推荐商品
      * @param salestate
@@ -772,7 +773,7 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods>findrecommendedGoodsT(String salestate,String recommended,int lineSize);
+    public List<Goods>findrecommendedGoodsT(@Param("salestate") String salestate, @Param("recommended") String recommended, @Param("lineSize") int lineSize);
     /**
      *  获取虚拟商品
      * @param currentPage
@@ -780,7 +781,7 @@ public interface GoodsDao {
      * @param isvirtualsale
      * @return
      */
-    public List<Goods>findvirtualsaleGoodsT(int currentPage,int lineSize,String isvirtualsale);
+    public List<Goods>findvirtualsaleGoodsT(@Param("currentPage") int currentPage, @Param("lineSize") int lineSize, @Param("isvirtualsale") String isvirtualsale);
     /**
      * 统计获取虚拟商品
      * @param isvirtualsale
