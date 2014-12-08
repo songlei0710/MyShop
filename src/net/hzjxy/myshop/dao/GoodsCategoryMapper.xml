@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.hzjxy.myshop.dao.GoodsCategoryDao">
+    <update id="updateGoodscategoryT"></update>
+    <update id="updateHtmlPath"></update>
+    <delete id="delGoodscategoryT"></delete>
+    <delete id="delGoodscategoryS"></delete>
+    <select id="findPathParentIdByParentId" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
+    <select id="findGoodsCategoryByGrade" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
+    <select id="checkGoodscategoryName" resultType="java.lang.Integer"></select>
+    <select id="checkGoodscategorySign" resultType="java.lang.Integer"></select>
+    <select id="findAllGoodsCategoryT" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
+    <select id="countfindAllGoodsCategoryT" resultType="java.lang.Integer"></select>
+    <select id="findAllGoodsCategoryTByGrade" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
+    <select id="countfindAllGoodsCategoryTByGrade" resultType="java.lang.Integer"></select>
+    <select id="findGoodscategoryBygoodscategoryId" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
+    <select id="checkGoodscategoryNamewithoutMe" resultType="java.lang.Integer"></select>
+    <select id="checkGoodscategorySignwithoutMe" resultType="java.lang.Integer"></select>
+    <select id="findGoodscategoryByparentId" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
+    <select id="findGoodscategoryByparentIdnull" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
+    <select id="findAllGoodsCategoryBycreatorid" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
+    <select id="sortAllGoodsCategoryT" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
+    <select id="findAllGoodsCategoryTByPage" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
+    <select id="findAllCategoryByNoTrem" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
+</mapper>
