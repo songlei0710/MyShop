@@ -3,7 +3,9 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.UserTDao">
-    <insert id="addUserT"></insert>
+    <insert id="addUserT">
+        INSERT INTO UserT
+    </insert>
     <update id="updateUserTunpwd"></update>
     <update id="updateUserForMyInfo"></update>
     <update id="updateUserMember"></update>

@@ -9,7 +9,7 @@ import net.hzjxy.myshop.entity.UserT;
 public class UserTTest {
     public static void main(String[] args) {
         UserTDaoImpl impl=new UserTDaoImpl();
-        UserT userT=impl.login("lisi","123","1");
+        UserT userT=impl.login("zhangsan","123","1");
         System.out.println(userT.getUserId());
     }
 }
