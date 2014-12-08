@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.UserT;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface UserTDao {
      * @param userState 用户状态
      * @return
      */
-    public UserT login(String username,String password,String userState);
+    public UserT login(@Param("username") String username, @Param("password") String password, @Param("userState") String userState);
 
 
     /**
@@ -25,6 +26,7 @@ public interface UserTDao {
      * @return
      */
     public UserT findByUserName(String username);
+
 
     /**
      * 根据用户ID获取用户信息
@@ -40,7 +42,7 @@ public interface UserTDao {
      * @param lineSize
      * @return
      */
-    public List<UserT> findAllUserT(final int currentPage, final int lineSize);
+    public List<UserT> findAllUserT(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize);
 
     /**
      * 统计查询所有用户包括管理员 count(*)

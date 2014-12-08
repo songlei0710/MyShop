@@ -11,37 +11,37 @@ import java.util.List;
  */
 public class UserTDaoImpl implements UserTDao {
     @Override
-    public UserT login(UserT transientInstance) {
+    public UserT login(String username, String password, String userState) {
         return null;
     }
 
     @Override
-    public UserT findByUserName(String name) {
+    public UserT findByUserName(String username) {
         return null;
     }
 
     @Override
-    public UserT findById(String id) {
+    public UserT findById(String userId) {
         return null;
     }
 
     @Override
-    public List<UserT> findAllUsert(int currentPage, int lineSize) {
+    public List<UserT> findAllUserT(int currentPage, int lineSize) {
         return null;
     }
 
     @Override
-    public int countfindAllUsert() {
+    public int countFindAllUserT() {
         return 0;
     }
 
     @Override
-    public UserT checkUserByUsername(UserT transientInstance) {
+    public UserT checkUserByUsername(String username) {
         return null;
     }
 
     @Override
-    public int updateUserTunpwd(UserT u) {
+    public int updateUserTunpwd(UserT userT) {
         return 0;
     }
 
@@ -51,32 +51,32 @@ public class UserTDaoImpl implements UserTDao {
     }
 
     @Override
-    public int updateUserforMyInfo(UserT u) {
+    public int updateUserForMyInfo(UserT userT) {
         return 0;
     }
 
     @Override
-    public UserT usert(UserT user) {
+    public UserT checkUsernameAndPassword(String username, String password) {
         return null;
     }
 
     @Override
-    public int updateUserMember(UserT user) {
+    public int updateUserMember(String username, String newPassword, String userId) {
         return 0;
     }
 
     @Override
-    public int updateUserstate(UserT user) {
+    public int updateUserState(String userId, String userState) {
         return 0;
     }
 
     @Override
-    public UserT finduserByuid(String uid) {
+    public UserT findUserByUserId(String userId) {
         return null;
     }
 
     @Override
-    public List<UserT> sortAllUsert(int currentPage, int lineSize, String queryString) {
+    public List<UserT> sortAllUserT(int currentPage, int lineSize, String queryString) {
         return null;
     }
 
@@ -86,7 +86,7 @@ public class UserTDaoImpl implements UserTDao {
     }
 
     @Override
-    public UserT checkUserByEmail(UserT u) {
+    public UserT checkUserByEmail(String email) {
         return null;
     }
 
@@ -96,22 +96,27 @@ public class UserTDaoImpl implements UserTDao {
     }
 
     @Override
-    public int updateUserPasswordProtection(String userid, String question, String answer) {
+    public int updateUserPasswordProtection(String userId, String question, String answer) {
         return 0;
     }
 
     @Override
-    public int updateUserRoleMByuserid(String userid, String rolemid, String rolemname) {
+    public int updateUserRoleByUserId(String userId, String roleId, String roleName) {
         return 0;
     }
 
     @Override
-    public int updateUserHeadPathByUserId(UserT user) {
+    public int updateUserHeadPathByUserId(String userId, String headPath) {
         return 0;
     }
 
     @Override
-    public void updateUserT(UserT usert) {
+    public void updateUserT(UserT userT) {
 
+    }
+
+    @Override
+    public int addUserT(UserT userT) {
+        return 0;
     }
 }
