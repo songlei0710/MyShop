@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.hzjxy.myshop.dao.OrderForAlipayDao">
 
-<!DOCTYPE struts PUBLIC
-        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
-        "http://struts.apache.org/dtds/struts-2.3.dtd">
-
-<struts>
-</struts>
+        <update id="updateOrderPayStateByOrderId"></update>
+        <update id="updateOrderShippingStateByOrderId"></update>
+        <update id="updateOrderStateByorderId"></update>
+</mapper>

@@ -10,7 +10,7 @@ import java.util.List;
 public interface PaymentDao {
     /**
      * 开启支付方式使用
-     *
+     * Update PaymentM as pm set pm.state='1' where pm.paymentid=:paymentid
      * @param list
      * @return
      */
@@ -18,7 +18,6 @@ public interface PaymentDao {
 
     /**
      * 更新支付方式信息
-     *
      * @param pm
      * @return
      */
@@ -26,8 +25,7 @@ public interface PaymentDao {
 
     /**
      * 查询所有支付方式
-     *
-     * @param currenPage
+     * @param currentPage
      * @param lineSize
      * @return
      */
@@ -35,30 +33,27 @@ public interface PaymentDao {
 
     /**
      * 统计所有支付方式
-     *
      * @return
      */
-    public int countfindAllPayment();
+    public int countFindAllPayment();
 
     /**
      * 根据id获取支付方式
-     *
-     * @param paymentid
+     * @param paymentId
      * @return
      */
-    public Payment findPaymentbyId(String paymentid);
+    public Payment findPaymentById(String paymentId);
 
     /**
      * 禁止支付方式
-     *
+     * Update PaymentM as pm set pm.state='0' where pm.paymentid=:paymentid
      * @param list
      * @return
      */
     public int closePayment(String[] list);
 
     /**
-     * 获取所有启用的支付方式
-     *
+     * 根据state获取的支付方式
      * @return
      */
     public List<Payment> findAllPayment(String state);
@@ -67,5 +62,5 @@ public interface PaymentDao {
      * @param str
      * @return
      */
-    public int delPaymentByid(String []str);
+    public int delPaymentById(String []str);
 }

@@ -10,68 +10,59 @@ import java.util.List;
 public interface GoodsAttributeDao {
     /**
      * 更新商品参数
-     *
      * @param gat
      * @return
      */
-    public int updateGoodsAttributeT(GoodsAttribute gat);
+    public int updateGoodsAttribute(GoodsAttribute gat);
 
     /**
-     *  根据goodstypeid获取参数
-     * @param goodstypeid
+     * 根据goodstypeid获取参数
+     * @param goodsTypeId
      * @return
      */
-    public GoodsAttribute findGoodsAttributeTBygoodstypeId(String goodstypeid);
+    public GoodsAttribute findGoodsAttributeBygoodsTypeId(String goodsTypeId);
 
     /**
      * 获取所有的商品参数
-     *
      * @param currentPage
      * @param lineSize
      * @return
      */
-    public List<GoodsAttribute> findAllGoodsAttributeT(final int currentPage,
-                                                        final int lineSize);
+    public List<GoodsAttribute> findAllGoodsAttribute(final int currentPage, final int lineSize);
 
     /**
-     * 统计说去所有的商品参数
-     *
+     * 统计所有的商品参数
      * @return
      */
-    public int countfindAllGoodsAttributeT();
+    public int countFindAllGoodsAttribute();
 
     /**
      * 删除商品参数
-     *
      * @param list
      * @return
      */
-    public int delGoodsAttributeT(String[] list);
+    public int delGoodsAttribute(String[] list);
 
     /**
      * 根据商品类型名称获取商品属性参数
-     *
      * @param goodsTypeName
      * @return
      */
-    public List<GoodsAttribute> findGoodsAttributeTByGoodsTypeName(
-            String goodsTypeName);
+    public List<GoodsAttribute> findGoodsAttributeByGoodsTypeName(String goodsTypeName);
 
     /**
      * 根据商品类型名称获取商品属性参数
      * @param goodsTypeId
      * @return
      */
-    public List<GoodsAttribute> findGoodsAttributeTBygoodsTypeId(
-            String goodsTypeId);
+    public List<GoodsAttribute> findGoodsAttributeByGoodsTypeId(String goodsTypeId);
 
     /**
      * 根据参数统计搜索结果计数
-     *
      * @param queryString
      * @return
      */
-    public int countsortAllGoodsAttributeT(String queryString);
+    public int countSortAllGoodsAttribute(String queryString);
 
     /**
      * 根据排序方式进行排序
@@ -81,37 +72,30 @@ public interface GoodsAttributeDao {
      * @param queryString
      * @return
      */
-    public List<GoodsAttribute> sortAllGoodsAttributeT(final int currentPage,
-                                                        final int lineSize, String queryString);
+    public List<GoodsAttribute> sortAllGoodsAttribute(final int currentPage, final int lineSize, String queryString);
 
     /**
      * 更新商品参数表中的商品类型名称
-     *
      * @param goodsTypeName
      * @param goodsTypeId
      * @return
      */
-    public int updateGoodsAttributeTgoodsTypeName(String goodsTypeName,
-                                                  String goodsTypeId);
+    public int updateGoodsAttributeGoodsTypeName(String goodsTypeName,String goodsTypeId);
 
     /**
      * 根据id更新是否支持检索
-     *
-     * @param goodsattributeid
-     * @param issearch
+     * @param goodsattributeId
+     * @param isSearch
      * @return
      */
-    public int updateGoodsAttributeissearchBygoodsattributeid(
-            String[] goodsattributeid, String issearch);
+    public int updateGoodsAttributeIsSearchByGoodsAttributeId(String[] goodsattributeId, String isSearch);
 
     /**
      * 根据id更新是否支持关联检索
-     *
-     * @param goodsattributeid
-     * @param issametolink
+     * @param goodsAttributeId
+     * @param isSameToLink
      * @return
      */
-    public int updateGoodsAttributeissametolinkBygoodsattributeid(
-            String[] goodsattributeid, String issametolink);
+    public int updateGoodsAttributeIsSameToLinkByGoodsAttributeId(String[] goodsAttributeId, String isSameToLink);
 
 }

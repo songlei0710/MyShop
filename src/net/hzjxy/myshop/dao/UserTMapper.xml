@@ -3,10 +3,30 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.UserTDao">
-    <select id="login" parameterType="UserT" resultType="UserT">
+    <insert id="addUserT"></insert>
+    <update id="updateUserTunpwd"></update>
+    <update id="updateUserForMyInfo"></update>
+    <update id="updateUserMember"></update>
+    <update id="updateUserState"></update>
+    <update id="updateUserPasswordProtection"></update>
+    <update id="updateUserRoleByUserId"></update>
+    <update id="updateUserHeadPathByUserId"></update>
+    <update id="updateUserT"></update>
+    <delete id="delUser"></delete>
+    <select id="login" parameterType="UserT" resultType="net.hzjxy.myshop.entity.UserT">
         SELECT * FROM UserT WHERE UserName=#{username} AND password=#{password}
     </select>
-    <insert id="addUserT" parameterType="UserT">
-        INSERT  INTO UserT
-    </insert>
+    <select id="findByUserName" resultType="net.hzjxy.myshop.entity.UserT">
+
+    </select>
+    <select id="findById" resultType="net.hzjxy.myshop.entity.UserT"></select>
+    <select id="findAllUserT" resultType="net.hzjxy.myshop.entity.UserT"></select>
+    <select id="countFindAllUserT" resultType="java.lang.Integer"></select>
+    <select id="checkUserByUsername" resultType="net.hzjxy.myshop.entity.UserT"></select>
+    <select id="checkUsernameAndPassword" resultType="net.hzjxy.myshop.entity.UserT"></select>
+    <select id="findUserByUserId" resultType="net.hzjxy.myshop.entity.UserT"></select>
+    <select id="sortAllUserT" resultType="net.hzjxy.myshop.entity.UserT"></select>
+    <select id="findEmailByUser"></select>
+    <select id="checkUserByEmail" resultType="net.hzjxy.myshop.entity.UserT"></select>
+    <select id="checkUserByAnswer" resultType="net.hzjxy.myshop.entity.UserT"></select>
 </mapper>

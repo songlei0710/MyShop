@@ -10,17 +10,17 @@ public class MemberGrade {
     private String id;
     private String typeA;
     private String nameA;
-    private double startA;
+    private double startＡ;
     private double endA;
-    private Double incrementA;
-    private Double multiplyPower;
-    private String mpState;
-    private Double mpChangePower;
-    private Date updateTime;
-    private int versionTA;
+    private Double incrementＡ;
+    private Double multiplypower;
+    private String mpstate;
+    private Double mpchangepower;
+    private Date updatetime;
+    private int versiontＡ;
     private Double discount;
-    private Date createTime;
-    private String creatorId;
+    private Date createtime;
+    private String creatorid;
 
     public String getId() {
         return id;
@@ -46,12 +46,12 @@ public class MemberGrade {
         this.nameA = nameA;
     }
 
-    public double getStartA() {
-        return startA;
+    public double getStartＡ() {
+        return startＡ;
     }
 
-    public void setStartA(double startA) {
-        this.startA = startA;
+    public void setStartＡ(double startＡ) {
+        this.startＡ = startＡ;
     }
 
     public double getEndA() {
@@ -62,52 +62,52 @@ public class MemberGrade {
         this.endA = endA;
     }
 
-    public Double getIncrementA() {
-        return incrementA;
+    public Double getIncrementＡ() {
+        return incrementＡ;
     }
 
-    public void setIncrementA(Double incrementA) {
-        this.incrementA = incrementA;
+    public void setIncrementＡ(Double incrementＡ) {
+        this.incrementＡ = incrementＡ;
     }
 
-    public Double getMultiplyPower() {
-        return multiplyPower;
+    public Double getMultiplypower() {
+        return multiplypower;
     }
 
-    public void setMultiplyPower(Double multiplyPower) {
-        this.multiplyPower = multiplyPower;
+    public void setMultiplypower(Double multiplypower) {
+        this.multiplypower = multiplypower;
     }
 
-    public String getMpState() {
-        return mpState;
+    public String getMpstate() {
+        return mpstate;
     }
 
-    public void setMpState(String mpState) {
-        this.mpState = mpState;
+    public void setMpstate(String mpstate) {
+        this.mpstate = mpstate;
     }
 
-    public Double getMpChangePower() {
-        return mpChangePower;
+    public Double getMpchangepower() {
+        return mpchangepower;
     }
 
-    public void setMpChangePower(Double mpChangePower) {
-        this.mpChangePower = mpChangePower;
+    public void setMpchangepower(Double mpchangepower) {
+        this.mpchangepower = mpchangepower;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getUpdatetime() {
+        return updatetime;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
     }
 
-    public int getVersionTA() {
-        return versionTA;
+    public int getVersiontＡ() {
+        return versiontＡ;
     }
 
-    public void setVersionTA(int versionTA) {
-        this.versionTA = versionTA;
+    public void setVersiontＡ(int versiontＡ) {
+        this.versiontＡ = versiontＡ;
     }
 
     public Double getDiscount() {
@@ -118,19 +118,19 @@ public class MemberGrade {
         this.discount = discount;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
-    public String getCreatorId() {
-        return creatorId;
+    public String getCreatorid() {
+        return creatorid;
     }
 
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
+    public void setCreatorid(String creatorid) {
+        this.creatorid = creatorid;
     }
 }

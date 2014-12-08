@@ -15,7 +15,7 @@ public class MemberGroup {
     private Date updateTime;
     private Integer versionT;
     private String attrs;
-
+    
     public String getId() {
         return id;
     }
@@ -79,4 +79,6 @@ public class MemberGroup {
     public void setAttrs(String attrs) {
         this.attrs = attrs;
     }
+
+
 }
