@@ -12,7 +12,10 @@ import java.util.List;
 public class UserTDaoImpl implements UserTDao {
     @Override
     public UserT login(String username, String password, String userState) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        UserT user=userTDao.login("admin","123456","1");
+        return user;
     }
 
     @Override
