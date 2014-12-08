@@ -34,8 +34,7 @@ public interface ArticleDao {
      * @param creatorid
      * @return
      */
-    public List<Article> findAllArticleT(final int currentPage,
-                                          final int lineSize, final String creatorid);
+    public List<Article> findAllArticleT(final int currentPage, final int lineSize, final String creatorid);
     /**
      * 获取所有文章
      *

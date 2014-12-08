@@ -13,14 +13,23 @@
     <update id="updateUserHeadPathByUserId"></update>
     <update id="updateUserT"></update>
     <delete id="delUser"></delete>
-    <select id="login" parameterType="UserT" resultType="net.hzjxy.myshop.entity.UserT">
-        SELECT * FROM UserT WHERE UserName=#{username} AND password=#{password}
+    <select id="findByUserName" resultType="net.hzjxy.myshop.entity.UserT" parameterType="string">
+        SELECT * FROM UserT WHERE username=#{username}
     </select>
-    <select id="findByUserName" resultType="net.hzjxy.myshop.entity.UserT">
-
+    <select id="findById" resultType="net.hzjxy.myshop.entity.UserT" parameterType="string">
+        SELECT  * FROM UserT WHERE UserId=#{userId}
     </select>
-    <select id="findById" resultType="net.hzjxy.myshop.entity.UserT"></select>
-    <select id="findAllUserT" resultType="net.hzjxy.myshop.entity.UserT"></select>
+    <select id="findAllUserT" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
+        SELECT * FROM
+          (
+            SELECT A.*,ROWNUM RN FROM
+              (
+                  SELECT * FROM UserT ORDER BY createtime DESC
+              ) A
+              WHERE ROWNUM<=#{currentPage}*#{lineSize}
+          )
+          WHERE RN>=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countFindAllUserT" resultType="java.lang.Integer"></select>
     <select id="checkUserByUsername" resultType="net.hzjxy.myshop.entity.UserT"></select>
     <select id="checkUsernameAndPassword" resultType="net.hzjxy.myshop.entity.UserT"></select>
@@ -29,4 +38,7 @@
     <select id="findEmailByUser"></select>
     <select id="checkUserByEmail" resultType="net.hzjxy.myshop.entity.UserT"></select>
     <select id="checkUserByAnswer" resultType="net.hzjxy.myshop.entity.UserT"></select>
+    <select id="login" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
+        SELECT * FROM UserT WHERE username=#{username} AND password=#{password} AND state=#{userState}
+    </select>
 </mapper>
