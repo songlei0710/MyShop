@@ -14,7 +14,7 @@ public class UserTDaoImpl implements UserTDao {
     public UserT login(String username, String password, String userState) {
         SqlSession session=MybatisUtil.currentSession();
         UserTDao userTDao=session.getMapper(UserTDao.class);
-        UserT user=userTDao.login("admin","123456","1");
+        UserT user=userTDao.login(username,password,userState);
         return user;
     }
 

@@ -161,7 +161,7 @@ public interface UserTDao {
      * @param roleName
      * @return
      */
-    public int updateUserRoleByUserId(String userId, String roleId,String roleName);
+    public int updateUserRoleByUserId(@Param("userId") String userId, @Param("roleId") String roleId, @Param("roleName") String roleName);
 
     /**
      * 上传用户的头像路径

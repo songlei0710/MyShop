@@ -9,9 +9,11 @@
     <update id="updateUserMember"></update>
     <update id="updateUserState"></update>
     <update id="updateUserPasswordProtection"></update>
-    <update id="updateUserRoleByUserId"></update>
+    <update id="updateUserRoleByUserId">
+        UPDATE  UserT SET rolEmId=#{roleName} And rolEmName=#{roleName} WHERE UserId=#{userId}
+    </update>
     <update id="updateUserHeadPathByUserId" parameterType="map">
-        UPDATE UserT WHERE headPath=#{headPath} WHERE UserId=#{userId}
+        UPDATE UserT SET headPath=#{headPath} WHERE UserId=#{userId}
     </update>
     <update id="updateUserT" parameterType="net.hzjxy.myshop.entity.UserT">
         UPDATE UserT
@@ -38,15 +40,7 @@
         SELECT  * FROM UserT WHERE UserId=#{userId}
     </select>
     <select id="findAllUserT" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
-        SELECT * FROM
-          (
-            SELECT A.*,ROWNUM RN FROM
-              (
-                  SELECT * FROM UserT ORDER BY createtime DESC
-              ) A
-              WHERE ROWNUM<=#{currentPage}*#{lineSize}
-          )
-          WHERE RN>=(#{currentPage}-1)*#{lineSize}+1
+
     </select>
     <select id="countFindAllUserT" resultType="java.lang.Integer">
         SELECT COUNT(*) FROM UserT
@@ -59,15 +53,7 @@
     </select>
     <select id="findUserByUserId" resultType="net.hzjxy.myshop.entity.UserT"></select>
     <select id="sortAllUserT" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
-        SELECT * FROM
-        (
-            SELECT A.*,ROWNUM RN FROM
-            (
-                SELECT * FROM UserT ORDER BY #{queryString}
-            ) A
-            WHERE ROWNUM<=#{currentPage}*#{lineSize}
-        )
-        WHERE RN>=(#{currentPage}-1)*#{lineSize}+1
+
     </select>
     <select id="findEmailByUser">
         SELECT email FROM UserT
