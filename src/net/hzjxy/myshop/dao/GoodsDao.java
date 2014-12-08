@@ -33,7 +33,7 @@ public interface GoodsDao {
      * @param creatorid
      * @return
      */
-    public List<Goods> findAllGoods(final int currentPage, final int lineSize,
+    public List<Goods> findAllGoodsByPageId(final int currentPage, final int lineSize,
                                      final String creatorid);
     /**
      * 查询所有商品信息
@@ -42,7 +42,7 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods> findAllGoods(final int currentPage, final int lineSize);
+    public List<Goods> findAllGoodsByPage(final int currentPage, final int lineSize);
     /**
      * 查询所有没有条件商品
      *
@@ -56,7 +56,7 @@ public interface GoodsDao {
      * @param creatorid
      * @return
      */
-    public int countAllGoods(String creatorid);
+    public int countAllGoodsById(String creatorid);
     /**
      * 统计所有商品
      * @return
@@ -106,7 +106,7 @@ public interface GoodsDao {
      * @param lineSize
      * @return
      */
-    public List<Goods> findGoodsByLtypeid(final String ltypeid,
+    public List<Goods> findGoodsByLtypeidByPage(final String ltypeid,
                                            final String salestate, final int currentPage, final int lineSize);
 
     /**
@@ -133,7 +133,7 @@ public interface GoodsDao {
      * @param creatorid
      * @return
      */
-    public int updateGoodsSaleState(String[] goodsid, String salestate,
+    public int updateGoodsSaleStateById(String[] goodsid, String salestate,
                                     String creatorid);
 
     /**

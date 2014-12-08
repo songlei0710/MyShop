@@ -11,9 +11,9 @@
     <delete id="delGoodsAttribute"></delete>
     <select id="findGoodsAttributeBygoodsTypeId" resultType="net.hzjxy.myshop.entity.GoodsAttribute"></select>
     <select id="findAllGoodsAttribute" resultType="net.hzjxy.myshop.entity.GoodsAttribute"></select>
-    <select id="countFindAllGoodsAttribute" resultType="java.lang.Integer"></select>
     <select id="findGoodsAttributeByGoodsTypeName" resultType="net.hzjxy.myshop.entity.GoodsAttribute"></select>
     <select id="findGoodsAttributeByGoodsTypeId" resultType="net.hzjxy.myshop.entity.GoodsAttribute"></select>
-    <select id="countSortAllGoodsAttribute" resultType="java.lang.Integer"></select>
     <select id="sortAllGoodsAttribute" resultType="net.hzjxy.myshop.entity.GoodsAttribute"></select>
+    <select id="countFindAllGoodsAttribute" resultType="java.lang.Integer"></select>
+    <select id="countSortAllGoodsAttribute" resultType="java.lang.Integer"></select>
 </mapper>
