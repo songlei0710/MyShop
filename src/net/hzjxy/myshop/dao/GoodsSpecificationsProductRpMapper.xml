@@ -3,13 +3,23 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsSpecificationsProductRpDao">
-    <update id="updateGoodsAssociatedProductById"></update>
-    <delete id="delGoodsAssociatedProductById"></delete>
+    <update id="updateGoodsAssociatedProductById">
+  UPDATE  GOODSSPECIFICATIONSPRODUCTRP SET GoodsId=#{goodsid} And SpecificationsId=#{specificationsid} And ProductId=#{productid} WHERE GOODSSPPRRPTID=#{goodsSpecificationsProductRpTid}
+    </update>
+    <delete id="delGoodsAssociatedProductById">
+    DELETE FROM GOODSSPECIFICATIONSPRODUCTRP WHERE GoodsId=#{goodsid}
+    </delete>
 
     <select id="checkSpecificationRelationshipByspecificationsid"
-            resultType="net.hzjxy.myshop.entity.GoodsSpecificationsProductRp"></select>
+            resultType="net.hzjxy.myshop.entity.GoodsSpecificationsProductRp">
+     SELECT * FROM GOODSSPECIFICATIONSPRODUCTRP WHERE SpecificationsId=#{specificationsid}
+            </select>
     <select id="checkSpecificationRelationshipBygoodssetid"
-            resultType="net.hzjxy.myshop.entity.GoodsSpecificationsProductRp"></select>
+            resultType="net.hzjxy.myshop.entity.GoodsSpecificationsProductRp">
+     SELECT * FROM GOODSSPECIFICATIONSPRODUCTRP WHERE GoodsId=#{goodsid}
+            </select>
     <select id="checkSpecificationRelationshipByproductid"
-            resultType="net.hzjxy.myshop.entity.GoodsSpecificationsProductRp"></select>
+            resultType="net.hzjxy.myshop.entity.GoodsSpecificationsProductRp">
+    SELECT * FROM GOODSSPECIFICATIONSPRODUCTRP WHERE ProductId=#{productid}
+            </select>
 </mapper>
