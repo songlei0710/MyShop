@@ -1,5 +1,6 @@
 package net.hzjxy.myshop.test;
 
+import net.hzjxy.myshop.dao.UserTDao;
 import net.hzjxy.myshop.dao.impl.GoodsAttributeDaoImpl;
 import net.hzjxy.myshop.dao.impl.UserTDaoImpl;
 import net.hzjxy.myshop.entity.GoodsAttribute;
@@ -12,10 +13,8 @@ import java.util.List;
  */
 public class UserTTest {
     public static void main(String[] args) {
-        GoodsAttributeDaoImpl impl=new GoodsAttributeDaoImpl();
-        GoodsAttribute goodsAttribute=impl.findGoodsAttributeBygoodsTypeId("1");
-        System.out.println(goodsAttribute.getCreateTime());
-
-
+        UserTDaoImpl impl=new UserTDaoImpl();
+        UserT userT=impl.login("zhangsan","123","1");
+        System.out.println(userT.getUserId());
     }
 }
