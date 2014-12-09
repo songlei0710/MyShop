@@ -212,7 +212,7 @@ public interface OrderrDao {
      * @param queryString
      * @return
      */
-    public List<Orderr> sortAllOrder(final int currentPage, final int lineSize, String queryString);
+    public List<Orderr> selectAllOrder(final int currentPage, final int lineSize, String queryString);
 
     /**
      * 根据发货状态获取已发货商品

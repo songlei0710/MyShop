@@ -96,7 +96,7 @@ public interface ProductDao {
      * @param productId
      * @return
      */
-    public Product findProductByProductId(String productId);
+    public Product findProductById(String productId);
     /**
      * 批量删除货物
      * @param strs

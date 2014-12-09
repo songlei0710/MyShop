@@ -47,7 +47,7 @@ public interface ProductSpecificationDao {
      * @param state
      * @return
      */
-    public List<ProductSpecification> findAllProductSpecification(String state);
+    public List<ProductSpecification> findAllProductSpecificati(String state);
 
     /**
      * 根据排序方式进行排序
