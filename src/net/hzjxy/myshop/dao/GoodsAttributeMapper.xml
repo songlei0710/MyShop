@@ -44,6 +44,7 @@
                 isSameToLink=#{isSameToLink},
             </if>
         </set>
+        WHERE GoodSatTributeId=#{goodSatTributeId}
     </update>
     <update id="updateGoodsAttributeGoodsTypeName" parameterType="map">
         UPDATE GoodsAttribute SET goodsTypeName=#{goodsTypeName} WHERE goodsTypeId=#{goodsTypeId}

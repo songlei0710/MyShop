@@ -8,8 +8,13 @@ import net.hzjxy.myshop.entity.GoodsAttribute;
  */
 public class GoodsAttributeTest {
     public static void main(String[] args) {
-        GoodsAttributeDaoImpl impl = new GoodsAttributeDaoImpl();
-        GoodsAttribute goodsAttribute = impl.findGoodsAttributeBygoodsTypeId("1");
-        System.out.println(goodsAttribute.getCreateTime());
-       }
+//        GoodsAttributeDaoImpl impl = new GoodsAttributeDaoImpl();
+//        GoodsAttribute goodsAttribute = impl.findGoodsAttributeBygoodsTypeId("1");
+//        System.out.println(goodsAttribute.getCreateTime());
+          GoodsAttributeDaoImpl impl = new GoodsAttributeDaoImpl();
+          GoodsAttribute gat =new GoodsAttribute();
+          gat.setGoodSatTributeId("asf");
+          gat.setAttributeType("asdfsadf");
+          impl.updateGoodsAttribute(gat);
+    }
     }

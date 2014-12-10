@@ -14,8 +14,11 @@ public class GoodsAttributeDaoImpl implements GoodsAttributeDao {
 
     @Override
     public int updateGoodsAttribute(GoodsAttribute gat) {
-
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        goodsAttributeDao.updateGoodsAttribute(gat);
+        session.commit();
+        return goodsAttributeDao.updateGoodsAttribute(gat);
     }
 
     @Override
