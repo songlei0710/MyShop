@@ -11,6 +11,5 @@ public class GoodsAttributeTest {
         GoodsAttributeDaoImpl impl = new GoodsAttributeDaoImpl();
         GoodsAttribute goodsAttribute = impl.findGoodsAttributeBygoodsTypeId("1");
         System.out.println(goodsAttribute.getCreateTime());
-
-    }
+       }
     }

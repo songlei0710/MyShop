@@ -18,5 +18,6 @@
     </environments>
     <mappers>
         <mapper resource="net/hzjxy/myshop/dao/UserTMapper.xml"/>
+        <mapper resource="net/hzjxy/myshop/dao/GoodsAttributeMapper.xml"/>
     </mappers>
 </configuration>
