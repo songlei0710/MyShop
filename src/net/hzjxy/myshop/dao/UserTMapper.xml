@@ -42,15 +42,6 @@
         SELECT  * FROM UserT WHERE UserId=#{userId}
     </select>
     <select id="findAllUserT" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
-        SELECT * FROM
-        (
-        SELECT A.*,ROWNUM RN FROM
-        (
-        SELECT * FROM UserT ORDER BY createtime DESC
-        ) A
-        WHERE ROWNUM <=#{currentPage}*#{lineSize}
-        )
-        WHERE RN>=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countFindAllUserT" resultType="java.lang.Integer">
         SELECT COUNT(*) FROM UserT
