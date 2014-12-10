@@ -3,5 +3,11 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.BrandDao">
+    <update id="updateBrandt"></update>
     <delete id="delArticleT"></delete>
+    <delete id="delBrandt"></delete>
+    <select id="findAllBrandt" resultType="net.hzjxy.myshop.entity.Brand"></select>
+    <select id="countfindAllBrandt" resultType="java.lang.Integer"></select>
+    <select id="findBrandById" resultType="net.hzjxy.myshop.entity.Brand"></select>
+    <select id="sortAllBrandt" resultType="net.hzjxy.myshop.entity.Brand"></select>
 </mapper>

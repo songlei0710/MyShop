@@ -3,5 +3,16 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.ArticleDao">
+    <update id="updateArticleT"></update>
+    <update id="updateHtmlPath"></update>
+    <update id="sortAllArticleT"></update>
+    <update id="updateArticlepositionByarticleCategoryTid"></update>
     <delete id="delArticleT"></delete>
+    <select id="findArticleByarticleid" resultType="net.hzjxy.myshop.entity.Article"></select>
+    <select id="findAllArticleT" resultType="net.hzjxy.myshop.entity.Article"></select>
+    <select id="countfindAllArticle" resultType="java.lang.Integer"></select>
+    <select id="findAllArticleBycreatorid" resultType="net.hzjxy.myshop.entity.Article"></select>
+    <select id="findArticlesByNavid" resultType="net.hzjxy.myshop.entity.Article"></select>
+    <select id="findArticlesByLtypeid" resultType="net.hzjxy.myshop.entity.Article"></select>
+    <select id="findArticlesByStypeid" resultType="net.hzjxy.myshop.entity.Article"></select>
 </mapper>
