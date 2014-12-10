@@ -3,5 +3,21 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.imgDao">
+    <update id="updateImgT"></update>
+    <update id="updateImgState"></update>
     <delete id="delArticleT"></delete>
+    <delete id="delImgT"></delete>
+    <select id="findAllImgT" resultType="net.hzjxy.myshop.entity.Img" parameterType="string">
+        SELECT * FROM Img WHERE
+    </select>
+    <select id="countfindAllImgT" resultType="java.lang.Integer">
+        SELECT * FROM Img  WHERE
+    </select>
+    <select id="findImgTByImgName" resultType="net.hzjxy.myshop.entity.Img"></select>
+    <select id="findImgTByusedGoodsidandusedPositionId" resultType="net.hzjxy.myshop.entity.Img"></select>
+    <select id="findImgTByusedGoodsid" resultType="net.hzjxy.myshop.entity.Img"></select>
+    <select id="findImgTByusedGoodsidandPositionIdisNull" resultType="net.hzjxy.myshop.entity.Img"></select>
+    <select id="findAllImgTByImgName" resultType="net.hzjxy.myshop.entity.Img"></select>
+    <select id="countfindAllImgTByImgName" resultType="java.lang.Integer"></select>
+    <select id="sortAllImgT" resultType="net.hzjxy.myshop.entity.Img"></select>
 </mapper>
