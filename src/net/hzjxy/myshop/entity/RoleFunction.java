@@ -6,7 +6,7 @@ package net.hzjxy.myshop.entity;
  */
 public class RoleFunction {
     private String id;
-    private String roleid;
+    private String roleid; //用户角色
     private String functionid;
 
     public String getId() {
