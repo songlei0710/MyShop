@@ -4,4 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.FavoriteDao">
     <delete id="delArticleT"></delete>
+    <delete id="delFavorite"></delete>
+    <select id="findAllFavoriteByUserid" resultType="net.hzjxy.myshop.entity.Favorite"></select>
+    <select id="countfindAllFavoriteByUserid" resultType="java.lang.Integer"></select>
 </mapper>
