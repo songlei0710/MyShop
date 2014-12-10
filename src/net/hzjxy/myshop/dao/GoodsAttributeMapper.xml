@@ -61,7 +61,7 @@
         </foreach>
     </delete>
     <select id="findGoodsAttributeBygoodsTypeId" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
-        SELECT * FROM goodSatTributeId WHERE goodsTypeId=#{goodsTypeId}
+        SELECT * FROM GoodsAttribute WHERE GoodsTypeId=#{goodsTypeId}
     </select>
     <select id="findAllGoodsAttribute" resultType="net.hzjxy.myshop.entity.GoodsAttribute">
 
