@@ -3,7 +3,18 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsCategoryDao">
-    <update id="updateGoodscategoryT"></update>
+    <update id="updateGoodscategoryT">
+        UPDATE UserT
+        <set>
+            <if test="username!=null">
+                username=#{username},
+            </if>
+            <if test="password!=null">
+                password=#{password},
+            </if>
+        </set>
+        WHERE userId=#{userId}
+    </update>
     <update id="updateHtmlPath"></update>
     <delete id="delGoodscategoryT"></delete>
     <delete id="delGoodscategoryS"></delete>
