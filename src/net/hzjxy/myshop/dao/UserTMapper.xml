@@ -71,8 +71,12 @@
     <select id="findEmailByUser">
         SELECT email FROM UserT
     </select>
-    <select id="checkUserByEmail" resultType="net.hzjxy.myshop.entity.UserT"></select>
-    <select id="checkUserByAnswer" resultType="net.hzjxy.myshop.entity.UserT"></select>
+    <select id="checkUserByEmail" resultType="net.hzjxy.myshop.entity.UserT">
+        from UserT as u where u.email=:useremail
+    </select>
+    <select id="checkUserByAnswer" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
+        from UserT as u where u.username=:username and u.question=:question and u.answer=:answer
+    </select>
     <select id="login" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
         SELECT * FROM UserT WHERE username=#{username} AND password=#{password} AND state=#{userState}
     </select>
