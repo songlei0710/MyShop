@@ -56,7 +56,7 @@ public interface GoodsAttributeDao {
      * @param goodsTypeId
      * @return
      */
-    public List<GoodsAttribute> findGoodsAttributeByGoodsTypeId(String goodsTypeId);
+    public List<GoodsAttribute> findGoodsAttributeByGoodsTypeIdL(String goodsTypeId);
 
     /**
      * 根据参数统计搜索结果计数
