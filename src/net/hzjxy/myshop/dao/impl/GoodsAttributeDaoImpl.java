@@ -36,32 +36,26 @@ public class GoodsAttributeDaoImpl implements GoodsAttributeDao {
 
     @Override
     public int countFindAllGoodsAttribute() {
-     
         return 0;
     }
 
     @Override
-    public int delGoodsAttribute(String[] list)
-    {
-
+    public int delGoodsAttribute(String[] list) {
         return 0;
     }
 
     @Override
     public List<GoodsAttribute> findGoodsAttributeByGoodsTypeName(String goodsTypeName) {
-
         return null;
     }
 
     @Override
-    public List<GoodsAttribute> findGoodsAttributeByGoodsTypeId(String goodsTypeId) {
-
+    public List<GoodsAttribute> findGoodsAttributeByGoodsTypeIdL(String goodsTypeId) {
         return null;
     }
 
     @Override
     public int countSortAllGoodsAttribute(String queryString) {
-
         return 0;
     }
 

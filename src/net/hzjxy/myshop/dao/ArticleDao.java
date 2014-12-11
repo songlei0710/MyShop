@@ -18,7 +18,7 @@ public interface ArticleDao {
     public void delArticleT(String[] strs);
 
     /**
-     * &#x6839;&#x636e;articleid&#x83b7;&#x53d6;&#x6587;&#x7ae0;
+     * 根据articleid获取文章;
      *
      * @param articleid
      * @return
@@ -34,7 +34,7 @@ public interface ArticleDao {
      * @param creatorid
      * @return
      */
-    public List<Article> findAllArticleT(final int currentPage, final int lineSize, final String lineSize);
+    public List<Article> findAllArticleT(final int currentPage, final int lineSize, final String creatorid);
     /**
      * 获取所有文章
      *
