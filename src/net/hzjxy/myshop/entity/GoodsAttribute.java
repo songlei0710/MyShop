@@ -124,4 +124,6 @@ public class GoodsAttribute {
     public void setIsSameToLink(String isSameToLink) {
         this.isSameToLink = isSameToLink;
     }
+
+
 }
