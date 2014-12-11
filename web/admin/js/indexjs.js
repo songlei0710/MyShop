@@ -11,16 +11,6 @@ $(function(){
 	buildAllHtml=function(){
 		$('#backinfo').html("正在生成网站请稍候......");
 		$('#buildhtmlsubmit').attr("disabled", true);
-		// $("#spaceused1").progressBar();
-		// $("#spaceused2").progressBar({ barImage:
-		// 'js/jqueryprogressbar/images/progressbg_yellow.gif'} );
-		// $("#spaceused3").progressBar({ barImage:
-		// 'js/jqueryprogressbar/images/progressbg_orange.gif', showText: false}
-		// );
-		// $("#spaceused4").progressBar(65, { showText: false, barImage:
-		// 'js/jqueryprogressbarimages/progressbg_red.gif'} );
-		// $("#buildprogressbar").progressBar();
-		// setTimeout("showBuildProcess()", 750);
 		$.post("buildAllHtml.action", function(data) {
 
 			if (data.status == "success") {
