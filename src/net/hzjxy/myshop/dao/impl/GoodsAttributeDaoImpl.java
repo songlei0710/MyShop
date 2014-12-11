@@ -31,51 +31,86 @@ public class GoodsAttributeDaoImpl implements GoodsAttributeDao {
 
     @Override
     public List<GoodsAttribute> findAllGoodsAttribute(@Param("currentPage") int currentPage, @Param("lineSize") int lineSize) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        List<GoodsAttribute> goodsAttribute =goodsAttributeDao.findAllGoodsAttribute(currentPage,lineSize);
+        return goodsAttribute;
     }
 
     @Override
     public int countFindAllGoodsAttribute() {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        goodsAttributeDao.countFindAllGoodsAttribute();
+        return goodsAttributeDao.countFindAllGoodsAttribute();
     }
 
     @Override
-    public int delGoodsAttribute(String[] list) {
-        return 0;
+    public int delGoodsAttribute(String[] list)
+    {
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        goodsAttributeDao.delGoodsAttribute(list);
+        session.commit();
+        return goodsAttributeDao.delGoodsAttribute(list);
     }
 
     @Override
     public List<GoodsAttribute> findGoodsAttributeByGoodsTypeName(String goodsTypeName) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        List<GoodsAttribute> goodsAttribute=goodsAttributeDao.findGoodsAttributeByGoodsTypeName(goodsTypeName);
+        return goodsAttribute;
     }
 
     @Override
-    public List<GoodsAttribute> findGoodsAttributeByGoodsTypeId(String goodsTypeId) {
-        return null;
+    public List<GoodsAttribute> findGoodsAttributeByGoodsTypeIdL(String goodsTypeId) {
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        List<GoodsAttribute> goodsAttribute=goodsAttributeDao.findGoodsAttributeByGoodsTypeIdL(goodsTypeId);
+        return goodsAttribute;
     }
 
     @Override
     public int countSortAllGoodsAttribute(String queryString) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        goodsAttributeDao.countSortAllGoodsAttribute(queryString);
+        return goodsAttributeDao.countSortAllGoodsAttribute(queryString);
     }
 
     @Override
     public List<GoodsAttribute> sortAllGoodsAttribute(@Param("currentPage") int currentPage, @Param("lineSize") int lineSize, @Param("queryString") String queryString) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        List<GoodsAttribute> goodsAttribute =goodsAttributeDao.sortAllGoodsAttribute(currentPage, lineSize, queryString);
+        return goodsAttribute;
     }
 
     @Override
     public int updateGoodsAttributeGoodsTypeName(@Param("goodsTypeName") String goodsTypeName, @Param("goodsTypeId") String goodsTypeId) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        goodsAttributeDao.updateGoodsAttributeGoodsTypeName(goodsTypeName,goodsTypeId);
+        session.commit();
+        return goodsAttributeDao.updateGoodsAttributeGoodsTypeName(goodsTypeName,goodsTypeId);
     }
 
     @Override
     public int updateGoodsAttributeIsSearchByGoodsAttributeId(@Param("goodsattributeId") String[] goodsattributeId, @Param("isSearch") String isSearch) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        goodsAttributeDao.updateGoodsAttributeIsSearchByGoodsAttributeId(goodsattributeId,isSearch);
+        session.commit();
+        return goodsAttributeDao.updateGoodsAttributeIsSearchByGoodsAttributeId(goodsattributeId,isSearch);
     }
 
     @Override
     public int updateGoodsAttributeIsSameToLinkByGoodsAttributeId(@Param("goodsAttributeId") String[] goodsAttributeId, @Param("isSameToLink") String isSameToLink) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        goodsAttributeDao.updateGoodsAttributeIsSameToLinkByGoodsAttributeId(goodsAttributeId,isSameToLink);
+        session.commit();
+        return goodsAttributeDao.updateGoodsAttributeIsSameToLinkByGoodsAttributeId(goodsAttributeId,isSameToLink);
     }
 }
