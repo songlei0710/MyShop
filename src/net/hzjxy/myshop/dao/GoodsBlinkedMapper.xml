@@ -12,7 +12,7 @@
                  UPDATE GoodsBelinked SET headPath=#{headPath} WHERE Maingoodsid=#{maingoodsid}
         </delete>
         <delete id="delGoodsBelinked">
-                UPDATE GoodsBelinked
+                  UPDATE GoodsBelinked
                 <set>
                         <if test="id!=null">
                                 id=#{id},
