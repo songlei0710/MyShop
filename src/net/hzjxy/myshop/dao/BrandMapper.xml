@@ -3,11 +3,25 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.BrandDao">
-    <update id="updateBrandt"></update>
-    <delete id="delArticleT"></delete>
-    <delete id="delBrandt"></delete>
-    <select id="findAllBrandt" resultType="net.hzjxy.myshop.entity.Brand"></select>
-    <select id="countfindAllBrandt" resultType="java.lang.Integer"></select>
-    <select id="findBrandById" resultType="net.hzjxy.myshop.entity.Brand"></select>
-    <select id="sortAllBrandt" resultType="net.hzjxy.myshop.entity.Brand"></select>
+    <update id="updateBrandt">
+        UPDATE brand SET bt=#{bt } WHERE Brandt=#{Brandt}
+    </update>
+    <delete id="delArticleT">
+        DELETE
+    </delete>
+    <delete id="delBrandt">
+        DELETE brand SET list=#{list}AND creatorid=#{creatorid}WHERE Brandt=#{Brandt}
+    </delete>
+    <select id="findAllBrandt" resultType="net.hzjxy.myshop.entity.Brand">
+        SELECT brand SET currentPage=#{currentPage},lineSize=#{lineSize}AND creatorid=3{creatorid}WHERE Brandt=#{Brandt}
+    </select>
+    <select id="countfindAllBrandt" resultType="java.lang.Integer">
+        SELECT COUNT (*)FROM Brandt
+    </select>
+    <select id="findBrandById" resultType="net.hzjxy.myshop.entity.Brand">
+        SELECT brand SET brandid=#{brandid}WHERE ById=#{ById}
+    </select>
+    <select id="sortAllBrandt" resultType="net.hzjxy.myshop.entity.Brand">
+         SELECT brand SET currentPage=#{currentPage},lineSize=#{lineSize},creatorid=#{creatorid}AND queryString=#{queryString}WHERE Brandt=3{Brandt}
+    </select>
 </mapper>
