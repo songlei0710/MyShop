@@ -6,11 +6,21 @@
     <insert id="addUserT">
         INSERT INTO UserT
     </insert>
-    <update id="updateUserTunpwd"></update>
-    <update id="updateUserForMyInfo"></update>
-    <update id="updateUserMember"></update>
-    <update id="updateUserState"></update>
-    <update id="updateUserPasswordProtection"></update>
+    <update id="updateUserTunpwd" parameterType="map">
+        update UserT as u set u.username=:username,u.email=:email,u.state=:state,u.userstate=:userstate where u.userid=:userid
+    </update>
+    <update id="updateUserForMyInfo" parameterType="net.hzjxy.myshop.entity.UserT">
+        UPDATE  UserT SET MyInfo=#{MyInfo} WHERE UserId=#{userid}
+    </update>
+    <update id="updateUserMember" parameterType="map">
+         update UserT as u set u.password=:newpassword,u.username=:username where u.userid=:userid
+    </update>
+    <update id="updateUserState" parameterType="map">
+        UPDATE UserT SET state=#{userState} where userId=#{userId}
+    </update>
+    <update id="updateUserPasswordProtection" parameterType="map">
+         update UserT set question=#{question},answer=#{answer} where userid=#{userId}
+    </update>
     <update id="updateUserRoleByUserId">
         UPDATE  UserT SET rolEmId=#{roleName} And rolEmName=#{roleName} WHERE UserId=#{userId}
     </update>
@@ -52,7 +62,9 @@
     <select id="checkUsernameAndPassword" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
         SELECT * FROM UserT WHERE username=#{username} AND password=#{password}
     </select>
-    <select id="findUserByUserId" resultType="net.hzjxy.myshop.entity.UserT"></select>
+    <select id="findUserByUserId" resultType="net.hzjxy.myshop.entity.UserT">
+        SELECT USER FROM UserT WHERE userid=#{userId}
+    </select>
     <select id="sortAllUserT" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
 
     </select>
