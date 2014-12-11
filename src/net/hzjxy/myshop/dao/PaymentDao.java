@@ -56,7 +56,7 @@ public interface PaymentDao {
      * 根据state获取的支付方式
      * @return
      */
-    public List<Payment> findAllPayments(String state);
+    public List<Payment>(String state);
     /**
      * 根据id批量删除支付方式
      * @param str
