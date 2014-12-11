@@ -9,5 +9,7 @@
         <update id="updateByBaseId">
                  UPDATE SerialT WHERE biz=#{biz}
         </update>
-        <insert id="addSerialT"></insert>
+        <insert id="addSerialT">
+
+        </insert>
 </mapper>
