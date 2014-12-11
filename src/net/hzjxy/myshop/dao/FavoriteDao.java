@@ -8,6 +8,8 @@ import java.util.List;
  * Created by Administrator on 2014/12/4.
  */
 public interface FavoriteDao {
+
+    public int delArticleT(String[] list);
     /**
      * 删除收藏品
      * @param list
@@ -18,8 +20,8 @@ public interface FavoriteDao {
     /**
      * 获取用户的收藏夹集合
      * @param userid
-     * @param currentPage
-     * @param lineSize
+     * @param currentPage/当前页
+     * @param lineSize/每页条数
      * @return
      */
     public List<Favorite> findAllFavoriteByUserid(final String userid,
