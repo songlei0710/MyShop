@@ -15,19 +15,46 @@
         </set>
         WHERE GoodsId=#{goodId}
     </update>
-    <update id="updateGoodsSaleState"></update>
-    <update id="updateGoodsSaleStateById"></update>
-    <update id="updateGoodsreadcount"></update>
-    <update id="updateGoodsrelatedfit"></update>
-    <update id="updateGoodsrelatedgoods"></update>
-    <update id="updateFiveGoodsState"></update>
-    <update id="updateGoodsrecommended"></update>
-    <update id="updateGoodshotsale"></update>
-    <update id="updateGoodsbargainprice"></update>
-    <update id="updateGoodsisNew"></update>
-    <update id="updateGoodsismobileplatformgoods"></update>
-    <update id="updateSort"></update>
-    <update id="updateGoodssortid"></update>
+    <update id="updateGoodsSaleState" parameterType="map">
+        UPDATE Goods SET salestate=#{salestate} where goodsTypeId=#{goodsTypeId}
+    </update>
+
+    <update id="updateGoodsSaleStateById" parameterType="map">
+        UPDATE Goods SET goodsid=#{goodsid},salestate=#{salestate} and creatorid=#{creatorid} where goodsId=#{goodsid}
+    </update>
+    <update id="updateGoodsreadcount" parameterType="string">
+        UPDATE Goods SET readCount=#{readCount} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsrelatedfit" parameterType="map">
+        UPDATE Goods SET list=#{list} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsrelatedgoods" parameterType="map">
+        UPDATE Goods SET list=#{list} where goodsid=#{goodsid}
+    </update>
+    <update id="updateFiveGoodsState" parameterType="map">
+        UPDATE  Goods SET recommended=#{recommended},hotsale=#{hotsale},bargainprice=#{bargainprice},isNew=#{isNew} and ismobileplatformgoods=#{ismobileplatformgoods} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsrecommended" parameterType="map">
+        UPDATE Goods SET recommended=#{recommended} ,creatorid=#{creatorid} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodshotsale" parameterType="map">
+        UPDATE Goods SET hotsale=#{hotsale},creatorid=#{creatorid} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsbargainprice" parameterType="map">
+        UPDATE  Goods SET creatorid=#{creatorid},bargainprice=#{bargainprice} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsisNew" parameterType="map">
+        UPDATE Goods SET isNew=#{isNew},creatorid=#{creatorid} WHERE goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsismobileplatformgoods" parameterType="map">
+        UPDATE Goods SET ismobileplatformgoods=#{ismobileplatformgoods},creatorid=#{creatorid} where goodsid=#{goodsid}
+    </update>
+    <update id="updateSort" parameterType="map">
+        UPDATE Goods SET sort=#{sort} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodssortid" parameterType="map">
+        update  set  =  where ;
+    </update>
     <update id="updateGoodssortname"></update>
     <update id="updateGoodsreplycount"></update>
     <update id="updateHtmlPath"></update>
