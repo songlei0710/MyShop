@@ -6,7 +6,7 @@ package net.hzjxy.myshop.entity;
 public class GoodsSpecificationsProductRp {
     private String goodsSpecificationsProductRpTid;
     private String goodsId;
-    private String specidicationsId;
+    private String specificationsId;
     private String productId;
 
     public String getGoodsSpecificationsProductRpTid() {
@@ -25,12 +25,12 @@ public class GoodsSpecificationsProductRp {
         this.goodsId = goodsId;
     }
 
-    public String getSpecidicationsId() {
-        return specidicationsId;
+    public String getSpecificationsId() {
+        return specificationsId;
     }
 
-    public void setSpecidicationsId(String specidicationsId) {
-        this.specidicationsId = specidicationsId;
+    public void setSpecificationsId(String specificationsId) {
+        this.specificationsId = specificationsId;
     }
 
     public String getProductId() {
