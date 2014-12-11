@@ -12,7 +12,7 @@
         <select id="findProductSpecificationsBySpecificationId"
                 resultType="net.hzjxy.myshop.entity.ProductSpecification">
 
-                </select>
+        </select>
         <select id="findAllProductSpecification" resultType="net.hzjxy.myshop.entity.ProductSpecification">
 
         </select>

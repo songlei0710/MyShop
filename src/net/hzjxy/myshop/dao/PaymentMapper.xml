@@ -19,15 +19,15 @@
                 Update PaymentM as pm set pm.state='1' where pm.paymentid=:paymentid
         </update>
         <select id="findAllPayment" resultType="net.hzjxy.myshop.entity.Payment">
-
+                SELECT * from paymentInterface
         </select>
         <select id="countFindAllPayment" resultType="java.lang.Integer">
-
+                 SELECT COUNT(*) FROM paymentInterface
         </select>
         <select id="findPaymentById" resultType="net.hzjxy.myshop.entity.Payment">
                 Update Payment as pm set pm.state='0' where pm.paymentid=:paymentid
         </select>
         <select id="findAllPayments" resultType="net.hzjxy.myshop.entity.Payment">
-
+                   SELECT * from paymentInterface where state=:state
         </select>
 </mapper>
