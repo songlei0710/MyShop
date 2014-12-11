@@ -49,7 +49,9 @@
     <update id="updateGoodsismobileplatformgoods" parameterType="map">
         UPDATE Goods SET ismobileplatformgoods=#{ismobileplatformgoods},creatorid=#{creatorid} where goodsid=#{goodsid}
     </update>
-    <update id="updateSort"></update>
+    <update id="updateSort" parameterType="map">
+      UPDATE Goods SET sort=#{sort} where goodsid=#{goodsid}
+    </update>
     <update id="updateGoodssortid"></update>
     <update id="updateGoodssortname"></update>
     <update id="updateGoodsreplycount"></update>
