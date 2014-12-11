@@ -82,8 +82,7 @@
       <div  id="message-error"
             class="message message-error">
         <div class="image">
-          <img src="<%=basePath%>admin/ui/assets/img/header/icon-48-alert.png"
-               alt="Error" height="32" /> <span>权限异常</span>
+          <img src="<%=basePath%>admin/ui/assets/img/header/icon-48-alert.png" alt="Error" height="32" /> <span>权限异常</span>
         </div>
       </div>
     </div>
@@ -111,8 +110,7 @@
 <script src="<%=basePath%>admin/ui/assets/js/bootstrap-collapse.js"></script>
 <script src="<%=basePath%>admin/ui/assets/js/bootstrap-carousel.js"></script>
 <script src="<%=basePath%>admin/ui/assets/js/bootstrap-typeahead.js"></script>
-<script type="text/javascript"
-        src="<%=basePath%>admin/js/jquery.query.js"></script>
+<script type="text/javascript" src="<%=basePath%>admin/js/jquery.query.js"></script>
 <script type="text/javascript">
   $(function(){
     $("#gotologin").click(function(){
