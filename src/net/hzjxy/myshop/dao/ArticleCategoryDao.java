@@ -44,15 +44,14 @@ public interface ArticleCategoryDao {
     /**
      * 检测文章分类标记
      * @param sign
-     * @param creatorid
+     * @param creatorId
      * @return
      */
-    public int checkArticleCategorySign(String sign, String creatorId);
+    public int checkArticleCategorySignByCreateId(String sign, String creatorId);
 
     /**
      * 检测文章分类标记
      * @param sign
-     * @param creatorid
      * @return
      */
     public int checkArticleCategorySign(String sign);

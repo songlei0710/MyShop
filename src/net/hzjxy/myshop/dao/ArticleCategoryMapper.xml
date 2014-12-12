@@ -51,4 +51,5 @@
     <select id="sortAllArticleCategoryT" resultType="net.hzjxy.myshop.entity.ArticleCategory">
          SELECT *FROM ArticleCategory WHERE currentPage=#{currentPage},lineSize=#{lineSize},status=#{status},creatorid#{creatorid}AND queryString=#{queryString}
     </select>
+    <select id="checkArticleCategorySignByCreateId" resultType="java.lang.Integer"></select>
 </mapper>
