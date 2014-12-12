@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="net.hzjxy.myshop.dao.VoucherDao">
+    <update id="updateVoucher"></update>
+    <delete id="delVoucher"></delete>
+    <select id="findAllVoucher" resultType="net.hzjxy.myshop.entity.Voucher"></select>
+    <select id="countFindAllVoucher" resultType="java.lang.Integer"></select>
+    <select id="findVoucherByName" resultType="net.hzjxy.myshop.entity.Voucher"></select>
+    <select id="findVoucherForHonor" resultType="net.hzjxy.myshop.entity.Voucher"></select>
+    <select id="findUserVoucher" resultType="net.hzjxy.myshop.entity.Voucher"></select>
+    <select id="countFindUserVoucher" resultType="java.lang.Integer"></select>
 </mapper>
