@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.hzjxy.myshop.dao.FavoriteDao">
+    <delete id="delArticleT">
+        DELETE FROM Favorite WHERE FavoriteId=(#favoriteId)
+    </delete>
+
+    <delete id="delFavorite">
+        DELETE FROM Favorite WHERE FavoriteId IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="findAllFavoriteByUserid" resultType="net.hzjxy.myshop.entity.Favorite">
+    </select>
+    <select id="countfindAllFavoriteByUserid" resultType="java.lang.Integer">
+         SELECT COUNT(*) FROM Favorite
+    </select>
+</mapper>

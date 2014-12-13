@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.hzjxy.myshop.dao.CartDao">
+    <delete id="delArticleT"></delete>
+    <delete id="reduceCartNeddquantityByGoodsid"></delete>
+    <delete id="delCartByGoodsId"></delete>
+    <delete id="delCartByid"></delete>
+    <select id="findAllCart" resultType="net.hzjxy.myshop.entity.Cart"></select>
+    <select id="countfindAllCart" resultType="java.lang.Integer"></select>
+    <select id="findAllCartByUserId" resultType="net.hzjxy.myshop.entity.Cart"></select>
+    <select id="findGoodsInCartOrNot" resultType="net.hzjxy.myshop.entity.Cart"></select>
+    <select id="findCartGoodsByOrderid" resultType="net.hzjxy.myshop.entity.Cart"></select>
+    <select id="findCartByCartid" resultType="net.hzjxy.myshop.entity.Cart"></select>
+    <select id="findProductInCart" resultType="net.hzjxy.myshop.entity.Cart"></select>
+    <select id="findAllCartByMemberId" resultType="net.hzjxy.myshop.entity.Cart"></select>
+    <update id="updateCartNeedquantityByGoodsid"></update>
+    <update id="updateCartNeedquantity"></update>
+    <update id="updateCartSubtotal"></update>
+    <update id="updateCartState"></update>
+    <update id="updateCartStateandOrderidByGoodsidList"></update>
+    <update id="updateCartStateByGoodsidList"></update>
+    <update id="updateCartIdBygoodsid"></update>
+    <update id="updateCartIdByproductid"></update>
+</mapper>

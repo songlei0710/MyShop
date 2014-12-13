@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.hzjxy.myshop.dao.ProductDao">
+        <update id="updateProduct">
+                 UPDATE Product SET productName=:productName where productid=:productid
+        </update>
+        <delete id="delProductBygoodsId">
+                   DELETE FROM Product WHERE  goodsId=#{goodsId}
+        </delete>
+        <delete id="delProductByProductId">
+                   DELETE FROM Product WHERE  productid=#{productid}
+        </delete>
+        <delete id="delProduct">
+                DELETE FROM Product WHERE productid IN
+                <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+                        #{strs}
+                </foreach>
+        </delete>
+        <select id="findAllProductByCreatorId" resultType="net.hzjxy.myshop.entity.Product">
+             SELECT * from Product as pt where pt.creatorid=:creatorid
+        </select>
+        <select id="findAllProduct" resultType="net.hzjxy.myshop.entity.Product">
+                SELECT * FROM Product
+        </select>
+        <select id="countFindAllProduct" resultType="java.lang.Integer">
+                SELECT COUNT(*) FROM Product
+        </select>
+        <select id="countFineAllProduct" resultType="java.lang.Integer">
+                SELECT COUNT(*) FROM Product
+        </select>
+        <select id="findAllProductByGoodsId" resultType="net.hzjxy.myshop.entity.Product">
+                 SELECT COUNT(*) FROM Product  WHERE creatorId=:creatorId
+        </select>
+        <select id="findProductByProductId" resultType="net.hzjxy.myshop.entity.Product">
+                 SELECT COUNT(*) FROM Product  WHERE productid=:productid
+        </select>
+        <select id="sortAllProduct" resultType="net.hzjxy.myshop.entity.Product">
+
+        </select>
+        <select id="findProductByGoodsId" resultType="net.hzjxy.myshop.entity.Product">
+                SELECT * FROM Product  WHERE productid=:productid
+        </select>
+        <select id="findProductByProductName" resultType="net.hzjxy.myshop.entity.Product">
+                 SELECT * FROM Product  WHERE ProductName=:ProductName
+        </select>
+        <select id="findProductById" resultType="net.hzjxy.myshop.entity.Product">
+                 SELECT * FROM Product  WHERE productid=:productid
+        </select>
+</mapper>

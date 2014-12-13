@@ -24,13 +24,13 @@ public class UserT {
     private String siNaWeiBo;   //新浪微博
     private String rolEmName;   //用户所属角色名称
     private String rolEmId;     //用户所属角色Id
-    private String state;       //1：普通用户  2：一般管理员  3：超级管理员  4：手机用户
+    private String state ;   //1：普通用户  2：一般管理员  3：超级管理员  4：手机用户
     private String headPath;    //头像地址
     private String weiXin;      //微信号
     private Date createTime;    //创建时间
     private Date updateTime;    //更新时间
     private String creatorId;   //创建人Id
-    private Integer postingCount;   //发布帖子总数
+    private Integer postingCount;   //发布帖子总数.
 
     public String getUserId() {
         return userId;

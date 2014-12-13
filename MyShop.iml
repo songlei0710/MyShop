@@ -12,10 +12,6 @@
       </configuration>
       <facet type="Struts2" name="Struts 2">
         <configuration>
-          <fileset id="s2fileset" name="Default File Set " removed="false">
-            <file>file://$MODULE_DIR$/src/struts.xml</file>
-            <file>jar://$MODULE_DIR$/lib/struts2-core.jar!/struts-default.xml</file>
-          </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
       </facet>
@@ -26,9 +22,8 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.55" level="application_server_libraries" />
-    <orderEntry type="library" name="Struts 2-2.3.16.3" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

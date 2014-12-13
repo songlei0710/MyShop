@@ -9,14 +9,15 @@
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://127.0.0.1:3306/userlogin"/>
-                <property name="username" value="root"/>
-                <property name="password" value="root"/>
+                <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@10.23.115.222:1521:ORCL"/>
+                <property name="username" value="admin"/>
+                <property name="password" value="123456"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
         <mapper resource="net/hzjxy/myshop/dao/UserTMapper.xml"/>
+        <mapper resource="net/hzjxy/myshop/dao/GoodsAttributeMapper.xml"/>
     </mappers>
 </configuration>

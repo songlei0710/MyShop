@@ -5,22 +5,22 @@ package net.hzjxy.myshop.entity;
  * Created by 磊 on 2014/11/30.
  */
 public class GlobalParam {
-    private String gKey;        //key
-    private String gValue;      //values
+    private String key;        //key
+    private String value;      //values
 
-    public String getgKey() {
-        return gKey;
+    public String getKey() {
+        return key;
     }
 
-    public void setgKey(String gKey) {
-        this.gKey = gKey;
+    public void setKey(String key) {
+        this.key = key;
     }
 
-    public String getgValue() {
-        return gValue;
+    public String getValue() {
+        return value;
     }
 
-    public void setgValue(String gValue) {
-        this.gValue = gValue;
+    public void setValue(String value) {
+        this.value = value;
     }
 }

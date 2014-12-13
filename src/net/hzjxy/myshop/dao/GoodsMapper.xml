@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.hzjxy.myshop.dao.GoodsDao">
+    <update id="updateGoods" parameterType="net.hzjxy.myshop.entity.Goods">
+        UPDATE Goods
+        <set>
+            <if test="GoodsName!=null">
+                GoodsName=#{goodsName},
+            </if>
+            <if test="BrandName!=null">
+                BrandName=#{brandName},
+            </if>
+        </set>
+        WHERE GoodsId=#{goodId}
+    </update>
+    <update id="updateGoodsSaleState" parameterType="map">
+        UPDATE Goods SET salestate=#{salestate} where goodsTypeId=#{goodsTypeId}
+    </update>
+
+    <update id="updateGoodsSaleStateById" parameterType="map">
+        UPDATE Goods SET goodsid=#{goodsid},salestate=#{salestate} and creatorid=#{creatorid} where goodsId=#{goodsid}
+    </update>
+    <update id="updateGoodsreadcount" parameterType="string">
+        UPDATE Goods SET readCount=#{readCount} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsrelatedfit" parameterType="map">
+        UPDATE Goods SET list=#{list} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsrelatedgoods" parameterType="map">
+        UPDATE Goods SET list=#{list} where goodsid=#{goodsid}
+    </update>
+    <update id="updateFiveGoodsState" parameterType="map">
+        UPDATE  Goods SET recommended=#{recommended},hotsale=#{hotsale},bargainprice=#{bargainprice},isNew=#{isNew} and ismobileplatformgoods=#{ismobileplatformgoods} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsrecommended" parameterType="map">
+        UPDATE Goods SET recommended=#{recommended} ,creatorid=#{creatorid} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodshotsale" parameterType="map">
+        UPDATE Goods SET hotsale=#{hotsale},creatorid=#{creatorid} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsbargainprice" parameterType="map">
+        UPDATE  Goods SET creatorid=#{creatorid},bargainprice=#{bargainprice} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsisNew" parameterType="map">
+        UPDATE Goods SET isNew=#{isNew},creatorid=#{creatorid} WHERE goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodsismobileplatformgoods" parameterType="map">
+        UPDATE Goods SET ismobileplatformgoods=#{ismobileplatformgoods},creatorid=#{creatorid} where goodsid=#{goodsid}
+    </update>
+    <update id="updateSort" parameterType="map">
+        UPDATE Goods SET sort=#{sort} where goodsid=#{goodsid}
+    </update>
+    <update id="updateGoodssortid" parameterType="map">
+        update  set  =  where ;
+    </update>
+    <update id="updateGoodssortname"></update>
+    <update id="updateGoodsreplycount"></update>
+    <update id="updateHtmlPath"></update>
+    <update id="updatestarsumBygoodsid"></update>
+    <update id="updatestarusersumBygoodsid"></update>
+    <update id="updatecommentsumBygoodsid"></update>
+    <update id="updateGoodsTypeNameBygoodsTypeId"></update>
+    <update id="updateGoodsCategoryBynlsid"></update>
+    <update id="updateGoodsQuantityByGoodsId"></update>
+
+    <delete id="delGoods">
+        DELETE FROM Goods WHERE CreatorId IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+    <select id="findAllGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsByPageId" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countAllGoods" resultType="java.lang.Integer"></select>
+    <select id="countAllGoodsById" resultType="java.lang.Integer"></select>
+    <select id="countAllGoodsBysql" resultType="java.lang.Integer"></select>
+    <select id="findGoodsById" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsByNavid" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindGoodsByNavid" resultType="java.lang.Integer"></select>
+    <select id="findGoodsByLtypeid" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindGoodsByLtypeid" resultType="java.lang.Integer"></select>
+    <select id="findGoodsByStypeid" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsBybrand" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsByGoodsname" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsBymodel" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsByprice" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsByKeyword" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindGoodsByKeyword" resultType="java.lang.Integer"></select>
+    <select id="findGoodsByusersetnum" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsForoptiontransferselect" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodstWithoutSplitpage" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsLimitByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findSamepriceGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findMoreGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindMoreGoodsByGoodsType" resultType="java.lang.Integer"></select>
+    <select id="findSearchGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindSearchGoods" resultType="java.lang.Integer"></select>
+    <select id="findAllGoodslistMore" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindAllGoodslistMore" resultType="java.lang.Integer"></select>
+    <select id="findMoreHotSaleGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindMoreHotSaleGoodsByGoodsType" resultType="java.lang.Integer"></select>
+    <select id="findMoreBargainPriceGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindMoreBargainPriceGoodsByGoodsType" resultType="java.lang.Integer"></select>
+    <select id="findMoreRecommendedGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindMoreRecommendedGoodsByGoodsType" resultType="java.lang.Integer"></select>
+    <select id="findMoreBargainPriceGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindMoreBargainPriceGoods" resultType="java.lang.Integer"></select>
+    <select id="findAllGoodsByismobileplatformgoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsByismobileplatformgoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindAllGoodsByismobileplatformgoods" resultType="java.lang.Integer"></select>
+    <select id="findAllGoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsByLtypeidByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="finaAllGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsBynavidorderbyParams" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsByLtypeidorderbyParams" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsBysql" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsForImgT" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findshuffleGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsByattrs" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsByNavidByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsBynavidSO" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsBynavidandltypeid" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsBynavidandltypeidandstypeid" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsByattribute" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindAllGoodsByattribute" resultType="java.lang.Integer"></select>
+    <select id="findrecommendedGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findvirtualsaleGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="countfindvirtualsaleGoodsT" resultType="java.lang.Integer"></select>
+</mapper>

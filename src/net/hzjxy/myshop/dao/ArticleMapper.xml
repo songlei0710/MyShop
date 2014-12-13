@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.hzjxy.myshop.dao.ArticleDao">
+    <update id="updateArticleT">
+        UPDATE Article SET strs =#{strs} WHERE articleid =#{articleid}
+    </update>
+    <update id="updateHtmlPath">
+        UPDATE Article SET articleid=#{articleid}AND htmlPath#={htmlPath} WHERE HtmlPath=#{HtmlPath}
+    </update>
+    <update id="sortAllArticleT">
+        UPDATE Article SET currentPage=#{currentPage},lineSize=#{lineSize},creatorid=#{creatorid}AND queryString=#{queryString}WHERE ArticleT=#{ArticleT}
+    </update>
+    <update id="updateArticlepositionByarticleCategoryTid">
+         UPDATE Article SET articleCategoryTid=#{articleCategoryTid}AND position=#{position}WHERE id=#{id}
+    </update>
+    <delete id="delArticleT">
+
+    </delete>
+    <select id="findArticleByarticleid" resultType="net.hzjxy.myshop.entity.Article">
+        SELECT *FROM Article WHERE articleid=#{articleid}
+    </select>
+    <select id="findAllArticleT" resultType="net.hzjxy.myshop.entity.Article">
+         SELECT *FROM Article WHERE currentPage=#{currentPage}AND lineSize=#{lineSize}
+    </select>
+    <select id="countfindAllArticle" resultType="java.lang.Integer">
+        SELECT COUNT (*)FROM Article
+    </select>
+    <select id="findAllArticleBycreatorid" resultType="net.hzjxy.myshop.entity.Article">
+        SELECT *FROM Article WHERE creatorid=#{creatorid}
+    </select>
+    <select id="findArticlesByNavid" resultType="net.hzjxy.myshop.entity.Article">
+         SELECT *FROM Article WHERE navid=#{navid}AND status=#{status}
+    </select>
+    <select id="findArticlesByLtypeid" resultType="net.hzjxy.myshop.entity.Article">
+        SELECT *FROM Article WHERE ltypeid=#{ltypeid}AND status=#{status}
+    </select>
+    <select id="findArticlesByStypeid" resultType="net.hzjxy.myshop.entity.Article">
+        SELECT *FROM Article WHERE stypeid=#{stypeid} AND status=#{status}
+    </select>
+</mapper>
