@@ -66,37 +66,61 @@
         </set>
         WHERE goodsCategoryTid=#{goodsCategoryTid}
     </update>
-    <update id="updateHtmlPath">
+    <update id="updateHtmlPath" parameterType="string">
         update GoodsCategory as u set u.goodsCategoryTid=:goodsCategoryTid,u.htmlpath=:htmlpath
     </update>
-    <delete id="delGoodscategoryT">
-        DELETE FROM GoodsCategory WHERE UserId IN
-        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
-            #{item}
-        </foreach>
+    <delete id="delGoodscategoryT" parameterType="string">
+        DELETE FROM GoodsCategory WHERE goodsCategoryTid IN
     </delete>
     <delete id="delGoodscategoryS" parameterType="map">
 
     </delete>
-    <select id="findPathParentIdByParentId" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
-    <select id="findGoodsCategoryByGrade" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
-    <select id="checkGoodscategoryName" resultType="java.lang.Integer"></select>
-    <select id="checkGoodscategorySign" resultType="java.lang.Integer"></select>
-    <select id="findAllGoodsCategoryT" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
-    <select id="countfindAllGoodsCategoryT" resultType="java.lang.Integer">
+    <select id="findPathParentIdByParentId" resultType="net.hzjxy.myshop.entity.GoodsCategory">
+        SELECT * FROM GoodsCategory WHERE PathParentId=#{PathParentId} and ParentId=#{ParentId}
+    </select>
+    <select id="findGoodsCategoryByGrade" resultType="net.hzjxy.myshop.entity.GoodsCategory">
+         SELECT * FROM GoodsCategory WHERE grade=#{grade} and state=#{state}
+    </select>
+    <select id="checkGoodscategoryName" resultType="java.lang.Integer">
+       SELECT * FROM GoodsCategory WHERE name=#{name}
+    </select>
+    <select id="checkGoodscategorySign" resultType="java.lang.Integer">
+        SELECT * FROM GoodsCategory WHERE sign=#{sign}
+    </select>
+    <select id="findAllGoodsCategoryT" resultType="net.hzjxy.myshop.entity.GoodsCategory" parameterType="string"></select>
+    <select id="countfindAllGoodsCategoryT" resultType="java.lang.Integer" parameterType="string">
          SELECT COUNT(*) FROM GoodsCategory
     </select>
-    <select id="findAllGoodsCategoryTByGrade" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
-    <select id="countfindAllGoodsCategoryTByGrade" resultType="java.lang.Integer"></select>
-    <select id="findGoodscategoryBygoodscategoryId" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
-    <select id="checkGoodscategoryNamewithoutMe" resultType="java.lang.Integer"></select>
-    <select id="checkGoodscategorySignwithoutMe" resultType="java.lang.Integer">
-        SELECT * FROM Goodscategory WHERE goodsCategoryTid=#{goodsCategoryTid}
+    <select id="findAllGoodsCategoryTByGrade" resultType="net.hzjxy.myshop.entity.GoodsCategory">
+         SELECT GoodsCategoryT FROM GoodsCategory WHERE name=#{name} and state=#{state}
     </select>
-    <select id="findGoodscategoryByparentId" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
-    <select id="findGoodscategoryByparentIdnull" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
-    <select id="findAllGoodsCategoryBycreatorid" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
-    <select id="sortAllGoodsCategoryT" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
-    <select id="findAllGoodsCategoryTByPage" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
-    <select id="findAllCategoryByNoTrem" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
+    <select id="countfindAllGoodsCategoryTByGrade" resultType="java.lang.Integer" parameterType="string">
+        SELECT COUNT(*) FROM GoodsCategory where grade=#{grade} and state=#{state}
+    </select>
+    <select id="findGoodscategoryBygoodscategoryId" resultType="net.hzjxy.myshop.entity.GoodsCategory">
+         SELECT Goodscategory FROM GoodsCategory WHERE goodscategoryId=#{goodscategoryId}
+    </select>
+    <select id="checkGoodscategoryNamewithoutMe" resultType="java.lang.Integer">
+         SELECT name=#{name} from Goodscategory where goodsCategoryTid=#{goodsCategoryTid}
+    </select>
+    <select id="checkGoodscategorySignwithoutMe" resultType="java.lang.Integer">
+        SELECT sign=#{sign} from Goodscategory where goodsCategoryTid=#{goodsCategoryTid}
+    </select>
+    <select id="findGoodscategoryByparentId" resultType="net.hzjxy.myshop.entity.GoodsCategory">
+    SELECT Goodscategory FROM GoodsCategory WHERE parentId=#{parentId} and state=#{state}
+    </select>
+    <select id="findGoodscategoryByparentIdnull" resultType="net.hzjxy.myshop.entity.GoodsCategory">
+     SELECT Goodscategory FROM GoodsCategory WHERE state=#{state}
+    </select>
+    <select id="findAllGoodsCategoryBycreatorid" resultType="net.hzjxy.myshop.entity.GoodsCategory">
+        SELECT Goodscategory FROM GoodsCategory WHERE creatorid=#{creatorid}
+    </select>
+    <select id="sortAllGoodsCategoryT" resultType="net.hzjxy.myshop.entity.GoodsCategory" parameterType="map">
+    </select>
+    <select id="findAllGoodsCategoryTByPage" resultType="net.hzjxy.myshop.entity.GoodsCategory">
+       SELECT GoodsCategoryT FROM GoodsCategory WHERE state=#{state}
+    </select>
+    <select id="findAllCategoryByNoTrem" resultType="net.hzjxy.myshop.entity.GoodsCategory">
+        SELECT Category FROM GoodsCategory
+    </select>
 </mapper>
