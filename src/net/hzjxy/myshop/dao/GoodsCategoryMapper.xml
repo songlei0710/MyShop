@@ -21,29 +21,78 @@
             <if test="name!=null">
                 name=#{name},
             </if>
-            <if test="grade!=null">
-                grade=#{grade},
+            <if test="state!=null">
+                state=#{state},
             </if>
-            <if test="grade!=null">
-                grade=#{grade},
+            <if test="path!=null">
+                path=#{path},
+            </if>
+            <if test="sort!=null">
+                sort=#{sort},
+            </if>
+            <if test="sign!=null">
+                sign=#{sign},
+            </if>
+            <if test="goodsTypeId!=null">
+                goodsTypeId=#{goodsTypeId},
+            </if>
+            <if test="parentId!=null">
+                parentId=#{parentId},
+            </if>
+            <if test="createTime!=null">
+                createTime=#{createTime},
+            </if>
+            <if test="creatorId!=null">
+                creatorId=#{creatorId},
+            </if>
+            <if test="parentName!=null">
+                parentName=#{parentName},
+            </if>
+            <if test="htmlPath!=null">
+                htmlPath=#{htmlPath},
+            </if>
+            <if test="updateTime!=null">
+                updateTime=#{updateTime},
+            </if>
+            <if test="version!=null">
+                version=#{version},
+            </if>
+            <if test="logo!=null">
+                logo=#{logo},
+            </if>
+            <if test="mobilesYnc!=null">
+                mobilesYnc=#{mobilesYnc},
             </if>
         </set>
-        WHERE userId=#{userId}
+        WHERE goodsCategoryTid=#{goodsCategoryTid}
     </update>
-    <update id="updateHtmlPath"></update>
-    <delete id="delGoodscategoryT"></delete>
-    <delete id="delGoodscategoryS"></delete>
+    <update id="updateHtmlPath">
+        update GoodsCategory as u set u.goodsCategoryTid=:goodsCategoryTid,u.htmlpath=:htmlpath
+    </update>
+    <delete id="delGoodscategoryT">
+        DELETE FROM GoodsCategory WHERE UserId IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+    <delete id="delGoodscategoryS" parameterType="map">
+
+    </delete>
     <select id="findPathParentIdByParentId" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
     <select id="findGoodsCategoryByGrade" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
     <select id="checkGoodscategoryName" resultType="java.lang.Integer"></select>
     <select id="checkGoodscategorySign" resultType="java.lang.Integer"></select>
     <select id="findAllGoodsCategoryT" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
-    <select id="countfindAllGoodsCategoryT" resultType="java.lang.Integer"></select>
+    <select id="countfindAllGoodsCategoryT" resultType="java.lang.Integer">
+         SELECT COUNT(*) FROM GoodsCategory
+    </select>
     <select id="findAllGoodsCategoryTByGrade" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
     <select id="countfindAllGoodsCategoryTByGrade" resultType="java.lang.Integer"></select>
     <select id="findGoodscategoryBygoodscategoryId" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
     <select id="checkGoodscategoryNamewithoutMe" resultType="java.lang.Integer"></select>
-    <select id="checkGoodscategorySignwithoutMe" resultType="java.lang.Integer"></select>
+    <select id="checkGoodscategorySignwithoutMe" resultType="java.lang.Integer">
+        SELECT * FROM Goodscategory WHERE goodsCategoryTid=#{goodsCategoryTid}
+    </select>
     <select id="findGoodscategoryByparentId" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
     <select id="findGoodscategoryByparentIdnull" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
     <select id="findAllGoodsCategoryBycreatorid" resultType="net.hzjxy.myshop.entity.GoodsCategory"></select>
