@@ -12,7 +12,186 @@
             <if test="BrandName!=null">
                 BrandName=#{brandName},
             </if>
-
+            <if test="brandName!=null">
+                brandName=#{brandName},
+            </if>
+            <if test="nName!=null">
+                nName=#{nName},
+            </if>
+            <if test="lName!=null">
+                lName=#{lName},
+            </if>
+            <if test="sName!=null">
+                sName=#{sName},
+            </if>
+            <if test="fName!=null">
+                fName=#{fName},
+            </if>
+            <if test="navId!=null">
+                navId=#{navId},
+            </if>
+            <if test="lTypeId!=null">
+                lTypeId=#{lTypeId},
+            </if>
+            <if test="sTypeId!=null">
+                sTypeId=#{sTypeId},
+            </if>
+            <if test="price!=0">
+                price=#{price},
+            </if>
+            <if test="memberPrice!=null">
+                memberPrice=#{memberPrice},
+            </if>
+            <if test="points!=null">
+                points=#{points},
+            </if>
+            <if test="pictureUrl!=null">
+                pictureUrl=#{pictureUrl},
+            </if>
+            <if test="quantity!=0">
+                quantity=#{quantity},
+            </if>
+            <if test="saleState!=null">
+                saleState=#{saleState},
+            </if>
+            <if test="unitName!=null">
+                unitName=#{unitName},
+            </if>
+            <if test="keywordName!=null">
+                keywordName=#{keywordId},
+            </if>
+            <if test="weight!=null">
+                weight=#{weight},
+            </if>
+            <if test="readCount!=null">
+                readCount=#{recommended},
+            </if>
+            <if test="relatedProductId!=null">
+                relatedProductId=#{relatedProductId},
+            </if>
+            <if test="recommended!=null">
+                recommended=#{recommended},
+            </if>
+            <if test="hotSale!=null">
+                hotSale=#{hotSale},
+            </if>
+            <if test="bargainPrice!=null">
+                bargainPrice=#{bargainPrice},
+            </if>
+            <if test="sort!=null">
+                sort=#{sort},
+            </if>
+            <if test="createTime!=null">
+                createTime=#{createTime},
+            </if>
+            <if test="creatorId!=null">
+                creatorId=#{creatorId},
+            </if>
+            <if test="replyCount!=null">
+                replyCount=#{replyCount},
+            </if>
+            <if test="brandId!=null">
+                brandId=#{brandId},
+            </if>
+            <if test="placeStore!=null">
+                placeStore=#{placeStore},
+            </if>
+            <if test="metaKeywords!=null">
+                metaKeywords=#{metaKeywords},
+            </if>
+            <if test="metaDescription!=null">
+                metaDescription=#{metaDescription},
+            </if>
+            <if test="cost!=null">
+                cost=#{cost},
+            </if>
+            <if test="salePrice!=0">
+                salePrice=#{salePrice},
+            </if>
+            <if test="isNew!=nll">
+                isNew=#{isNew},
+            </if>
+            <if test="htmlPath!=null">
+                htmlPath=#{htmlPath},
+            </if>
+            <if test="productSn!=null">
+                productSn=#{productSn},
+            </if>
+            <if test="goodsParameterValue!=null">
+                goodsParameterValue=#{goodsParameterValue},
+            </if>
+            <if test="freezeStore!=null">
+                freezeStore=#{freezeStore},
+            </if>
+            <if test="keywordId!=null">
+                keywordId=#{keywordId},
+            </if>
+            <if test="unitNameId!=null">
+                unitNameId=#{unitNameId},
+            </if>
+            <if test="goodsTypeId!=null">
+                goodsTypeId=#{goodsTypeId},
+            </if>
+            <if test="goodsTypeName!=null">
+                goodsTypeName=#{goodsTypeId},
+            </if>
+            <if test="userSetNum!=null">
+                userSetNum=#{userSetNum},
+            </if>
+            <if test="isSpecificationsOpen!=null">
+                isSpecificationsOpen=#{isSpecificationsOpen},
+            </if>
+            <if test="totalStar!=0">
+                totalStar=#{totalStar},
+            </if>
+            <if test="totalStarUser!=0">
+                totalStarUser=#{totalStarUser},
+            </if>
+            <if test="totalComment!=0">
+                totalComment=#{totalComment},
+            </if>
+            <if test="isVirtualSale!=null">
+                isVirtualSale=#{isVirtualSale},
+            </if>
+            <if test="isMobilePlatformGoods!=null">
+                isMobilePlatformGoods=#{isMobilePlatformGoods},
+            </if>
+            <if test="sales!=0">
+                sales=#{sales},
+            </if>
+            <if test="realSales!=0">
+                realSales=#{realSales},
+            </if>
+            <if test="updateTime!=0">
+                updateTime=#{updateTime},
+            </if>
+            <if test="version!=0">
+                version=#{version},
+            </if>
+            <if test="commodityList!=null">
+                commodityList=#{commodityList},
+            </if>
+            <if test="isOutSite!=null">
+                isOutSite=#{isOutSite},
+            </if>
+            <if test="outSiteLink!=null">
+                outSiteLink=#{outSiteLink},
+            </if>
+            <if test="subGoodsName!=null">
+                subGoodsName=#{subGoodsName},
+            </if>
+            <if test="shopId!=null">
+                shopId=#{shopId},
+            </if>
+            <if test="shopName!=null">
+                shopName=#{shopName},
+            </if>
+            <if test="isGroup!=null">
+                isGroup=#{isGroup},
+            </if>
+            <if test="isSecondKill!=null">
+                isSecondKill=#{isSecondKill},
+            </if>
         </set>
         WHERE GoodsId=#{goodId}
     </update>
