@@ -12,6 +12,7 @@
             <if test="BrandName!=null">
                 BrandName=#{brandName},
             </if>
+
         </set>
         WHERE GoodsId=#{goodId}
     </update>
@@ -173,26 +174,53 @@
         SELECT count(nlstypeid) FROM Goods
     </select>
     <select id="findMoreBargainPriceGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindMoreBargainPriceGoods" resultType="java.lang.Integer"></select>
+    <select id="countfindMoreBargainPriceGoods" resultType="java.lang.Integer">
+        SELECT  count(bargainPriceGoods) FROM  Goods   //
+    </select>
     <select id="findAllGoodsByismobileplatformgoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsByismobileplatformgoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindAllGoodsByismobileplatformgoods" resultType="java.lang.Integer"></select>
-    <select id="findAllGoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsByLtypeidByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="finaAllGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBynavidorderbyParams" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsByLtypeidorderbyParams" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsByismobileplatformgoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT navid,ismobileplatformgoods FROM Goods WHERE statesal=#{salestate}
+    </select>
+    <select id="countfindAllGoodsByismobileplatformgoods" resultType="java.lang.Integer" parameterType="map">
+        SELECT count(*) FROM Goods WHERE isMobilePlatformGoods=#{isMobilePlatformGoods}
+    </select>
+    <select id="findAllGoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT salestate=#{salestate} from Goods where navid=#{navid}
+    </select>
+    <select id="findGoodsByLtypeidByPage" resultType="net.hzjxy.myshop.entity.Goods" >    </select>
+    <select id="finaAllGoodsT" resultType="net.hzjxy.myshop.entity.Goods" parameterType="string">
+        SELECT * FROM  Goods
+    </select>
+    <select id="findAllGoodsBynavidorderbyParams" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT isNew=#{isNew},salestate=#{salestate},sales=#{sales},memberprice=#{memberprice},totalcomment=#{totalcomment},bargainprice=#{bargainprice},hotsale=#{hotsale},recommended=#{recommended} and value=#{value}  order by params from Goods where navid=#{navid}
+    </select>
+    <select id="findAllGoodsByLtypeidorderbyParams" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT salestate=#{salestate},sales=#{sales},memberprice=#{memberprice},totalcomment=#{totalcomment},bargainprice=#{bargainprice},hotsale=#{hotsale},recommended=#{recommended},
+        isNew=#{isNew} and value=#{value} order by params from Goods where ltypeid=#{ltypeid}
+    </select>
     <select id="findAllGoodsBysql" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsForImgT" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsForImgT" resultType="net.hzjxy.myshop.entity.Goods">
+         SELECT  * FROM Goods
+    </select>
     <select id="findshuffleGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
     <select id="findGoodsByattrs" resultType="net.hzjxy.myshop.entity.Goods"></select>
     <select id="findGoodsByNavidByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBynavidSO" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBynavidandltypeid" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsBynavidandltypeidandstypeid" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsBynavidSO" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT salestate=#{salestate},isSpecificationsOpen=#{isSpecificationsOpen} from Goods where navid=#{navid}
+    </select>
+    <select id="findAllGoodsBynavidandltypeid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT salestate=#{salestate},isSpecificationsOpen=#{isSpecificationsOpen} from Goods where navid=#{navid} and ltypeid=#{ltypeid}
+    </select>
+    <select id="findAllGoodsBynavidandltypeidandstypeid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT salestate=#{salestate},isSpecificationsOpen=#{isSpecificationsOpen} from Goods where navid=#{navid} and ltypeid=#{ltypeid} and stypeid=#{stypeids}
+    </select>
     <select id="findAllGoodsByattribute" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindAllGoodsByattribute" resultType="java.lang.Integer"></select>
+    <select id="countfindAllGoodsByattribute" resultType="java.lang.Integer" parameterType="map">
+        SELECT * FROM Goods WHERE attribute=#{attribute}
+    </select>
     <select id="findrecommendedGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
     <select id="findvirtualsaleGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="countfindvirtualsaleGoodsT" resultType="java.lang.Integer"></select>
+    <select id="countfindvirtualsaleGoodsT" resultType="java.lang.Integer" parameterType="string">
+        SELECT count(isvirtualsale) FROM Goods
+    </select>
 </mapper>
