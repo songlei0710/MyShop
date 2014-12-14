@@ -20,12 +20,18 @@ public class UserTDaoImpl implements UserTDao {
 
     @Override
     public UserT findByUserName(String username) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        UserT user=userTDao.findByUserName(username);
+        return user;
     }
 
     @Override
     public UserT findById(String userId) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        UserT user=userTDao.findById(userId);
+        return user;
     }
 
     @Override
@@ -38,6 +44,7 @@ public class UserTDaoImpl implements UserTDao {
 
     @Override
     public int countFindAllUserT() {
+        
         return 0;
     }
 
