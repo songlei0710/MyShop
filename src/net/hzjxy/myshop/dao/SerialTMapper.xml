@@ -10,6 +10,6 @@
                  UPDATE SerialT WHERE biz=#{biz}
         </update>
         <insert id="addSerialT">
-
+             insert into SerialT VALUES ()
         </insert>
 </mapper>

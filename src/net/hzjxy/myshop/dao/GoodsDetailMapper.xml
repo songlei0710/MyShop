@@ -3,6 +3,13 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsDetailDao">
+    <insert id="addGoodsDetail" parameterType="net.hzjxy.myshop.entity.GoodsDetail">
+        INSERT INTO GoodsDetail(ID,GOODSID,DETAIL)
+        VALUES (#{ID},#{GOODSID},#{DETAIL})
+    </insert>
+    <update id="update"></update>
 
-    <select id="findGoodsDetailRpBygoodsid" resultType="net.hzjxy.myshop.entity.GoodsDetail"></select>
+    <select id="findGoodsDetailRpBygoodsid" resultType="net.hzjxy.myshop.entity.GoodsDetail" parameterType="string">
+        SELECT * FROM GoodsDetail WHERE id=#{id}
+    </select>
 </mapper>

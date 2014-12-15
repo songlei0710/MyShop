@@ -25,4 +25,5 @@ public interface SerialTDao{
      * @return
      */
     public int addSerialT (SerialT serialT);
+
 }

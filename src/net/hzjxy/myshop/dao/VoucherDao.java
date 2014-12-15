@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.Voucher;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,14 +14,14 @@ public interface VoucherDao {
      * @param list
      * @return
      */
-    public int delVoucher(String[] list);
+    public int delVoucher(@Param("list") String[] list);
 
     /**
      * 更新优惠券
      * @param vt
      * @return
      */
-    public int updateVoucher(Voucher vt);
+    public int updateVoucher(@Param("vt") Voucher vt);
 
     /**
      * 查询所有优惠券
@@ -29,7 +30,7 @@ public interface VoucherDao {
      * @param lineSize
      * @return
      */
-    public List<Voucher> findAllVoucher(final int currentPage, final int lineSize);
+    public List<Voucher> findAllVoucher(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize);
 
     /**
      * 统计所有优惠券
@@ -42,26 +43,26 @@ public interface VoucherDao {
      * @param voucherName
      * @return
      */
-    public List<Voucher> findVoucherByName(String voucherName);
+    public List<Voucher> findVoucherByName(@Param("voucherName") String voucherName);
 
     /**
      * 兑现抵用券
      * @param voucherName
      * @return
      */
-    public Voucher findVoucherForHonor(String voucherName);
+    public Voucher findVoucherForHonor(@Param("voucherName") String voucherName);
 
     /**
      * 检索用户抵用券
      * @param userId
      * @return
      */
-    public List<Voucher> findUserVoucher(final String userId, final int currentPage, final int lineSize);
+    public List<Voucher> findUserVoucher(final @Param("userId") String userId, final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize);
 
     /**
      * 统计检索用户抵用券
      * @param userId
      * @return
      */
-    public int countFindUserVoucher(String userId);
+    public int countFindUserVoucher(@Param("userId") String userId);
 }

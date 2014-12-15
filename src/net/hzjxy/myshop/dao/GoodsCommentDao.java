@@ -81,4 +81,10 @@ public interface GoodsCommentDao {
      * @param gct
      */
     public void updateGoodsComment(GoodsComment gct);
+    /**
+     * 添加商品评论
+     * @param goodsComment
+     * @return
+     */
+    public int addGoodsComment(GoodsComment goodsComment);
 }

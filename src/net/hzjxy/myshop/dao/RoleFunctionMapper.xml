@@ -9,4 +9,4 @@
         <select id="findAllRoleFunctionByRoleId" resultType="net.hzjxy.myshop.entity.RoleFunction">
                  SELECT  * FROM dba_sys_privs WHERE roleId=#{roleId}
         </select>
-</mapper>
+        </mapper>

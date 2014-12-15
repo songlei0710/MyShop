@@ -3,14 +3,75 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsCommentDao">
-    <update id="updateGoodsCommentorReplyByState"></update>
-    <update id="updateGoodsComment"></update>
+    <insert id="addGoodsComment"parameterType="net.hzjxy.myshop.entity.GoodsComment">
+        INSERT INTO GoodsComment(COMMENTID,GOODSID,GOODSNAME,REPLYORCOMMENTUSERNAME,POSTTIME,COMMENTCONTENT,SCORE,STATE,REPLYORCOMMENT,REPLYID,REPLYORCOMMENTUSERID,EMAILABLE,TITLE,VIRTUALADD,SHOPID)
+        VALUES (#{COMMENTID},#{GOODSID},#{GOODSNAME},#{REPLYORCOMMENTUSERNAME},#{POSTTIME},#{COMMENTCONTENT},#{SCORE},#{STATE},#{REPLYORCOMMENT},#{REPLYID},#{REPLYORCOMMENTUSERID},#{EMAILABLE},#{TITLE},#{VIRTUALADD},#{SHOPID})
+    </insert>
+    <update id="updateGoodsCommentorReplyByState" parameterType="map">
+        UPDATE GoodsComment SET state=#{state} where commentId=#{commentId}
+    </update>
+    <update id="updateGoodsComment" parameterType="net.hzjxy.myshop.entity.GoodsComment">
+        UPDATE GoodsComment
+        <set>
+            <if test="goodsId!=null">
+                goodsId=#{goodsId},
+            </if>
+            <if test="goodsName!=null">
+                goodsName=#{goodsName},
+            </if>
+            <if test="replyOrCommentUserName!=null">
+                replyOrCommentUserName=#{replyOrCommentUserName},
+            </if>
+            <if test="postTime!=0">
+                postTime=#{postTime},
+            </if>
+            <if test="commentContent!=null">
+                commentContent=#{commentContent},
+            </if>
+            <if test="score!=0">
+                score=#{score},
+            </if>
+            <if test="state!=null">
+                state=#{state},
+            </if>
+            <if test="replyOrComment!=null">
+                replyOrComment=#{replyOrComment},
+            </if>
+            <if test="replyId!=null">
+                replyId=#{replyId},
+            </if>
+            <if test="replyOrCommentUserId!=null">
+                replyOrCommentUserId=#{replyOrCommentUserId},
+            </if>
+            <if test="emailAble!=null">
+                emailAble=#{emailAble},
+            </if>
+            <if test="title!=null">
+                title=#{title},
+            </if>
+            <if test="virtualAdd!=null">
+                virtualAdd=#{virtualAdd},
+            </if>
+            <if test="shopId!=null">
+                shopId=#{shopId},
+            </if>
+        </set>
+        where commentId=#{commentId}
+    </update>
 
-    <delete id="delGoodsComment"></delete>
+    <delete id="delGoodsComment" parameterType="string">
+        DELETE replyOrComment=#{replyOrComment}  FROM GoodsComment WHERE commentId=#{commentIdcommentId}
+    </delete>
     <select id="findGoodsCommentByGoodsid" resultType="net.hzjxy.myshop.entity.GoodsComment"></select>
-    <select id="countfindGoodsCommentByGoodsid" resultType="java.lang.Integer"></select>
+    <select id="countfindGoodsCommentByGoodsid" resultType="java.lang.Integer" parameterType="string">
+        SELECT count(*) FROM GoodsComment WHERE goodsId=#{goodsId}
+    </select>
     <select id="findAllGoodsComment" resultType="net.hzjxy.myshop.entity.GoodsComment"></select>
-    <select id="countfindAllGoodsComment" resultType="java.lang.Integer"></select>
+    <select id="countfindAllGoodsComment" resultType="java.lang.Integer">
+        SELECT count(commentContent) FROM GoodsComment
+    </select>
     <select id="sortAllGoodsComment" resultType="net.hzjxy.myshop.entity.GoodsComment"></select>
-    <select id="findGoodsCommentById" resultType="net.hzjxy.myshop.entity.GoodsComment"></select>
+    <select id="findGoodsCommentById" resultType="net.hzjxy.myshop.entity.GoodsComment" parameterType="string">
+        SELECT * FROM GoodsComment WHERE goodsId=#{goodsId}
+    </select>
 </mapper>

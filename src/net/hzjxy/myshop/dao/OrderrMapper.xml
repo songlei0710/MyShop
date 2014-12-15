@@ -6,13 +6,27 @@
     <update id="updateOrder">
         UPDATE orderr set OrderId=#{OrderId}
     </update>
-    <update id="updateOrderPayStateByOrderId"></update>
-    <update id="updateOrderShippingStateByOrderId"></update>
-    <update id="updateOrderStateByOrderId"></update>
-    <update id="updateOrderPayShippingState"></update>
-    <update id="updateExpressNumberByOrderId"></update>
-    <update id="updateInvoiceNumberByOrderId"></update>
-    <update id="updateInvoiceByOrderId"></update>
+    <update id="updateOrderPayStateByOrderId">
+        UPDATE orderr set payState=#{payState} where OrderId=#{OrderId}
+    </update>
+    <update id="updateOrderShippingStateByOrderId">
+        UPDATE orderr set shippingState=#{shippingState} where OrderId=#{OrderId}
+    </update>
+    <update id="updateOrderStateByOrderId">
+        UPDATE orderr set orderState=#{orderState} where OrderId=#{OrderId
+    </update>
+    <update id="updateOrderPayShippingState">
+        UPDATE orderr SET GoodsId=#{goodsid} And orderState=#{orderState} And payState=#{payState} AND WHERE OrderId=#{OrderId
+    </update>
+    <update id="updateExpressNumberByOrderId">
+        UPDATE orderr set expressNumber=#{expressNumber} where OrderId=#{OrderId
+    </update>
+    <update id="updateInvoiceNumberByOrderId">
+        UPDATE orderr set invoiceNumber=#{invoiceNumber} AND deliveryTime=#{deliveryTime} where OrderId=#{OrderId
+    </update>
+    <update id="updateInvoiceByOrderId">
+        UPDATE orderr set invoice=#{invoice} where OrderId=#{OrderId
+    </update>
     <delete id="delOrderByOrderId">
         DELETE FROM ORDERr WHERE OrderId IN
         <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
@@ -35,16 +49,40 @@
         SELECT * FROM ORDERr where orderId=#{orderId}
     </select>
     <select id="findAllOrder" resultType="net.hzjxy.myshop.entity.Orderr"></select>
-    <select id="countFindAllOrder" resultType="java.lang.Integer"></select>
-    <select id="findOrderByOrderId" resultType="net.hzjxy.myshop.entity.Orderr"></select>
-    <select id="countFindOrderbyOrderId" resultType="java.lang.Integer"></select>
-    <select id="findOrderByShippingUsername" resultType="net.hzjxy.myshop.entity.Orderr"></select>
-    <select id="countFindOrderByShippingUsername" resultType="java.lang.Integer"></select>
-    <select id="findAllToBeShippedOrders" resultType="net.hzjxy.myshop.entity.Orderr"></select>
-    <select id="countFindAllToBeShippedOrders" resultType="java.lang.Integer"></select>
-    <select id="selectAllOrder" resultType="net.hzjxy.myshop.entity.Orderr"></select>
-    <select id="findAllHaveShippedOrder" resultType="net.hzjxy.myshop.entity.Orderr"></select>
-    <select id="countAllHaveshippedOrder" resultType="java.lang.Integer"></select>
-    <select id="findAllReturnOrder" resultType="net.hzjxy.myshop.entity.Orderr"></select>
-    <select id="countAllReturnOrder" resultType="java.lang.Integer"></select>
+    <select id="countFindAllOrder" resultType="java.lang.Integer">
+         SELECT COUNT(*) from orderr
+    </select>
+    <select id="findOrderByOrderId" resultType="net.hzjxy.myshop.entity.Orderr">
+        select * FROM  orderr where orderId=#{orderId}
+    </select>
+    <select id="countFindOrderbyOrderId" resultType="java.lang.Integer">
+         select * FROM  orderr where orderId=#{orderId}
+    </select>
+    <select id="findOrderByShippingUsername" resultType="net.hzjxy.myshop.entity.Orderr">
+         select * FROM  orderr where shippingUsername=#{shippingUsername}
+    </select>
+    <select id="countFindOrderByShippingUsername" resultType="java.lang.Integer">
+        select count(*) FROM  orderr where shippingUsername=#{shippingUsername}
+    </select>
+    <select id="findAllToBeShippedOrders" resultType="net.hzjxy.myshop.entity.Orderr">
+
+    </select>
+    <select id="countFindAllToBeShippedOrders" resultType="java.lang.Integer">
+
+    </select>
+    <select id="selectAllOrder" resultType="net.hzjxy.myshop.entity.Orderr">
+
+    </select>
+    <select id="findAllHaveShippedOrder" resultType="net.hzjxy.myshop.entity.Orderr">
+
+    </select>
+    <select id="countAllHaveshippedOrder" resultType="java.lang.Integer">
+
+    </select>
+    <select id="findAllReturnOrder" resultType="net.hzjxy.myshop.entity.Orderr">
+
+    </select>
+    <select id="countAllReturnOrder" resultType="java.lang.Integer">
+
+    </select>
 </mapper>
