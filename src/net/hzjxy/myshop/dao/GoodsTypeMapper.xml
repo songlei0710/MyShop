@@ -3,43 +3,14 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsTypeDao">
-    <update id="updateGoodsTypeTN">
-          UPDATE GoodsType
-          <set>
-              <if test="name!=null">
-                  name=#{name},
-              </if>
-              <if test="createTime!=0">
-                  createTime=#{createTime},
-              </if>
-              <if test="creatorId!=null">
-                  creatorId=#{creatorId},
-              </if>
-              <if test="goodsParameter!=null">
-                  goodsParameter=#{goodsParameter},
-              </if>
-          </set>
-        WHERE goodsTypeId=#{goodsTypeId}
-    </update>
-    <delete id="delGoodsTypeTN">
-        DELETE  FROM GoodsType WHERE goodsTypeId=#{goodsTypeId}
-    </delete>
-    <select id="findAllGoodsTypeTN" resultType="net.hzjxy.myshop.entity.GoodsType">
-         SELECT COUNT(*) FROM GoodsType
-    </select>
-    <select id="countfindAllGoodsTypeTN" resultType="java.lang.Integer">
-        SELECT COUNT(*) FROM GoodsType
-    </select>
-    <select id="findGoodsTypeTNById" resultType="net.hzjxy.myshop.entity.GoodsType">
-        SELECT * FROM GoodsType WHERE goodsTypeId=#{goodsTypeId}
-    </select>
-    <select id="findAllGoodsTypeTNNopage" resultType="net.hzjxy.myshop.entity.GoodsType">
-    </select>
+    <update id="updateGoodsTypeTN"></update>
+
+    <delete id="delGoodsTypeTN"></delete>
+    <select id="findAllGoodsTypeTN" resultType="net.hzjxy.myshop.entity.GoodsType"></select>
+    <select id="countfindAllGoodsTypeTN" resultType="java.lang.Integer"></select>
+    <select id="findGoodsTypeTNById" resultType="net.hzjxy.myshop.entity.GoodsType"></select>
+    <select id="findAllGoodsTypeTNNopage" resultType="net.hzjxy.myshop.entity.GoodsType"></select>
     <select id="sortAllGoodsTypeTN" resultType="net.hzjxy.myshop.entity.GoodsType"></select>
-    <select id="countsortAllGoodsTypeTN" resultType="java.lang.Integer" parameterType="string">
-        SELECT count(queryString) FROM GoodsType
-    </select>
-    <select id="findGoodsTypeTNByName" resultType="net.hzjxy.myshop.entity.GoodsType" parameterType="string">
-        SELECT * FROM GoodsType WHERE name=#{name}
-    </select>
+    <select id="countsortAllGoodsTypeTN" resultType="java.lang.Integer"></select>
+    <select id="findGoodsTypeTNByName" resultType="net.hzjxy.myshop.entity.GoodsType"></select>
 </mapper>

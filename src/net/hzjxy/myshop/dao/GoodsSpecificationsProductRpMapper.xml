@@ -3,6 +3,7 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsSpecificationsProductRpDao">
+    <insert id="addGoodsSpecificationsProductRp"></insert>
     <update id="updateGoodsAssociatedProductById">
   UPDATE  GOODSSPECIFICATIONSPRODUCTRP SET GoodsId=#{goodsid} And SpecificationsId=#{specificationsid} And ProductId=#{productid} WHERE GOODSSPPRRPTID=#{goodsSpecificationsProductRpTid}
     </update>
