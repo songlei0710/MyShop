@@ -38,98 +38,153 @@ public class UserTDaoImpl implements UserTDao {
     public List<UserT> findAllUserT(int currentPage, int lineSize) {
         SqlSession session=MybatisUtil.currentSession();
         UserTDao userTDao=session.getMapper(UserTDao.class);
-        List<UserT> users =userTDao.findAllUserT(currentPage,lineSize);
+        List<UserT> users =userTDao.findAllUserT(currentPage, lineSize);
         return users;
     }
 
     @Override
     public int countFindAllUserT() {
-        
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        userTDao.countFindAllUserT();
+        return userTDao.countFindAllUserT();
     }
 
     @Override
     public UserT checkUserByUsername(String username) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        UserT user=userTDao.checkUserByUsername(username);
+        return user;
     }
 
     @Override
     public int updateUserTunpwd(UserT userT) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        int user=userTDao.updateUserTunpwd(userT);
+        return user;
     }
 
     @Override
     public int delUser(String[] list) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        userTDao.delUser(list);
+        session.commit();
+        return userTDao.delUser(list);
     }
 
     @Override
     public int updateUserForMyInfo(UserT userT) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        int user=userTDao.updateUserForMyInfo(userT);
+        return user;
     }
 
     @Override
     public UserT checkUsernameAndPassword(String username, String password) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        UserT user=userTDao.checkUsernameAndPassword(username,password);
+        return user;
     }
 
     @Override
     public int updateUserMember(String username, String newPassword, String userId) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        int user=userTDao.updateUserMember(username,newPassword,userId);
+        return user;
     }
 
     @Override
     public int updateUserState(String userId, String userState) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        int user=userTDao.updateUserState(userId,userState);
+        return user;
     }
 
     @Override
     public UserT findUserByUserId(String userId) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        UserT user=userTDao.findUserByUserId(userId);
+        return user;
     }
 
     @Override
     public List<UserT> sortAllUserT(int currentPage, int lineSize, String queryString) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        List<UserT> user=userTDao.sortAllUserT(currentPage,lineSize,queryString);
+        return user;
     }
 
     @Override
     public String[] findEmailByUser() {
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        userTDao.findEmailByUser();
+        session.commit();
         return new String[0];
     }
 
     @Override
     public UserT checkUserByEmail(String email) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        UserT user=userTDao.checkUserByEmail(email);
+        return user;
     }
 
     @Override
     public UserT checkUserByAnswer(String username, String question, String answer) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        UserT user=userTDao.checkUserByAnswer(username,question,answer);
+        return user;
     }
 
     @Override
     public int updateUserPasswordProtection(String userId, String question, String answer) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        int user=userTDao.updateUserPasswordProtection(userId,question,answer);
+        return user;
     }
 
     @Override
     public int updateUserRoleByUserId(String userId, String roleId, String roleName) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        int user=userTDao.updateUserRoleByUserId(userId,roleId,roleName);
+        return user;
     }
 
     @Override
     public int updateUserHeadPathByUserId(String userId, String headPath) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        int user=userTDao.updateUserHeadPathByUserId(userId,headPath);
+        return user;
     }
 
     @Override
     public void updateUserT(UserT userT) {
-
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        userTDao.updateUserT(userT);
+        session.commit();
     }
 
     @Override
     public int addUserT(UserT userT) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        UserTDao userTDao=session.getMapper(UserTDao.class);
+        int user=userTDao.addUserT(userT);
+        return user;
     }
 }
