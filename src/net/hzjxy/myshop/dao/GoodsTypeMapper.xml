@@ -3,7 +3,10 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsTypeDao">
-    <insert id="addGoodsType"></insert>
+    <insert id="addGoodsType"parameterType="net.hzjxy.myshop.entity.GoodsType">
+        INSERT INTO GoodsType(GOODSTYPEID,NAME,CREATETIME,GOODSPARAMETER)
+        VALUES (#{GOODSTYPEID},#{NAME},#{CREATETIME},#{CREATORID},#{GOODSPARAMETER})
+    </insert>
     <update id="updateGoodsTypeTN"></update>
 
     <delete id="delGoodsTypeTN"></delete>
