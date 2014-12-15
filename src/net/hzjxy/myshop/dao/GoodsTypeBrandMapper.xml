@@ -5,5 +5,10 @@
 <mapper namespace="net.hzjxy.myshop.dao.GoodsAttributeDao">
 
 
+
+
+
+
+
         
 </mapper>
