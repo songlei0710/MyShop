@@ -81,4 +81,10 @@ public interface GoodsTypeDao {
      * @return
      */
     public List<GoodsType> findGoodsTypeTNByName(String name);
+    /**
+     * 添加商品规格关系
+     * @param goodsType
+     * @return
+     */
+    public int addGoodsType(GoodsType goodsType);
 }

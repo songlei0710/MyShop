@@ -66,5 +66,10 @@ public interface GoodsBlinkedDao {
      * @param strs
      */
     public void delGoodsBelinked(String[] strs);
-
+    /**
+     * 添加关联商品记录
+     * @param goodsBelinked
+     * @return
+     */
+    public int addGoodsBlinked(GoodsBlinked goodsBelinked);
 }
