@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.UserTDao">
     <insert id="addUserT" parameterType="net.hzjxy.myshop.entity.UserT">
-
+        INSERT INTO UserT() VALUES()
     </insert>
     <update id="updateUserTunpwd" parameterType="map">
         update UserT as u set u.username=:username,u.email=:email,u.state=:state,u.userstate=:userstate where u.userid=:userid
