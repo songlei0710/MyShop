@@ -25,7 +25,7 @@ public interface UserTDao {
      * @param username 用户名
      * @return
      */
-    public UserT findByUserName(String username);
+    public UserT findByUserName(@Param("username") String username);
 
 
     /**
@@ -33,7 +33,7 @@ public interface UserTDao {
      * @param userId 用户编号
      * @return
      */
-    public UserT findById(String userId);
+    public UserT findById(@Param("userId") String userId);
 
 
     /**
@@ -55,7 +55,7 @@ public interface UserTDao {
      * @param username 用户名
      * @return null：不存在
      */
-    public UserT checkUserByUsername(String username);
+    public UserT checkUserByUsername(@Param("username") String username);
 
     /**
      * 更新用户信息，不更新密码和涉及到保密的用户资料
@@ -77,7 +77,7 @@ public interface UserTDao {
      * @param userT 用户信息
      * @return
      */
-    public int updateUserForMyInfo(UserT userT);
+    public int updateUserForMyInfo(@Param("userT") UserT userT);
 
     /**
      * 修改管理员密码时检测账号密码是否正确
@@ -95,7 +95,7 @@ public interface UserTDao {
      * @param userId 用户编号
      * @return
      */
-    public int updateUserMember(String username,String newPassword,String userId);
+    public int updateUserMember(@Param("username") String username, @Param("newPassword") String newPassword, @Param("userId") String userId);
 
 
     /**
@@ -104,14 +104,14 @@ public interface UserTDao {
      * @param userState 用户状态
      * @return
      */
-    public int updateUserState(String userId,String userState);
+    public int updateUserState(@Param("userId") String userId, @Param("userState") String userState);
 
     /**
      * 通过uid获取用户数据
      * @param userId
      * @return
      */
-    public UserT findUserByUserId(String userId);
+    public UserT findUserByUserId(@Param("userId") String userId);
 
     /**
      * 根据排序方式排序所有
@@ -133,7 +133,7 @@ public interface UserTDao {
      * @param email email
      * @return
      */
-    public UserT checkUserByEmail(String email);
+    public UserT checkUserByEmail(@Param("email") String email);
 
     /**
      * 根据username,question,answer检查用户
@@ -143,7 +143,7 @@ public interface UserTDao {
      * @param answer 答案
      * @return
      */
-    public UserT checkUserByAnswer(String username, String question, String answer);
+    public UserT checkUserByAnswer(@Param("username") String username, @Param("question") String question, @Param("answer") String answer);
 
     /**
      * 设置用户密码保护
@@ -152,7 +152,7 @@ public interface UserTDao {
      * @param answer 答案
      * @return
      */
-    public int updateUserPasswordProtection(String userId, String question, String answer);
+    public int updateUserPasswordProtection(@Param("userId") String userId, @Param("question") String question, @Param("answer") String answer);
 
     /**
      * 管理员赋值管理用户权限标记 update UserT as u set u.rolemid=:rolemid,u.rolemname=:rolemname where u.userid=:userid

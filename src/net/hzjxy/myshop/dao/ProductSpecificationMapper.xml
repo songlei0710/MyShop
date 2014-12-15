@@ -3,14 +3,30 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.ProductSpecificationDao">
-        <update id="updateProductSpecification"></update>
-        <delete id="delProductSpecification"></delete>
+        <update id="updateProductSpecification">
+
+        </update>
+        <delete id="delProductSpecification">
+
+        </delete>
         <select id="findProductSpecificationsBySpecificationId"
-                resultType="net.hzjxy.myshop.entity.ProductSpecification"></select>
-        <select id="findAllProductSpecification" resultType="net.hzjxy.myshop.entity.ProductSpecification"></select>
-        <select id="countFindAllProductSpecification" resultType="java.lang.Integer"></select>
-        <select id="findAllProductSpecificati" resultType="net.hzjxy.myshop.entity.ProductSpecification"></select>
-        <select id="sortAllProductSpecification" resultType="net.hzjxy.myshop.entity.ProductSpecification"></select>
+                resultType="net.hzjxy.myshop.entity.ProductSpecification">
+
+        </select>
+        <select id="findAllProductSpecification" resultType="net.hzjxy.myshop.entity.ProductSpecification">
+
+        </select>
+        <select id="countFindAllProductSpecification" resultType="java.lang.Integer">
+
+        </select>
+        <select id="findAllProductSpecificati" resultType="net.hzjxy.myshop.entity.ProductSpecification">
+
+        </select>
+        <select id="sortAllProductSpecification" resultType="net.hzjxy.myshop.entity.ProductSpecification">
+
+        </select>
         <select id="findAllProductSpecificationByGoodsTypeId"
-                resultType="net.hzjxy.myshop.entity.ProductSpecification"></select>
+                resultType="net.hzjxy.myshop.entity.ProductSpecification">
+
+                </select>
 </mapper>

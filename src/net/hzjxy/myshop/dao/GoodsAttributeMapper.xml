@@ -70,7 +70,7 @@
     <select id="findGoodsAttributeByGoodsTypeName" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
         SELECT * FROM goodSatTributeId WHERE goodsTypeName=#{goodsTypeName}
     </select>
-    <select id="findGoodsAttributeByGoodsTypeId" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
+    <select id="findGoodsAttributeByGoodsTypeIdL" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
          SELECT * FROM goodSatTributeId WHERE goodsTypeId=#{goodsTypeId}
     </select>
     <select id="sortAllGoodsAttribute" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="map">

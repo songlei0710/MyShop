@@ -3,20 +3,49 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.OrderrDao">
-    <update id="updateOrder"></update>
-    <update id="updateOrderPayStateByOrderId"></update>
-    <update id="updateOrderShippingStateByOrderId"></update>
-    <update id="updateOrderStateByOrderId"></update>
-    <update id="updateOrderPayShippingState"></update>
-    <update id="updateExpressNumberByOrderId"></update>
-    <update id="updateInvoiceNumberByOrderId"></update>
+    <update id="updateOrder">
+        UPDATE orderr set OrderId=#{OrderId}
+    </update>
+    <update id="updateOrderPayStateByOrderId">
+        UPDATE orderr set payState=#{payState} where OrderId=#{OrderId}
+    </update>
+    <update id="updateOrderShippingStateByOrderId">
+        UPDATE orderr set shippingState=#{shippingState} where OrderId=#{OrderId}
+    </update>
+    <update id="updateOrderStateByOrderId">
+        UPDATE orderr set orderState=#{orderState} where OrderId=#{OrderId
+    </update>
+    <update id="updateOrderPayShippingState">
+        UPDATE orderr SET GoodsId=#{goodsid} And orderState=#{orderState} And payState=#{payState} AND WHERE GOODSSPPRRPTID=#{goodsSpecificationsProductRpTid}
+    </update>
+    <update id="updateExpressNumberByOrderId">
+        UPDATE orderr set payState=#{payState} where OrderId=#{OrderId
+    </update>
+    <update id="updateInvoiceNumberByOrderId">
+        UPDATE orderr set payState=#{payState} where OrderId=#{OrderId
+    </update>
     <update id="updateInvoiceByOrderId"></update>
-    <delete id="delOrderByOrderId"></delete>
-    <select id="findAllOrderByOrderState" resultType="net.hzjxy.myshop.entity.Orderr"></select>
-    <select id="countFindAllOrderByOrderState" resultType="java.lang.Integer"></select>
-    <select id="findAllOrderByOrderStateForOn" resultType="net.hzjxy.myshop.entity.Orderr"></select>
-    <select id="countFindAllOrderByOrderStateForOn" resultType="java.lang.Integer"></select>
-    <select id="findOrderDetailByorderId" resultType="net.hzjxy.myshop.entity.Orderr"></select>
+    <delete id="delOrderByOrderId">
+        DELETE FROM ORDERr WHERE OrderId IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+    <select id="findAllOrderByOrderState" resultType="net.hzjxy.myshop.entity.Orderr">
+        SELECT *from orderr  as o where o.orderstate!=:orderstate and o.memberid=:memberid and o.paystate=:paystate and o.shippingstate=:shippingstate order by purchasetime desc
+    </select>
+    <select id="countFindAllOrderByOrderState" resultType="java.lang.Integer">
+         SELECT COUNT(*) from orderr  as o where o.orderstate!=:orderstate and o.memberid=:memberid and o.paystate=:paystate and o.shippingstate=:shippingstate order by purchasetime desc
+    </select>
+    <select id="findAllOrderByOrderStateForOn" resultType="net.hzjxy.myshop.entity.Orderr">
+      SELECT * from Orderr as o where o.orderstate!=:orderstate and o.memberid=:memberid and o.paystate!=:paystate and o.shippingstate!=:shippingstate order by purchasetime desc
+    </select>
+    <select id="countFindAllOrderByOrderStateForOn" resultType="java.lang.Integer">
+        SELECT count(*) from OrderT as o where o.orderstate!=:orderstate and o.memberid=:memberid and o.paystate!=:paystate and o.shippingstate!=:shippingstate order by purchasetime desc
+    </select>
+    <select id="findOrderDetailByorderId" resultType="net.hzjxy.myshop.entity.Orderr">
+        SELECT * FROM ORDERr where orderId=#{orderId}
+    </select>
     <select id="findAllOrder" resultType="net.hzjxy.myshop.entity.Orderr"></select>
     <select id="countFindAllOrder" resultType="java.lang.Integer"></select>
     <select id="findOrderByOrderId" resultType="net.hzjxy.myshop.entity.Orderr"></select>
