@@ -3,7 +3,10 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsCategoryDao">
-    <insert id="addGoodsCategory"></insert>
+    <insert id="addGoodsCategory" parameterType="net.hzjxy.myshop.entity.GoodsCategory">
+        INSERT INTO GoodsCategory(GOODSCATEGORYTID,GRADE,METAKEYWORDS,METADES,NAME,STATE,PATH,SORT,SIGN,GOODSTYPEID,PARENTID,CREATETIME,CREATORID,PARENTNAME,HTMLPATH,UPDATETIME,VERSION,LOGO,MOBILESYNC)
+        VALUES (#{GOODSCATEGORYTID},#{GRADE},#{METAKEYWORDS},#{METADES},#{NAME},#{STATE},#{PATH},#{SORT},#{SIGN},#{GOODSTYPEID},#{PARENTID},#{CREATETIME},#{CREATORID},#{PARENTNAME},#{HTMLPATH},#{UPDATETIME},#{VERSION},#{LOGO},#{MOBILESYNC})
+    </insert>
     <update id="updateGoodscategoryT">
         UPDATE GoodsCategory
         <set>
