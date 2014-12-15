@@ -3,10 +3,19 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.DeliverAddressDao">
-    <update id="updateDeliverAddress"></update>
-    <delete id="delArticleT"></delete>
-    <delete id="delDeliverAddress"></delete>
-    <select id="findAllDeliverAddress" resultType="net.hzjxy.myshop.entity.DeliverAddress"></select>
-    <select id="findDeliverAddressBymemberid" resultType="net.hzjxy.myshop.entity.DeliverAddress"></select>
-    <select id="findDeliverAddressById" resultType="net.hzjxy.myshop.entity.DeliverAddress"></select>
+    <update id="updateDeliverAddress">
+      update DeliverAddress WHERE  AddressId=#{addressid}
+    </update>
+    <delete id="delDeliverAddress">
+        DELETE FROM DeliverAddress where AddressId=#{addressid}
+    </delete>
+    <select id="findAllDeliverAddress" resultType="net.hzjxy.myshop.entity.DeliverAddress">
+        SELECT  * from DeliverAddress
+    </select>
+    <select id="findDeliverAddressBymemberid" resultType="net.hzjxy.myshop.entity.DeliverAddress">
+        select addressId from DeliverAddress WHERE   MemberId=#{memberid}
+    </select>
+    <select id="findDeliverAddressById" resultType="net.hzjxy.myshop.entity.DeliverAddress">
+        select * from DeliverAddress where AddressId=#{addressid}
+    </select>
 </mapper>

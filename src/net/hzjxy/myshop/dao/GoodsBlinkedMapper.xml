@@ -5,10 +5,56 @@
 <mapper namespace="net.hzjxy.myshop.dao.GoodsBlinkedDao">
 
         <update id="updateGoodsBelinked"></update>
-        <delete id="delGoodsBelinkedBymaingoodsid"></delete>
-        <delete id="delGoodsBelinkedBymaingoodsidandsxlinkedgoodsid"></delete>
-        <delete id="delGoodsBelinked"></delete>
-        <select id="findGoodsBelinkedBymaingoodsid" resultType="net.hzjxy.myshop.entity.GoodsBlinked"></select>
-        <select id="findAllGoodsBelinked" resultType="net.hzjxy.myshop.entity.GoodsBlinked"></select>
-        <select id="countfindAllGoodsBelinked" resultType="java.lang.Integer"></select>
+        <delete id="delGoodsBelinkedBymaingoodsid" parameterType="map">
+                UPDATE GoodsBelinked SET rolEmId=#{roleName} And rolEmName=#{roleName} WHERE Maingoodsid =#{maingoodsid}
+        </delete>
+        <delete id="delGoodsBelinkedBymaingoodsidandsxlinkedgoodsid" parameterType="map">
+                UPDATE GoodsBelinked SET headPath=#{headPath} WHERE Maingoodsid=#{maingoodsid}
+        </delete>
+        <delete id="delGoodsBelinked" parameterType="map">
+                UPDATE GoodsBelinked
+                <set>
+                        <if test="id!=null">
+                                id=#{id},
+                        </if>
+                        <if test="mainGoodsId!=null">
+                                mainGoodsId=#{mainGoodsId},
+                        </if>
+                        <if test="beLinkedProductInfo!=null">
+                                beLinkedProductInfo=#{beLinkedProductInfo},
+                        </if>
+                        <if test="bMode!=null">
+                                bMode=#{bMode},
+                        </if>
+                        <if test="state!=null">
+                                state=#{state},
+                        </if>
+                        <if test="creatorId!=null">
+                                creatorId=#{creatorId},
+                        </if>
+                        <if test="updateTime!=null">
+                                updateTime=#{updateTime},
+                        </if>
+                        <if test="sxLinkedGoodsId!=null">
+                                sxLinkedGoodsId=#{sxLinkedGoodsId},
+                        </if>
+                        <if test="mainProductId!=null">
+                                mainProductId=#{mainProductId},
+                        </if>
+                        <if test="shopId!=null">
+                                shopId=#{shopId},
+                        </if>
+                        <if test="mainGoodsName!=null">
+                                mainGoodsName=#{mainGoodsName},
+                        </if>
+                </set>
+                WHERE maingoodsid=#{maingoodsid}
+        </delete>
+        <select id="findGoodsBelinkedBymaingoodsid" resultType="net.hzjxy.myshop.entity.GoodsBlinked" parameterType="map">
+                SELECT  * FROM GoodsBelinked WHERE Maingoodsid=#{maingoodsid}
+        </select>
+        <select id="findAllGoodsBelinked" resultType="net.hzjxy.myshop.entity.GoodsBlinked" parameterType="map"></select>
+        <select id="countfindAllGoodsBelinked" resultType="java.lang.Integer">
+                   SELECT COUNT(*) FROM GoodsBelinked
+        </select>
 </mapper>

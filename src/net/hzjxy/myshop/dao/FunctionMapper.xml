@@ -3,10 +3,18 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.FunctionDao">
-    <update id="updateFunctionM"></update>
-    <delete id="delArticleT"></delete>
-    <delete id="delFunctionM"></delete>
-    <select id="findFunctionMById" resultType="net.hzjxy.myshop.entity.Function"></select>
-    <select id="findAllFunctionM" resultType="net.hzjxy.myshop.entity.Function"></select>
-    <select id="findAllFunctionMBymoduleid" resultType="net.hzjxy.myshop.entity.Function"></select>
+    <update id="updateFunctionM">
+      UPDATE Function SET ModuleId=#{moduleId} WHERE Id=#{id}
+    </update>
+    <delete id="delFunctionM">
+       DELETE FROM Function WHERE FunctionId=#{function}
+    </delete>
+    <select id="findFunctionMById" resultType="net.hzjxy.myshop.entity.Function">
+     SELECT * FROM Function WHERE ID=#{id}
+    </select>
+    <select id="findAllFunctionM" resultType="net.hzjxy.myshop.entity.Function">
+    SELECT　moduleId FROM Function WHERE Id=#{id}
+    </select>
+    <select id="findAllFunctionMBymoduleid" resultType="net.hzjxy.myshop.entity.Function">
+    </select>
 </mapper>

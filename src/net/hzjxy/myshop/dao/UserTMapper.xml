@@ -52,8 +52,9 @@
         SELECT  * FROM UserT WHERE UserId=#{userId}
     </select>
     <select id="findAllUserT" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
+        order by createtime desc
     </select>
-    <select id="countFindAllUserT" resultType="java.lang.Integer">
+    <select id="countFindAllUserT" resultType="java.lang.Integer" parameterType="string">
         SELECT COUNT(*) FROM UserT
     </select>
     <select id="checkUserByUsername" resultType="net.hzjxy.myshop.entity.UserT" parameterType="string">
@@ -62,7 +63,7 @@
     <select id="checkUsernameAndPassword" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
         SELECT * FROM UserT WHERE username=#{username} AND password=#{password}
     </select>
-    <select id="findUserByUserId" resultType="net.hzjxy.myshop.entity.UserT">
+    <select id="findUserByUserId" resultType="net.hzjxy.myshop.entity.UserT" parameterType="string">
         SELECT USER FROM UserT WHERE userid=#{userId}
     </select>
     <select id="sortAllUserT" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
@@ -71,7 +72,7 @@
     <select id="findEmailByUser">
         SELECT email FROM UserT
     </select>
-    <select id="checkUserByEmail" resultType="net.hzjxy.myshop.entity.UserT">
+    <select id="checkUserByEmail" resultType="net.hzjxy.myshop.entity.UserT" parameterType="string">
         from UserT as u where u.email=:useremail
     </select>
     <select id="checkUserByAnswer" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
