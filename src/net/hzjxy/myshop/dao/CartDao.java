@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.Cart;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,14 +16,14 @@ public interface CartDao {
      * @param lineSize
      * @return
      */
-    public List<Cart> findAllCart(final int currentPage, final int lineSize);
+    public List<Cart> findAllCart(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize);
 
     /**
      * 统计查询所有购物车 后台
      *
      * @return
      */
-    public int countfindAllCart();
+    public void countfindAllCart();
 
     /**
      * 根据userid查询购物车内容 前台
@@ -34,8 +35,8 @@ public interface CartDao {
      *            商品的类型是虚拟还是普通
      * @return
      */
-    public List<Cart> findAllCartByUserId(String userid, String state,
-                                           String orderTag);
+    public List<Cart> findAllCartByUserId(@Param("userid") String userid, @Param("state") String state,
+                                           @Param("orderTag") String orderTag);
 
 
 
@@ -48,8 +49,8 @@ public interface CartDao {
      *            1表示新增，2表示删除，3表示已经和订单对应
      * @return
      */
-    public Cart findGoodsInCartOrNot(String userid, String goodsid,
-                                      String state);
+    public Cart findGoodsInCartOrNot(@Param("userid") String userid, @Param("goodsid") String goodsid,
+                                      @Param("state") String state);
 
     /**
      * 查询商品是否已经在购物车中
@@ -61,8 +62,8 @@ public interface CartDao {
      * @param productid
      * @return
      */
-    public Cart findGoodsInCartOrNot(String userid, String goodsid,
-                                      String productid, String state);
+    public Cart findGoodsInCartOrNot(@Param("userid") String userid, @Param("goodsid") String goodsid,
+                                      String productid, @Param("state") String state);
 
     /**
      * 更新购物车中的商品数量
@@ -72,8 +73,8 @@ public interface CartDao {
      * @param needquantity
      * @return
      */
-    public int updateCartNeedquantityByGoodsid(String userid, String goodsid,
-                                               int needquantity, String state);
+    public int updateCartNeedquantityByGoodsid(@Param("userid") String userid, @Param("goodsid") String goodsid,
+                                               @Param("needquantity") int needquantity, @Param("state") String state);
 
     /**
      * 更新购物车中的商品数量
@@ -84,8 +85,8 @@ public interface CartDao {
      * @param productid
      * @return
      */
-    public int updateCartNeedquantityByGoodsid(String userid, String goodsid,
-                                               String productid, int needquantity, String state);
+    public int updateCartNeedquantityByGoodsid(@Param("userid") String userid, @Param("goodsid") String goodsid,
+                                               @Param("productid") String productid, @Param("needquantity") int needquantity, @Param("state") String state);
 
     /**
      * 减少需要的商品数量
@@ -95,8 +96,8 @@ public interface CartDao {
      * @param needquantity
      * @return
      */
-    public int reduceCartNeddquantityByGoodsid(String userid, String goodsid,
-                                               int needquantity);
+    public int reduceCartNeddquantityByGoodsid(@Param("userid") String userid, @Param("goodsid") String goodsid,
+                                               @Param("needquantity") int needquantity);
 
     /**
      * 删除购物车商品加入state=1的条件表示只会删除新增加入的商品会在购物车中删除时生效。
@@ -106,7 +107,7 @@ public interface CartDao {
      * @param state
      * @return
      */
-    public int delCartByGoodsId(String userid, String goodsid, String state);
+    public int delCartByGoodsId(@Param("userid") String userid, @Param("goodsid") String goodsid, @Param("state") String state);
 
     /**
      * 更新购物车商品数量
@@ -116,8 +117,8 @@ public interface CartDao {
      * @param needquantity
      * @return
      */
-    public int updateCartNeedquantity(String userid, String goodsid,
-                                      int needquantity);
+    public int updateCartNeedquantity(@Param("userid") String userid, @Param("goodsid") String goodsid,
+                                      @Param("needquantity") int needquantity);
 
     /**
      * 更新商品价格小计
@@ -127,7 +128,7 @@ public interface CartDao {
      * @param subtotal
      * @return
      */
-    public int updateCartSubtotal(String userid, String goodsid, double subtotal);
+    public int updateCartSubtotal(@Param("userid") String userid, @Param("goodsid") String goodsid, @Param("subtotal") double subtotal);
 
     /**
      * 更新购物车中商品状态
@@ -137,7 +138,7 @@ public interface CartDao {
      * @param state
      * @return
      */
-    public int updateCartState(String userid, String goodsid, String state);
+    public int updateCartState(@Param("userid") String userid, @Param("goodsid") String goodsid, @Param("state") String state);
 
     /**
      * 更新购物车中的商品状态，根据商品id集合,并作订单更新
@@ -149,8 +150,8 @@ public interface CartDao {
      * @param cartid
      * @returnString []goodsid
      */
-    public int updateCartStateandOrderidByGoodsidList(String cartid,
-                                                      String orderid, String userid, String state);
+    public int updateCartStateandOrderidByGoodsidList(@Param("cartid") String cartid,
+                                                      @Param("orderid") String orderid, @Param("userid") String userid, @Param("state") String state);
 
     /**
      * 更新购物车中的商品状态，根据商品id集合
@@ -160,8 +161,8 @@ public interface CartDao {
      * @param state
      * @return
      */
-    public int updateCartStateByGoodsidList(String userid, String[] goodsid,
-                                            String state);
+    public int updateCartStateByGoodsidList(@Param("userid") String userid, @Param("goodsid") String[] goodsid,
+                                            @Param("state") String state);
 
     /**
      * 根据订单号在购物车中查询对应的商品记录
@@ -179,8 +180,8 @@ public interface CartDao {
      * @param state
      * @return
      */
-    public int updateCartIdBygoodsid(String cartid, String memberid,
-                                     String goodsid, String state);
+    public int updateCartIdBygoodsid(@Param("cartid") String cartid, @Param("memberid") String memberid,
+                                     @Param("goodsid") String goodsid, @Param("state") String state);
 
     /**
      * 根据productid更新购物车id，表示次购物车下的商品同属一个购物车
@@ -191,8 +192,8 @@ public interface CartDao {
      * @param state
      * @return
      */
-    public int updateCartIdByproductid(String cartid, String userid,
-                                       String productid, String state);
+    public int updateCartIdByproductid(@Param("cartid") String cartid, @Param("userid") String userid,
+                                       @Param("productid") String productid, @Param("state") String state);
 
     /**
      * 检查被加入订单的购物车商品是否已经有订单号，如果有则不再更新订单号，防止多次提交订单操作，导致订单异常
@@ -202,7 +203,7 @@ public interface CartDao {
      * @param cartid
      * @return
      */
-    public List<Cart> findCartByCartid(String cartid, String state);
+    public List<Cart> findCartByCartid(@Param("cartid") String cartid, @Param("state") String state);
 
     /**
      * 根据购物车id删除购物车
@@ -220,7 +221,7 @@ public interface CartDao {
      * @param state
      * @return
      */
-    public Cart findProductInCart(String memberid,String goodsid,String productid,String state);
+    public Cart findProductInCart(@Param("memberid") String memberid, @Param("goodsid") String goodsid, @Param("productid") String productid, @Param("state") String state);
 
     /**
      * 根据memberid查询购物车内容 前台
@@ -232,6 +233,6 @@ public interface CartDao {
      *            商品的类型是虚拟还是普通
      * @return
      */
-    public List<Cart> findAllCartByMemberId(String memberid, String state,
-                                             String orderTag);
+    public List<Cart> findAllCartByMemberId(@Param("memberid") String memberid, @Param("state") String state,
+                                             @Param("orderTag") String orderTag);
 }

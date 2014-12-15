@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.ArticleCategory;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public interface ArticleCategoryDao {
      * @param creatorId 创建者Id
      * @return
      */
-    public ArticleCategory findPathParentIdByParentId(String parentId, String creatorId);
+    public ArticleCategory findPathParentIdByParentId(@Param("parentId") String parentId, @Param("creatorId") String creatorId);
 
     /**
      * 根据分类级数获取文章分类
@@ -24,7 +25,7 @@ public interface ArticleCategoryDao {
      * @param creatorId
      * @return
      */
-    public List<ArticleCategory> findArticleCategoryByGrade(String grade, String status, String creatorId);
+    public List<ArticleCategory> findArticleCategoryByGrade(@Param("grade") String grade, @Param("status") String status, @Param("creatorId") String creatorId);
 
     /**
      * 检测文章分类名称
@@ -32,14 +33,14 @@ public interface ArticleCategoryDao {
      * @param creatorId
      * @return
      */
-    public int checkArticleCategoryName(String name, String creatorId);
+    public ArticleCategory checkArticleCategoryName(@Param("name") String name, @Param("creatorId") String creatorId);
 
     /**
      * 检测文章分类名称
      * @param name
      * @return
      */
-    public int checkArticleCategoryName(String name);
+    public ArticleCategory checkArticleCategoryName(String name);
 
     /**
      * 检测文章分类标记
@@ -47,14 +48,14 @@ public interface ArticleCategoryDao {
      * @param creatorId
      * @return
      */
-    public int checkArticleCategorySignByCreateId(String sign, String creatorId);
+    public ArticleCategory checkArticleCategorySignByCreateId(@Param("sign") String sign, @Param("creatorId") String creatorId);
 
     /**
      * 检测文章分类标记
      * @param sign
      * @return
      */
-    public int checkArticleCategorySign(String sign);
+    public ArticleCategory checkArticleCategorySign(String sign);
 
     /**
      * 删除文章分类status=0
@@ -71,12 +72,11 @@ public interface ArticleCategoryDao {
     /**
      * 获取所有激活的文章分类status=1
      * @param currentPage
-     * @param lineSize
      * @param status
      * @param creatorid
      * @return
      */
-    public List<ArticleCategory> findAllArticleCategoryT(final int currentPage, final int lineSize, final String status, final String creatorid);
+    public List<ArticleCategory> findAllArticleCategoryT(final int currentPage, final String status, final String creatorid);
 
     /**
      * 统计所有激活的文章分类
@@ -84,18 +84,17 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public int countfindAllArticleCategoryT(String status, String creatorid);
+    public int countfindAllArticleCategoryT(@Param("status") String status, @Param("creatorid") String creatorid);
 
     /**
      * 根据分类级数获取文章分类
      * @param currentPage
-     * @param lineSize
      * @param status
      * @param grade
      * @param creatorid
      * @return
      */
-    public List<ArticleCategory> findAllArticleCategoryTByGrade(final int currentPage, final int lineSize, final String status, final String grade, final String creatorid);
+    public List<ArticleCategory> findAllArticleCategoryTByGrade(final int currentPage, final String status, final String grade, final String creatorid);
 
     /**
      * 统计根据分类级数获取文章分类
@@ -104,8 +103,7 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public int countfindAllArticleCategoryTByGrade(String grade, String status,
-                                                   String creatorid);
+    public int countfindAllArticleCategoryTByGrade(@Param("grade") String grade, @Param("status") String status, @Param("creatorid") String creatorid);
 
     /**
      * 根据分类id获取文章分类
@@ -113,7 +111,7 @@ public interface ArticleCategoryDao {
      * @param articleCategoryTid
      * @return
      */
-    public ArticleCategory findArticleCategoryByarticleCategoryTid(
+    public ArticleCategoryDao findArticleCategoryByarticleCategoryTid(
             String articleCategoryTid);
 
     /**
@@ -124,8 +122,7 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public int checkArticleCategoryNamewithoutMe(String articleCategoryTid,
-                                                 String name, String creatorid);
+    public int checkArticleCategoryNamewithoutMe(@Param("articleCategoryTid") String articleCategoryTid, @Param("name") String name, @Param("creatorid") String creatorid);
     /**
      * 排除自己获取文章分类名称
      *
@@ -134,8 +131,7 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public int checkArticleCategoryNamewithoutMe(String articleCategoryTid,
-                                                 String name);
+    public int checkArticleCategoryNamewithoutMe(@Param("articleCategoryTid") String articleCategoryTid, @Param("name") String name);
     /**
      * 排除自己检测文章标记
      *
@@ -144,8 +140,7 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public int checkArticleCategorySignwithoutMe(String articleCategoryTid,
-                                                 String sign);
+    public int checkArticleCategorySignwithoutMe(@Param("articleCategoryTid") String articleCategoryTid, @Param("sign") String sign);
     /**
      * 排除自己检测文章标记
      *
@@ -154,8 +149,7 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public int checkArticleCategorySignwithoutMe(String articleCategoryTid,
-                                                 String sign,String creatorid);
+    public int checkArticleCategorySignwithoutMe(@Param("articleCategoryTid") String articleCategoryTid, @Param("sign") String sign, @Param("creatorid") String creatorid);
 
     /**
      * 根据parentId获取文章分类
@@ -165,8 +159,8 @@ public interface ArticleCategoryDao {
      * @param creatroid
      * @return
      */
-    public List<ArticleCategory> findArticleCategoryByparentId(String status,
-                                                                String parentId, String creatorid);
+    public List<ArticleCategory> findArticleCategoryByparentId(@Param("status") String status,
+                                                                @Param("parentId") String parentId, @Param("creatorid") String creatorid);
 
     /**
      * 根据parentId 是 null获取文章分类
@@ -176,7 +170,7 @@ public interface ArticleCategoryDao {
      * @return
      */
     public List<ArticleCategory> findArticleCategoryByparentIdnull(
-            String status, String creatorid);
+            @Param("status") String status, @Param("creatorid") String creatorid);
 
     /**
      * 根据用户id获取所有文章分类
@@ -195,7 +189,7 @@ public interface ArticleCategoryDao {
      * @return
      */
     public List<ArticleCategory> findArticleCategoryByposition(
-            final int lineSize, String status, String position, String creatorid);
+            final @Param("lineSize") int lineSize, @Param("status") String status, @Param("position") String position, @Param("creatorid") String creatorid);
 
     /**
      * 根据position获取文章分类无用户id
@@ -216,7 +210,7 @@ public interface ArticleCategoryDao {
      * @return
      */
     public List<ArticleCategory> sortAllArticleCategoryT(
-            final int currentPage, final int lineSize, final String status,
+            final String currentPage, final int lineSize, final int status,
             final String creatorid, String queryString);
 
     /**
@@ -226,13 +220,16 @@ public interface ArticleCategoryDao {
      * @param state
      * @return
      */
-    public List<ArticleCategory> findArticleCategoryByGrade(String grade, String status);
+    public List<ArticleCategory> findArticleCategoryByGrade(@Param("grade") String grade, @Param("status") String status);
 
     /**
      * 根据parentid获取文章分类
-     * @param status
      * @param parentId
+     * @param status
      * @return
      */
-    public List<ArticleCategory>findArticleCategoryByparentId(String status,String parentId);
+    public List<ArticleCategory>findArticleCategoryByparentId(@Param("status") String status);
+
+
+
 }
