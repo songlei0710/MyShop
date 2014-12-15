@@ -3,6 +3,10 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsBlinkedDao">
+        <insert id="addGoodsBlinked" parameterType="net.hzjxy.myshop.entity.GoodsBlinked">
+                INSERT INTO GoodsBelinked(ID,MAINGOODSID,BELINKEDPRODUCTINFO,BMODE,STATE,CREATORID,CREATETIME,UPDATETIME,SXLINKEDGOODSID,MAINPRODUCTID,SHOPID,MAINGOODSNAME)
+                VALUES (#{ID},#{MAINGOODSID},#{BELINKEDPRODUCTINFO},#{BMODE},#{STATE},#{CREATORID},#{CREATETIME},#{UPDATETIME},#{SXLINKEDGOODSID},#{MAINPRODUCTID},#{SHOPID},#{MAINGOODSNAME})
+        </insert>
 
         <update id="updateGoodsBelinked"></update>
         <delete id="delGoodsBelinkedBymaingoodsid" parameterType="map">

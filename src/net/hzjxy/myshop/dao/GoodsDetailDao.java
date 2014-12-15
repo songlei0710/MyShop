@@ -17,4 +17,10 @@ public interface GoodsDetailDao {
      * @param gdrt
      */
     public void update(GoodsDetail gdrt);
+    /**
+     * 添加商品详细介绍
+     * @param goodsDetail
+     * @return
+     */
+    public int addGoodsDetail(GoodsDetail goodsDetail);
 }

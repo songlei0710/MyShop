@@ -195,4 +195,10 @@ public interface GoodsCategoryDao {
      * @return
      */
     public List<GoodsCategory> findAllCategoryByNoTrem();
+    /**
+     * 添加商品分类
+     * @param goodsCategory
+     * @return
+     */
+    public int addGoodsCategory(GoodsCategory goodsCategory);
 }

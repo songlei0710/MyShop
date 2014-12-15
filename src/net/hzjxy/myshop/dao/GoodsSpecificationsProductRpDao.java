@@ -39,4 +39,10 @@ public interface GoodsSpecificationsProductRpDao {
      * @return
      */
     public int delGoodsAssociatedProductById(final String goodsid);
+    /**
+     * 添加商品规格关系
+     * @param goodsSpecificationsProductRp
+     * @return
+     */
+    public int addGoodsSpecificationsProductRp(GoodsSpecificationsProductRp goodsSpecificationsProductRp);
 }

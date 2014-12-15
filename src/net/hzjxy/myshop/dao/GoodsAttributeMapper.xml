@@ -3,6 +3,10 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsAttributeDao">
+    <insert id="addGoodsAttribute" parameterType="net.hzjxy.myshop.entity.GoodsAttribute">
+        INSERT INTO GoodsAttribute(GOODSATTRIBUTEID,GOODSATTRIBUTENAME,GOODSTYPEID,GOODSTYPENAME,CREATETIME,STATE,CREATORID,ATTRIBUTETYPE,ATTRIBUTELIST,SORT,ATTRIBUTEINDEX,ISSEARCH,ISSAMETOLINK)
+                VALUES (#{GOODSATTRIBUTEID},#{GOODSATTRIBUTENAME},#{GOODSTYPEID},#{GOODSTYPENAME},#{CREATETIME},#{STATE},#{CREATORID},#{ATTRIBUTETYPE},#{ATTRIBUTELIST},#{SORT},#{ATTRIBUTEINDEX},#{ISSEARCH},#{ISSAMETOLINK})
+    </insert>
 
     <update id="updateGoodsAttribute">
         UPDATE  GoodsAttribute
@@ -44,7 +48,7 @@
                 isSameToLink=#{isSameToLink},
             </if>
         </set>
-        WHERE GoodSatTributeId=#{goodSatTributeId}
+        WHERE goodSatTributeId=#{goodSatTributeId}
     </update>
     <update id="updateGoodsAttributeGoodsTypeName" parameterType="map">
         UPDATE GoodsAttribute SET goodsTypeName=#{goodsTypeName} WHERE goodsTypeId=#{goodsTypeId}
@@ -70,7 +74,7 @@
     <select id="findGoodsAttributeByGoodsTypeName" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
         SELECT * FROM goodSatTributeId WHERE goodsTypeName=#{goodsTypeName}
     </select>
-    <select id="findGoodsAttributeByGoodsTypeIdL" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
+    <select id="findGoodsAttributeByGoodsTypeId" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
          SELECT * FROM goodSatTributeId WHERE goodsTypeId=#{goodsTypeId}
     </select>
     <select id="sortAllGoodsAttribute" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="map">
