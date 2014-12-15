@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.GoodsUnit;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface GoodsUnitDao {
      * @param list
      * @return
      */
-    public int delGoodsunit(String[] list);
+    public int delGoodsunit(@Param("list") String[] list);
 
     /**
      * 更新商品单位
@@ -22,7 +23,7 @@ public interface GoodsUnitDao {
      * @param u
      * @return
      */
-    public int updateGoodsunit(GoodsUnit u);
+    public int updateGoodsunit(@Param("u") GoodsUnit u);
 
     /**
      * 查询所有商品单位
@@ -31,8 +32,8 @@ public interface GoodsUnitDao {
      * @param lineSize
      * @return
      */
-    public List<GoodsUnit> findAllGoodsunit(final int currentPage,
-                                             final int lineSize);
+    public List<GoodsUnit> findAllGoodsunit(final @Param("currentPage") int currentPage,
+                                            final @Param("lineSize") int lineSize);
 
     /**
      * 统计所有商品单位
@@ -47,7 +48,7 @@ public interface GoodsUnitDao {
      * @param unitid
      * @return
      */
-    public GoodsUnit findGoodsunitById(String unitid);
+    public GoodsUnit findGoodsunitById(@Param("unitid") String unitid);
 
     /**
      * 查询所有商品单位json方式
@@ -64,6 +65,7 @@ public interface GoodsUnitDao {
      * @param queryString
      * @return
      */
-    public List<GoodsUnit> sortAllGoodsunit(final int currentPage,
-                                             final int lineSize, String queryString);
+    public List<GoodsUnit> sortAllGoodsnit(final @Param("currentPage") int currentPage,
+                                           final @Param("lineSize") int lineSize, @Param("queryString") String queryString);
+    public int add(@Param("goodsUnit") GoodsUnit goodsUnit);
 }

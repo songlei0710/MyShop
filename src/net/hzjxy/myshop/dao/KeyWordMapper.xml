@@ -3,7 +3,49 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.KeyWordDao">
+        <insert id="add">
+                INSERT into
+                KEYWORD(KEYWORDID,KEYWORDNAME,SEARCHCOUNT,SORT,TYPE,STATE,CREATETIME,CREATORID)
+                 VALUES
+                 (#{KEYWORDID},#{KEYWORDNAME},#{SEARCHCOUNT},#{SORT},#{type},#{state},#{createTime},#{creatorId})
+        </insert>
+        <update id="updateKeywordT">
+                UPDATE KEYWORD SET KEYWORDNAME=#{keywordName}
+        </update>
+        <update id="updatekeywordsearchcount">
+                UPDATE KEYWORD set SEARCHCOUNT=#{searchCount} where keywordname=#{keywordname}
+        </update>
 
 
+        <delete id="delKeywordT">
+                DELETE FROM KEYWORD WHERE KEYWORDID IN
+                <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+                        #{item}
+                </foreach>
+        </delete>
+        <select id="findAllKeywordT" resultType="net.hzjxy.myshop.entity.Keyword">
+                SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM KEYWORD ORDER BY CREATETIME DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+        </select>
+        <select id="countAllKeywordT" resultType="java.lang.Integer">
+                SELECT count(*) FROM KEYWORD
+        </select>
+        <select id="findKeywordById" resultType="net.hzjxy.myshop.entity.Keyword">
+                SELECT * FROM KEYWORD WHERE KEYWORDID=#{keywordid}
+        </select>
 
+        <select id="findAllKeywordTjson" resultType="net.hzjxy.myshop.entity.Keyword">
+               SELECT * FROM KEYWORD
+        </select>
+
+        <select id="findKeywordLimit" resultType="net.hzjxy.myshop.entity.Keyword">
+                SELECT COUNT(*) FROM KEYWORD WHERE limit=#{limit}
+        </select>
 </mapper>

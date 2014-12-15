@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.Keyword;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface KeyWordDao {
      * @param list
      * @return
      */
-    public int delKeywordT(String[] list);
+    public int delKeywordT(@Param("list") String[] list);
 
     /**
      * 更新关键字（排序和前台显示有关系数字越大越靠前）
@@ -22,7 +23,7 @@ public interface KeyWordDao {
      * @param kt
      * @return
      */
-    public int updateKeywordT(Keyword kt);
+    public int updateKeywordT(@Param("kt") Keyword kt);
 
     /**
      * 查询所有关键字
@@ -31,8 +32,8 @@ public interface KeyWordDao {
      * @param lineSize
      * @return
      */
-    public List<Keyword> findAllKeywordT(final int currentPage,
-                                          final int lineSize);
+    public List<Keyword> findAllKeywordT(final @Param("currentPage") int currentPage,
+                                         final @Param("lineSize") int lineSize);
 
     /**
      * 统计所有关键字
@@ -47,7 +48,7 @@ public interface KeyWordDao {
      * @param keywordid
      * @return
      */
-    public Keyword findKeywordById(String keywordid);
+    public Keyword findKeywordById(@Param("keywordid") String keywordid);
 
     /**
      * 根据关键字名称更新关键字使用次数
@@ -55,7 +56,7 @@ public interface KeyWordDao {
      * @param keywordname
      * @return
      */
-    public int updatekeywordsearchcount(String keywordname);
+    public int updatekeywordsearchcount(@Param("keywordname") String keywordname);
 
     /**
      * 查询所有关键字json方式
@@ -70,5 +71,6 @@ public interface KeyWordDao {
      * @param limit
      * @return
      */
-    public List<Keyword> findKeywordLimit(int limit);
+    public List<Keyword> findKeywordLimit(@Param("limit") int limit);
+    public int add(@Param("keyword") Keyword keyword);
 }
