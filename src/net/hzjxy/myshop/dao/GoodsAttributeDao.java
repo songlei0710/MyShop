@@ -99,4 +99,10 @@ public interface GoodsAttributeDao {
      */
     public int updateGoodsAttributeIsSameToLinkByGoodsAttributeId(@Param("goodsAttributeId") String[] goodsAttributeId, @Param("isSameToLink") String isSameToLink);
 
+    /**
+     * 添加商品参数
+     * @param goodsAttribute
+     * @return
+     */
+      public int addGoodsAttribute(GoodsAttribute goodsAttribute);
 }
