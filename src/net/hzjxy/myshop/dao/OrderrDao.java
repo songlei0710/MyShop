@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.Orderr;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
 import java.util.List;
@@ -21,7 +22,7 @@ public interface OrderrDao {
      * @param shippingState
      * @return
      */
-    public List<Orderr> findAllOrderByOrderState(final int currentPage, final int lineSize, final String memberId, final String orderState, String payState, String shippingState);
+    public List<Orderr> findAllOrderByOrderState(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize, final @Param("memberId") String memberId, final @Param("orderState") String orderState, @Param("payState") String payState, @Param("shippingState") String shippingState);
 
     /**
      * 统计根据订单状态获取订单信息
@@ -31,7 +32,7 @@ public interface OrderrDao {
      * @param shippingState
      * @return
      */
-    public int countFindAllOrderByOrderState(String memberId, String orderState, String payState, String shippingState);
+    public int countFindAllOrderByOrderState(@Param("memberId") String memberId, @Param("orderState") String orderState, @Param("payState") String payState, @Param("shippingState") String shippingState);
 
     /**
      * 用户删除自己订单
@@ -40,7 +41,7 @@ public interface OrderrDao {
      * @param orderState
      * @return
      */
-    public int delOrderByOrderId(String memberId, String orderId, String orderState);
+    public int delOrderByOrderId(@Param("memberId") String memberId, @Param("orderId") String orderId, @Param("orderState") String orderState);
 
     /**
      * 获取用户需要处理的订单，及包含paystate是1and0，shippingstate是1and0，orderstate不是8
@@ -53,7 +54,7 @@ public interface OrderrDao {
      * @param shippingState
      * @return
      */
-    public List<Orderr> findAllOrderByOrderStateForOn(final int currentPage, final int lineSize, final String memberId, final String orderState, final String payState, final String shippingState);
+    public List<Orderr> findAllOrderByOrderStateForOn(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize, final @Param("memberId") String memberId, final @Param("orderState") String orderState, final @Param("payState") String payState, final @Param("shippingState") String shippingState);
 
     /**
      * 统计获取用户需要处理的订单，及包含paystate是1and0，shippingstate是1and0，orderstate不是8
@@ -63,14 +64,14 @@ public interface OrderrDao {
      * @param shippingState
      * @return
      */
-    public int countFindAllOrderByOrderStateForOn(String memberId, String orderState, String payState, String shippingState);
+    public int countFindAllOrderByOrderStateForOn(@Param("memberId") String memberId, @Param("orderState") String orderState, @Param("payState") String payState, @Param("shippingState") String shippingState);
 
     /**
      * 根据订单号获取订单详细信息
      * @param orderId
      * @return
      */
-    public Orderr findOrderDetailByorderId(String orderId);
+    public Orderr findOrderDetailByorderId(@Param("orderId") String orderId);
 
     /**
      * 更新订单
@@ -85,7 +86,7 @@ public interface OrderrDao {
      * @param payState
      * @return
      */
-    public int updateOrderPayStateByOrderId(String orderId, String payState);
+    public int updateOrderPayStateByOrderId(@Param("orderId") String orderId, @Param("payState") String payState);
 
     /**
      * 支付宝返回数据，更新订单是否发货
@@ -93,7 +94,7 @@ public interface OrderrDao {
      * @param shippingState
      * @return
      */
-    public int updateOrderShippingStateByOrderId(String orderId, String shippingState);
+    public int updateOrderShippingStateByOrderId(@Param("orderId") String orderId, @Param("shippingState") String shippingState);
 
     /**
      * 支付宝返回数据，更新订单状态
@@ -101,7 +102,7 @@ public interface OrderrDao {
      * @param orderState
      * @return
      */
-    public int updateOrderStateByOrderId(String orderId, String orderState);
+    public int updateOrderStateByOrderId(@Param("orderId") String orderId, @Param("orderState") String orderState);
 
     /**
      * 查询所有订单（后台）
@@ -110,7 +111,7 @@ public interface OrderrDao {
      * @param lineSize
      * @return
      */
-    public List<Orderr> findAllOrder(final int currentPage, final int lineSize);
+    public List<Orderr> findAllOrder(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize);
     /**
      * 统计查询所有订单（后台）
      * @return
@@ -124,14 +125,14 @@ public interface OrderrDao {
      * @param orderId
      * @return
      */
-    public List<Orderr> findOrderByOrderId(final int currentPage, final int lineSize, final String orderId);
+    public List<Orderr> findOrderByOrderId(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize, final @Param("orderId") String orderId);
 
     /**
      * 统计根据订单id查询订单列表
      * @param orderId
      * @return
      */
-    public int countFindOrderbyOrderId(String orderId);
+    public int countFindOrderbyOrderId(@Param("orderId") String orderId);
 
     /**
      * 根据收货人查询订单
@@ -140,14 +141,14 @@ public interface OrderrDao {
      * @param shippingUsername
      * @return
      */
-    public List<Orderr> findOrderByShippingUsername(final int currentPage, final int lineSize, final String shippingUsername);
+    public List<Orderr> findOrderByShippingUsername(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize, final @Param("shippingUsername") String shippingUsername);
 
     /**
      * 统计收货人查询订单
      * @param shippingUsername
      * @return
      */
-    public int countFindOrderByShippingUsername(String shippingUsername);
+    public int countFindOrderByShippingUsername(@Param("shippingUsername") String shippingUsername);
 
     /**
      * 更新订单状态，支付状态，发货状态
@@ -157,7 +158,7 @@ public interface OrderrDao {
      * @param shippingState
      * @return
      */
-    public int updateOrderPayShippingState(String orderId, String orderState, String payState, String shippingState);
+    public int updateOrderPayShippingState(@Param("orderId") String orderId, @Param("orderState") String orderState, @Param("payState") String payState, @Param("shippingState") String shippingState);
 
     /**
      * 获取待发货订单
@@ -168,7 +169,7 @@ public interface OrderrDao {
      * @param shippingState
      * @return
      */
-    public List<Orderr> findAllToBeShippedOrders(final int currentPage, final int lineSize, String orderState,String payState, String shippingState);
+    public List<Orderr> findAllToBeShippedOrders(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize, @Param("orderState") String orderState, @Param("payState") String payState, @Param("shippingState") String shippingState);
 
     /**
      * 统计获取待发货订单
@@ -177,7 +178,7 @@ public interface OrderrDao {
      * @param shippingState
      * @return
      */
-    public int countFindAllToBeShippedOrders(String orderState,String payState,String shippingState);
+    public int countFindAllToBeShippedOrders(@Param("orderState") String orderState, @Param("payState") String payState, @Param("shippingState") String shippingState);
 
     /**
      * 更新订单快递单号
@@ -185,7 +186,7 @@ public interface OrderrDao {
      * @param expressNumber
      * @return
      */
-    public int updateExpressNumberByOrderId(String orderId, String expressNumber);
+    public int updateExpressNumberByOrderId(@Param("orderId") String orderId, @Param("expressNumber") String expressNumber);
 
     /**
      * 更新发货单号
@@ -194,8 +195,8 @@ public interface OrderrDao {
      * @param deliveryTime
      * @return
      */
-    public int updateInvoiceNumberByOrderId(String orderId,
-                                            String invoiceNumber, Date deliveryTime);
+    public int updateInvoiceNumberByOrderId(@Param("orderId") String orderId,
+                                            @Param("invoiceNumber") String invoiceNumber, @Param("deliveryTime") Date deliveryTime);
 
     /**
      * 更新订单是否要开票
@@ -203,7 +204,7 @@ public interface OrderrDao {
      * @param invoice
      * @return
      */
-    public int updateInvoiceByOrderId(String orderId, String invoice);
+    public int updateInvoiceByOrderId(@Param("orderId") String orderId, @Param("invoice") String invoice);
 
     /**
      * 根据排序方式查询所有
@@ -212,7 +213,7 @@ public interface OrderrDao {
      * @param queryString
      * @return
      */
-    public List<Orderr> selectAllOrder(final int currentPage, final int lineSize, String queryString);
+    public List<Orderr> selectAllOrder(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize, @Param("queryString") String queryString);
 
     /**
      * 根据发货状态获取已发货商品
@@ -221,14 +222,14 @@ public interface OrderrDao {
      * @param shippingState
      * @return
      */
-    public List<Orderr> findAllHaveShippedOrder(final int currentPage, final int lineSize, String shippingState);
+    public List<Orderr> findAllHaveShippedOrder(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize, @Param("shippingState") String shippingState);
 
     /**
      * 计算所有已发货订单
      * @param shippingState
      * @return
      */
-    public int countAllHaveshippedOrder(String shippingState);
+    public int countAllHaveshippedOrder(@Param("shippingState") String shippingState);
 
     /**
      * 根据订单状态获取已退货商品

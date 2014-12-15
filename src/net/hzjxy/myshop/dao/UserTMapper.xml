@@ -3,8 +3,8 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.UserTDao">
-    <insert id="addUserT">
-        INSERT INTO UserT
+    <insert id="addUserT" parameterType="net.hzjxy.myshop.entity.UserT">
+
     </insert>
     <update id="updateUserTunpwd" parameterType="map">
         update UserT as u set u.username=:username,u.email=:email,u.state=:state,u.userstate=:userstate where u.userid=:userid
@@ -52,7 +52,15 @@
         SELECT  * FROM UserT WHERE UserId=#{userId}
     </select>
     <select id="findAllUserT" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
-        order by createtime desc
+        SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM UserT ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countFindAllUserT" resultType="java.lang.Integer" parameterType="string">
         SELECT COUNT(*) FROM UserT
