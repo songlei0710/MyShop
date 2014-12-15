@@ -788,4 +788,10 @@ public interface GoodsDao {
      * @return
      */
     public int countfindvirtualsaleGoodsT(String isvirtualsale);
+    /**
+     * 添加虚拟商品
+     * @param goods
+     * @return
+     */
+    public int addGoods(Goods goods);
 }

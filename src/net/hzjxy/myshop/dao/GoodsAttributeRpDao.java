@@ -26,4 +26,10 @@ public interface GoodsAttributeRpDao {
      * @return
      */
     public List<GoodsAttributeRp> findGoodsIdsByAttr(String attrVal);
+    /**
+     * 添加商品的属性
+     * @param goodsAttributeRp
+     * @return
+     */
+    public int addGoodsAttributeRp(GoodsAttributeRp goodsAttributeRp);
 }

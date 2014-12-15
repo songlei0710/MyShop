@@ -14,7 +14,7 @@ import java.util.List;
 public class UserTTest {
     public static void main(String[] args) {
         UserTDaoImpl impl=new UserTDaoImpl();
-        UserT userT=impl.login("zhangsan","123","1");
-        System.out.println(userT.getUserId());
+        List<UserT> list=impl.findAllUserT(1,2);
+        System.out.println(list.size());
     }
 }
