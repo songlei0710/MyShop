@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsAttributeRpDao">
     <insert id="addGoodsAttributeRp" parameterType="net.hzjxy.myshop.entity.GoodsAttributeRp">
-        INSERT into GoodsAttributeRp(ID,GOODSID,ATTRVAL) VALUES (#{ID},#{GOODSID},#{ATTRVAL})
+        INSERT into GoodsAttributeRp(ID,GOODSID,ATTRVAL) VALUES (#{id},#{goodsId},#{attrVal})
     </insert>
     <delete id="delBygoodsId" parameterType="string">
         DELETE from GoodsAttributeRp WHERE goodsId=#{goodsId}

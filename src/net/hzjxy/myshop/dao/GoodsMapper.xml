@@ -280,8 +280,28 @@
     <select id="findAllGoods" resultType="net.hzjxy.myshop.entity.Goods">
         SELECT * FROM Goods
     </select>
-    <select id="findAllGoodsByPageId" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findAllGoodsByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsByPageId" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE creatorid=#{creatorid}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
+    <select id="findAllGoodsByPage" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE Id=#{ID}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countAllGoods" resultType="java.lang.Integer">
         SELECT  count(*) FROM Goods
     </select>
@@ -312,14 +332,34 @@
     <select id="findGoodsBybrand" resultType="net.hzjxy.myshop.entity.Goods" parameterType="string">
         SELECT brand FROM Goods
     </select>
-    <select id="findGoodsByGoodsname" resultType="net.hzjxy.myshop.entity.Goods">    </select>
+    <select id="findGoodsByGoodsname" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE salestate=#{salestate} and goodsname=#{goodsname}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="findGoodsBymodel" resultType="net.hzjxy.myshop.entity.Goods" parameterType="string">
         SELECT * FROM Goods WHERE model=#{model}
     </select>
     <select id="findGoodsByprice" resultType="net.hzjxy.myshop.entity.Goods" parameterType="string">
         SELECT * FROM  Goods WHERE price=#{price}
     </select>
-    <select id="findGoodsByKeyword" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findGoodsByKeyword" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE keywordid=#{keywordid}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindGoodsByKeyword" resultType="java.lang.Integer" parameterType="string">
         SELECT * FROM Goods WHERE keywordid=#{keywordid}
     </select>
@@ -340,31 +380,101 @@
     <select id="countfindMoreGoodsByGoodsType" resultType="java.lang.Integer" parameterType="string">
         SELECT count(nlstypeid) FROM Goods WHERE
     </select>
-    <select id="findSearchGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findSearchGoods" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE goodsname=#{goodsname}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindSearchGoods" resultType="java.lang.Integer" parameterType="string">
         SELECT count(megoodsna) FROM Goods
     </select>
-    <select id="findAllGoodslistMore" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodslistMore" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE salestate=#{salestate}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindAllGoodslistMore" resultType="java.lang.Integer" parameterType="string">
         SELECT count(salestate) FROM Goods
     </select>
-    <select id="findMoreHotSaleGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findMoreHotSaleGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE nlstypeid=#{nlstypeid}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindMoreHotSaleGoodsByGoodsType" resultType="java.lang.Integer" parameterType="string">
         SELECT count(nlstypeid) FROM Goods
     </select>
-    <select id="findMoreBargainPriceGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findMoreBargainPriceGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+        SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE nlstypeid=#{nlstypeid}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindMoreBargainPriceGoodsByGoodsType" resultType="java.lang.Integer" parameterType="string">
         SELECT count(nlstypeid) FROM Goods
     </select>
-    <select id="findMoreRecommendedGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findMoreRecommendedGoodsByGoodsType" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE nlstypeid=#{nlstypeid}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindMoreRecommendedGoodsByGoodsType" resultType="java.lang.Integer" parameterType="string">
         SELECT count(nlstypeid) FROM Goods
     </select>
-    <select id="findMoreBargainPriceGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findMoreBargainPriceGoods" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindMoreBargainPriceGoods" resultType="java.lang.Integer">
         SELECT  count(bargainPriceGoods) FROM  Goods   //
     </select>
-    <select id="findAllGoodsByismobileplatformgoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsByismobileplatformgoods" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE creatorid=#{creatorid}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="findAllGoodsByismobileplatformgoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
         SELECT navid,ismobileplatformgoods FROM Goods WHERE statesal=#{salestate}
     </select>
@@ -374,7 +484,17 @@
     <select id="findAllGoodsBynavid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
         SELECT salestate=#{salestate} from Goods where navid=#{navid}
     </select>
-    <select id="findGoodsByLtypeidByPage" resultType="net.hzjxy.myshop.entity.Goods" >    </select>
+    <select id="findGoodsByLtypeidByPage" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map" >
+           SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE ltypeid=#{ltypeid} and salestate=#{salestate}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="finaAllGoodsT" resultType="net.hzjxy.myshop.entity.Goods" parameterType="string">
         SELECT * FROM  Goods
     </select>
@@ -385,13 +505,53 @@
         SELECT salestate=#{salestate},sales=#{sales},memberprice=#{memberprice},totalcomment=#{totalcomment},bargainprice=#{bargainprice},hotsale=#{hotsale},recommended=#{recommended},
         isNew=#{isNew} and value=#{value} order by params from Goods where ltypeid=#{ltypeid}
     </select>
-    <select id="findAllGoodsBysql" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsBysql" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY queryString DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="findAllGoodsForImgT" resultType="net.hzjxy.myshop.entity.Goods">
         SELECT  * FROM Goods
     </select>
-    <select id="findshuffleGoods" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsByattrs" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findGoodsByNavidByPage" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findshuffleGoods" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY sort DESC WHERE salestate=#{salestate} and recommended=#{recommended}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
+    <select id="findGoodsByattrs" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY sort DESC WHERE attr=#{attr} and salestate=#{salestate}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
+    <select id="findGoodsByNavidByPage" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE navid=#{navid} and salestate=#{salestate}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="findAllGoodsBynavidSO" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
         SELECT salestate=#{salestate},isSpecificationsOpen=#{isSpecificationsOpen} from Goods where navid=#{navid}
     </select>
@@ -401,12 +561,32 @@
     <select id="findAllGoodsBynavidandltypeidandstypeid" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
         SELECT salestate=#{salestate},isSpecificationsOpen=#{isSpecificationsOpen} from Goods where navid=#{navid} and ltypeid=#{ltypeid} and stypeid=#{stypeids}
     </select>
-    <select id="findAllGoodsByattribute" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findAllGoodsByattribute" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+          SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY queryString DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindAllGoodsByattribute" resultType="java.lang.Integer" parameterType="map">
         SELECT * FROM Goods WHERE attribute=#{attribute}
     </select>
     <select id="findrecommendedGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
-    <select id="findvirtualsaleGoodsT" resultType="net.hzjxy.myshop.entity.Goods"></select>
+    <select id="findvirtualsaleGoodsT" resultType="net.hzjxy.myshop.entity.Goods" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE isvirtualsale=#{isvirtualsale}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindvirtualsaleGoodsT" resultType="java.lang.Integer" parameterType="string">
         SELECT count(isvirtualsale) FROM Goods
     </select>
