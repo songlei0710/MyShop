@@ -13,9 +13,20 @@
         </foreach>
     </delete>
     <select id="findAllOrderIvoice" resultType="net.hzjxy.myshop.entity.OrderInvoice">
-        SELECT  * FROM OrderInvoice  WHERE UsecurrentPager=#{currentPage} AND lineSize=#{lineSize}
+        SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM OrderInvoice ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countFindAllOrderIvoice" resultType="java.lang.Integer">
         SELECT COUNT(*) FROM OrderInvoice
     </select>
+    <insert id="addlist" parameterType="net.hzjxy.myshop.entity.OrderInvoice">
+        INSERT INTO list() VALUES()
+    </insert>
 </mapper>
