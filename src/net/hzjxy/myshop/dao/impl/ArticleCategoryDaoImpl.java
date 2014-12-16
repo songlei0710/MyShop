@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by wx on 2014/12/13.
  */
-public abstract class ArticleCategoryDaoImpl  implements ArticleCategoryDao {
+public  class ArticleCategoryDaoImpl  implements ArticleCategoryDao {
     @Override
     public ArticleCategory findPathParentIdByParentId(String parentId, String creatorId) {
         SqlSession session=MybatisUtil.currentSession();

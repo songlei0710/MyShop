@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by wx on 2014/12/15.
  */
-public abstract class ArticleDaoImpl  implements ArticleDao {
+public  class ArticleDaoImpl  implements ArticleDao {
     @Override
     public void delArticleT(String[] strs) {
         SqlSession session=MybatisUtil.currentSession();

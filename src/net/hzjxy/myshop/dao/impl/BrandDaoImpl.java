@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by wx on 2014/12/15.
  */
-public abstract class BrandDaoImpl implements BrandDao{
+public  class BrandDaoImpl implements BrandDao{
     @Override
     public void delBrandt(@Param("list") String[] list, @Param("creatorid") String creatorid) {
         SqlSession session=MybatisUtil.currentSession();
