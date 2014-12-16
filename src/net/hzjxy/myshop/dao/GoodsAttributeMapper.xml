@@ -5,7 +5,7 @@
 <mapper namespace="net.hzjxy.myshop.dao.GoodsAttributeDao">
     <insert id="addGoodsAttribute" parameterType="net.hzjxy.myshop.entity.GoodsAttribute">
         INSERT INTO GoodsAttribute(GOODSATTRIBUTEID,GOODSATTRIBUTENAME,GOODSTYPEID,GOODSTYPENAME,CREATETIME,STATE,CREATORID,ATTRIBUTETYPE,ATTRIBUTELIST,SORT,ATTRIBUTEINDEX,ISSEARCH,ISSAMETOLINK)
-                VALUES (#{GOODSATTRIBUTEID},#{GOODSATTRIBUTENAME},#{GOODSTYPEID},#{GOODSTYPENAME},#{CREATETIME},#{STATE},#{CREATORID},#{ATTRIBUTETYPE},#{ATTRIBUTELIST},#{SORT},#{ATTRIBUTEINDEX},#{ISSEARCH},#{ISSAMETOLINK})
+                VALUES (#{goodSatTributeId},#{goodSatTributeName},#{goodsTypeId},#{goodsTypeName},#{createTime},#{state},#{creatorId},#{attributeType},#{attributeList},#{sort},#{attributeIndex},#{isSearch},#{isSameToLink})
     </insert>
 
     <update id="updateGoodsAttribute">
@@ -73,7 +73,7 @@
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM goodSatTributeId ORDER BY createtime DESC
+        SELECT * FROM GoodsAttribute ORDER BY createtime DESC
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )
@@ -90,7 +90,7 @@
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM goodSatTributeId ORDER BY sort DESC
+        SELECT * FROM GoodsAttribute ORDER BY queryString DESC
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )

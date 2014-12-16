@@ -55,7 +55,11 @@ public class GoodsBlinkedDaoImpl implements GoodsBlinkedDao {
 
     @Override
     public int addGoodsBlinked(GoodsBlinked goodsBelinked) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsBlinkedDao goodsBlinkedDao=session.getMapper(GoodsBlinkedDao.class);
+        goodsBlinkedDao.addGoodsBlinked(goodsBelinked);
+        session.commit();
+        return goodsBlinkedDao.addGoodsBlinked(goodsBelinked);
     }
 
     @Override
