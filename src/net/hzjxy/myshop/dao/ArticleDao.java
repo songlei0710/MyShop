@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.Article;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
 import java.util.List;
@@ -34,7 +35,7 @@ public interface ArticleDao {
      * @param creatorid
      * @return
      */
-    public List<Article> findAllArticleT(final int currentPage, final int lineSize, final String creatorid);
+    public List<Article> findAllArticleT(final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize, final @Param("creatorid") String creatorid);
     /**
      * 获取所有文章
      *
@@ -44,21 +45,21 @@ public interface ArticleDao {
      * @param creatorid
      * @return
      */
-    public List<Article> findAllArticleT(final int currentPage,
-                                          final int lineSize);
+    public List<Article> findAllArticleT(final @Param("currentPage") int currentPage,
+                                          final @Param("lineSize") int lineSize);
     /**
      * 统计获取所有文章
      *
      * @param creatorid
      * @return
      */
-    public int countfindAllArticle(String creatorid);
+    public Article countfindAllArticle(String creatorid);
     /**
      * 统计获取所有文章
      *
      * @return
      */
-    public int countfindAllArticle();
+    public Article countfindAllArticle();
 
     /**
      * 更新文章
@@ -66,15 +67,14 @@ public interface ArticleDao {
      * @param at
      * @return
      */
-    public int updateArticleT(Article at);
+    public Article updateArticleT(Article at);
 
     /**
      * 更新文章静态页
-     *
-     * @param articleid
+     *  @param articleid
      * @param htmlPath
      */
-    public int updateHtmlPath(String articleid, String htmlPath);
+    public Article updateHtmlPath(@Param("articleid") String articleid, @Param("htmlPath") String htmlPath);
 
     /**
      * 更新文章静态页避免重复生成
@@ -84,7 +84,7 @@ public interface ArticleDao {
      * @param updatetime
      * @return
      */
-    public int updateHtmlPath(String articleid, String htmlPath, Date updatetime);
+    public Article updateHtmlPath(@Param("articleid") String articleid, @Param("htmlPath") String htmlPath, @Param("updatetime") Date updatetime);
 
     /**
      * 根据用户id获取文章列表
@@ -121,8 +121,8 @@ public interface ArticleDao {
      * @param position
      * @return
      */
-    public int updateArticlepositionByarticleCategoryTid(
-            String articleCategoryTid, String position);
+    public Article updateArticlepositionByarticleCategoryTid(
+            @Param("articleCategoryTid") String articleCategoryTid, @Param("position") String position);
 
     /**
      * 删除文章
@@ -137,7 +137,7 @@ public interface ArticleDao {
      * @param status
      * @return
      */
-    public List<Article>findArticlesByNavid(String navid,String status);
+    public List<Article>findArticlesByNavid(@Param("navid") String navid, @Param("status") String status);
 
     /**
      * 获取二级分类文章列表
@@ -145,12 +145,12 @@ public interface ArticleDao {
      * @param status
      * @return
      */
-    public List<Article>findArticlesByLtypeid(String ltypeid,String status);
+    public List<Article>findArticlesByLtypeid(@Param("ltypeid") String ltypeid, @Param("status") String status);
     /**
      * 获取三级分类文章列表
      * @param stypeid
      * @param status
      * @return
      */
-    public List<Article>findArticlesByStypeid(String stypeid,String status);
+    public List<Article>findArticlesByStypeid(@Param("stypeid") String stypeid, @Param("status") String status);
 }

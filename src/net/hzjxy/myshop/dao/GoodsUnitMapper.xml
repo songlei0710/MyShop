@@ -3,7 +3,48 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsUnitDao">
-
-
-
+        <insert id="add">
+               INSERT into GOODSUNIT(UNITID,UNITNAME,ENGUNITNAME,CREATORID,CREATETIME)
+                VALUES(#{UNITID},#{unitName},#{engUnitName},#{creatorId},#{createTime})
+        </insert>
+        <update id="updateGoodsunit">
+                UPDATE GOODSUNIT set unitId=#{unitId}
+        </update>
+        <delete id="delGoodsunit">
+                DELETE FROM GoodsUNit WHERE unitId IN
+                <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+                        #{item}
+                </foreach>
+        </delete>
+        <select id="findAllGoodsunit" resultType="net.hzjxy.myshop.entity.GoodsUnit">
+                SELECT * FROM
+                (
+                SELECT A.*,ROWNUM RN FROM
+                (
+                SELECT * FROM GOODS ORDER BY createtime DESC
+                ) A
+                WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+                )
+                WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+        </select>
+        <select id="countfindAllGoodsunit" resultType="java.lang.Integer">
+                SELECT COUNT(*) FROM GOODSUNIT
+        </select>
+        <select id="findGoodsunitById" resultType="net.hzjxy.myshop.entity.GoodsUnit">
+                SELECT * FROM GOODSUNIT WHERE UNITID=#{unitid}
+        </select>
+        <select id="findAllGoodsunitjson" resultType="net.hzjxy.myshop.entity.GoodsUnit">
+                SELECT * FROM GOODSUNIT
+        </select>
+        <select id="sortAllGoodsnit" resultType="net.hzjxy.myshop.entity.GoodsUnit">
+                SELECT * FROM
+                (
+                SELECT A.*,ROWNUM RN FROM
+                (
+                SELECT * FROM GOODS ORDER BY createtime DESC
+                ) A
+                WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+                )
+                WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1 and queryString=#{queryString}
+        </select>
 </mapper>

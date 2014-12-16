@@ -32,8 +32,8 @@ public interface GoodsCommentDao {
      * @param goodsid
      * @return
      */
-    public List<GoodsComment> findGoodsCommentByGoodsid(final String goodsid,
-                                                         final int currentPage, final int lineSize);
+    public List<GoodsComment> findGoodsCommentByGoodsid(final @Param("goodsid") String goodsid,
+                                                         final @Param("currentPage") int currentPage, final @Param("lineSize") int lineSize);
 
     /**
      * 统计获取对应商品的评论
@@ -50,8 +50,8 @@ public interface GoodsCommentDao {
      * @param lineSize
      * @return
      */
-    public List<GoodsComment> findAllGoodsComment(final int currentPage,
-                                                   final int lineSize);
+    public List<GoodsComment> findAllGoodsComment(final @Param("currentPage") int currentPage,
+                                                   final @Param("lineSize") int lineSize);
 
     /**
      * 统计获取商品评论
