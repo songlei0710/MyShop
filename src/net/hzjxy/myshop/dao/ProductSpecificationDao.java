@@ -64,4 +64,8 @@ public interface ProductSpecificationDao {
      * @return
      */
     public List<ProductSpecification> findAllProductSpecificationByGoodsTypeId(String goodsTypeId,String state);
+    /**
+     * 添加
+     */
+    public int addProductSpecification(PaymentDao paymentDao);
 }

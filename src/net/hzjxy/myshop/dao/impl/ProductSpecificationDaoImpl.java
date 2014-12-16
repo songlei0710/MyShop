@@ -1,5 +1,6 @@
 package net.hzjxy.myshop.dao.impl;
 
+import net.hzjxy.myshop.dao.PaymentDao;
 import net.hzjxy.myshop.dao.ProductSpecificationDao;
 import net.hzjxy.myshop.entity.ProductSpecification;
 
@@ -47,5 +48,10 @@ public class ProductSpecificationDaoImpl implements ProductSpecificationDao {
     @Override
     public List<ProductSpecification> findAllProductSpecificationByGoodsTypeId(String goodsTypeId, String state) {
         return null;
+    }
+
+    @Override
+    public int addProductSpecification(PaymentDao paymentDao) {
+        return 0;
     }
 }

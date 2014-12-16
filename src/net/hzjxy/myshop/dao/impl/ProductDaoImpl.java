@@ -123,4 +123,12 @@ public class ProductDaoImpl implements ProductDao {
         List<Product> list=productDao.findProductByProductName(productName,lineSize);
         return list;
     }
+
+    @Override
+    public int addProduct(Product product) {
+        SqlSession session=MybatisUtil.currentSession();
+        ProductDao productDaoroductDao=session.getMapper(ProductDao.class);
+        int productr=productDaoroductDao.addProduct(product);
+        return productr;
+    }
 }
