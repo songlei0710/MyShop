@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.SystemMail;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -9,11 +10,12 @@ import java.util.List;
  */
 public interface SystemMailDao {
     /**
+     * 
      * 删除邮箱
      * @param id
      * @return
      */
-    public int delSystemMail(String id);
+    public int delSystemMail(@Param("id") String id);
 
     /**
      * 更新系统邮件
@@ -21,7 +23,7 @@ public interface SystemMailDao {
      * @param sm
      * @return
      */
-    public void updateSystemMail(SystemMail sm);
+    public void updateSystemMail(@Param("sm") SystemMail sm);
 
     /**
      * 查找所有系统邮件
@@ -37,9 +39,9 @@ public interface SystemMailDao {
 
     /**
      * id获取邮箱信息
-     *
-     * @param smialid
+     * smialid
+     * @param id
      * @return
      */
-    public SystemMail findSysMailById(String id);
+    public SystemMail findSysMailById(@Param("id") String id);
 }
