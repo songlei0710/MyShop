@@ -77,4 +77,5 @@ public interface WebSiteMsgDao {
      * @return
      */
     public WebSiteMsg findMsgTextById(@Param("id") String id);
+    public int addWebSiteMsg(WebSiteMsgDao webSiteMsg);
 }

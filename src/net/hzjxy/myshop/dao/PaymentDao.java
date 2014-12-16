@@ -63,4 +63,8 @@ public interface PaymentDao {
      * @return
      */
     public int delPaymentById(String []str);
+    /**
+     * 添加
+     */
+    public int addPayment(Payment payment);
 }

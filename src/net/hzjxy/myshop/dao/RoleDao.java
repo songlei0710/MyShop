@@ -33,4 +33,8 @@ public interface RoleDao {
      * @return
      */
     public List<Role> findAllRole();
+    /**
+     * 添加
+     */
+    public int addRole(Role role);
 }

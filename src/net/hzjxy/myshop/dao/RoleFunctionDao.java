@@ -22,4 +22,8 @@ public interface RoleFunctionDao {
      * @return
      */
     public int delRoleFunction(String roleId);
+    /**
+     * 添加
+     */
+    public int addRoleFunction(RoleFunction roleFunction);
 }

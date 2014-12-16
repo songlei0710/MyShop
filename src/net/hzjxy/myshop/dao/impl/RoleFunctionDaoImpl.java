@@ -23,9 +23,16 @@ public class RoleFunctionDaoImpl implements RoleFunctionDao {
     public int delRoleFunction(String roleId) {
         SqlSession session=MybatisUtil.currentSession();
         RoleFunctionDao RoleFunctionDao=session.getMapper(RoleFunctionDao.class);
-        RoleFunctionDao.delRoleFunction(roleId);
-        session.commit();
-        return RoleFunctionDao.delRoleFunction(roleId);
+        int role=RoleFunctionDao.delRoleFunction(roleId);
+        return role;
 
+    }
+
+    @Override
+    public int addRoleFunction(RoleFunction roleFunction) {
+        SqlSession session=MybatisUtil.currentSession();
+        RoleFunctionDao RoleFunctionDao=session.getMapper(RoleFunctionDao.class);
+        int role=RoleFunctionDao.addRoleFunction(roleFunction);
+        return role;
     }
 }
