@@ -120,9 +120,26 @@
         SELECT Goodscategory FROM GoodsCategory WHERE creatorid=#{creatorid}
     </select>
     <select id="sortAllGoodsCategoryT" resultType="net.hzjxy.myshop.entity.GoodsCategory" parameterType="map">
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Category ORDER BY sort DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
-    <select id="findAllGoodsCategoryTByPage" resultType="net.hzjxy.myshop.entity.GoodsCategory">
-        SELECT GoodsCategoryT FROM GoodsCategory WHERE state=#{state}
+    <select id="findAllGoodsCategoryTByPage" resultType="net.hzjxy.myshop.entity.GoodsCategory" parameterType="map">
+        SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Category ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="findAllCategoryByNoTrem" resultType="net.hzjxy.myshop.entity.GoodsCategory">
         SELECT Category FROM GoodsCategory
