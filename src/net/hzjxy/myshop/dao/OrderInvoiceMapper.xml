@@ -3,8 +3,19 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.OrderInvoiceDao">
-    <update id="updateOrderInvoiceState"></update>
-    <delete id="delOrderInvoice"></delete>
-    <select id="findAllOrderIvoice" resultType="net.hzjxy.myshop.entity.OrderInvoice"></select>
-    <select id="countFindAllOrderIvoice" resultType="java.lang.Integer"></select>
+    <update id="updateOrderInvoiceState">
+        UPDATE  OrderInvoice SET state=#{state} WHERE orderInvoiceId=#{orderInvoiceId}
+    </update>
+    <delete id="delOrderInvoice">
+        DELETE FROM OrderInvoice WHERE OrderId IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{list}
+        </foreach>
+    </delete>
+    <select id="findAllOrderIvoice" resultType="net.hzjxy.myshop.entity.OrderInvoice">
+        SELECT  * FROM OrderInvoice  WHERE UsecurrentPager=#{currentPage} AND lineSize=#{lineSize}
+    </select>
+    <select id="countFindAllOrderIvoice" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM OrderInvoice
+    </select>
 </mapper>
