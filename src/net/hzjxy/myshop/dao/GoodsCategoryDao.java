@@ -168,7 +168,7 @@ public interface GoodsCategoryDao {
      * @param htmlpath
      * @return
      */
-    public int updateHtmlPath(String goodsCategoryTid, String htmlpath);
+    public int updateHtmlPath(@Param("goodsCategoryTid") String goodsCategoryTid, @Param("htmlpath") String htmlpath);
 
     /**
      * 获取所有激活的商品分类state=1

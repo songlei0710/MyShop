@@ -1,7 +1,9 @@
 package net.hzjxy.myshop.dao.impl;
 
+
 import net.hzjxy.myshop.dao.RoleFunctionDao;
 import net.hzjxy.myshop.entity.RoleFunction;
+import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
@@ -11,11 +13,19 @@ import java.util.List;
 public class RoleFunctionDaoImpl implements RoleFunctionDao {
     @Override
     public List<RoleFunction> findAllRoleFunctionByRoleId(String roleId) {
+        SqlSession session=MybatisUtil.currentSession();
+        RoleFunctionDao RoleFunctionDao=session.getMapper(RoleFunctionDao.class);
+        List<RoleFunction> role=RoleFunctionDao.findAllRoleFunctionByRoleId(roleId);
         return null;
     }
 
     @Override
     public int delRoleFunction(String roleId) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        RoleFunctionDao RoleFunctionDao=session.getMapper(RoleFunctionDao.class);
+        RoleFunctionDao.delRoleFunction(roleId);
+        session.commit();
+        return RoleFunctionDao.delRoleFunction(roleId);
+
     }
 }
