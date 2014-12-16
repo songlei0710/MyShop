@@ -7,9 +7,9 @@
         INSERT INTO Goods(GOODSID,GOODSNAME,BRANDNAME,NNAME,LNAME,SNAME,FNAME,NAVID,LTYPEID,STYPEID,PRICE,MEMBERPRICE,POINTS,PICTUREURL,QUANTITY,SALESTATE,UNITNAME,KEYWORDNAME,WEIGHT,READCOUNT,
         RELATEDPRODUCTID,RECOMMENDED,HOTSALE,BARGAINPRICE,SORT,CREATETIME,CREATORID,REPLYCOUNT,BRANDID,PLACESTORE,METAKYEWORDS,METADESCRIPTION,COST,SALEPRICE,ISNEW,HTMLPATH,HTMLPATH,GOODSPARAMETERVALUE,FREEZESTORE,KEYWORDID,
         UNITNAMEID,GOODSTYPEID,GOODSTYPENAME,USERSETNUM,INSPECIFICATIONSOPEA,TOTALSTARUSER,TOTALCOMMENT,ISVIRTUALSALE,ISMOBILEPLATFORMGOODS,SALES,REALSALES,UPDATETIME,VERSION,COMMODITYLIST,ISOUTSITE,OUTSITELINK,SUBGOODSNAME,SHOPID,SHOPNAME,ISGROUP,ISSECONDKILL)
-        VALUES (#{GOODSID},#{GOODSNAME},#{BRANDNAME},#{NNAME},#{LNAME},#{SNAME},#{FNAME},#{NAVID},#{LTYPEID},#{STYPEID},#{PRICE},#{MEMBERPRICE},#{POINTS},#{PICTUREURL},#{QUANTITY},#{SALESTATE},#{UNITNAME},#{KEYWORDNAME},#{WEIGHT},#{READCOUNT},
-        #{RELATEDPRODUCTID},#{RECOMMENDED},#{HOTSALE},#{BARGAINPRICE},#{SORT},#{CREATETIME},#{CREATORID},#{REPLYCOUNT},#{BRANDID},#{PLACESTORE},#{METAKYEWORDS},#{METADESCRIPTION},#{COST},#{SALEPRICE},#{ISNEW},#{HTMLPATH},#{HTMLPATH},#{GOODSPARAMETERVALUE},#{FREEZESTORE},#{KEYWORDID},
-        #{UNITNAMEID},#{GOODSTYPEID},#{GOODSTYPENAME},#{USERSETNUM},#{INSPECIFICATIONSOPEA},#{TOTALSTARUSER},#{TOTALCOMMENT},#{ISVIRTUALSALE},#{ISMOBILEPLATFORMGOODS},#{SALES},#{REALSALES},#{UPDATETIME},#{VERSION},#{COMMODITYLIST},#{ISOUTSITE},#{OUTSITELINK},#{SUBGOODSNAME},#{SHOPID},#{SHOPNAME},#{ISGROUP},#{ISSECONDKILL})
+        VALUES (#{goodsId},#{goodsName},#{brandName},#{nName},#{lName},#{sName},#{fName},#{navId},#{lTypeId},#{sTypeId},#{price},#{memberPrice},#{points},#{pictureUrl},#{quantity},#{saleState},#{unitName},#{keywordName},#{weight},#{readCount},
+        #{relatedProductId},#{recommended},#{hotSale},#{bargainPrice},#{sort},#{createTime},#{creatorId},#{replyCount},#{brandId},#{placeStore},#{metaKeywords},#{metaDescription},#{cost},#{salePrice},#{isNew},#{htmlPath},#{productSn},#{goodsParameterValue},#{freezeStore},#{keywordId},
+        #{unitNameId},#{goodsTypeId},#{goodsTypeName},#{userSetNum},#{isSpecificationsOpen},#{totalStar},#{totalStarUser},#{isVirtualSale},#{isMobilePlatformGoods},#{sales},#{realSales},#{updateTime},#{version},#{commodityList},#{isOutSite},#{outSiteLink},#{subGoodsName},#{shopId},#{shopName},#{isGroup},#{isSecondKill})
     </insert>
     <update id="updateGoods" parameterType="net.hzjxy.myshop.entity.Goods">
         UPDATE Goods
@@ -296,7 +296,7 @@
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM Goods ORDER BY createtime DESC WHERE Id=#{ID}
+        SELECT * FROM Goods ORDER BY createtime DESC
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )
@@ -524,7 +524,7 @@
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM Goods ORDER BY sort DESC WHERE salestate=#{salestate} and recommended=#{recommended}
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE salestate=#{salestate} and recommended=#{recommended}
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )
@@ -535,7 +535,7 @@
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM Goods ORDER BY sort DESC WHERE attr=#{attr} and salestate=#{salestate}
+        SELECT * FROM Goods ORDER BY createtime DESC WHERE attr=#{attr} and salestate=#{salestate}
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )
