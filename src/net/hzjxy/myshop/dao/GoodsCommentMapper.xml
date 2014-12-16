@@ -3,7 +3,7 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsCommentDao">
-    <insert id="addGoodsComment"parameterType="net.hzjxy.myshop.entity.GoodsComment">
+    <insert id="addGoodsComment" parameterType="net.hzjxy.myshop.entity.GoodsComment">
         INSERT INTO GoodsComment(COMMENTID,GOODSID,GOODSNAME,REPLYORCOMMENTUSERNAME,POSTTIME,COMMENTCONTENT,SCORE,STATE,REPLYORCOMMENT,REPLYID,REPLYORCOMMENTUSERID,EMAILABLE,TITLE,VIRTUALADD,SHOPID)
         VALUES (#{COMMENTID},#{GOODSID},#{GOODSNAME},#{REPLYORCOMMENTUSERNAME},#{POSTTIME},#{COMMENTCONTENT},#{SCORE},#{STATE},#{REPLYORCOMMENT},#{REPLYID},#{REPLYORCOMMENTUSERID},#{EMAILABLE},#{TITLE},#{VIRTUALADD},#{SHOPID})
     </insert>
