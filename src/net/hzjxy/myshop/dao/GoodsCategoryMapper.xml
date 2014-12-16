@@ -7,8 +7,8 @@
         INSERT INTO GoodsCategory(GOODSCATEGORYTID,GRADE,METAKEYWORDS,METADES,NAME,STATE,PATH,SORT,SIGN,GOODSTYPEID,PARENTID,CREATETIME,CREATORID,PARENTNAME,HTMLPATH,UPDATETIME,VERSION,LOGO,MOBILESYNC)
         VALUES (#{goodsCategoryTid},#{grade},#{metaKeywords},#{metaDes},#{name},#{state},#{path},#{sort},#{sign},#{goodsTypeId},#{parentId},#{createTime},#{creatorId},#{parentName},#{htmlPath},#{updateTime},#{version},#{logo},#{mobilesYnc})
     </insert>
-    <update id="updateGoodscategoryT">
-        UPDATE GoodsCategory
+    <update id="updateGoodscategoryT" parameterType="net.hzjxy.myshop.entity.GoodsGroup">
+        UPDATE GOODSCATEGORY
         <set>
             <if test="goodsCategoryTid!=null">
                 goodsCategoryTid=#{goodsCategoryTid},
@@ -73,7 +73,7 @@
     <update id="updateHtmlPath" parameterType="map">
         update GoodsCategory  set htmlpath=#{htmlpath} WHERE goodsCategoryTid=#{goodsCategoryTid}
     </update>
-    <delete id="delGoodscategoryT" parameterType="string" >
+    <delete id="delGoodscategoryT">
         DELETE FROM GOODSCATEGORY WHERE GOODSCATEGORYTID IN
         <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
             #{item}

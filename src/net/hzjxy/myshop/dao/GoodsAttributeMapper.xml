@@ -8,8 +8,8 @@
                 VALUES (#{goodSatTributeId},#{goodSatTributeName},#{goodsTypeId},#{goodsTypeName},#{createTime},#{state},#{creatorId},#{attributeType},#{attributeList},#{sort},#{attributeIndex},#{isSearch},#{isSameToLink})
     </insert>
 
-    <update id="updateGoodsAttribute">
-        UPDATE  GoodsAttribute
+    <update id="updateGoodsAttribute" parameterType="net.hzjxy.myshop.entity.GoodsAttribute">
+        UPDATE  GOODSATTRIBUTE
         <set>
             <if test="goodSatTributeName!=null">
                 goodSatTributeName=#{goodSatTributeName},
