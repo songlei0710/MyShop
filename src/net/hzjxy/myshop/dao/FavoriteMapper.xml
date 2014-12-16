@@ -3,9 +3,10 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.FavoriteDao">
-    <delete id="delArticleT">
-        DELETE FROM Favorite WHERE FavoriteId=(#favoriteId)
-    </delete>
+    <insert id="addFavorite">
+insert into Favorite(FAVORITEID,TITLE,GOODSID,TAG,DESCRIBE,MEMEBERID,STATE,ADDTIME,READCOUNT,MEMEBERPRICE,PRODUCTID,HTMLPATH)VALUES (#{FAVORITEID},#{TITLE},#{GOODSID},#{TAG},#{DESCRIBE},#{MEMEBERID},#{STATE},#{ADDTIME},#{READCOUNT},#{MEMEBERPRICE},#{PRODUCTID},#{HTMLPATH});
+    </insert>
+
 
     <delete id="delFavorite">
         DELETE FROM Favorite WHERE FavoriteId IN
@@ -13,8 +14,15 @@
             #{item}
         </foreach>
     </delete>
-
     <select id="findAllFavoriteByUserid" resultType="net.hzjxy.myshop.entity.Favorite">
+        SELECT * FROM
+        (
+        SELECT A *,ROWNUM RN FROM(
+        SELECT * FROM Favorite ORDER BY userid DESC
+        )A
+        WHERE ROWNUM&lt;+#{currentPage}*#{lineSize}
+        )
+        WHERE RN%gt:=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countfindAllFavoriteByUserid" resultType="java.lang.Integer">
          SELECT COUNT(*) FROM Favorite

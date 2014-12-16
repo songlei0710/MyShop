@@ -30,8 +30,16 @@
     <delete id="delGoodsTypeTN">
         DELETE FROM GoodsType WHERE list=#{list}
     </delete>
-    <select id="findAllGoodsTypeTN" resultType="net.hzjxy.myshop.entity.GoodsType">
-        SELECT * FROM GoodsType
+    <select id="findAllGoodsTypeTN" resultType="net.hzjxy.myshop.entity.GoodsType" parameterType="map">
+        SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM GoodsType ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countfindAllGoodsTypeTN" resultType="java.lang.Integer">
         SELECT COUNT(*) FROM GoodsType
@@ -39,8 +47,20 @@
     <select id="findGoodsTypeTNById" resultType="net.hzjxy.myshop.entity.GoodsType">
         SELECT * FROM GoodsType WHERE goodsTypeId=#{goodsTypeId}
     </select>
-    <select id="findAllGoodsTypeTNNopage" resultType="net.hzjxy.myshop.entity.GoodsType"></select>
-    <select id="sortAllGoodsTypeTN" resultType="net.hzjxy.myshop.entity.GoodsType"></select>
+    <select id="findAllGoodsTypeTNNopage" resultType="net.hzjxy.myshop.entity.GoodsType">
+        SELECT * FROM GOODSTYPE
+    </select>
+    <select id="sortAllGoodsTypeTN" resultType="net.hzjxy.myshop.entity.GoodsType" parameterType="map">
+        SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM GoodsType ORDER BY queryString DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countsortAllGoodsTypeTN" resultType="java.lang.Integer">
         SELECT COUNT(*) FROM GoodsType WHERE queryString=#{queryString}
     </select>

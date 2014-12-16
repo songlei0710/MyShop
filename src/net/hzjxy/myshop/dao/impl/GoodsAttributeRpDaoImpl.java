@@ -34,4 +34,13 @@ public class GoodsAttributeRpDaoImpl implements GoodsAttributeRpDao {
         List<GoodsAttributeRp> goodsAttributeRp =goodsAttributeRpDao.findGoodsIdsByAttr(attrVal);
         return goodsAttributeRp;
     }
+
+    @Override
+    public int addGoodsAttributeRp(GoodsAttributeRp goodsAttributeRp) {
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeRpDao goodsAttributeRpDao=session.getMapper(GoodsAttributeRpDao.class);
+        goodsAttributeRpDao.addGoodsAttributeRp(goodsAttributeRp);
+        session.commit();
+        return goodsAttributeRpDao.addGoodsAttributeRp(goodsAttributeRp);
+    }
 }
