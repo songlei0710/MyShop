@@ -685,6 +685,7 @@ public class GoodsDaoImpl implements GoodsDao{
         SqlSession session=MybatisUtil.currentSession();
         GoodsDao goodsDao=session.getMapper(GoodsDao.class);
         goodsDao.updateGoodsQuantityByGoodsId(oldQuantity,newQuantity,goodsid);
+        session.commit();
         return goodsDao.updateGoodsQuantityByGoodsId(oldQuantity,newQuantity,goodsid);
     }
 
@@ -706,7 +707,11 @@ public class GoodsDaoImpl implements GoodsDao{
 
     @Override
     public int addGoods(Goods goods) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsDao goodsDao=session.getMapper(GoodsDao.class);
+        goodsDao.addGoods(goods);
+        session.commit();
+        return goodsDao.addGoods(goods);
     }
 
     @Override

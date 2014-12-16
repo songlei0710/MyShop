@@ -37,6 +37,10 @@ public class GoodsAttributeRpDaoImpl implements GoodsAttributeRpDao {
 
     @Override
     public int addGoodsAttributeRp(GoodsAttributeRp goodsAttributeRp) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeRpDao goodsAttributeRpDao=session.getMapper(GoodsAttributeRpDao.class);
+        goodsAttributeRpDao.addGoodsAttributeRp(goodsAttributeRp);
+        session.commit();
+        return goodsAttributeRpDao.addGoodsAttributeRp(goodsAttributeRp);
     }
 }
