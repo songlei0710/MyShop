@@ -75,7 +75,15 @@
         SELECT USER FROM UserT WHERE userid=#{userId}
     </select>
     <select id="sortAllUserT" resultType="net.hzjxy.myshop.entity.UserT" parameterType="map">
-
+       SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM UserT ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="findEmailByUser">
         SELECT email FROM UserT
