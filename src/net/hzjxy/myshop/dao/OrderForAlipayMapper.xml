@@ -5,7 +5,19 @@
 <mapper namespace="net.hzjxy.myshop.dao.OrderForAlipayDao">
 
 
-        <update id="updateOrderPayStateByOrderId"></update>
-        <update id="updateOrderShippingStateByOrderId"></update>
-        <update id="updateOrderStateByorderId"></update>
+        <update id="updateOrderPayStateByOrderId">
+                UPDATE OrderForAlipay SET state=#{payState} where orderId=#{orderId}
+        </update>
+        <update id="updateOrderShippingStateByOrderId">
+                UPDATE OrderForAlipay SET state=#{shippingState} where orderId=#{orderId}
+        </update>
+        <update id="updateOrderStateByorderId" >
+                UPDATE OrderForAlipay SET state=#{orderState} where orderId=#{orderId}
+        </update>
+        <insert id="addlist" parameterType="net.hzjxy.myshop.entity.OrderInvoice">
+                INSERT INTO list() VALUES()
+        </insert>
+        <insert id="addlorderr" parameterType="net.hzjxy.myshop.entity.OrderInvoice">
+                INSERT INTO orderr() VALUES()
+        </insert>
 </mapper>

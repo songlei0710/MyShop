@@ -3,8 +3,14 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GlobalParamDao">
-    <update id="updateGolbalParamByKey"></update>
-    <delete id="delArticleT"></delete>
-    <select id="findValueByKey" resultType="net.hzjxy.myshop.entity.GlobalParam"></select>
+    <update id="updateGolbalParamByKey">
+        UPDATE GlobalParam SET gm=#{gm} WHERE key=#{key}
+    </update>
+    <delete id="delArticleT">
+
+    </delete>
+    <select id="findValueByKey" resultType="net.hzjxy.myshop.entity.GlobalParam">
+        SELECT * FROM GlobalParam WHERE key=#{key}
+    </select>
     <select id="findAllGlobalParam" resultType="net.hzjxy.myshop.entity.GlobalParam"></select>
 </mapper>

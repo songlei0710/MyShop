@@ -56,6 +56,15 @@ public class GoodsAttributeDaoImpl implements GoodsAttributeDao {
     }
 
     @Override
+    public int addGoodsAttribute(GoodsAttribute goodsAttribute) {
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);
+        goodsAttributeDao.addGoodsAttribute(goodsAttribute);
+        session.commit();
+        return goodsAttributeDao.addGoodsAttribute(goodsAttribute);
+    }
+
+    @Override
     public List<GoodsAttribute> findGoodsAttributeByGoodsTypeName(String goodsTypeName) {
         SqlSession session=MybatisUtil.currentSession();
         GoodsAttributeDao goodsAttributeDao=session.getMapper(GoodsAttributeDao.class);

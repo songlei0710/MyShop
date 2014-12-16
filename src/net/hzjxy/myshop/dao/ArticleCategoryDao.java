@@ -131,7 +131,7 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public int checkArticleCategoryNamewithoutMe(@Param("articleCategoryTid") String articleCategoryTid, @Param("name") String name);
+    public int checkArticleCategoryNameWithoutMe(@Param("articleCategoryTid") String articleCategoryTid, @Param("name") String name);
     /**
      * 排除自己检测文章标记
      *
@@ -140,7 +140,7 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public int checkArticleCategorySignwithoutMe(@Param("articleCategoryTid") String articleCategoryTid, @Param("sign") String sign);
+    public int checkArticleCategorySignWithoutMe(@Param("articleCategoryTid") String articleCategoryTid, @Param("sign") String sign);
     /**
      * 排除自己检测文章标记
      *
@@ -159,8 +159,7 @@ public interface ArticleCategoryDao {
      * @param creatroid
      * @return
      */
-    public List<ArticleCategory> findArticleCategoryByparentId(@Param("status") String status,
-                                                                @Param("parentId") String parentId, @Param("creatorid") String creatorid);
+    public List<ArticleCategory> findArticleCategoryByParentId(@Param("status") String status, @Param("parentId") String parentId, @Param("creatorid") String creatorid);
 
     /**
      * 根据parentId 是 null获取文章分类
@@ -169,8 +168,7 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public List<ArticleCategory> findArticleCategoryByparentIdnull(
-            @Param("status") String status, @Param("creatorid") String creatorid);
+    public List<ArticleCategory> findArticleCategoryByParentIdNull(@Param("status") String status, @Param("creatorid") String creatorid);
 
     /**
      * 根据用户id获取所有文章分类
@@ -178,8 +176,7 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public List<ArticleCategory> findAllArticleCategoryBycreatorid(
-            String creatorid);
+    public List<ArticleCategory> findAllArticleCategoryByCreatorId(String creatorid);
 
     /**
      * 根据position获取文章分类
@@ -188,8 +185,7 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public List<ArticleCategory> findArticleCategoryByposition(
-            final @Param("lineSize") int lineSize, @Param("status") String status, @Param("position") String position, @Param("creatorid") String creatorid);
+    public List<ArticleCategory> findArticleCategoryByPosition(final @Param("lineSize") int lineSize, @Param("status") String status, @Param("position") String position, @Param("creatorid") String creatorid);
 
     /**
      * 根据position获取文章分类无用户id
@@ -198,7 +194,7 @@ public interface ArticleCategoryDao {
      * @param creatorid
      * @return
      */
-    public List<ArticleCategory> findArticleCategoryByposition(final int lineSize, String status, String position);
+    public List<ArticleCategory> findArticleCategoryByPosition(final int lineSize, String status, String position);
 
     /**
      * 根据排序方式进行排序
@@ -228,7 +224,7 @@ public interface ArticleCategoryDao {
      * @param status
      * @return
      */
-    public List<ArticleCategory>findArticleCategoryByparentId(@Param("status") String status);
+    public List<ArticleCategory>findArticleCategoryByParentId(@Param("status") String status);
 
 
 

@@ -8,8 +8,6 @@ import java.util.List;
  * Created by Administrator on 2014/12/4.
  */
 public interface FavoriteDao {
-
-    public int delArticleT(String[] list);
     /**
      * 删除收藏品
      * @param list
@@ -33,5 +31,5 @@ public interface FavoriteDao {
      * @return
      */
     public int countfindAllFavoriteByUserid(String userid);
-
+public int addFavorite(Favorite favorite);
 }

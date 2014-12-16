@@ -45,4 +45,5 @@ public interface FunctionDao {
      * @return
      */
     public List<Function> findAllFunctionMBymoduleid(String moduleid);
+    public int addFunction(Function function);
 }

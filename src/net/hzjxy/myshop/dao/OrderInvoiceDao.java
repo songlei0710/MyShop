@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.OrderInvoice;
+import net.hzjxy.myshop.entity.UserT;
 
 import java.util.List;
 
@@ -36,5 +37,12 @@ public interface OrderInvoiceDao {
      * @return
      */
     public int countFindAllOrderIvoice();
+
+    /**
+     * 添加发票
+     * @param list
+     * @return
+     */
+    public int addlist(List list);
 
 }

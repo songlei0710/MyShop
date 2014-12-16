@@ -1,5 +1,9 @@
 package net.hzjxy.myshop.dao;
 
+import net.hzjxy.myshop.entity.Orderr;
+
+import java.util.List;
+
 /**
  * Created by Administrator on 2014/12/4.
  */
@@ -28,4 +32,10 @@ public interface OrderForAlipayDao {
      * @return
      */
     public int updateOrderStateByorderId(String orderId, String orderState);
+    /**
+     * 添加数据
+     * @param orderr
+     * @return
+     */
+    public int addlorderr(Orderr orderr);
 }
