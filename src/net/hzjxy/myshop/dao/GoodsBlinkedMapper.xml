@@ -8,15 +8,8 @@
                 VALUES (#{id},#{mainGoodsId},#{beLinkedProductInfo},#{bMode},#{state},#{creatorId},#{createTime},#{updateTime},#{sxLinkedGoodsId},#{mainProductId},#{shopId},#{mainGoodsName})
         </insert>
 
-        <update id="updateGoodsBelinked"></update>
-        <delete id="delGoodsBelinkedBymaingoodsid" parameterType="map">
-                UPDATE GoodsBelinked SET rolEmId=#{roleName} And rolEmName=#{roleName} WHERE Maingoodsid =#{maingoodsid}
-        </delete>
-        <delete id="delGoodsBelinkedBymaingoodsidandsxlinkedgoodsid" parameterType="map">
-                UPDATE GoodsBelinked SET headPath=#{headPath} WHERE Maingoodsid=#{maingoodsid}
-        </delete>
-        <delete id="delGoodsBelinked" parameterType="map">
-                UPDATE GoodsBelinked
+        <update id="updateGoodsBelinked" parameterType="net.hzjxy.myshop.entity.GoodsBlinked">
+                UPDATE GOODSBLINKED
                 <set>
                         <if test="id!=null">
                                 id=#{id},
@@ -37,6 +30,9 @@
                                 creatorId=#{creatorId},
                         </if>
                         <if test="updateTime!=null">
+                                createTime=#{createTime},
+                        </if>
+                        <if test="createTime!=null">
                                 updateTime=#{updateTime},
                         </if>
                         <if test="sxLinkedGoodsId!=null">
@@ -53,22 +49,34 @@
                         </if>
                 </set>
                 WHERE maingoodsid=#{maingoodsid}
+        </update>
+        <delete id="delGoodsBelinkedBymaingoodsid" parameterType="int">
+                DELETE FROM GOODSBLINKED WHERE Maingoodsid =#{maingoodsid}
         </delete>
-        <select id="findGoodsBelinkedBymaingoodsid" resultType="net.hzjxy.myshop.entity.GoodsBlinked" parameterType="map">
-                SELECT  * FROM GoodsBelinked WHERE Maingoodsid=#{maingoodsid}
+        <delete id="delGoodsBelinkedBymaingoodsidandsxlinkedgoodsid" parameterType="map">
+                DELETE FROM GOODSBLINKED WHERE Maingoodsid =#{maingoodsid} AND sxlinkedgoodsid=#{sxlinkedgoodsid}
+        </delete>
+        <delete id="delGoodsBelinked">
+                DELETE FROM GOODSBLINKED WHERE ID IN
+                <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+                        #{item}
+                </foreach>
+        </delete>
+        <select id="findGoodsBelinkedBymaingoodsid" resultType="net.hzjxy.myshop.entity.GoodsBlinked" >
+                SELECT  * FROM GOODSBLINKED WHERE Maingoodsid=#{maingoodsid}
         </select>
         <select id="findAllGoodsBelinked" resultType="net.hzjxy.myshop.entity.GoodsBlinked" parameterType="map">
                  SELECT * FROM
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM GoodsBelinked ORDER BY createtime DESC
+        SELECT * FROM GOODSBLINKED ORDER BY createtime DESC
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )
         WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
         </select>
         <select id="countfindAllGoodsBelinked" resultType="java.lang.Integer">
-                   SELECT COUNT(*) FROM GoodsBelinked
+                   SELECT COUNT(*) FROM GOODSBLINKED
         </select>
 </mapper>
