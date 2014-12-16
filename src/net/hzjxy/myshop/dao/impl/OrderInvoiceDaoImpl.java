@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by SI 商 on 2014/12/15.
  */
-public abstract class OrderInvoiceDaoImpl implements OrderInvoiceDao {
+public  class OrderInvoiceDaoImpl implements OrderInvoiceDao {
 
     @Override
     public int delOrderInvoice(String[] list) {
@@ -46,5 +46,13 @@ public abstract class OrderInvoiceDaoImpl implements OrderInvoiceDao {
         OrderInvoiceDao OrderInvoiceDao=session.getMapper(OrderInvoiceDao.class);
         OrderInvoiceDao.countFindAllOrderIvoice();
         return OrderInvoiceDao.countFindAllOrderIvoice();
+    }
+
+    @Override
+    public int addlist(List list) {
+        SqlSession session=MybatisUtil.currentSession();
+        OrderInvoiceDao OrderInvoiceDao=session.getMapper(OrderInvoiceDao.class);
+        int state=OrderInvoiceDao.addlist(list);
+        return state;
     }
 }
