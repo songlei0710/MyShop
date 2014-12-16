@@ -510,7 +510,7 @@
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM Goods ORDER BY sort DESC
+        SELECT * FROM Goods ORDER BY queryString DESC
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )
@@ -566,7 +566,7 @@
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM Goods ORDER BY createtime DESC
+        SELECT * FROM Goods ORDER BY queryString DESC
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )
