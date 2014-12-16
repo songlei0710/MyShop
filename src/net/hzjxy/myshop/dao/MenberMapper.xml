@@ -3,7 +3,75 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.MenberDao">
+        <insert id="addMenber">
+                INSERT  INTO  MEMBER(TELNO,INTEGRATION,MEMBERGROUPNAME,MEMBERGROUPID,PAYPASSWORD,MID,MOBILE,UPDATETIME,CREATORID,CREATETIME,HEADPATH,MEMBERSTATE,ANSWER,QUESTION,POSTINGCOUNT,LOVEOTHER,BELOVE,TAG,SINAWEIBO,WEIXIN,QQ,EMAIL,DES,CONSTELLATION,BLOOD,BIRTHDAY,MERRYSTATUS,WHICHSEX,SEX,DISTRICT,CITY,REALNAME,NICK,LOGINPWD,LOGINNAME,ID,VERSIONTA) VALUES(#{TELNO},#{INTEGRATION},#{MEMBERGROUPNAME},#{MEMBERGROUPID},#{PAYPASSWORD}#{MID},#{MOBILE},#{UPDATETIME},#{CREATORID},#{CREATETIME},#{HEADPATH},#{MEMBERSTATE},#{ANSWER},#{QUESTION},#{POSTINGCOUNT},#{LOVEOTHER},#{BELOVE},#{TAG},#{SINAWEIBO},#{WEIXIN},#{QQ},#{EMAIL},#{DES},#{CONSTELLATION},#{BLOOD},#{BIRTHDAY},#{MERRYSTATUS},#{WHICHSEX},#{SEX},#{DISTRICT},#{CITY},#{REALNAME},#{NICK},#{LOGINPWD},#{LOGINNAME},#{ID},#{VERSIONTA})
+        </insert>
+        <update id="updateMemberT">
+            update MEMBER set  loginname=#{loginname} where  ID=#{id}
+        </update>
+        <update id="login">
+            SELECT * from MEMBER where LOGINNAME=#{loginName} and loginPwd=#{loginPwd}
+        </update>
+        <update id="updateMemberHeadpathByid">
+                UPDATE MEMBER set headPath=#{headPath}
+        </update>
+        <update id="updateMemberPwdProctection">
+                UPDATE MEMBER SET id=#{id},question=#{question} and answer=#{answer} where PwdProctection=#{PwdProctection}
+        </update>
+        <delete id="delMemberTById">
+                delete from MEMBER WHERE MENBERID=#{MenberId}
+        </delete>
+        <delete id="delMemberT">
+                DELETE FROM MEMBER WHERE ID IN
+                <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+                        #{item}
+                </foreach>
+        </delete>
 
-
-
+        <select id="findMemberTByloginname" resultType="net.hzjxy.myshop.entity.Member">
+                SELECT * FROM MEMBER WHERE Email=#{email}
+        </select>
+        <select id="findAllMemberT" resultType="net.hzjxy.myshop.entity.Member">
+                SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM MEMBER ORDER BY CREATETIME DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+        </select>
+        <select id="countfindAllMemberT" resultType="java.lang.Integer">
+                select count (*) from MEMBER
+        </select>
+        <select id="findAllMemberTById" resultType="net.hzjxy.myshop.entity.Member">
+                 select * from MEMBER WHERE Id=#{id}
+        </select>
+        <select id="findMemberTById" resultType="net.hzjxy.myshop.entity.Member">
+                  SELECT  loginName,loginPwd,nick,realName FROM MEMBER WHERE id=#{id}
+        </select>
+        <select id="findMemberTByemail" resultType="net.hzjxy.myshop.entity.Member">
+                select * from MEMBER WHERE  EMAIL=#{email}
+        </select>
+        <select id="findMemberTymid" resultType="net.hzjxy.myshop.entity.Member">
+           select * from MEMBER WHERE  Mid=#{mid}
+        </select>
+        <select id="findMemberByQA" resultType="net.hzjxy.myshop.entity.Member">
+                 SELECT loginname FROM MEMBER WHERE question=#{question} and answer=#{answer}
+        </select>
+        <select id="findMemberLikeLoginname" resultType="net.hzjxy.myshop.entity.Member">
+            select * from MEMBER  WHERE  Loginname=#{loginname}
+        </select>
+        <select id="findAllMemberTa" resultType="net.hzjxy.myshop.entity.Member">
+                 SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM MEMBER ORDER BY creatorid DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+        </select>
 </mapper>

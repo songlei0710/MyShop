@@ -12,18 +12,24 @@ import org.apache.ibatis.session.SqlSession;
 public class SerialTDaoImpl implements SerialTDao {
     @Override
     public SerialT findByBaseId(String biz) {
-        SqlSession sqlSession=MybatisUtil.currentSession();
-        SerialTDao dao=sqlSession.getMapper(SerialTDao.class);
-        return dao.findByBaseId(biz);
+        SqlSession session = MybatisUtil.currentSession();
+        SerialTDao serialTDao = session.getMapper(SerialTDao.class);
+        return serialTDao.findByBaseId(biz);
     }
 
     @Override
     public int updateByBaseId(String biz) {
-        return 0;
+        SqlSession session = MybatisUtil.currentSession();
+        SerialTDao serialTDao = session.getMapper(SerialTDao.class);
+        int serial = serialTDao.updateByBaseId(biz);
+        return serial;
     }
 
     @Override
     public int addSerialT(SerialT serialT) {
-        return 0;
+        SqlSession session = MybatisUtil.currentSession();
+        SerialTDao serialTDao = session.getMapper(SerialTDao.class);
+        int serial = serialTDao.addSerialT(serialT);
+        return serial;
     }
 }

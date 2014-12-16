@@ -55,7 +55,7 @@
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM GoodsType ORDER BY queryString DESC
+        SELECT * FROM GoodsType ORDER BY queryString  DESC
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )

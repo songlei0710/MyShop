@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.WebSiteMsg;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface WebSiteMsgDao {
      * @param list
      * @return
      */
-    public int delWebsiteMsgT(String[] list);
+    public int delWebsiteMsgT(@Param("list") String[] list);
 
     /**
      * 根据发件人获取其所有消息数据
@@ -24,7 +25,7 @@ public interface WebSiteMsgDao {
      * @param userId
      * @return
      */
-    public List<WebSiteMsg> findAllWebsiteMsgByFromUserid(int currentPage, int lineSize, String userId);
+    public List<WebSiteMsg>    findAllWebsiteMsgByFromUserid(@Param("currentPage") int currentPage, @Param("lineSize") int lineSize, @Param("userId") String userId);
 
     /**
      * 统计根据发件人获取器所有消息数据
@@ -32,7 +33,7 @@ public interface WebSiteMsgDao {
      * @param userId
      * @return
      */
-    public int countFindAllWebsiteMsgByFromUserId(String userId);
+    public int countFindAllWebsiteMsgByFromUserId(@Param("userId") String userId);
 
     /**
      * 查询所有收件人是我的信息
@@ -42,7 +43,7 @@ public interface WebSiteMsgDao {
      * @param msgToUsername
      * @return
      */
-    public List<WebSiteMsg> findAllWebsiteMsgByToUsername(int currentPage, int lineSize, String msgToUsername);
+    public List<WebSiteMsg> findAllWebsiteMsgByToUsername(@Param("currentPage") int currentPage, @Param("lineSize") int lineSize, @Param("msgToUsername") String msgToUsername);
 
     /**
      * 统计查询所有收件人是我的信息
@@ -58,7 +59,7 @@ public interface WebSiteMsgDao {
      * @param state
      * @return
      */
-    public int updateWebsiteMsgState(String[] list, String state);
+    public int updateWebsiteMsgState(@Param("list") String[] list, @Param("state") String state);
 
     /**
      * 根据消息状态统计所有收件人是我消息
@@ -67,7 +68,7 @@ public interface WebSiteMsgDao {
      * @param state
      * @return
      */
-    public int countFindAllWebSiteMsgOfStateByToUsername(String msgToUsername, String state);
+    public int countFindAllWebSiteMsgOfStateByToUsername(@Param("msgToUsername") String msgToUsername, @Param("state") String state);
 
     /**
      * 根据id获取站内信消息
@@ -75,5 +76,5 @@ public interface WebSiteMsgDao {
      * @param id
      * @return
      */
-    public WebSiteMsg findMsgTextById(String id);
+    public WebSiteMsg findMsgTextById(@Param("id") String id);
 }

@@ -5,7 +5,7 @@
 <mapper namespace="net.hzjxy.myshop.dao.GoodsAttributeDao">
     <insert id="addGoodsAttribute" parameterType="net.hzjxy.myshop.entity.GoodsAttribute">
         INSERT INTO GoodsAttribute(GOODSATTRIBUTEID,GOODSATTRIBUTENAME,GOODSTYPEID,GOODSTYPENAME,CREATETIME,STATE,CREATORID,ATTRIBUTETYPE,ATTRIBUTELIST,SORT,ATTRIBUTEINDEX,ISSEARCH,ISSAMETOLINK)
-                VALUES (#{GOODSATTRIBUTEID},#{GOODSATTRIBUTENAME},#{GOODSTYPEID},#{GOODSTYPENAME},#{CREATETIME},#{STATE},#{CREATORID},#{ATTRIBUTETYPE},#{ATTRIBUTELIST},#{SORT},#{ATTRIBUTEINDEX},#{ISSEARCH},#{ISSAMETOLINK})
+                VALUES (#{goodSatTributeId},#{goodSatTributeName},#{goodsTypeId},#{goodsTypeName},#{createTime},#{state},#{creatorId},#{attributeType},#{attributeList},#{sort},#{attributeIndex},#{isSearch},#{isSameToLink})
     </insert>
 
     <update id="updateGoodsAttribute">
