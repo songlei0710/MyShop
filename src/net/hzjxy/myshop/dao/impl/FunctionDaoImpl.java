@@ -30,9 +30,9 @@ public class FunctionDaoImpl implements FunctionDao{
     public int delFunctionM(String[] strs) {
         SqlSession session=MybatisUtil.currentSession();
         FunctionDao functionDao=session.getMapper(FunctionDao.class);
-        functionDao.delFunctionM(strs);
+        int function =functionDao.delFunctionM(strs);
         session.commit();
-        return functionDao.delFunctionM(strs);
+        return function;
     }
 
     @Override
@@ -49,5 +49,13 @@ public class FunctionDaoImpl implements FunctionDao{
         FunctionDao functionDao=session.getMapper(FunctionDao.class);
         List<Function>function=functionDao.findAllFunctionMBymoduleid(moduleid);
         return function;
+    }
+
+    @Override
+    public int addFunction(Function function) {
+        SqlSession session=MybatisUtil.currentSession();
+        FunctionDao functionDao=session.getMapper(FunctionDao.class);
+        int functiona =functionDao.addFunction(function);
+        return functiona;
     }
 }
