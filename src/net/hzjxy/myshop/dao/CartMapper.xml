@@ -3,24 +3,74 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.CartDao">
-    <delete id="delArticleT"></delete>
-    <delete id="reduceCartNeddquantityByGoodsid"></delete>
-    <delete id="delCartByGoodsId"></delete>
-    <delete id="delCartByid"></delete>
-    <select id="findAllCart" resultType="net.hzjxy.myshop.entity.Cart"></select>
-    <select id="countfindAllCart" resultType="java.lang.Integer"></select>
-    <select id="findAllCartByUserId" resultType="net.hzjxy.myshop.entity.Cart"></select>
-    <select id="findGoodsInCartOrNot" resultType="net.hzjxy.myshop.entity.Cart"></select>
-    <select id="findCartGoodsByOrderid" resultType="net.hzjxy.myshop.entity.Cart"></select>
-    <select id="findCartByCartid" resultType="net.hzjxy.myshop.entity.Cart"></select>
-    <select id="findProductInCart" resultType="net.hzjxy.myshop.entity.Cart"></select>
-    <select id="findAllCartByMemberId" resultType="net.hzjxy.myshop.entity.Cart"></select>
-    <update id="updateCartNeedquantityByGoodsid"></update>
-    <update id="updateCartNeedquantity"></update>
-    <update id="updateCartSubtotal"></update>
-    <update id="updateCartState"></update>
-    <update id="updateCartStateandOrderidByGoodsidList"></update>
+    <update id="updateCartNeedquantityByGoodsid">
+        UPDATE CART SET needQuantity=#{needquantity},userid=#{userid},state=#{state} where goodsid=#{goodsid}
+    </update>
+    <update id="updateCartNeedquantityByGoodsidA">
+        UPDATE CART SET needQuantity=#{needquantity},userid=#{userid},state=#{state},productid=#{productid} where goodsid=#{goodsid}
+    </update>
+    <update id="reduceCartNeddquantityByGoodsid">
+        UPDATE CART SET needQuantity=#{needquantity},userid=#{userid} where goodsid=#{goodsid}
+    </update>
+    <update id="updateCartNeedquantity">
+        UPDATE CART SET needQuantity=#{needquantity},userid=#{userid},goodsid=#{goodsid}
+    </update>
+    <update id="updateCartSubtotal">
+        UPDATE CART SET userid=#{userid},goodsid=#{goodsid},subtotal=#{subtotal}
+    </update>
+    <update id="updateCartState">
+        UPDATE CART SET userid=#{userid},goodsid=#{goodsid},state=#{state}
+    </update>
+
+
+
+
+    <update id="updateCartStateandOrderidByGoodsidList">
+        update cart set userid=#{userid},goodsid=#{goodsid},state=#{state},orderid=#{orderid},cartid=#{cartid} 
+    </update>
     <update id="updateCartStateByGoodsidList"></update>
-    <update id="updateCartIdBygoodsid"></update>
-    <update id="updateCartIdByproductid"></update>
+
+
+    <update id="updateCartIdBygoodsid">
+        UPDATE CART SET cartid=#{cartid},memberid=#{memberid},state=#{state} where goodsid=#{goodsid}
+    </update>
+    <update id="updateCartIdByproductid">
+        UPDATE CART SET cartid=#{cartid},userid=#{userid},state=#{state} where productid=#{productid}
+    </update>
+    <delete id="delCartByGoodsId">
+        DELETE FROM CART WHERE goodsId=#{goodsid}
+    </delete>
+    <delete id="delCartByid">
+        DELETE FROM CART WHERE cartId IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+    <select id="findAllCart" resultType="net.hzjxy.myshop.entity.Cart">
+        select * from CART WHERE currentPage=#{currentPage} and lineSize=#{lineSize}
+    </select>
+    <select id="countfindAllCart" resultType="java.lang.Integer">
+        SELECT * FROM CART
+    </select>
+    <select id="findAllCartByUserId" resultType="net.hzjxy.myshop.entity.Cart">
+        SELECT state=#{state},orderTag=#{orderTag} FROM CART where userid=#{userid}
+    </select>
+    <select id="findGoodsInCartOrNot" resultType="net.hzjxy.myshop.entity.Cart">
+        SELECT userId=#{userid},state=#{state} from cart where goodsid=#{goodsid}
+    </select>
+    <select id="findCartGoodsByOrderid" resultType="net.hzjxy.myshop.entity.Cart">
+        SELECT * FROM CART WHERE orderId=#{orderid}
+    </select>
+
+
+    <select id="findCartByCartid" resultType="net.hzjxy.myshop.entity.Cart"></select>
+
+
+
+    <select id="findProductInCart" resultType="net.hzjxy.myshop.entity.Cart">
+        select memberid=#{memberid},goodsid=#{goodsid},productid=#{productid},state=#{state} from cart
+    </select>
+    <select id="findAllCartByMemberId" resultType="net.hzjxy.myshop.entity.Cart">
+        SELECT orderTag=#{orderTag},state=#{state} from cart where memberid=#{memberid}
+    </select>
 </mapper>
