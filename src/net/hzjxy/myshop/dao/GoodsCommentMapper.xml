@@ -62,7 +62,17 @@
     <delete id="delGoodsComment" parameterType="string">
         DELETE replyOrComment=#{replyOrComment}  FROM GoodsComment WHERE commentId=#{commentIdcommentId}
     </delete>
-    <select id="findGoodsCommentByGoodsid" resultType="net.hzjxy.myshop.entity.GoodsComment"></select>
+    <select id="findGoodsCommentByGoodsid" resultType="net.hzjxy.myshop.entity.GoodsComment" parameterType="map">
+       SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM GoodsComment ORDER BY GOODSID DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindGoodsCommentByGoodsid" resultType="java.lang.Integer" parameterType="string">
         SELECT count(*) FROM GoodsComment WHERE goodsId=#{goodsId}
     </select>
