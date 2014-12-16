@@ -78,7 +78,7 @@ public class PaymentDaoImpl implements PaymentDao {
     }
 
     @Override
-    public int addPayment(Paymen paymen) {
+    public int addPayment(Payment paymen) {
         SqlSession session=MybatisUtil.currentSession();
         PaymentDao paymentDao=session.getMapper(PaymentDao.class);
         int payment=paymentDao.addPayment(paymen);
