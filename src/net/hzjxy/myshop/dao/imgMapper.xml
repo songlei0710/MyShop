@@ -3,21 +3,41 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.imgDao">
-    <update id="updateImgT"></update>
-    <update id="updateImgState"></update>
+    <update id="updateImgT">
+        UPDATE img SET currentPage=#{currentPage}AND lineSize=#{lineSize} WHERE ImgT=#{ImgT}
+    </update>
+    <update id="updateImgState">
+        UPDATE img SET currentPage=#{currentPage},lineSize=#{lineSize}AND imgName=#{imgName} WHERE ImgState=#{ImgState}
+    </update>
     <delete id="delArticleT"></delete>
-    <delete id="delImgT"></delete>
+    <delete id="delImgT">
+        DELETE img SET list=#{list}WHERE ImgT=#{ImgT}
+    </delete>
     <select id="findAllImgT" resultType="net.hzjxy.myshop.entity.Img" parameterType="string">
-        SELECT * FROM Img WHERE
+        SELECT * FROM Img WHERE currentPage=#{currentPage}AND lineSize=#{lineSize}
     </select>
     <select id="countfindAllImgT" resultType="java.lang.Integer">
-        SELECT * FROM Img  WHERE
+        SELECT * FROM Img  WHERE imgName=#{imgName}
     </select>
-    <select id="findImgTByImgName" resultType="net.hzjxy.myshop.entity.Img"></select>
-    <select id="findImgTByusedGoodsidandusedPositionId" resultType="net.hzjxy.myshop.entity.Img"></select>
-    <select id="findImgTByusedGoodsid" resultType="net.hzjxy.myshop.entity.Img"></select>
-    <select id="findImgTByusedGoodsidandPositionIdisNull" resultType="net.hzjxy.myshop.entity.Img"></select>
-    <select id="findAllImgTByImgName" resultType="net.hzjxy.myshop.entity.Img"></select>
-    <select id="countfindAllImgTByImgName" resultType="java.lang.Integer"></select>
-    <select id="sortAllImgT" resultType="net.hzjxy.myshop.entity.Img"></select>
+    <select id="findImgTByImgName" resultType="net.hzjxy.myshop.entity.Img">
+        SELECT * FROM img WHERE currentPage=#{currentPage}，lineSize=#{lineSize}AND imgName=#{imgName}
+    </select>
+    <select id="findImgTByusedGoodsidandusedPositionId" resultType="net.hzjxy.myshop.entity.Img">
+        SELECT * FROM Img WHERE imgId=#{imgId}
+    </select>
+    <select id="findImgTByusedGoodsid" resultType="net.hzjxy.myshop.entity.Img">
+        SELECT * FROM img WHERE usedGoodsid=#{usedGoodsid}
+    </select>
+    <select id="findImgTByusedGoodsidandPositionIdisNull" resultType="net.hzjxy.myshop.entity.Img">
+        SELECT * FROM img WHERE usedGoodsid=#{usedGoodsid}
+    </select>
+    <select id="findAllImgTByImgName" resultType="net.hzjxy.myshop.entity.Img">
+        SELECT * FROM img WHERE imgName=#{imgName}
+    </select>
+    <select id="countfindAllImgTByImgName" resultType="java.lang.Integer">
+        SELECT count(*)FROM ImgTByImgName
+    </select>
+    <select id="sortAllImgT" resultType="net.hzjxy.myshop.entity.Img">
+        SELECT * FROM img WHERE currentPage=#{currentPage},lineSize=#{lineSize}AND queryString=#{queryString}
+    </select>
 </mapper>
