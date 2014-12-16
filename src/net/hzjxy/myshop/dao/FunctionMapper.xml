@@ -4,10 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.FunctionDao">
     <insert id="addFunction">
-        insert into Function(ID,VISITURL,VISITMETHODNAME,FUNCTIONNAME,,CREATETIME,MODULEID)VALUES (#{ID},#{VISITURL},#{VISITMETHODNAME},#{FUNCTIONNAME},#{CREATETIME],#{MODULEID});
+        insert into Function(ID,VISITURL,VISITMETHODNAME,FUNCTIONNAME,CREATETIME,MODULEID)VALUES (#{ID},#{VISITURL},#{VISITMETHODNAME},#{FUNCTIONNAME},#{CREATETIME},#{MODULEID});
     </insert>
     <update id="updateFunctionM">
-      UPDATE Function WHERE Id=#{id}
+      UPDATE Function  WHERE Id=#{id}
     </update>
     <delete id="delFunctionM">
         DELETE FROM Function WHERE Id IN
@@ -22,6 +22,6 @@
     SELECT　* FROM Function
     </select>
     <select id="findAllFunctionMBymoduleid" resultType="net.hzjxy.myshop.entity.Function">
-        SELECT　* FROM Function  WHERE ModuleId=#{moduleId}
+        SELECT　* FROM Function WHERE Moduleid=#{moduleid}
     </select>
 </mapper>
