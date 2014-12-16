@@ -78,6 +78,11 @@ public class GoodsCommentDaoImpl implements GoodsCommentDao {
     }
 
     @Override
+    public int addGoodsComment(GoodsComment goodsComment) {
+        return 0;
+    }
+
+    @Override
     public void updateGoodsComment(GoodsComment gct) {
         SqlSession session=MybatisUtil.currentSession();
         GoodsCommentDao goodsCommentDao=session.getMapper(GoodsCommentDao.class);

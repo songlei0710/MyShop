@@ -43,6 +43,11 @@ public class GoodsSpecificationsProductRpDaoImpl implements GoodsSpecificationsP
     }
 
     @Override
+    public int addGoodsSpecificationsProductRp(GoodsSpecificationsProductRp goodsSpecificationsProductRp) {
+        return 0;
+    }
+
+    @Override
     public int delGoodsAssociatedProductById(String goodsid) {
         SqlSession session=MybatisUtil.currentSession();
         GoodsSpecificationsProductRpDao goodsSpecificationsProductRpDao=session.getMapper(GoodsSpecificationsProductRpDao.class);
