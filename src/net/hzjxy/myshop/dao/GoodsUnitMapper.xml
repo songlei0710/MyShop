@@ -41,10 +41,10 @@
                 (
                 SELECT A.*,ROWNUM RN FROM
                 (
-                SELECT * FROM GOODS ORDER BY createtime DESC
+                SELECT * FROM GOODS ORDER BY queryString DESC
                 ) A
                 WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
                 )
-                WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1 and queryString=#{queryString}
+                WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
         </select>
 </mapper>

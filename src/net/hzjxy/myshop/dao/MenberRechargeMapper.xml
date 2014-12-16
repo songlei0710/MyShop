@@ -4,6 +4,32 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.MenberRechargeDao">
 
+        <select id="findAllMemberRechargeT" resultType="net.hzjxy.myshop.entity.MemberRecharge"></select>
+
+        <insert id="add">
+                INSERT INTO MENBERRECHARGE(ID,MEMBERID,MEMBERNAME,BALANCE,CREATETIME,UPDATETIME,VERSIONT) VALUES(#{ID},#{MEMBERID},#{MEMBERNAME},#{BALANCE},#{CREATETIME},#{UPDATETIME},#{VERSIONT})
+        </insert>
+        <update id="updateMemberRechargeT">
+                update MemberRecharge SET balance=#{balance}
+        </update>
+        <delete id="delMemberRechargeT">
+                DELETE FROM MemberRecharge WHERE balance=#{balance}
+        </delete>
 
 
+        <select id="findAllMemberRechargeT" resultType="net.hzjxy.myshop.entity.MemberRecharge">
+                SELECT * FROM (
+                SELECT A.*,ROWNUM RN FROM(SELECT * FROM MENBERRECHARGE ORDER BY CREATETIME DESC )A
+                WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+                )where rn&gt;=(#{currentPage}-1)*#{lineSize}+1
+        </select>
+        <select id="countfindAllMemberRechargeT" resultType="java.lang.Integer">
+                SELECT COUNT(balance) FROM MemberRecharge
+        </select>
+        <select id="findMemberRechargeTById" resultType="net.hzjxy.myshop.entity.MemberRecharge">
+                select * FROM MemberRecharge WHERE id=#{id}
+        </select>
+        <select id="findMemberRechargeTByMemberId" resultType="net.hzjxy.myshop.entity.MemberRecharge">
+                select * FROM MemberRecharge WHERE memberId=#{memberId}
+        </select>
 </mapper>

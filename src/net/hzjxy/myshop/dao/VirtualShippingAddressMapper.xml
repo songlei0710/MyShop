@@ -3,7 +3,28 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.VirtualShippingAddressDao">
-
-
-
+        <update id="updateVirtualShippingAddressByOrderAndState" parameterType="map">
+                 update VirtualShippingAddress  set state=#{state} WHERE orderId=#{orderId}
+        </update>
+        <update id="updateVirtualShippingAddress" parameterType="string">
+                UPDATE VirtualShippingAddress SET vsa=#{vsa}
+        </update>
+        <delete id="delVirtualShippingAddress" parameterType="string">
+                DELETE  FROM VirtualShippingAddress WHERE strs=#{strs}
+        </delete>
+        <select id="findVirtualShippingAddressByIdAndState"
+                resultType="net.hzjxy.myshop.entity.VirtualShippingAddress" parameterType="map">
+                SELECT state FROM  VirtualShippingAddress WHERE id=#{virtualShippingAddressId}
+                </select>
+        <select id="findVirtualShippingAddressByStateAndOrderId"
+                resultType="net.hzjxy.myshop.entity.VirtualShippingAddress" parameterType="map">
+                SELECT state FROM VirtualShippingAddress WHERE  OrderId=#{orderId}
+                </select>
+        <select id="findAllVirtualShippingAddress" resultType="net.hzjxy.myshop.entity.VirtualShippingAddress" parameterType="string">
+                SELECT * FROM VirtualShippingAddress
+        </select>
+        <select id="findVirtualShippingAddressByOrderIdAndState"
+                resultType="net.hzjxy.myshop.entity.VirtualShippingAddress" parameterType="map">
+                SELECT state FROM VirtualShippingAddress WHERE OrderId=#{orderId} and state=#{state}
+                </select>
 </mapper>
