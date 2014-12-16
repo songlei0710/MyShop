@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by wx on 2014/12/13.
  */
-public abstract class ArticleCategoryDaoImpl  implements ArticleCategoryDao {
+public  class ArticleCategoryDaoImpl  implements ArticleCategoryDao {
     @Override
     public ArticleCategory findPathParentIdByParentId(String parentId, String creatorId) {
         SqlSession session=MybatisUtil.currentSession();
@@ -126,19 +126,19 @@ public abstract class ArticleCategoryDaoImpl  implements ArticleCategoryDao {
     }
 
     @Override
-    public int checkArticleCategoryNamewithoutMe(@Param("articleCategoryTid") String articleCategoryTid, @Param("name") String name) {
+    public int checkArticleCategoryNameWithoutMe(@Param("articleCategoryTid") String articleCategoryTid, @Param("name") String name) {
         SqlSession session=MybatisUtil.currentSession();
         ArticleCategoryDao articleCategoryDao=session.getMapper( ArticleCategoryDao.class);
-        articleCategoryDao.checkArticleCategoryNamewithoutMe(articleCategoryTid,name);
-        return articleCategoryDao.checkArticleCategoryNamewithoutMe(articleCategoryTid,name);
+        articleCategoryDao.checkArticleCategoryNameWithoutMe(articleCategoryTid,name);
+        return articleCategoryDao.checkArticleCategoryNameWithoutMe(articleCategoryTid,name);
     }
 
     @Override
-    public int checkArticleCategorySignwithoutMe(@Param("articleCategoryTid") String articleCategoryTid, @Param("sign") String sign) {
+    public int checkArticleCategorySignWithoutMe(@Param("articleCategoryTid") String articleCategoryTid, @Param("sign") String sign) {
         SqlSession session=MybatisUtil.currentSession();
         ArticleCategoryDao articleCategoryDao=session.getMapper( ArticleCategoryDao.class);
-        articleCategoryDao.checkArticleCategoryNamewithoutMe(articleCategoryTid,sign);
-        return articleCategoryDao.checkArticleCategoryNamewithoutMe(articleCategoryTid,sign);
+        articleCategoryDao.checkArticleCategoryNameWithoutMe(articleCategoryTid,sign);
+        return articleCategoryDao.checkArticleCategoryNameWithoutMe(articleCategoryTid,sign);
     }
 
     @Override
@@ -150,50 +150,50 @@ public abstract class ArticleCategoryDaoImpl  implements ArticleCategoryDao {
     }
 
     @Override
-    public List<ArticleCategory> findArticleCategoryByparentId(@Param("status") String status, @Param("parentId") String parentId, @Param("creatorid") String creatorid) {
+    public List<ArticleCategory> findArticleCategoryByParentId(@Param("status") String status, @Param("parentId") String parentId, @Param("creatorid") String creatorid) {
         SqlSession session=MybatisUtil.currentSession();
         ArticleCategoryDao articleCategoryDao=session.getMapper(ArticleCategoryDao.class);
-        List<ArticleCategory> articleCategories=articleCategoryDao.findArticleCategoryByparentId(status,parentId,creatorid);
+        List<ArticleCategory> articleCategories=articleCategoryDao.findArticleCategoryByParentId(status, parentId, creatorid);
         return articleCategories;
     }
 
     @Override
-    public List<ArticleCategory> findArticleCategoryByparentIdnull(@Param("status") String status, @Param("creatorid") String creatorid) {
+    public List<ArticleCategory> findArticleCategoryByParentIdNull(@Param("status") String status, @Param("creatorid") String creatorid) {
         SqlSession session=MybatisUtil.currentSession();
         ArticleCategoryDao articleCategoryDao=session.getMapper(ArticleCategoryDao.class);
-        List<ArticleCategory> articleCategories=articleCategoryDao.findArticleCategoryByparentIdnull(status,creatorid);
+        List<ArticleCategory> articleCategories=articleCategoryDao.findArticleCategoryByParentIdNull(status, creatorid);
         return articleCategories;
     }
 
     @Override
-    public List<ArticleCategory> findAllArticleCategoryBycreatorid(String creatorid) {
+    public List<ArticleCategory> findAllArticleCategoryByCreatorId(String creatorId) {
         SqlSession session=MybatisUtil.currentSession();
         ArticleCategoryDao articleCategoryDao=session.getMapper(ArticleCategoryDao.class);
-        List<ArticleCategory> articleCategories=articleCategoryDao.findArticleCategoryByparentId(creatorid);
+        List<ArticleCategory> articleCategories=articleCategoryDao.findArticleCategoryByParentId(creatorId);
         return articleCategories;
     }
 
     @Override
-    public List<ArticleCategory> findArticleCategoryByposition(@Param("lineSize") int lineSize, @Param("status") String status, @Param("position") String position, @Param("creatorid") String creatorid) {
+    public List<ArticleCategory> findArticleCategoryByPosition(@Param("lineSize") int lineSize, @Param("status") String status, @Param("position") String position, @Param("creatorid") String creatorid) {
         SqlSession session=MybatisUtil.currentSession();
         ArticleCategoryDao articleCategoryDao=session.getMapper(ArticleCategoryDao.class);
-        List<ArticleCategory> articleCategories=articleCategoryDao.findArticleCategoryByposition(lineSize,status,position,creatorid);
+        List<ArticleCategory> articleCategories=articleCategoryDao.findArticleCategoryByPosition(lineSize, status, position, creatorid);
         return articleCategories;
     }
 
     @Override
-    public List<ArticleCategory> findArticleCategoryByposition(int lineSize, String status, String position) {
+    public List<ArticleCategory> findArticleCategoryByPosition(int lineSize, String status, String position) {
         SqlSession session=MybatisUtil.currentSession();
         ArticleCategoryDao articleCategoryDao=session.getMapper(ArticleCategoryDao.class);
-        List<ArticleCategory> articleCategories=articleCategoryDao.findArticleCategoryByposition(lineSize,status,position);
+        List<ArticleCategory> articleCategories=articleCategoryDao.findArticleCategoryByPosition(lineSize, status, position);
         return articleCategories;
     }
 
     @Override
-    public List<ArticleCategory> sortAllArticleCategoryT(String currentPage, int lineSize, int status, String creatorid, String queryString) {
+    public List<ArticleCategory> sortAllArticleCategoryT(String currentPage, int lineSize, int status, String creatorId, String queryString) {
         SqlSession session=MybatisUtil.currentSession();
         ArticleCategoryDao articleCategoryDao=session.getMapper(ArticleCategoryDao.class);
-        List<ArticleCategory> articleCategories=articleCategoryDao.sortAllArticleCategoryT(currentPage,status,lineSize,creatorid,queryString);
+        List<ArticleCategory> articleCategories=articleCategoryDao.sortAllArticleCategoryT(currentPage,status,lineSize,creatorId,queryString);
         return articleCategories;
     }
 
@@ -206,10 +206,10 @@ public abstract class ArticleCategoryDaoImpl  implements ArticleCategoryDao {
     }
 
     @Override
-    public List<ArticleCategory> findArticleCategoryByparentId(@Param("status") String status) {
+    public List<ArticleCategory> findArticleCategoryByParentId(@Param("status") String status) {
         SqlSession session=MybatisUtil.currentSession();
         ArticleCategoryDao articleCategoryDao=session.getMapper(ArticleCategoryDao.class);
-        List<ArticleCategory> articleCategories=articleCategoryDao.findArticleCategoryByparentId(status);
+        List<ArticleCategory> articleCategories=articleCategoryDao.findArticleCategoryByParentId(status);
         return articleCategories;
     }
 

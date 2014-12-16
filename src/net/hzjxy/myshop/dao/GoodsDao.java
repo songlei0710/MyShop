@@ -409,7 +409,7 @@ public interface GoodsDao {
      * @param goodsname
      * @return
      */
-    public int countfindSearchGoods(String goodsname);
+    public int countfindSearchGoods(String megoodsna);
 
     /**
      * 获取更多的上架商品（首页更多商品）
@@ -519,7 +519,7 @@ public interface GoodsDao {
      * 根据顶级分类获取手机端商品
      *
      * @param navid
-     * @param salestate
+     * @param statesale
      * @param ismobileplatformgoods
      * @return
      */
@@ -559,7 +559,7 @@ public interface GoodsDao {
      * @param htmlPath
      * @return
      */
-    public int updateHtmlPath(String goodsid, String htmlPath);
+    public int updateHtmlPath(@Param("goodsid") String goodsid, @Param("htmlPath") String htmlPath);
 
     /**
      * 根据商品id更新htmlpath避免重复生成无修改页面
