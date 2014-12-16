@@ -4,20 +4,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.FunctionDao">
     <insert id="addFunction">
-        insert into Function(id,visitUrl,visitMethodName,functionName,createTime,moduleId)VALUES ();
+        insert into Function(ID,VISITURL,VISITMETHODNAME,FUNCTIONNAME,CREATETIME,MODULEID)VALUES (#{ID},#{VISITURL},#{VISITMETHODNAME},#{FUNCTIONNAME},#{CREATETIME},#{MODULEID});
     </insert>
     <update id="updateFunctionM">
-      UPDATE Function SET ModuleId=#{moduleId} WHERE Id=#{id}
+      UPDATE Function  WHERE Id=#{id}
     </update>
     <delete id="delFunctionM">
-       DELETE FROM Function WHERE FunctionId=#{function}
+        DELETE FROM Function WHERE Id IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
     </delete>
     <select id="findFunctionMById" resultType="net.hzjxy.myshop.entity.Function">
      SELECT * FROM Function WHERE Id=#{id}
     </select>
     <select id="findAllFunctionM" resultType="net.hzjxy.myshop.entity.Function">
-    SELECT　moduleId FROM Function WHERE Id=#{id}
+    SELECT　* FROM Function
     </select>
     <select id="findAllFunctionMBymoduleid" resultType="net.hzjxy.myshop.entity.Function">
+        SELECT　* FROM Function WHERE Moduleid=#{moduleid}
     </select>
 </mapper>
