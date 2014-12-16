@@ -10,7 +10,10 @@
         update MSGTEXT  set TEXT=#{text} where msgTextId=#{mt}
     </update>
     <delete id="delMsgText">
-        delete from MSGTEXT WHERE MSGTEXTID=#{MsgTextId}
+        DELETE FROM MSGTEXT WHERE SENDTIME IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
     </delete>
     <select id="findMsgTextById" resultType="net.hzjxy.myshop.entity.MsgText">
         SELECT * FROM MSGTEXT where MSGTEXTID=#{id}
