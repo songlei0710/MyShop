@@ -1,6 +1,6 @@
 package net.hzjxy.myshop.dao.impl;
 
-import net.hzjxy.myshop.dao.RoleDao;
+
 import net.hzjxy.myshop.dao.RoleFunctionDao;
 import net.hzjxy.myshop.entity.RoleFunction;
 import org.apache.ibatis.session.SqlSession;
