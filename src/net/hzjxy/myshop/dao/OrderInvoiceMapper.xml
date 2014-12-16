@@ -27,6 +27,6 @@
         SELECT COUNT(*) FROM OrderInvoice
     </select>
     <insert id="addlist" parameterType="net.hzjxy.myshop.entity.OrderInvoice">
-        INSERT INTO list() VALUES()
+        INSERT INTO OrderInvoice() VALUES()
     </insert>
 </mapper>
