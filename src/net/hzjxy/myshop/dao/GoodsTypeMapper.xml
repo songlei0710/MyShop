@@ -5,9 +5,9 @@
 <mapper namespace="net.hzjxy.myshop.dao.GoodsTypeDao">
     <insert id="addGoodsType" parameterType="net.hzjxy.myshop.entity.GoodsType">
         INSERT INTO GoodsType(GOODSTYPEID,NAME,CREATETIME,GOODSPARAMETER)
-        VALUES (#{GOODSTYPEID},#{NAME},#{CREATETIME},#{CREATORID},#{GOODSPARAMETER})
+        VALUES (#{goodsTypeId},#{name},#{createTime},#{creatorId},#{goodsParameter})
     </insert>
-    <update id="updateGoodsTypeTN">
+    <update id="updateGoodsTypeTN" parameterType="net.hzjxy.myshop.entity.GoodsType">
      UPDATE GoodsType
     <set>
         <if test="goodsTypeId!=null" >
@@ -26,9 +26,13 @@
             goodsParameter=#{goodsParameter},
         </if>
         </set>
+        WHERE GOODSTYPEID=#{goodsTypeId}
     </update>
     <delete id="delGoodsTypeTN">
-        DELETE FROM GoodsType WHERE list=#{list}
+        DELETE FROM GoodsType WHERE goodsTypeId IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
     </delete>
     <select id="findAllGoodsTypeTN" resultType="net.hzjxy.myshop.entity.GoodsType" parameterType="map">
         SELECT * FROM

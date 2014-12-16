@@ -63,4 +63,5 @@ public interface VirtualShippingAddressDao {
      * @return
      */
     public List<VirtualShippingAddress> findAllVirtualShippingAddress();
+    public int addVirtualShippingAddress(VirtualShippingAddressDao virtualShippingAddress);
 }

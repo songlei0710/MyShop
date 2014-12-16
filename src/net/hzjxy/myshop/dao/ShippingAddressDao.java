@@ -52,4 +52,5 @@ public interface ShippingAddressDao {
      * @return
      */
     public List<ShippingAddress>findShippingAddressByOrderId(@Param("orderId") String orderId);
+    public int addShippingAddress(ShippingAddress shippingAddress);
 }

@@ -76,4 +76,12 @@ public class PaymentDaoImpl implements PaymentDao {
         session.commit();
         return paymentDao.delPaymentById(str);
     }
+
+    @Override
+    public int addPayment(Payment paymen) {
+        SqlSession session=MybatisUtil.currentSession();
+        PaymentDao paymentDao=session.getMapper(PaymentDao.class);
+        int payment=paymentDao.addPayment(paymen);
+        return payment;
+    }
 }

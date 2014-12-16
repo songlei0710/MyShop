@@ -31,6 +31,6 @@ public interface GlobalParamDao {
      * @return
      */
     public List<GlobalParam> findAllGlobalParam();
-
+    public int addGlobalParam(GlobalParam globalParam);
 
 }
