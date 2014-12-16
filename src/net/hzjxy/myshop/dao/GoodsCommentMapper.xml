@@ -76,11 +76,31 @@
     <select id="countfindGoodsCommentByGoodsid" resultType="java.lang.Integer" parameterType="string">
         SELECT count(*) FROM GoodsComment WHERE goodsId=#{goodsId}
     </select>
-    <select id="findAllGoodsComment" resultType="net.hzjxy.myshop.entity.GoodsComment"></select>
+    <select id="findAllGoodsComment" resultType="net.hzjxy.myshop.entity.GoodsComment" parameterType="map">
+        SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM GoodsComment
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindAllGoodsComment" resultType="java.lang.Integer">
         SELECT count(commentContent) FROM GoodsComment
     </select>
-    <select id="sortAllGoodsComment" resultType="net.hzjxy.myshop.entity.GoodsComment"></select>
+    <select id="sortAllGoodsComment" resultType="net.hzjxy.myshop.entity.GoodsComment" parameterType="map">
+       SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM GoodsComment ORDER BY queryString DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="findGoodsCommentById" resultType="net.hzjxy.myshop.entity.GoodsComment" parameterType="string">
         SELECT * FROM GoodsComment WHERE goodsId=#{goodsId}
     </select>
