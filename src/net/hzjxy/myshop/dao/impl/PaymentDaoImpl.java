@@ -2,6 +2,7 @@ package net.hzjxy.myshop.dao.impl;
 
 import net.hzjxy.myshop.dao.PaymentDao;
 import net.hzjxy.myshop.entity.Payment;
+import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
@@ -11,41 +12,68 @@ import java.util.List;
 public class PaymentDaoImpl implements PaymentDao {
     @Override
     public int openPayment(String[] list) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        PaymentDao paymentDao=session.getMapper(PaymentDao.class);
+        paymentDao.openPayment(list);
+        session.commit();
+        return paymentDao.openPayment(list);
     }
 
     @Override
     public int updatePayment(Payment pm) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        PaymentDao paymentDao=session.getMapper(PaymentDao.class);
+        int payment=paymentDao.updatePayment(pm);
+        return payment;
     }
 
     @Override
     public List<Payment> findAllPayment(int currentPage, int lineSize) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        PaymentDao paymentDao=session.getMapper(PaymentDao.class);
+        List<Payment> payment=paymentDao.findAllPayment(currentPage,lineSize);
+        return payment;
     }
 
     @Override
     public int countFindAllPayment() {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        PaymentDao paymentDao=session.getMapper(PaymentDao.class);
+        int payment=paymentDao.countFindAllPayment();
+        return payment;
     }
 
     @Override
     public Payment findPaymentById(String paymentId) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        PaymentDao paymentDao=session.getMapper(PaymentDao.class);
+        Payment payment=paymentDao.findPaymentById(paymentId);
+        return payment;
     }
 
     @Override
     public int closePayment(String[] list) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        PaymentDao paymentDao=session.getMapper(PaymentDao.class);
+        paymentDao.closePayment(list);
+        session.commit();
+        return paymentDao.closePayment(list);
     }
 
     @Override
     public List<Payment> findAllPayments(String state) {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        PaymentDao paymentDao=session.getMapper(PaymentDao.class);
+        List<Payment> payment=paymentDao.findAllPayments(state);
+        return payment;
     }
 
     @Override
     public int delPaymentById(String[] str) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        PaymentDao paymentDao=session.getMapper(PaymentDao.class);
+        paymentDao.delPaymentById(str);
+        session.commit();
+        return paymentDao.delPaymentById(str);
     }
 }
