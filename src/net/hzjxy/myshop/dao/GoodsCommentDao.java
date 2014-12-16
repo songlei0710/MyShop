@@ -24,7 +24,7 @@ public interface GoodsCommentDao {
      * @param state
      * @return
      */
-    public int updateGoodsCommentorReplyByState(String state, String[] list);
+    public int updateGoodsCommentorReplyByState(@Param("state") String state, @Param("list") String[] list);
 
     /**
      * 获取对应商品的评论
