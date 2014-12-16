@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 /**
  * Created by SI 商 on 2014/12/15.
  */
-public class OrderForAlipayDaoImpl implements OrderForAlipayDao {
+public abstract class OrderForAlipayDaoImpl implements OrderForAlipayDao {
     @Override
     public int updateOrderPayStateByOrderId(String orderId, String payState) {
         SqlSession session=MybatisUtil.currentSession();

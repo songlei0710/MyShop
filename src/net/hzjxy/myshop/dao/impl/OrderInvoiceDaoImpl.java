@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by SI 商 on 2014/12/15.
  */
-public class OrderInvoiceDaoImpl implements OrderInvoiceDao {
+public abstract class OrderInvoiceDaoImpl implements OrderInvoiceDao {
 
     @Override
     public int delOrderInvoice(String[] list) {
