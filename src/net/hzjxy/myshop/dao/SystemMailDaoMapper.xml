@@ -9,6 +9,7 @@
         DELETE Mail FROM SystemMail WHERE id=#{id}
     </delete>
 
+
     <select id="findAllSystemMail" resultType="net.hzjxy.myshop.entity.SystemMail" parameterType="string">
         SELECT * FROM SystemMail
     </select>

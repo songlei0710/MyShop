@@ -10,6 +10,7 @@ import java.util.List;
  */
 public interface SystemMailDao {
     /**
+     * 
      * 删除邮箱
      * @param id
      * @return

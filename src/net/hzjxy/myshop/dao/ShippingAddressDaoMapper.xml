@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="net.hzjxy.myshop.dao.ShippingAddressDao">
     <update id="updateShippingAddressByOrderAndState" parameterType="map">
-        UPDATE 
+        UPDATE
     </update>
     <select id="findShippingAddressByIdAndState" resultType="net.hzjxy.myshop.entity.ShippingAddress"></select>
     <select id="findShippingAddressByDeliverAddressIdAndState"

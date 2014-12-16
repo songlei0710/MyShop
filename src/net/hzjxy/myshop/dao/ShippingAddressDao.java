@@ -19,6 +19,7 @@ public interface ShippingAddressDao {
     public List<ShippingAddress> findShippingAddressByIdAndState(@Param("shippingAddressId") String shippingAddressId, @Param("state") String state);
 
     /**
+     *
      * 根据收货地址id查询是否有对应的发货地址信息
      * @param deliverAddressId
      * @param state
