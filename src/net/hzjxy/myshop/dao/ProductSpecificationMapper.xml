@@ -15,7 +15,7 @@
         <select id="findProductSpecificationsBySpecificationId"
                 resultType="net.hzjxy.myshop.entity.ProductSpecification">
                 SELECT  * FROM ProductSpecification  WHERE specificationId=#{specificationId}
-        </select>
+                </select>
         <select id="findAllProductSpecification" resultType="net.hzjxy.myshop.entity.ProductSpecification">
                 SELECT  * FROM ProductSpecification  WHERE currentPage=#{currentPage} AND lineSize=#{lineSize}
         </select>
