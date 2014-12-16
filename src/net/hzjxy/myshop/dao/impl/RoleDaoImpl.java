@@ -1,7 +1,9 @@
 package net.hzjxy.myshop.dao.impl;
 
 import net.hzjxy.myshop.dao.RoleDao;
+import net.hzjxy.myshop.dao.UserRoleDao;
 import net.hzjxy.myshop.entity.Role;
+import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
@@ -13,21 +15,35 @@ public class RoleDaoImpl implements RoleDao {
 
     @Override
     public void updateRole(Role role) {
-
+        SqlSession session=MybatisUtil.currentSession();
+        RoleDao roleDao=session.getMapper(RoleDao.class);
+        roleDao.updateRole(role);
+        session.commit();
     }
 
     @Override
     public Role findRoleById(String id) {
+        SqlSession session=MybatisUtil.currentSession();
+        RoleDao roleDao=session.getMapper(RoleDao.class);
+        roleDao.findRoleById(id);
+        session.commit();
         return null;
     }
 
     @Override
     public int delRole(String[] strs) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        RoleDao roleDao=session.getMapper(RoleDao.class);
+        roleDao.delRole(strs);
+        session.commit();
+        return roleDao.delRole(strs);
     }
 
     @Override
     public List<Role> findAllRole() {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        RoleDao roleDao=session.getMapper(RoleDao.class);
+        List<Role> role=roleDao.findAllRole();
+        return role;
     }
 }
