@@ -246,4 +246,8 @@ public interface OrderrDao {
      * @return
      */
     public int countAllReturnOrder(String orderState);
+    /**
+     * 添加
+     */
+    public int addOrderr(Orderr orderr);
 }

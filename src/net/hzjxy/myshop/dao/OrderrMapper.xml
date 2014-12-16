@@ -3,6 +3,9 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.OrderrDao">
+    <insert id="addOrderr">
+        insert into ORDERR VALUE ()
+    </insert>
     <update id="updateOrder">
         UPDATE orderr set OrderId=#{OrderId}
     </update>

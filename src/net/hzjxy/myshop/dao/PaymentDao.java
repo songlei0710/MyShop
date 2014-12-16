@@ -66,5 +66,5 @@ public interface PaymentDao {
     /**
      * 添加
      */
-    public int addPayment(Payment paymen);
+    public int addPayment(Payment payment);
 }

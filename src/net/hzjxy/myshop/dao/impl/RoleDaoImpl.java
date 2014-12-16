@@ -46,4 +46,12 @@ public class RoleDaoImpl implements RoleDao {
         List<Role> role=roleDao.findAllRole();
         return role;
     }
+
+    @Override
+    public int addRole(Role role) {
+        SqlSession session=MybatisUtil.currentSession();
+        RoleDao roleDao=session.getMapper(RoleDao.class);
+        int rolee=roleDao.addRole(role);
+        return rolee;
+    }
 }

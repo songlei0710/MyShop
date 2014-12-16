@@ -3,7 +3,8 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.RoleFunctionDao">
-        <delete id="delRoleFunction">
+    <insert id="addRoleFunction"></insert>
+    <delete id="delRoleFunction">
                  DELETE FROM RoleFunction WHERE  roleId=#{roleId}
         </delete>
         <select id="findAllRoleFunctionByRoleId" resultType="net.hzjxy.myshop.entity.RoleFunction">
