@@ -124,7 +124,7 @@
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM Category ORDER BY sort DESC
+        SELECT * FROM Category ORDER BY  sort DESC
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )
