@@ -20,7 +20,7 @@
             <if test="goodsTypeName!=null">
                 goodsTypeName=#{goodsTypeName},
             </if>
-            <if test="createTime!=null">
+            <if test="createTime!=0">
                 createTime=#{createTime},
             </if>
             <if test="state!=null">
@@ -68,17 +68,33 @@
     <select id="findGoodsAttributeBygoodsTypeId" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
         SELECT * FROM GoodsAttribute WHERE GoodsTypeId=#{goodsTypeId}
     </select>
-    <select id="findAllGoodsAttribute" resultType="net.hzjxy.myshop.entity.GoodsAttribute">
-
+    <select id="findAllGoodsAttribute" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="map">
+           SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM goodSatTributeId ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="findGoodsAttributeByGoodsTypeName" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
         SELECT * FROM goodSatTributeId WHERE goodsTypeName=#{goodsTypeName}
     </select>
-    <select id="findGoodsAttributeByGoodsTypeId" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
+    <select id="findGoodsAttributeByGoodsTypeIdL" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="string">
          SELECT * FROM goodSatTributeId WHERE goodsTypeId=#{goodsTypeId}
     </select>
     <select id="sortAllGoodsAttribute" resultType="net.hzjxy.myshop.entity.GoodsAttribute" parameterType="map">
-
+          SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM goodSatTributeId ORDER BY sort DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countFindAllGoodsAttribute" resultType="java.lang.Integer">
         SELECT COUNT (*) from GoodsAttribute
