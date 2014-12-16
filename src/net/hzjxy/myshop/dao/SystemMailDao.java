@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface SystemMailDao {
     /**
-     * 
+     *
      * 删除邮箱
      * @param id
      * @return
@@ -44,4 +44,5 @@ public interface SystemMailDao {
      * @return
      */
     public SystemMail findSysMailById(@Param("id") String id);
+    public int addSystemMail(SystemMailDao systemMail);
 }
