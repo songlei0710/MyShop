@@ -4,8 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.FavoriteDao">
     <insert id="addFavorite">
-insert into Favorite(FAVORITEID,TITLE,GOODSID,TAG,DESCRIBE,MEMEBERID,STATE,ADDTIME,READCOUNT,MEMEBERPRICE,,PRODUCTID,HTMLPATH)VALUES (#{FAVORITEID},#{TITLE},#{GOODSID},#{TAG},#{DESCRIBE},#{MEMEBERID},#{STATE},#{ADDTIME},#{READCOUNT},#{MEMEBERPRICE},#{PRODUCTID},#{HTMLPATH});
+insert into Favorite(favoriteId,title,goodsId,tag,describe,memberId,state,addTime,readCount,memberPrice,productId,htmlPath)VALUES ();
     </insert>
+    <delete id="delArticleT">
+        DELETE FROM Favorite WHERE FavoriteId=(#favoriteId)
+    </delete>
+
     <delete id="delFavorite">
         DELETE FROM Favorite WHERE FavoriteId IN
         <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
