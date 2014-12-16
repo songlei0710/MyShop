@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.hzjxy.myshop.dao.SystemMailDao">
+    <update id="updateSystemMail" parameterType="string">
+        UPDATE Mail FROM SystemMail WHERE sm=#{sm}
+    </update>
+
+    <delete id="delSystemMail" parameterType="string">
+        DELETE Mail FROM SystemMail WHERE id=#{id}
+    </delete>
+
+    <select id="findAllSystemMail" resultType="net.hzjxy.myshop.entity.SystemMail" parameterType="string">
+        SELECT * FROM SystemMail
+    </select>
+
+    <select id="countFindAllSystemMail" resultType="java.lang.Integer" parameterType="string">
+        SELECT COUNT (*) FROM SystemMail
+    </select>
+
+    <select id="findSysMailById" resultType="net.hzjxy.myshop.entity.SystemMail" parameterType="string">
+        SELECT mail FROM SystemMail WHERE id=#{id}
+    </select>
+</mapper>
