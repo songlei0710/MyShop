@@ -91,6 +91,10 @@ public class GoodsTypeDaoImpl implements GoodsTypeDao{
 
     @Override
     public int addGoodsType(GoodsType goodsType) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsTypeDao  goodsTypeDao=session.getMapper( GoodsTypeDao.class);
+        goodsTypeDao.addGoodsType(goodsType);
+        session.commit();
+        return goodsTypeDao.addGoodsType(goodsType);
     }
 }
