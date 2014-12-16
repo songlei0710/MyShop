@@ -4,29 +4,32 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.ProductSpecificationDao">
         <update id="updateProductSpecification">
-
+                UPDATE  ProductSpecification SET pst=#{pst} WHERE UserId=#{userid}
         </update>
         <delete id="delProductSpecification">
-
+                DELETE FROM ProductSpecification WHERE pst IN
+                <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+                        #{list}
+                </foreach>
         </delete>
         <select id="findProductSpecificationsBySpecificationId"
                 resultType="net.hzjxy.myshop.entity.ProductSpecification">
-
+                SELECT  * FROM ProductSpecification  WHERE specificationId=#{specificationId}
         </select>
         <select id="findAllProductSpecification" resultType="net.hzjxy.myshop.entity.ProductSpecification">
-
+                SELECT  * FROM ProductSpecification  WHERE currentPage=#{currentPage} AND lineSize=#{lineSize}
         </select>
         <select id="countFindAllProductSpecification" resultType="java.lang.Integer">
-
+                SELECT COUNT(*) FROM ProductSpecification
         </select>
         <select id="findAllProductSpecificati" resultType="net.hzjxy.myshop.entity.ProductSpecification">
-
+                SELECT  * FROM ProductSpecification  WHERE state=#{state}
         </select>
         <select id="sortAllProductSpecification" resultType="net.hzjxy.myshop.entity.ProductSpecification">
 
         </select>
         <select id="findAllProductSpecificationByGoodsTypeId"
                 resultType="net.hzjxy.myshop.entity.ProductSpecification">
-
+                SELECT  * FROM ProductSpecification  WHERE goodsTypeId=#{goodsTypeId} AND state=#{state}
                 </select>
 </mapper>
