@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.VirtualShippingAddress;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface VirtualShippingAddressDao {
      * @param state
      * @return
      */
-    public List<VirtualShippingAddress> findVirtualShippingAddressByIdAndState(String virtualShippingAddressId, String state);
+    public List<VirtualShippingAddress> findVirtualShippingAddressByIdAndState(@Param("virtualShippingAddressId") String virtualShippingAddressId, @Param("state") String state);
 
     /**
      * 根据订单号查询虚拟发货地址（邮箱和手机）
@@ -23,7 +24,7 @@ public interface VirtualShippingAddressDao {
      * @param orderId
      * @return
      */
-    public List<VirtualShippingAddress> findVirtualShippingAddressByStateAndOrderId(String state, String orderId);
+    public List<VirtualShippingAddress> findVirtualShippingAddressByStateAndOrderId(@Param("state") String state, @Param("orderId") String orderId);
 
     /**
      * 根据订单号变更发货地址状态
@@ -31,7 +32,7 @@ public interface VirtualShippingAddressDao {
      * @param state
      * @return
      */
-    public int updateVirtualShippingAddressByOrderAndState(String orderId, String state);
+    public int updateVirtualShippingAddressByOrderAndState(@Param("orderId") String orderId, @Param("state") String state);
 
     /**
      * 根据订单号和发货状态获取发货地址，地址状态是最新的可用地址，state=1
@@ -40,21 +41,21 @@ public interface VirtualShippingAddressDao {
      * @param state
      * @return
      */
-    public VirtualShippingAddress findVirtualShippingAddressByOrderIdAndState(String orderId, String state);
+    public VirtualShippingAddress findVirtualShippingAddressByOrderIdAndState(@Param("orderId") String orderId, @Param("state") String state);
 
     /**
      * 批量删除虚拟收获地址
      * @param strs
      * @return
      */
-    public int delVirtualShippingAddress(String[] strs);
+    public int delVirtualShippingAddress(@Param("strs") String[] strs);
 
     /**
      * 更新虚拟收获地址
      * @param vsa
      * @return
      */
-    public int updateVirtualShippingAddress(VirtualShippingAddress vsa);
+    public int updateVirtualShippingAddress(@Param("vsa") VirtualShippingAddress vsa);
 
     /**
      * 获取所有虚拟收获地址

@@ -3,6 +3,24 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.MenberRechargeRecordsDao">
-
+        <insert id="addMemberRechargeRecords">
+                INSERT INTO MENBERRECHARGE(ID,MEMBERID,MEMBERNAME,BALANCE,CREATETIME,UPDATETIME,VERSIONT)
+                VALUES(#{ID},#{MEMBERID},#{MEMBERNAME},#{BALANCE},#{CREATETIME},#{UPDATETIME},#{VERSIONT})
+        </insert>
+        <delete id="delMemberRechargeRecordsT">
+                DELETE FROM MemberRechargeRecords WHERE createTime IN
+                <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+                        #{item}
+                </foreach>
+        </delete>
+        <select id="findAllMemberRechargeRecordsT" resultType="net.hzjxy.myshop.entity.MemberRechargeRecords">
+                 SELECT * FROM (
+                SELECT A.*,ROWNUM RN FROM(SELECT * FROM MENBERRECHARGE ORDER BY CREATETIME DESC )A
+                WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+                )where rn&gt;=(#{currentPage}-1)*#{lineSize}+1
+        </select>
+        <select id="countfindAllMemberRechargeRecordsT" resultType="java.lang.Integer">
+                 SELECT COUNT(*) FROM MemberRechargeRecords
+        </select>
 
 </mapper>

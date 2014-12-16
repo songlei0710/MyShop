@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.hzjxy.myshop.dao.ShippingAddressDao">
+    <update id="updateShippingAddressByOrderAndState" parameterType="map">
+        UPDATE ShippingAddress SET state=state2 WHERE orderId=#{orderId}
+    </update>
+    <select id="findShippingAddressByIdAndState" resultType="net.hzjxy.myshop.entity.ShippingAddress" parameterType="map">
+        SELECT state=#{state} from ShippingAddress where shippingAddressId=#{shippingAddressId}
+    </select>
+    <select id="findShippingAddressByDeliverAddressIdAndState"
+            resultType="net.hzjxy.myshop.entity.ShippingAddress" parameterType="map">
+        SELECT state=#{state},orderId=#{orderId} from ShippingAddress where deliverAddressId=#{deliverAddressId}
+            </select>
+    <select id="findShippingAddressByOrderId" resultType="net.hzjxy.myshop.entity.ShippingAddress" parameterType="map">
+        SELECT * FROM ShippingAddress WHERE orderId=#{orderId} and state=#{state}
+    </select>
+</mapper>

@@ -5,7 +5,7 @@
 <mapper namespace="net.hzjxy.myshop.dao.GoodsCommentDao">
     <insert id="addGoodsComment" parameterType="net.hzjxy.myshop.entity.GoodsComment">
         INSERT INTO GoodsComment(COMMENTID,GOODSID,GOODSNAME,REPLYORCOMMENTUSERNAME,POSTTIME,COMMENTCONTENT,SCORE,STATE,REPLYORCOMMENT,REPLYID,REPLYORCOMMENTUSERID,EMAILABLE,TITLE,VIRTUALADD,SHOPID)
-        VALUES (#{COMMENTID},#{GOODSID},#{GOODSNAME},#{REPLYORCOMMENTUSERNAME},#{POSTTIME},#{COMMENTCONTENT},#{SCORE},#{STATE},#{REPLYORCOMMENT},#{REPLYID},#{REPLYORCOMMENTUSERID},#{EMAILABLE},#{TITLE},#{VIRTUALADD},#{SHOPID})
+        VALUES (#{commentId},#{goodsId},#{goodsName},#{replyOrCommentUserName},#{postTime},#{commentContent},#{score},#{state},#{replyOrComment},#{replyId},#{replyOrCommentUserId},#{emailAble},#{title},#{virtualAdd},#{shopId})
     </insert>
     <update id="updateGoodsCommentorReplyByState" parameterType="map">
         UPDATE GoodsComment SET state=#{state} where commentId=#{commentId}
@@ -59,15 +59,18 @@
         where commentId=#{commentId}
     </update>
 
-    <delete id="delGoodsComment" parameterType="string">
-        DELETE replyOrComment=#{replyOrComment}  FROM GoodsComment WHERE commentId=#{commentIdcommentId}
+    <delete id="delGoodsComment">
+        DELETE FROM GOODSCOMMENT WHERE COMMENTID IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
     </delete>
     <select id="findGoodsCommentByGoodsid" resultType="net.hzjxy.myshop.entity.GoodsComment" parameterType="map">
        SELECT * FROM
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM GoodsComment  DESC goodsid=#{goodsid}
+        SELECT * FROM GoodsComment WHERE goodsid=#{goodsid}
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )
@@ -88,7 +91,7 @@
         WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countfindAllGoodsComment" resultType="java.lang.Integer">
-        SELECT count(commentContent) FROM GoodsComment
+        SELECT count(*) FROM GoodsComment
     </select>
     <select id="sortAllGoodsComment" resultType="net.hzjxy.myshop.entity.GoodsComment" parameterType="map">
        SELECT * FROM
@@ -102,6 +105,6 @@
         WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="findGoodsCommentById" resultType="net.hzjxy.myshop.entity.GoodsComment" parameterType="string">
-        SELECT * FROM GoodsComment WHERE goodsId=#{goodsId}
+        SELECT * FROM GoodsComment WHERE commentId=#{commentId}
     </select>
 </mapper>
