@@ -158,6 +158,7 @@ public class GoodsCategoryDaoImpl implements GoodsCategoryDao {
         SqlSession session=MybatisUtil.currentSession();
         GoodsCategoryDao goodsCategoryDao=session.getMapper(GoodsCategoryDao.class);
         goodsCategoryDao.updateHtmlPath(goodsCategoryTid, htmlpath);
+        session.commit();
         return  goodsCategoryDao.updateHtmlPath(goodsCategoryTid, htmlpath);
     }
 
@@ -167,6 +168,15 @@ public class GoodsCategoryDaoImpl implements GoodsCategoryDao {
         GoodsCategoryDao goodsCategoryDao=session.getMapper(GoodsCategoryDao.class);
         List<GoodsCategory> goodsCategory =goodsCategoryDao.findAllGoodsCategoryT(state);
         return goodsCategory;
+    }
+
+    @Override
+    public int addGoodsCategory(GoodsCategory goodsCategory) {
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsCategoryDao goodsCategoryDao=session.getMapper(GoodsCategoryDao.class);
+        goodsCategoryDao.addGoodsCategory(goodsCategory);
+        session.commit();
+        return goodsCategoryDao.addGoodsCategory(goodsCategory);
     }
 
     @Override

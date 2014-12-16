@@ -54,6 +54,15 @@ public class GoodsBlinkedDaoImpl implements GoodsBlinkedDao {
     }
 
     @Override
+    public int addGoodsBlinked(GoodsBlinked goodsBelinked) {
+        SqlSession session=MybatisUtil.currentSession();
+        GoodsBlinkedDao goodsBlinkedDao=session.getMapper(GoodsBlinkedDao.class);
+        goodsBlinkedDao.addGoodsBlinked(goodsBelinked);
+        session.commit();
+        return goodsBlinkedDao.addGoodsBlinked(goodsBelinked);
+    }
+
+    @Override
     public int delGoodsBelinkedBymaingoodsidandsxlinkedgoodsid(@Param("maingoodsid") String maingoodsid, @Param("sxlinkedgoodsid") String sxlinkedgoodsid) {
         SqlSession session=MybatisUtil.currentSession();
         GoodsBlinkedDao goodsBlinkedDao=session.getMapper(GoodsBlinkedDao.class);

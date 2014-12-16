@@ -9,10 +9,10 @@
     <update id="checkArticleCategorySign">
         UPDATE  ArticleCategory SET sign =#{sign} AND creatorId=#{creatorId} WHERE sign =#{sign}
     </update>
-    <update id="checkArticleCategoryNamewithoutMe">
+    <update id="checkArticleCategoryNameWithoutMe">
         UPDATE ArticleCategory SET articleCategoryTid =#{articleCategoryTid},name=#{name} AND creatorid ={creatorid} WHERE NamewithoutMe=#{NamewithoutMe}
     </update>
-    <update id="checkArticleCategorySignwithoutMe">
+    <update id="checkArticleCategorySignWithoutMe">
         UPDATE ArticleCategory SET articleCategoryTid =#{articleCategoryTid} AND sign={sign} WHERE SignwithoutMe=#{SignwithoutMe}
     </update>
     <delete id="delArticleCategory">
@@ -26,26 +26,26 @@
         SELECT *FROM ArticleCategory WHERE grade =#{grade},status=#{status}AND creatorId={creatorId}
     </select>
     <select id="findAllArticleCategoryT" resultType="net.hzjxy.myshop.entity.ArticleCategory"></select>
-    <select id="countfindAllArticleCategoryT" resultType="java.lang.Integer">
+    <select id="countFindAllArticleCategoryT" resultType="java.lang.Integer">
         SELECT COUNT (*)FROM ArticleCategoryT
     </select>
     <select id="findAllArticleCategoryTByGrade" resultType="net.hzjxy.myshop.entity.ArticleCategory"></select>
     <select id="countfindAllArticleCategoryTByGrade" resultType="java.lang.Integer">
          SELECT COUNT (*)FROM ArticleCategoryTByGrade
     </select>
-    <select id="findArticleCategoryByarticleCategoryTid" resultType="net.hzjxy.myshop.entity.ArticleCategory">
+    <select id="findArticleCategoryByArticleCategoryTid" resultType="net.hzjxy.myshop.entity.ArticleCategory">
         SELECT *FROM ArticleCategory WHERE articleCategoryTid=#{articleCategoryTid}
     </select>
-    <select id="findArticleCategoryByparentId" resultType="net.hzjxy.myshop.entity.ArticleCategory">
+    <select id="findArticleCategoryByParentId" resultType="net.hzjxy.myshop.entity.ArticleCategory">
         SELECT *FROM ArticleCategory WHERE status={status},parentId={parentId}AND creatorid=#{creatorid}
     </select>
-    <select id="findArticleCategoryByparentIdnull" resultType="net.hzjxy.myshop.entity.ArticleCategory">
+    <select id="findArticleCategoryByParentIdNull" resultType="net.hzjxy.myshop.entity.ArticleCategory">
         SELECT *FROM ArticleCategory WHERE status={status}AND creatorid=#{creatorid}
     </select>
-    <select id="findAllArticleCategoryBycreatorid" resultType="net.hzjxy.myshop.entity.ArticleCategory">
+    <select id="findAllArticleCategoryByCreatorId" resultType="net.hzjxy.myshop.entity.ArticleCategory">
         SELECT *FROM ArticleCategory WHERE creatorid=#{creatorid}
     </select>
-    <select id="findArticleCategoryByposition" resultType="net.hzjxy.myshop.entity.ArticleCategory">
+    <select id="findArticleCategoryByPosition" resultType="net.hzjxy.myshop.entity.ArticleCategory">
         SELECT *FROM ArticleCategory  WHERE lineSize=#{lineSize},status=#{status},position=#{position}AND creatorid=#{creatorid}
     </select>
     <select id="sortAllArticleCategoryT" resultType="net.hzjxy.myshop.entity.ArticleCategory">

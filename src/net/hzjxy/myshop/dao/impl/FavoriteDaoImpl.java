@@ -11,22 +11,14 @@ import java.util.List;
  * Created by Administrator on 2014/12/15.
  */
 public class FavoriteDaoImpl implements FavoriteDao{
-    @Override
-    public int delArticleT(String[] list) {
-        SqlSession session=MybatisUtil.currentSession();
-        FavoriteDao favoriteDao=session.getMapper(FavoriteDao.class);
-        favoriteDao.delArticleT(list);
-        session.commit();
-        return favoriteDao.delArticleT(list);
-    }
 
     @Override
     public int delFavorite(String[] list) {
         SqlSession session=MybatisUtil.currentSession();
         FavoriteDao favoriteDao=session.getMapper(FavoriteDao.class);
-        favoriteDao.delFavorite(list);
+        int favorite=favoriteDao.delFavorite(list);
         session.commit();
-        return favoriteDao.delFavorite(list);
+        return favorite;
     }
 
     @Override
@@ -41,7 +33,15 @@ public class FavoriteDaoImpl implements FavoriteDao{
     public int countfindAllFavoriteByUserid(String userid) {
         SqlSession session=MybatisUtil.currentSession();
         FavoriteDao favoriteDao=session.getMapper(FavoriteDao.class);
-        favoriteDao.countfindAllFavoriteByUserid(userid);
-        return favoriteDao.countfindAllFavoriteByUserid(userid);
+        int  favorite =favoriteDao.countfindAllFavoriteByUserid(userid);
+        return favorite;
+    }
+
+    @Override
+    public int addFavorite(Favorite favorite) {
+        SqlSession session=MybatisUtil.currentSession();
+        FavoriteDao favoriteDao=session.getMapper(FavoriteDao.class);
+        int  favoriter =favoriteDao.addFavorite(favorite);
+        return favoriter;
     }
 }

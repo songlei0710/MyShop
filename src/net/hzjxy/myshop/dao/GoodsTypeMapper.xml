@@ -35,7 +35,7 @@
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM GoodsType
+        SELECT * FROM GoodsType ORDER BY createtime DESC
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )
