@@ -3,6 +3,8 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.ProductDao">
+        <insert id="addProduct"></insert>
+
         <update id="updateProduct">
                  UPDATE Product SET productName=:productName where productid=:productid
         </update>
