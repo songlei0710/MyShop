@@ -67,7 +67,7 @@
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM GoodsComment ORDER BY GOODSID DESC
+        SELECT * FROM GoodsComment  DESC goodsid=#{goodsid}
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )

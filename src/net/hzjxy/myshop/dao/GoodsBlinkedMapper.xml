@@ -5,7 +5,7 @@
 <mapper namespace="net.hzjxy.myshop.dao.GoodsBlinkedDao">
         <insert id="addGoodsBlinked" parameterType="net.hzjxy.myshop.entity.GoodsBlinked">
                 INSERT INTO GoodsBelinked(ID,MAINGOODSID,BELINKEDPRODUCTINFO,BMODE,STATE,CREATORID,CREATETIME,UPDATETIME,SXLINKEDGOODSID,MAINPRODUCTID,SHOPID,MAINGOODSNAME)
-                VALUES (#{ID},#{MAINGOODSID},#{BELINKEDPRODUCTINFO},#{BMODE},#{STATE},#{CREATORID},#{CREATETIME},#{UPDATETIME},#{SXLINKEDGOODSID},#{MAINPRODUCTID},#{SHOPID},#{MAINGOODSNAME})
+                VALUES (#{id},#{mainGoodsId},#{beLinkedProductInfo},#{bMode},#{state},#{creatorId},#{createTime},#{updateTime},#{sxLinkedGoodsId},#{mainProductId},#{shopId},#{mainGoodsName})
         </insert>
 
         <update id="updateGoodsBelinked"></update>
