@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.Brand;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface BrandDao {
      * @param brandid
      * @return
      */
-    public void delBrandt(String[] list, String creatorid);
+    public void delBrandt(@Param("list") String[] list, @Param("creatorid") String creatorid);
 
     /**
      * 更新商品品牌
@@ -31,8 +32,8 @@ public interface BrandDao {
      * @param lineSize
      * @return
      */
-    public List<Brand> findAllBrandt(final int currentPage,
-                                      final int lineSize, final String creatorid);
+    public List<Brand> findAllBrandt(final @Param("currentPage") int currentPage,
+                                      final @Param("lineSize") int lineSize, final @Param("creatorid") String creatorid);
 
     /**
      * 统计所有商品品牌
@@ -47,7 +48,7 @@ public interface BrandDao {
      * @param brandid
      * @return
      */
-    public Brand findBrandById(String brandid);
+    public String findBrandById(String brandid);
 
     /**
      * 查询所有商品品牌json方式
@@ -65,6 +66,6 @@ public interface BrandDao {
      * @param queryString
      * @return
      */
-    public List<Brand> sortAllBrandt(final int currentPage,
-                                      final int lineSize, final String creatorid, final String queryString);
+    public List<Brand> sortAllBrandt(final @Param("currentPage") int currentPage,
+                                      final @Param("lineSize") int lineSize, final @Param("creatorid") String creatorid, final @Param("queryString") String queryString);
 }

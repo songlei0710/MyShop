@@ -3,7 +3,39 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.MenberGroupDao">
+        <insert id="add">
+                INSERT  INTO MEMBERGROUP(ID,NAMEA,STATUS,CREATETIME,CREATORID,UPDATETIME,ATTRS) VALUES (#{ID},#{NAMEA},#{STATUS},#{CREATETIME},#{CREATORID},#{UPDATETIME},#{VERSIONT},#{ATTRS})
+        </insert>
+        <update id="updateMemberGroupT">
+                UPDATE MEMBERGROUP SET MEMBERGROUP=#{mgt}
+        </update>
+        <delete id="delMemberGroupT">
+                DELETE FROM MEMBERGROUP WHERE Id IN
+                <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+                        #{item}
+                </foreach>
+        </delete>
 
-
+        <select id="findAllMemberGroupT" resultType="net.hzjxy.myshop.entity.MemberGroup">
+               SELECT * FROM MEMBERGROUP
+        </select>
+        <select id="countfindAllMemberGroupT" resultType="java.lang.Integer">
+                SELECT COUNT(*) FROM MEMBERGROUP
+        </select>
+        <select id="findAllMemberGroupTa" resultType="net.hzjxy.myshop.entity.MemberGroup">
+                SELECT * FROM MEMBERGROUP where CREATORID=#{creatorid}
+        </select>
+        <select id="countfindAllMemberGroupTb" resultType="java.lang.Integer">
+                 SELECT count(*) FROM MEMBERGROUP where CREATORID=#{creatorid}
+        </select>
+        <select id="findMemberGroupTById" resultType="net.hzjxy.myshop.entity.MemberGroup">
+                select * from MEMBERGROUP WHERE id=#{id}
+        </select>
+        <select id="findMemberGroupTByname" resultType="net.hzjxy.myshop.entity.MemberGroup">
+                select * FROM MEMBERGROUP where NAMEA=#{name}
+        </select>
+        <select id="findAllMemberGroup" resultType="net.hzjxy.myshop.entity.MemberGroup">
+                select from MEMBERGROUP where STATUS=#{status}
+        </select>
 
 </mapper>

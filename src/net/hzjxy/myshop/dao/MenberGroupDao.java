@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by linchunlei on 2014/12/4.
  */
-public interface MenberGroupDao {
+public interface MenberGroupDao{
     /**
      * 查询所有用户分组
      * @param currentPage
@@ -28,13 +28,13 @@ public interface MenberGroupDao {
      * @param creatorid
      * @return
      */
-    public List<MemberGroup>findAllMemberGroupT(final int currentPage,final int lineSize,String creatorid);
+    public List<MemberGroup>findAllMemberGroupTa(final int currentPage,final int lineSize,String creatorid);
     /**
      * 统计根据创建人id查询所有用户分组
      * @param creatorid
      * @return
      */
-    public int countfindAllMemberGroupT(String creatorid);
+    public int countfindAllMemberGroupTb(String creatorid);
     /**
      * 更新用户分组
      * @param mgt
@@ -64,5 +64,8 @@ public interface MenberGroupDao {
      * @return
      */
     public List<MemberGroup>findAllMemberGroup(String status);
+
+
+    public int add();
 
 }

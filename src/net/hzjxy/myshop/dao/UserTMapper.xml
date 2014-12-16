@@ -78,7 +78,7 @@
 
     </select>
     <select id="findEmailByUser">
-        SELECT email FROM UserT
+        SELECT email FROM Usert
     </select>
     <select id="checkUserByEmail" resultType="net.hzjxy.myshop.entity.UserT" parameterType="string">
         from UserT as u where u.email=:useremail

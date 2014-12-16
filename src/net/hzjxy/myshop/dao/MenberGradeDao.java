@@ -54,6 +54,7 @@ public interface MenberGradeDao {
      * 查询所有用户等级信息
      * @return
      */
-    public List<MemberGrade> findAllMemberGradeT();
+    public List<MemberGrade> findAllMemberGradeTa();
+    public int add();
 
 }
