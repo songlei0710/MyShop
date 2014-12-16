@@ -5,9 +5,23 @@
 <mapper namespace="net.hzjxy.myshop.dao.GoodsDetailDao">
     <insert id="addGoodsDetail" parameterType="net.hzjxy.myshop.entity.GoodsDetail">
         INSERT INTO GoodsDetail(ID,GOODSID,DETAIL)
-        VALUES (#{ID},#{GOODSID},#{DETAIL})
+        VALUES (#{id},#{goodsId},#{detail})
     </insert>
-    <update id="update"></update>
+    <update id="update" parameterType="net.hzjxy.myshop.entity.GoodsDetail">
+        UPDATE GOODSDETAIL
+        <set>
+            <if test="id!=null">
+                id=#{id},
+            </if>
+            <if test="goodsId!=null">
+                goodsId=#{goodsId},
+            </if>
+            <if test="detail!=null">
+                detail=#{detail},
+            </if>
+        </set>
+        WHERE id=#{id}
+    </update>
 
     <select id="findGoodsDetailRpBygoodsid" resultType="net.hzjxy.myshop.entity.GoodsDetail" parameterType="string">
         SELECT * FROM GoodsDetail WHERE id=#{id}
