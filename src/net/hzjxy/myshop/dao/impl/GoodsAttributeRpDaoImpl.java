@@ -34,4 +34,9 @@ public class GoodsAttributeRpDaoImpl implements GoodsAttributeRpDao {
         List<GoodsAttributeRp> goodsAttributeRp =goodsAttributeRpDao.findGoodsIdsByAttr(attrVal);
         return goodsAttributeRp;
     }
+
+    @Override
+    public int addGoodsAttributeRp(GoodsAttributeRp goodsAttributeRp) {
+        return 0;
+    }
 }

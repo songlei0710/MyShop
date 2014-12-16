@@ -705,6 +705,11 @@ public class GoodsDaoImpl implements GoodsDao{
     }
 
     @Override
+    public int addGoods(Goods goods) {
+        return 0;
+    }
+
+    @Override
     public int countfindvirtualsaleGoodsT(String isvirtualsale) {
         SqlSession session=MybatisUtil.currentSession();
         GoodsDao goodsDao=session.getMapper(GoodsDao.class);
