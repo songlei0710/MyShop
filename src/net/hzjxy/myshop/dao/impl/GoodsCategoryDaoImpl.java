@@ -170,6 +170,11 @@ public class GoodsCategoryDaoImpl implements GoodsCategoryDao {
     }
 
     @Override
+    public int addGoodsCategory(GoodsCategory goodsCategory) {
+        return 0;
+    }
+
+    @Override
     public List<GoodsCategory> sortAllGoodsCategoryT(@Param("currentPage") int currentPage, @Param("lineSize") int lineSize, @Param("state") String state, @Param("queryString") String queryString) {
         SqlSession session=MybatisUtil.currentSession();
         GoodsCategoryDao goodsCategoryDao=session.getMapper(GoodsCategoryDao.class);

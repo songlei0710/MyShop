@@ -57,7 +57,17 @@
         <select id="findGoodsBelinkedBymaingoodsid" resultType="net.hzjxy.myshop.entity.GoodsBlinked" parameterType="map">
                 SELECT  * FROM GoodsBelinked WHERE Maingoodsid=#{maingoodsid}
         </select>
-        <select id="findAllGoodsBelinked" resultType="net.hzjxy.myshop.entity.GoodsBlinked" parameterType="map"></select>
+        <select id="findAllGoodsBelinked" resultType="net.hzjxy.myshop.entity.GoodsBlinked" parameterType="map">
+                 SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM GoodsBelinked ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+        </select>
         <select id="countfindAllGoodsBelinked" resultType="java.lang.Integer">
                    SELECT COUNT(*) FROM GoodsBelinked
         </select>

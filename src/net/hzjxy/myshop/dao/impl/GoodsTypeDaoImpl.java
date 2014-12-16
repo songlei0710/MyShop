@@ -88,4 +88,9 @@ public class GoodsTypeDaoImpl implements GoodsTypeDao{
         return goodsType;
 
     }
+
+    @Override
+    public int addGoodsType(GoodsType goodsType) {
+        return 0;
+    }
 }
