@@ -4,6 +4,7 @@ import net.hzjxy.myshop.dao.SerialTDao;
 import net.hzjxy.myshop.entity.SerialT;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.ibatis.session.SqlSession;
 
 /**
  * Created by 磊 on 2014/11/30.
@@ -11,7 +12,9 @@ import org.apache.commons.logging.LogFactory;
 public class SerialTDaoImpl implements SerialTDao {
     @Override
     public SerialT findByBaseId(String biz) {
-        return null;
+        SqlSession sqlSession=MybatisUtil.currentSession();
+        SerialTDao dao=sqlSession.getMapper(SerialTDao.class);
+        return dao.findByBaseId(biz);
     }
 
     @Override
