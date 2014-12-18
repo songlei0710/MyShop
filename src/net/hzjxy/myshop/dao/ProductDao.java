@@ -110,4 +110,8 @@ public interface ProductDao {
      * @return
      */
     public List<Product> findProductByProductName(String productName,final int lineSize);
+    /**
+     *添加
+     */
+    public int addProduct(Product product);
 }

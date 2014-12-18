@@ -3,6 +3,9 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.OrderrDao">
+    <insert id="addOrderr">
+        insert into ORDERR (ORDERID,MEMBERID,MEMBERNAME,PAYMENTNAME,DELIVERMODE,DELIVERYNUMBER,ORDERSTATE,LOGISTICSID,FREIGHT,AMOUNT,POINTS,PURCHASETIME,DELIVERYTIME,ISINVOICE,SHIPPINGADDRESSID,CUSTOMERORDERNOTES,LOGISTICSWEBADDRESS,PAYTIME,ORDERTAG,TOBUYERNOTES,SHOULDPAY,USEPOINTS,C,PAYSTATE,SHIPPINGSTATE,DELIVERADDRESSID,SHIPPINGUSERNAME,CREATETIME,ISPRINTEXPRESS,ISPRINTINVOICE,ISPRINTFPINVOICE,EXPRESSNUMBER,TRADENO,USERID,USERNAME,LOGISTICSNAME,ERRORORDERTAG,PRODUCTINFO,VERSIONT,ORDERNAME,SHOPID,MEMBERDELIVERTIME,MAINPICTURE,UPDATETIME,NEEDQUANTITY) VALUE ({ORDERID},{MEMBERID},{MEMBERNAME},{PAYMENTNAME},{DELIVERMODE},{DELIVERYNUMBER},{ORDERSTATE},{LOGISTICSID},{FREIGHT},{AMOUNT},{POINTS},{PURCHASETIME},{DELIVERYTIME},{ISINVOICE},{SHIPPINGADDRESSID},{CUSTOMERORDERNOTES},{LOGISTICSWEBADDRESS},{PAYTIME},{ORDERTAG},{TOBUYERNOTES},{SHOULDPAY},{USEPOINTS},{C},{PAYSTATE},{SHIPPINGSTATE},{DELIVERADDRESSID},{SHIPPINGUSERNAME},{CREATETIME},{ISPRINTEXPRESS},{ISPRINTINVOICE},{ISPRINTFPINVOICE},{EXPRESSNUMBER},{TRADENO},{USERID},{USERNAME},{LOGISTICSNAME},{ERRORORDERTAG},{PRODUCTINFO},{VERSIONT},{ORDERNAME},{SHOPID},{MEMBERDELIVERTIME},{MAINPICTURE},{UPDATETIME},{NEEDQUANTITY})
+    </insert>
     <update id="updateOrder">
         UPDATE orderr set OrderId=#{OrderId}
     </update>
@@ -34,10 +37,26 @@
         </foreach>
     </delete>
     <select id="findAllOrderByOrderState" resultType="net.hzjxy.myshop.entity.Orderr">
-        SELECT *from orderr  as o where o.orderstate!=:orderstate and o.memberid=:memberid and o.paystate=:paystate and o.shippingstate=:shippingstate order by purchasetime desc
+       SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Orderr ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countFindAllOrderByOrderState" resultType="java.lang.Integer">
-         SELECT COUNT(*) from orderr  as o where o.orderstate!=:orderstate and o.memberid=:memberid and o.paystate=:paystate and o.shippingstate=:shippingstate order by purchasetime desc
+        SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Orderr ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="findAllOrderByOrderStateForOn" resultType="net.hzjxy.myshop.entity.Orderr">
       SELECT * from Orderr as o where o.orderstate!=:orderstate and o.memberid=:memberid and o.paystate!=:paystate and o.shippingstate!=:shippingstate order by purchasetime desc
@@ -48,39 +67,97 @@
     <select id="findOrderDetailByorderId" resultType="net.hzjxy.myshop.entity.Orderr">
         SELECT * FROM ORDERr where orderId=#{orderId}
     </select>
-    <select id="findAllOrder" resultType="net.hzjxy.myshop.entity.Orderr"></select>
+    <select id="findAllOrder" resultType="net.hzjxy.myshop.entity.Orderr">
+        SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Orderr ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countFindAllOrder" resultType="java.lang.Integer">
          SELECT COUNT(*) from orderr
     </select>
     <select id="findOrderByOrderId" resultType="net.hzjxy.myshop.entity.Orderr">
-        select * FROM  orderr where orderId=#{orderId}
+       SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Orderr ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countFindOrderbyOrderId" resultType="java.lang.Integer">
          select * FROM  orderr where orderId=#{orderId}
     </select>
     <select id="findOrderByShippingUsername" resultType="net.hzjxy.myshop.entity.Orderr">
-         select * FROM  orderr where shippingUsername=#{shippingUsername}
+         SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Orderr ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countFindOrderByShippingUsername" resultType="java.lang.Integer">
         select count(*) FROM  orderr where shippingUsername=#{shippingUsername}
     </select>
     <select id="findAllToBeShippedOrders" resultType="net.hzjxy.myshop.entity.Orderr">
-
+SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Orderr ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countFindAllToBeShippedOrders" resultType="java.lang.Integer">
 
     </select>
     <select id="selectAllOrder" resultType="net.hzjxy.myshop.entity.Orderr">
-
+SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Orderr ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="findAllHaveShippedOrder" resultType="net.hzjxy.myshop.entity.Orderr">
-
+SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Orderr ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countAllHaveshippedOrder" resultType="java.lang.Integer">
 
     </select>
     <select id="findAllReturnOrder" resultType="net.hzjxy.myshop.entity.Orderr">
-
+SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Orderr ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="countAllReturnOrder" resultType="java.lang.Integer">
 

@@ -3,6 +3,9 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.ProductSpecificationDao">
+        <insert id="addProductSpecification">
+                INSERT  INTO ProductSpecification(SPECIFICATIONSID,NAMEe,NOTE,SORT,SPECIFICATIONSTYPE,SPECIFICATIONSVALUE,CREATETIME,CREATORID,STATE,GOODSTYPEID,GOODSTYPENAME,SHOPID) VALUES ({SPECIFICATIONSID},{NAMEe},{NOTE},{SORT},{SPECIFICATIONSTYPE},{SPECIFICATIONSVALUE},{CREATETIME},{CREATORID},{STATE},{GOODSTYPEID},{GOODSTYPENAME},{SHOPID})
+        </insert>
         <update id="updateProductSpecification">
                 UPDATE  ProductSpecification SET pst=#{pst} WHERE UserId=#{userid}
         </update>
@@ -17,7 +20,15 @@
                 SELECT  * FROM ProductSpecification  WHERE specificationId=#{specificationId}
                 </select>
         <select id="findAllProductSpecification" resultType="net.hzjxy.myshop.entity.ProductSpecification">
-                SELECT  * FROM ProductSpecification  WHERE currentPage=#{currentPage} AND lineSize=#{lineSize}
+               SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM ProductSpecification ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
         </select>
         <select id="countFindAllProductSpecification" resultType="java.lang.Integer">
                 SELECT COUNT(*) FROM ProductSpecification
@@ -26,7 +37,15 @@
                 SELECT  * FROM ProductSpecification  WHERE state=#{state}
         </select>
         <select id="sortAllProductSpecification" resultType="net.hzjxy.myshop.entity.ProductSpecification">
-
+ SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM ProductSpecification ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
         </select>
         <select id="findAllProductSpecificationByGoodsTypeId"
                 resultType="net.hzjxy.myshop.entity.ProductSpecification">

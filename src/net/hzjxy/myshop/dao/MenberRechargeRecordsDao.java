@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.MemberRechargeRecords;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface MenberRechargeRecordsDao {
      * @return
      */
     public List<MemberRechargeRecords> findAllMemberRechargeRecordsT(
-            int currentPage, int lineSize);
+            @Param("currentPage") int currentPage, @Param("lineSize") int lineSize);
 
     /**
      * 统计查询所有充值记录
@@ -30,5 +31,6 @@ public interface MenberRechargeRecordsDao {
      *
      * @param strs
      */
-    public void delMemberRechargeRecordsT(String[] strs);
+    public void delMemberRechargeRecordsT(@Param("strs") String[] strs);
+    public int addMemberRechargeRecords(@Param("menberRechargeRecords") int menberRechargeRecords);
 }

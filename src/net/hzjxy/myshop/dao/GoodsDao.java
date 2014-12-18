@@ -406,7 +406,7 @@ public interface GoodsDao {
     /**
      * 统计搜索商品
      *
-     * @param goodsname
+     * @param megoodsna
      * @return
      */
     public int countfindSearchGoods(String megoodsna);
