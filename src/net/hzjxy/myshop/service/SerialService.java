@@ -8,22 +8,22 @@ import net.hzjxy.myshop.entity.SerialT;
 public interface SerialService {
     /**
      * 查找新的逻辑id
-     * @param baseid
+     * @param biz
      * @return
      */
     public SerialT findByBaseId(String biz);
 
     /**
      * 更新新的逻辑id
-     * @param baseid
+     * @param biz
      * @return
      */
-    public int updateByBaseId(SerialT transientInstance);
+    public int updateByBaseId(SerialT biz);
 
     /**
      * 获取最新的主键id
      * @return
      */
-    public SerialT SerialTLastId(String serialkey);
+    public SerialT SerialTLastId(String biz);
 
 }

@@ -8,9 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>
+        已付款——需发货拍卖订单
+    </title>
 </head>
 <body>
-
+<li class="dropdown-submenu"><a tabindex="-1" href="<%=basePath%>admin/order/auctionordersment.jsp?operate=find">拍卖订单</a>
+    <ul class="dropdown-menu">
+        <li><a tabindex="-1" href="<%=basePath%>admin/order/auctionorderstobeshippedhavepayment.jsp?operate=find">已付款——需发货拍卖订单</a></li>
+    </ul>
 </body>
 </html>

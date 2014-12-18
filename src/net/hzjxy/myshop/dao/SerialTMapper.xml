@@ -3,13 +3,14 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.SerialTDao">
+        <update id="updateByBaseId">
+                UPDATE SERIALT SET LASTID=LASTID+INCREMENTT WHERE BIZ=#{biz}
+        </update>
         <select id="findByBaseId" resultType="net.hzjxy.myshop.entity.SerialT" >
                 SELECT * FROM SerialT WHERE biz=#{biz}
         </select>
-        <update id="updateByBaseId">
-                 UPDATE SerialT WHERE biz=#{biz}
-        </update>
+
         <insert id="addSerialT">
-             insert into SerialT VALUES ()
+             insert into SerialT(BIZ,HEAD,LASTID,INCREMENTT,UPDATETIME) VALUES(#{biz},#{head},#{lastId},#{increment},#{updateTime})
         </insert>
 </mapper>

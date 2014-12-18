@@ -19,5 +19,14 @@
     <mappers>
         <mapper resource="net/hzjxy/myshop/dao/UserTMapper.xml"/>
         <mapper resource="net/hzjxy/myshop/dao/GoodsAttributeMapper.xml"/>
+        <mapper resource="net/hzjxy/myshop/dao/GoodsAttributeMapperRp.xml"/>
+        <mapper resource="net/hzjxy/myshop/dao/GoodsBlinkedMapper.xml"/>
+        <mapper resource="net/hzjxy/myshop/dao/GoodsCategoryMapper.xml"/>
+        <mapper resource="net/hzjxy/myshop/dao/GoodsCommentMapper.xml"/>
+        <mapper resource="net/hzjxy/myshop/dao/GoodsDetailMapper.xml"/>
+        <mapper resource="net/hzjxy/myshop/dao/GoodsMapper.xml"/>
+        <mapper resource="net/hzjxy/myshop/dao/GoodsSpecificationsProductRpMapper.xml"/>
+        <mapper resource="net/hzjxy/myshop/dao/GoodsTypeMapper.xml"/>
+
     </mappers>
 </configuration>

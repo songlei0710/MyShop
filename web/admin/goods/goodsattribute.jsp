@@ -61,7 +61,7 @@
       </div>
     </div>
   </div>
-<script type="text/javascript" src="<%=basePath%> admin/js/goods/goodsattributement.jsp"></script>
+<script type="text/javascript" src="<%=basePath%> admin/js/goods/goodsattributement.js"></script>
 <%@include file="/admin/footer.jsp"%>
 </body>
 </html>
