@@ -68,4 +68,8 @@ public  class BrandDaoImpl implements BrandDao{
         return brands;
     }
 
+    @Override
+    public int addBrand(Brand brand) {
+        return 0;
+    }
 }
