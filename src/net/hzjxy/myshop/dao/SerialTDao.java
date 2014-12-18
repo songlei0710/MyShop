@@ -17,7 +17,7 @@ public interface SerialTDao{
      * @param biz
      * @return
      */
-    public int updateByBaseId(String biz);
+    public int updateByBaseId(SerialT biz);
 
     /**
      * 添加

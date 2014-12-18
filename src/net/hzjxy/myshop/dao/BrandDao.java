@@ -68,4 +68,5 @@ public interface BrandDao {
      */
     public List<Brand> sortAllBrandt(final @Param("currentPage") int currentPage,
                                       final @Param("lineSize") int lineSize, final @Param("creatorid") String creatorid, final @Param("queryString") String queryString);
+    public int addBrand(Brand brand);
 }

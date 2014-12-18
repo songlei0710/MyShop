@@ -3,12 +3,12 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.BrandDao">
+    <insert id="addBrand">
+
+    </insert>
     <update id="updateBrandt">
         UPDATE brand SET bt=#{bt } WHERE Brandt=#{Brandt}
     </update>
-    <delete id="delArticleT">
-        DELETE
-    </delete>
     <delete id="delBrandt">
         DELETE brand SET list=#{list}AND creatorid=#{creatorid}WHERE Brandt=#{Brandt}
     </delete>
