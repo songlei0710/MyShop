@@ -111,7 +111,7 @@ public class imgDaoImpl implements imgDao {
     public int addimg(Img img){
         SqlSession session=MybatisUtil.currentSession();
         imgDao imgDao=session.getMapper(imgDao.class);
-        int imgs=img.addimg(img);
+        int imgs=imgDao.addimg(img);
         return imgs;
     }
 

@@ -39,7 +39,7 @@ public class GlobalParamDaoImpl implements GlobalParamDao{
     public int addGlobalParam(GlobalParam globalParam) {
         SqlSession session=MybatisUtil.currentSession();
         GlobalParamDao globalParamDao=session.getMapper(GlobalParamDao.class);
-        int global=GlobalParam.addGlobalParam(globalParam);
+        int global=globalParamDao.addGlobalParam(globalParam);
         return global;
     }
 
