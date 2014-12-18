@@ -75,4 +75,12 @@ public class VoucherDaoImpl implements VoucherDao{
         int voucher=voucherDao.countFindUserVoucher(userId);
         return voucher;
     }
+
+    @Override
+    public int addVoucher(Voucher voucher) {
+        SqlSession session=MybatisUtil.currentSession();
+        VoucherDao voucherDao=session.getMapper(VoucherDao.class);
+        int voucherA=voucherDao.addVoucher(voucher);
+        return voucherA;
+    }
 }
