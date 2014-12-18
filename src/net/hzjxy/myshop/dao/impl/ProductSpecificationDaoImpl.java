@@ -80,7 +80,7 @@ public class ProductSpecificationDaoImpl implements ProductSpecificationDao {
     public int addProductSpecification(PaymentDao paymentDao) {
         SqlSession session=MybatisUtil.currentSession();
         ProductSpecificationDao productSpecificationDao=session.getMapper(ProductSpecificationDao.class);
-        int product=productSpecificationDao.addProductSpecification(paymentDao)
+        int product=productSpecificationDao.addProductSpecification(paymentDao);
         return product;
     }
 }
