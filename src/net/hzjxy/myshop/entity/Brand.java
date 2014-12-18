@@ -88,4 +88,24 @@ public class Brand {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public Brand(String brandId, String brandName, Date createTime) {
+        this.brandId = brandId;
+        this.brandName = brandName;
+        this.createTime = createTime;
+    }
+
+    public Brand(String brandId, String brandName, String creatorId, String userName, Date createTime, String intro, String logoPath, int sort, String url) {
+        this.brandId = brandId;
+        this.brandName = brandName;
+        this.creatorId = creatorId;
+        this.userName = userName;
+        this.createTime = createTime;
+        this.intro = intro;
+        this.logoPath = logoPath;
+        this.sort = sort;
+        this.url = url;
+    }
+    public Brand(){
+    }
 }
