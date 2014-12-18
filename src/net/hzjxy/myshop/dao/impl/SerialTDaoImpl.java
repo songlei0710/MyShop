@@ -18,12 +18,13 @@ public class SerialTDaoImpl implements SerialTDao {
     }
 
     @Override
-    public int updateByBaseId(String biz) {
+    public int updateByBaseId(SerialT biz) {
         SqlSession session = MybatisUtil.currentSession();
         SerialTDao serialTDao = session.getMapper(SerialTDao.class);
         int serial = serialTDao.updateByBaseId(biz);
         return serial;
     }
+
 
     @Override
     public int addSerialT(SerialT serialT) {
@@ -32,4 +33,5 @@ public class SerialTDaoImpl implements SerialTDao {
         int serial = serialTDao.addSerialT(serialT);
         return serial;
     }
+
 }
