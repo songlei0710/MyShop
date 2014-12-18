@@ -17,13 +17,30 @@
         </delete>
 
         <select id="findAllMemberGroupT" resultType="net.hzjxy.myshop.entity.MemberGroup">
-               SELECT * FROM MEMBERGROUP
+               SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM MEMBERGROUP ORDER BY CREATETIME DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+
         </select>
         <select id="countfindAllMemberGroupT" resultType="java.lang.Integer">
                 SELECT COUNT(*) FROM MEMBERGROUP
         </select>
         <select id="findAllMemberGroupTa" resultType="net.hzjxy.myshop.entity.MemberGroup">
-                SELECT * FROM MEMBERGROUP where CREATORID=#{creatorid}
+                 SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM MEMBERGROUP ORDER BY creatorid DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
         </select>
         <select id="countfindAllMemberGroupTb" resultType="java.lang.Integer">
                  SELECT count(*) FROM MEMBERGROUP where CREATORID=#{creatorid}

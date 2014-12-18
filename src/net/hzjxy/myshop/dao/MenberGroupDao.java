@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.MemberGroup;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface MenberGroupDao{
      * @param lineSize
      * @return
      */
-    public List<MemberGroup> findAllMemberGroupT(final int currentPage,final int lineSize);
+    public List<MemberGroup> findAllMemberGroupT(final @Param("currentPage") int currentPage,final @Param("lineSize") int lineSize);
     /**
      * 统计查询所有用户分组
      * @return
@@ -66,6 +67,6 @@ public interface MenberGroupDao{
     public List<MemberGroup>findAllMemberGroup(String status);
 
 
-    public int add();
+    public int add(@Param("menberGroup") int menberGroup);
 
 }

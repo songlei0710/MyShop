@@ -78,6 +78,9 @@ public class ProductSpecificationDaoImpl implements ProductSpecificationDao {
 
     @Override
     public int addProductSpecification(PaymentDao paymentDao) {
-        return 0;
+        SqlSession session=MybatisUtil.currentSession();
+        ProductSpecificationDao productSpecificationDao=session.getMapper(ProductSpecificationDao.class);
+        int product=productSpecificationDao.addProductSpecification(paymentDao);
+        return product;
     }
 }
