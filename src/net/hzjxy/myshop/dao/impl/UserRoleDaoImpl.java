@@ -26,4 +26,12 @@ public class UserRoleDaoImpl implements UserRoleDao{
         List<UserRole> roles=userRoleDao.findUserRoleByUserId(userId);
         return roles;
     }
+
+    @Override
+    public int addUserRole(UserRole userRole) {
+        SqlSession session=MybatisUtil.currentSession();
+        UserRoleDao userRoleDao=session.getMapper(UserRoleDao.class);
+        int UserRole=userRoleDao.addUserRole(userRole);
+        return UserRole;
+    }
 }

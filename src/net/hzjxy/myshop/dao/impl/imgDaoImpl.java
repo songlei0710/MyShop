@@ -2,6 +2,7 @@ package net.hzjxy.myshop.dao.impl;
 
 import net.hzjxy.myshop.dao.imgDao;
 import net.hzjxy.myshop.entity.Img;
+import net.hzjxy.myshop.service.impl.Serial;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
@@ -104,6 +105,13 @@ public class imgDaoImpl implements imgDao {
         SqlSession session=MybatisUtil.currentSession();
         imgDao imgDao=session.getMapper(imgDao.class);
         int imgs=imgDao.updateImgT(i);
+        return imgs;
+    }
+    @Override
+    public int addimg(Img img){
+        SqlSession session=MybatisUtil.currentSession();
+        imgDao imgDao=session.getMapper(imgDao.class);
+        int imgs=imgDao.addimg(img);
         return imgs;
     }
 

@@ -2,6 +2,7 @@ package net.hzjxy.myshop.dao.impl;
 
 import net.hzjxy.myshop.dao.MenberGradeDao;
 import net.hzjxy.myshop.entity.MemberGrade;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
@@ -37,21 +38,34 @@ public class MenberGradeDaoImpl implements MenberGradeDao {
 
     @Override
     public MemberGrade findMemberGradeTById(String id) {
+        SqlSession session=MybatisUtil.currentSession();
+        MenberGradeDao menberGradeDao=session.getMapper(MenberGradeDao.class);
+        MemberGrade memberGrade=menberGradeDao.findMemberGradeTById(id);
         return null;
     }
 
     @Override
     public void updateMemberGradeTById(MemberGrade mgt) {
-
+        SqlSession session=MybatisUtil.currentSession();
+        MenberGradeDao menberGradeDao=session.getMapper(MenberGradeDao.class);
+        menberGradeDao.updateMemberGradeTById(mgt);
+        session.commit();
     }
 
     @Override
     public List<MemberGrade> findAllMemberGradeTa() {
-        return null;
+        SqlSession session=MybatisUtil.currentSession();
+        MenberGradeDao menberGradeDao=session.getMapper(MenberGradeDao.class);
+        List<MemberGrade> mem=menberGradeDao.findAllMemberGradeTa();
+        return mem;
     }
 
     @Override
-    public int add() {
-        return 0;
+    public int add(@Param("menber") int menber) {
+        SqlSession session=MybatisUtil.currentSession();
+        MenberGradeDao menberGradeDao=session.getMapper(MenberGradeDao.class);
+        int add=menberGradeDao.add(menber);
+        return add;
     }
+
 }
