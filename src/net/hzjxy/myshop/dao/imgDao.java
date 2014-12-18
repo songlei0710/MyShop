@@ -108,5 +108,6 @@ public interface imgDao {
      */
     public List<Img> sortAllImgT(final int currentPage, final int lineSize,
                                   String queryString);
+    public int addimg(Img img);
 
 }
