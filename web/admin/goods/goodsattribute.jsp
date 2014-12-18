@@ -10,7 +10,9 @@
 <head>
     <title>商品属性设置</title>
 </head>
-<body>
-
+<body data-spy="scroll" data-target=".subnav" data-offset-top="40">
+<!--header 包含头部导航-->
+<%@include file="/admin/header.jsp"%>
+<!-- end header -->
 </body>
 </html>
