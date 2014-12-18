@@ -1,6 +1,7 @@
 package net.hzjxy.myshop.dao;
 
 import net.hzjxy.myshop.entity.MemberGrade;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -55,6 +56,10 @@ public interface MenberGradeDao {
      * @return
      */
     public List<MemberGrade> findAllMemberGradeTa();
-    public int add();
+    /**
+     * 添加所有用户等级信息
+     * @return
+     */
+    public int add(@Param("menber") int menber);
 
 }

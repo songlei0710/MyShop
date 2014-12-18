@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.ProductDao">
         <insert id="addProduct"></insert>
-
+        INSERT INTO Product(PRODUCTID,PRICE,MEMBERPRICE,COST,SALEPRICE,FREEZESTORE,STORE,ISDEFAULT,ISSALESTATE,PRODUCTNAME,PRODUCTSN,SPECIFICATIONSVALUE,WAREHOUSELOCATION,PLACESTORE,WEIGHT,GOODSID,CREATORID,CREATETIME,SPECIFICATIONSID,SPECIFICATIONSNAME,UPDATETIME,UNIT,SHOPID) value({PRODUCTID},{PRICE},{MEMBERPRICE},{COST},{SALEPRICE},{FREEZESTORE},{STORE},{ISDEFAULT},{ISSALESTATE},{PRODUCTNAME},{PRODUCTSN},{SPECIFICATIONSVALUE},{WAREHOUSELOCATION},{PLACESTORE},{WEIGHT},{GOODSID},{CREATORID},{CREATETIME},{SPECIFICATIONSID},{SPECIFICATIONSNAME},{UPDATETIME},{UNIT},{SHOPID})
         <update id="updateProduct">
                  UPDATE Product SET productName=:productName where productid=:productid
         </update>
@@ -21,10 +21,26 @@
                 </foreach>
         </delete>
         <select id="findAllProductByCreatorId" resultType="net.hzjxy.myshop.entity.Product">
-             SELECT * from Product as pt where pt.creatorid=:creatorid
+             SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Product ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
         </select>
         <select id="findAllProduct" resultType="net.hzjxy.myshop.entity.Product">
-                SELECT * FROM Product
+                SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Product ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
         </select>
         <select id="countFindAllProduct" resultType="java.lang.Integer">
                 SELECT COUNT(*) FROM Product
@@ -39,13 +55,29 @@
                  SELECT COUNT(*) FROM Product  WHERE productid=:productid
         </select>
         <select id="sortAllProduct" resultType="net.hzjxy.myshop.entity.Product">
-
+ SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Product ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
         </select>
         <select id="findProductByGoodsId" resultType="net.hzjxy.myshop.entity.Product">
                 SELECT * FROM Product  WHERE productid=:productid
         </select>
         <select id="findProductByProductName" resultType="net.hzjxy.myshop.entity.Product">
-                 SELECT * FROM Product  WHERE ProductName=:ProductName
+                 SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM Product ORDER BY createtime DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
         </select>
         <select id="findProductById" resultType="net.hzjxy.myshop.entity.Product">
                  SELECT * FROM Product  WHERE productid=:productid

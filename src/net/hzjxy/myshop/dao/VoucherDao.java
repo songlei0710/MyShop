@@ -65,4 +65,8 @@ public interface VoucherDao {
      * @return
      */
     public int countFindUserVoucher(@Param("userId") String userId);
+    /**
+     *
+     */
+    public int addVoucher(@Param("voucher") Voucher voucher);
 }

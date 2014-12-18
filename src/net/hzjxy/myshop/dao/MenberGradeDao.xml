@@ -16,7 +16,15 @@
                 </foreach>
         </delete>
         <select id="findAllMemberGradeT" resultType="net.hzjxy.myshop.entity.MemberGrade">
-                SELECT * from
+                SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM MEMBERGRADE ORDER BY CREATETIME DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
         </select>
         <select id="countfindAllMemberGradeT" resultType="java.lang.Integer">
                 select count(*) from MEMBERGRADE
