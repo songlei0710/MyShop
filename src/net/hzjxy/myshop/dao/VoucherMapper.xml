@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="net.hzjxy.myshop.dao.VoucherDao">
     <insert id="addVoucher" parameterType="string">
-        INSERT INTO () VALUE ()
+        INSERT INTO VOUCHER(USERT,VOUCHERSID,VOUCHERSNAME,BEGINTIME,ENDTIME,VOUCHERSCONTENT,LIMITPRICE,GIVEMEMBERID,VOUCHERUSEWAY,
+STATE,CREATEORID,MOBILESYNC) VALUES (#{USERT},#{VOUCHERSID},#{VOUCHERSNAME},#{BEGINTIME},#{ENDTIME},#{VOUCHERSCONTENT},#{LIMITPRICE},#{GIVEMEMBERID},#{VOUCHERUSEWAY},#{STATE},#{CREATEORID},#{MOBILESYNC})
     </insert>
     <update id="updateVoucher" parameterType="string">
         UPDATE Voucher SET vt=#{vt}

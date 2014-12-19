@@ -15,9 +15,7 @@
     <update id="updateArticlepositionByarticleCategoryTid">
          UPDATE Article SET articleCategoryTid=#{articleCategoryTid}AND position=#{position}WHERE id=#{id}
     </update>
-    <delete id="delArticleT">
 
-    </delete>
     <select id="findArticleByarticleid" resultType="net.hzjxy.myshop.entity.Article">
         SELECT *FROM Article WHERE articleid=#{articleid}
     </select>
@@ -39,4 +37,13 @@
     <select id="findArticlesByStypeid" resultType="net.hzjxy.myshop.entity.Article">
         SELECT *FROM Article WHERE stypeid=#{stypeid} AND status=#{status}
     </select>
+
+
+
+    <delete id="delArticle">
+        DELETE FROM ARTICLE WHERE ARTICLEID IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>
