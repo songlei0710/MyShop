@@ -1,15 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    request.setCharacterEncoding("UTF-8");
-    String htmlData = request.getParameter("detail") != null ? request.getParameter("detail") : "";
-%>
-<%
-    request.setCharacterEncoding("UTF-8");
-    String htmlDatacommoditylist = request.getParameter("commoditylist") != null ? request.getParameter("commoditylist") : "";
-%>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>商品信息管理</title>
 </head>
 <body data-spy="scroll" data-target=".subnav" data-offset-top="40">
@@ -48,29 +39,24 @@
               <!-- 开始显示商品类型form表单 -->
               <div class="form-actions">
                   <div class="form-inline">
-                      <span class="label label-required">虚拟商品:</span>
-                      <input type="radio" id="isvirtualsale" name="isvirtualsale" value="1" checked="checked" />
-                      <label for="radio-1">是</label>
-                      <input type="radio" id="isvirtualsale" name="isvirtualsale" value="0" />
-                      <label for="radio-2">否</label>
+                      <span class="label label-required">外链:</span> <input
+                          type="radio" id="isoutsite" name="isoutsite" value="1"
+                          checked="checked" /> <label for="isoutsite">是 </label> <input
+                          type="radio" id="isoutsite1" name="isoutsite" value="0" /> <label
+                          for="isoutsite1">否 </label>
                   </div>
                   <div class="form-inline">
-                      <span class="label label-required">外链:</span>
-                      <input type="radio" id="isoutsite" name="isoutsite" value="1" checked="checked" />
-                      <label for="radio-1">是 </label>
-                      <input type="radio" id="isoutsite" name="isoutsite" value="0" />
-                      <label for="radio-2">否 </label>
+                      <span class="label label-required">外链地址:</span> <input type="text"
+                                                                             id="outsitelink" name="outsitelink" class="medium"  value="" />
                   </div>
                   <div class="form-inline">
-                      <span class="label label-required">外链地址:</span>
-                      <input type="text" id="outsitelink" name="outsitelink" class="medium"  value="" />
-                  </div>
-                  <div class="form-inline">
-                      <span class="label label-required">选择商品类型: </span>
-                      <select id="goodsTypeId" name="goodsTypeId"  ></select>
-                      <span class="label label-info">请选择一个商品类型</span>
+                      <span class="label label-required">选择商品类型: </span> <select
+                          id="goodsTypeId" name="goodsTypeId"  >
+
+                  </select> <span class="label label-info">请选择一个商品类型</span>
                   </div>
                   <!-- 加载商品类型属性和参数区域 -->
+
 
                   <div id="gat" style="display: none; border: 1px solid #E3E3E3; padding: 10px; margin-bottom: 10px;">
                       <div class="well">
@@ -169,46 +155,47 @@
                   <div class="form-inline">
                       <span class="label label-required">新品:</span>
                       <input type="radio" id="isNew" name="isNew" value="1" checked="checked" />
-                      <label for="radio-1">是 </label>
-                      <input type="radio" id="isNew" name="isNew" value="0" />
-                      <label for="radio-2">否 </label>
+                      <label for="isNew">是 </label>
+                      <input type="radio" id="isNew1" name="isNew" value="0" />
+                      <label for="isNew1">否 </label>
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">推荐:</span>
                       <input type="radio" id="recommended" name="recommended" value="1" checked="checked" />
-                      <label for="radio-1">是 </label>
-                      <input type="radio" id="recommended" name="recommended" value="0" />
-                      <label for="radio-2">否 </label>
+                      <label for="recommended">是 </label>
+                      <input type="radio" id="recommended1" name="recommended" value="0" />
+                      <label for="recommended1">否 </label>
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">热销:</span>
                       <input type="radio" id="hotsale" name="hotsale" value="1" checked="checked" />
-                      <label for="radio-1">是 </label>
-                      <input type="radio" id="hotsale" name="hotsale" value="0" />
-                      <label for="radio-2">否 </label>
+                      <label for="hotsale">是 </label>
+                      <input type="radio" id="hotsale1" name="hotsale" value="0" />
+                      <label for="hotsale1">否 </label>
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">特价:</span>
                       <input type="radio" id="bargainprice" name="bargainprice" value="1" checked="checked" />
-                      <label for="radio-1">是 </label>
-                      <input type="radio" id="bargainprice" name="bargainprice" value="0" />
-                      <label for="radio-2">否 </label>
+                      <label for="bargainprice">是 </label>
+                      <input type="radio" id="bargainprice1" name="bargainprice" value="0" />
+                      <label for="bargainprice1">否 </label>
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">同步移动平台:</span>
                       <input type="radio" id="ismobileplatformgoods" name="ismobileplatformgoods" value="1" checked="checked" />
-                      <label for="radio-1">是 </label>
-                      <input type="radio" id="ismobileplatformgoods" name="ismobileplatformgoods" value="0" />
-                      <label for="radio-2">否 </label>
+                      <label for="ismobileplatformgoods">是 </label>
+                      <input type="radio" id="ismobileplatformgoods1" name="ismobileplatformgoods" value="0" />
+                      <label for="ismobileplatformgoods1">否 </label>
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">上架:</span>
                       <input type="radio" id="salestate" name="salestate" value="1" checked="checked" />
-                      <label for="radio-1">是 </label>
-                      <input type="radio" id="salestate" name="salestate" value="0" />
-                      <label for="radio-2">否 </label>
+                      <label for="salestate">是 </label>
+                      <input type="radio" id="salestate1" name="salestate" value="0" />
+                      <label for="salestate1">否 </label>
                       <span class="label label-info">这里的上架选项和货品中的上架选项不同，这里控制多个，货品仅控制自己一个</span>
                   </div>
+
                   <div class="form-inline">
                       <table>
                           <tr>
@@ -232,15 +219,16 @@
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">商品介绍:</span>
-						<textarea id="detail" name="detail" cols="50" rows="12" style="width: 100%; height: 600px; visibility: hidden;">
-                            <%=htmlspecialchars(htmlData)%></textarea>
+                      <textarea id="detail" name="detail" cols="50" rows="12"
+                                style="width: 100%; height: 600px; visibility: hidden;"></textarea>
                   </div>
 
                   <div class="form-inline">
                       <span class="label label-required">商品清单:</span>
-						<textarea id="commoditylist" name="commoditylist" cols="50" rows="12" style="width: 100%; height: 400px; visibility: hidden;">
-                            <%=htmlspecialchars(htmlDatacommoditylist)%></textarea>
+                      <textarea id="commoditylist" name="commoditylist" cols="50"
+                                rows="12" style="width: 100%; height: 400px; visibility: hidden;"></textarea>
                   </div>
+
                   <div class="form-inline">
                       <span class="label label-required">页面关键字:</span>
                       <input type="text" id="metaKeywords" name="metaKeywords" class="small" />
