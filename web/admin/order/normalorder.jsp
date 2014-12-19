@@ -22,8 +22,29 @@
          <a class="brand2">编辑普通订单</a>
      </div>
    </div>
-
+<div class="container-fluid containerb">
+    <div class="row-fluid">
+        <div class="span2">
+            <!-- 引入左侧导航 -->
+            <%@include file="/admin/left.jsp"%>
+        </div>
+        <div id="mainlogic" class="span10">
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>说明</strong> 请根据需要编辑订单
+            </div>
+            <div id="alerterror" style="display: none;" claass="alert alert-error">
+                <a class="close" data-dismiss="alert" href="#">&times;</a> <strong></strong>
+            </div>
+            <div id="alertinfo" style="display: none;" class="alert alert-info">
+                <a class="close" data-dismiss="alert" href="#">&times;</a> <strong></strong>
+            </div>
+            <div class="line-dotted"></div>
+            <div class="btn-group">
+                <button id="btnback" type="button" class="btn btn-success">返回</button>
+            </div>
 <!-- 开始显示form表单 -->
+            <form id="brandsform">
 <div class="form-actions">
     <div class="well">
         <h4>订单商品选择</h4>
@@ -80,26 +101,27 @@
         </div>
     </div>
     <div class="form-inline">
-        <span class="label label-required">订单名称: </span> <input
-            id="ordername" name="ordername" type="text" value="" class="medium"/
+        <span class="label label-required">订单名称: </span>
+        <input id="ordername" name="ordername" type="text" value="" class="medium"/
         <!-- 订单价格信息 -->
     </div>
     <div class="well">
         <h4>订单价格信息</h4>
     </div>
     <div class="form-inline">
-        <span class="label label-required">运费:</span> <input type="text"
-                                                             id="freight" name="freight" /><span class="label label-info">你可以自定义一个运费</span>
+        <span class="label label-required">运费:</span>
+        <input type="text" id="freight" name="freight" />
+        <span class="label label-info">你可以自定义一个运费</span>
     </div>
     <div class="form-inline">
-        <span class="label label-required">订单总价: </span> <input
-            id="shouldpay" name="shouldpay" type="text" value="" readonly/>
+        <span class="label label-required">订单总价: </span>
+        <input id="shouldpay" name="shouldpay" type="text" value="" readonly/>
         <button id="tomodifyshouldpay" class="btn btn-primary" type="button">修改订单总价</button>
         <span id="tomodifyshouldpayinfo" style="display:none;"  class="label label-info">订单总价修改成功</span>
     </div>
     <div id="modifyshouldpay" style="display:none;" class="form-inline">
-        <span class="label label-required">修改价格: </span> <input
-            id="mshouldpay" name="mshouldpay" type="text" value=""/>
+        <span class="label label-required">修改价格: </span>
+        <input id="mshouldpay" name="mshouldpay" type="text" value=""/>
         <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">确认</a>
         <span class="label label-info">请输入修改的价格</span>
     </div>
@@ -109,8 +131,8 @@
         <h4>选择发货人信息</h4>
     </div>
     <div class="form-inline">
-        <span class="label label-required">搜索可用发货地址: </span> <input
-            id="membername" name="membername" type="text" value=""/>
+        <span class="label label-required">搜索可用发货地址: </span>
+        <input id="membername" name="membername" type="text" value=""/>
         <button id="searchdeliveraddress" class="btn btn-primary" type="button" >搜索</button>
         <span id="accountcheckinfo" class="label label-info">请输入会员账号进行搜索</span>
 
@@ -125,45 +147,43 @@
         <h4>新增发货人信息</h4>
     </div>
     <div class="form-inline">
-        <span class="label label-required">收货人: </span> <input
-            id="shippingusername" name="shippingusername" type="text" value=""/>
+        <span class="label label-required">收货人: </span>
+        <input id="shippingusername" name="shippingusername" type="text" value=""/>
     </div>
     <div class="form-inline">
-        <span class="label label-required">国家:</span> <input type="text"
-                                                             id="country" name="country" value="中国" class="small" />
-
+        <span class="label label-required">国家:</span>
+        <input type="text" id="country" name="country" value="中国" class="small" />
     </div>
     <div class="form-inline">
-        <span class="label label-required">省份:</span> <input type="text"
-                                                             id="province" name="province" /> <span
-            class="label label-required">城市:</span> <input type="text"
-                                                           id="city" name="city" /> <span class="label label-required">区/县:</span>
+        <span class="label label-required">省份:</span>
+        <input type="text" id="province" name="province" />
+        <span class="label label-required">城市:</span>
+        <input type="text" id="city" name="city" /> <span class="label label-required">区/县:</span>
         <input type="text" id="district" name="district" />
     </div>
     <div class="form-inline">
-        <span class="label label-required">详细地址:</span> <input type="text"
-                                                               id="street" name="street" class="medium" />
+        <span class="label label-required">详细地址:</span>
+        <input type="text" id="street" name="street" class="medium" />
     </div>
     <div class="form-inline">
-        <span class="label label-required">邮政编码:</span> <input type="text"
-                                                               id="postcode" name="postcode" />
+        <span class="label label-required">邮政编码:</span>
+        <input type="text" id="postcode" name="postcode" />
     </div>
     <div class="form-inline">
-        <span class="label label-required">手机号码:</span> <input type="text"
-                                                               id="mobile" name="mobile" />
+        <span class="label label-required">手机号码:</span>
+        <input type="text" id="mobile" name="mobile" />
     </div>
     <div class="form-inline">
-        <span class="label label-required">固定电话:</span> <input type="text"
-                                                               id="telno" name="telno" />
+        <span class="label label-required">固定电话:</span>
+        <input type="text" id="telno" name="telno" />
     </div>
     <div class="form-inline">
-        <span class="label label-required">邮箱:</span> <input type="text"
-                                                             id="email" name="email" />
+        <span class="label label-required">邮箱:</span>
+        <input type="text" id="email" name="email" />
     </div>
     <div class="form-inline">
         <label class="label label-submit"></label>
-        <input class="btn btn-success" type="button" id="savedeliveraddress"
-               name="savedeliveraddress" value="保存发货地址" />
+        <input class="btn btn-success" type="button" id="savedeliveraddress" name="savedeliveraddress" value="保存发货地址" />
     </div>
     <div class="well">
         <h4>支付及配送方式</h4>
@@ -191,37 +211,33 @@
         <h4>发票信息</h4>
     </div>
     <div class="form-inline">
-        <span class="label label-required">发票类型:</span> <input
-            type="radio" id="isinvoice1" name="isinvoice" value="1" checked/> <label
-            for="radio-1">个人</label> <input type="radio" id="isinvoice"
-                                            name="isinvoice" value="1" /> <label for="radio-2">明细 </label>
-        <input type="radio" id="isinvoice2"
-               name="isinvoice" value="0" /> <label for="radio-2">不开票 </label>
+        <span class="label label-required">发票类型:</span>
+        <input type="radio" id="isinvoice1" name="isinvoice" value="1" checked/>
+        <label for="radio-1">个人</label>
+        <input type="radio" id="isinvoice" name="isinvoice" value="1" /> <label for="radio-2">明细 </label>
+        <input type="radio" id="isinvoice2" name="isinvoice" value="0" /> <label for="radio-2">不开票 </label>
     </div>
     <div class="form-inline">
-        <span class="label label-required">发票抬头:</span> <input type="text"
-                                                               id="invPayee" name="invPayee" />
+        <span class="label label-required">发票抬头:</span>
+        <input type="text" id="invPayee" name="invPayee" />
     </div>
     <div class="form-inline">
-        <span class="label label-required">订单类型:</span> <input
-            type="radio" id="orderTag1" name="orderTag" value="1" checked/> <label
-            for="radio-1">普通订单</label>
-        <input
-                type="radio" id="orderTag2" name="orderTag" value="2" /> <label
-            for="radio-1">团购订单</label>
-        <input
-                type="radio" id="orderTag3" name="orderTag" value="3" /> <label
-            for="radio-1">拍卖订单</label>
-        <input
-                type="radio" id="orderTag4" name="orderTag" value="4" /> <label
-            for="radio-1">手机订单</label>
+        <span class="label label-required">订单类型:</span>
+        <input type="radio" id="orderTag1" name="orderTag" value="1" checked/>
+        <label for="radio-1">普通订单</label>
+        <input type="radio" id="orderTag2" name="orderTag" value="2" />
+        <label for="radio-1">团购订单</label>
+        <input type="radio" id="orderTag3" name="orderTag" value="3" />
+        <label for="radio-1">拍卖订单</label>
+        <input type="radio" id="orderTag4" name="orderTag" value="4" />
+        <label for="radio-1">手机订单</label>
     </div>
     <div class="well">
         <h4>订单备注</h4>
     </div>
     <div class="form-inline">
-        <span class="label label-required">订单备注:</span> <input type="text"
-                                                               id="customerordernotes" name="customerordernotes" class="large"/>
+        <span class="label label-required">订单备注:</span>
+        <input type="text" id="customerordernotes" name="customerordernotes" class="large"/>
     </div>
     <div class="form-inline">
         <label class="label label-submit"></label>
@@ -234,8 +250,14 @@
         <input
                 class="btn btn-success" type="button" id="submitorder"
                 name="submitorder" value="提交" />
-    </div>
 
 
+       </div>
+     </div>
+    </form>
+  </div>
+</div>
+<script type="text/javascript" src="<%=basePath%>admin/js/order/normalorderjs.js"></script>
+<%@include file="/admin/footer.jsp"%>
 </body>
 </html>
