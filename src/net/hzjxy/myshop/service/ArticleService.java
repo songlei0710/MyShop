@@ -18,7 +18,7 @@ public interface  ArticleService {
      * 获取所有文章
      * @param currentPage
      * @param lineSize
-     * @return 
+     * @return
      */
     public void findAllArticles(final int currentPage, final int lineSize);
 
