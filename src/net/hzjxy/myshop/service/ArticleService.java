@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2014/12/19.
  */
-public interface ArticleService {
+public interface  ArticleService {
     /**
      * 批量删除文章
      * @param list
