@@ -7,14 +7,14 @@ import java.util.Date;
  * Created by 磊 on 2014/11/30.
  */
 public class Brand {
-    private String brandId;    //品牌Id
+    private String brandId;     //品牌Id
     private String brandName;   //品牌名称
     private String creatorId;   //创建者Id
     private String userName;    //创建者用户名
     private Date createTime;    //创建时间
     private String intro;       //介绍
     private String logoPath;    //Logo路径
-    private int sort;       //排序序号
+    private int sort;           //排序序号
     private String url;         //官方网站
 
     public String getBrandId() {
