@@ -14,7 +14,7 @@ public  class BrandServiceImpl implements BrandService {
 
     @Override
     public void delBrand(String[] list) {
-        
+
     }
 
     @Override
