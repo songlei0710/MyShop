@@ -20,6 +20,7 @@ public class BrandAction extends BaseTAction{
     private int sort;
 
     private boolean sucFlag;
+
     public boolean getSucFlag() {
         return sucFlag;
     }
