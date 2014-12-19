@@ -10,7 +10,31 @@
                  (#{KEYWORDID},#{KEYWORDNAME},#{SEARCHCOUNT},#{SORT},#{type},#{state},#{createTime},#{creatorId})
         </insert>
         <update id="updateKeywordT">
-                UPDATE KEYWORD SET KEYWORDNAME=#{keywordName}
+                UPDATE KEYWORD
+                <set>
+                        <if test="KEYWORDNAME!=null">
+                                KEYWORDNAME=#{KEYWORDNAME},
+                        </if>
+                        <if test="SEARCHCOUNT!=null">
+                                SEARCHCOUNT=#{SEARCHCOUNT},
+                        </if>
+                        <if test="SORT!=null">
+                                SORT=#{SORT},
+                        </if>
+                        <if test="TYPE!=null">
+                                TYPE=#{TYPE},
+                        </if>
+                        <if test="STATE!=null">
+                                STATE=#{STATE},
+                        </if>
+                        <if test="CREATETIME!=null">
+                                CREATETIME=#{CREATETIME},
+                        </if>
+                        <if test="CREATORID!=null">
+                                CREATORID=#{CREATORID},
+                        </if>
+                </set>
+                WHERE userId=#{userId}
         </update>
         <update id="updatekeywordsearchcount">
                 UPDATE KEYWORD set SEARCHCOUNT=#{searchCount} where keywordname=#{keywordname}

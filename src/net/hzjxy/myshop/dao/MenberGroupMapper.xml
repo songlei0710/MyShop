@@ -7,7 +7,31 @@
                 INSERT  INTO MEMBERGROUP(ID,NAMEA,STATUS,CREATETIME,CREATORID,UPDATETIME,ATTRS) VALUES (#{ID},#{NAMEA},#{STATUS},#{CREATETIME},#{CREATORID},#{UPDATETIME},#{VERSIONT},#{ATTRS})
         </insert>
         <update id="updateMemberGroupT">
-                UPDATE MEMBERGROUP SET MEMBERGROUP=#{mgt}
+                UPDATE MEMBERGROUP
+                <set>
+                        <if test="NAMEA!=null">
+                                NAMEA=#{NAMEA},
+                        </if>
+                        <if test="STATUS!=null">
+                                STATUS=#{STATUS},
+                        </if>
+                        <if test="CREATETIME!=null">
+                                CREATETIME=#{CREATETIME},
+                        </if>
+                        <if test="CREATORID!=null">
+                                CREATORID=#{CREATORID},
+                        </if>
+                        <if test="UPDATETIME!=null">
+                                UPDATETIME=#{UPDATETIME},
+                        </if>
+                        <if test="VERSIONT!=null">
+                                VERSIONT=#{VERSIONT},
+                        </if>
+                        <if test="ATTRS!=null">
+                                ATTRS=#{ATTRS},
+                        </if>
+                </set>
+                WHERE ID=#{ID}
         </update>
         <delete id="delMemberGroupT">
                 DELETE FROM MEMBERGROUP WHERE Id IN
