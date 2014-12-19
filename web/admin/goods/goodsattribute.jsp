@@ -43,7 +43,7 @@
       <div class="btn-group">
         <button id="btnback" type="button" class="btn btn-success">返回</button>
       </div>
-      <!-- 开始显示商品属性form表单 -->
+      <!--开始显示商品属性form表单 -->
      <form id="goodsattributeform">
          <div class="form-inline">
              <div class="form-inline">
