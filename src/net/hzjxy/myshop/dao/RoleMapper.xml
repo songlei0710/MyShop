@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.RoleDao">
         <insert id="addRole">
-            INSERT into Role(ROLEID,ROLENAME,NOTE,CREATETIME,CREATORID) VALUES({ROLEID},{ROLENAME},{NOTE},{CREATETIME},{CREATORID})
+            INSERT into Role(ROLEID,ROLENAME,NOTE,CREATETIME,CREATORID) VALUES(#{roleid},#{rolename},#{note},#{createtime},#{creatorid})
         </insert>
         <update id="updateRole">
                 update Role set rolename=:newrolename where role=:role

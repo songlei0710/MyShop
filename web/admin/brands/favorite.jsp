@@ -1,14 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
-  User:第一组
-  Date: 2014/12/16
-  Time: 9:38
+  User: Administrator
+  Date: 2014/12/18
+  Time: 13:21
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>文章管理</title>
+  <title>收藏夹管理</title>
 </head>
 <body data-spy="scroll" data-target=".subnav" data-offset-top="40">
 <%@include file="/admin/header.jsp"%>
@@ -16,8 +16,8 @@
   <div class="navbar-innert">
     <a class="brand" href="#">
       <img src="<%=basePath%>admin/ui/assets/img/logo.png" width="175" height="30" alt=""></a>
-    <a class="brand" href="#">文章设置 </a>
-    <a class="brand2">编辑文章 </a>
+    <a class="brand" href="#">收藏夹设置 </a>
+    <a class="brand2">编辑收藏夹 </a>
   </div>
 </div>
 <div class="container-fluid containerb">
@@ -29,7 +29,7 @@
     <div id="mainlogic" class="span10">
       <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>说明</strong> 请根据需要编辑文章
+        <strong>说明</strong> 请根据需要编辑收藏夹
       </div>
       <div id="alerterror" style="display: none;" class="alert alert-error">
         <a class="close" data-dismiss="alert" href="#">&times;</a> <strong></strong>
@@ -45,17 +45,20 @@
       <form id="brandsform">
         <div class="form-actions">
           <div class="form-inline">
-            <span class="label label-required">文章名称: </span>
-            <input id="brandName" name="brandName" type="text" class="small" required />
-            <span class="label label-info">请输入文章名称</span>
+            <span class="label label-required">收藏夹编号: </span>
+            <input id="favoriteId" name="favoriteId" type="text" class="small" required />
+            <span class="label label-info">标题：</span>
+            <input id="title" name="title" type="text" class="small" required />
+            <span class="label label-info">标签：</span>
+            <input id="tag" name="tag" type="text" class="small" required />
           </div>
           <div class="form-inline">
-            <span class="label label-required">文章官方网址: </span>
-            <input id="url" name="url" type="text" value="" class="medium" />
+            <span class="label label-required">添加时间: </span>
+            <input id="addTime" name="addTime" type="text" value="" class="small" />
           </div>
           <div class="form-inline">
-            <span class="label label-required">排序: </span>
-            <input id="sort"	name="sort" type="text" value="" class="small" required/>
+            <span class="label label-required">html地址: </span>
+            <input id="htmlPath" name="htmlPath" type="text" value="" class="medium" />
           </div>
           <div class="form-inline">
             <label class="label label-submit"></label>

@@ -24,11 +24,11 @@
           <button type="button" class="close" data-dismiss="alert">×</button>
           <strong>说明</strong> 请根据需要编辑品牌
      	</div>
-        <div id="alerterror" style="display: none;" class="alert alert-error">
+        <div id="alerterror" style="display: none;" claass="alert alert-error">
           <a class="close" data-dismiss="alert" href="#">&times;</a> <strong></strong>
         </div>
         <div id="alertinfo" style="display: none;" class="alert alert-info">
-          <a class="close" data-dismiss="alert" href="#">&times;</a> <strong></strong>
+          <a class="close" data-dismiss="alert" href="#">&times;</a> <strong></strong>U
         </div>
         <div class="line-dotted"></div>
         <div class="btn-group">

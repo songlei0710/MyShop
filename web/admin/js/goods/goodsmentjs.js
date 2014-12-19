@@ -884,7 +884,7 @@ $(function() {
 				$("#contentp").text(str);
 				$("#goodsdelModal").modal({
 					keyboard:true,
-					show:true,
+					show:true
 				});
 				$("#goodsbtnok").click(function(){
 					var str = "";

@@ -7,16 +7,16 @@ import java.util.Date;
  * Created by 磊 on 2014/11/30.
  */
 public class Orderr {
-    private String OrderId;
-    private String memberid;
-    private String membername;
-    private String paymentname;
-    private String delivermode;
-    private String deliverynumber;
-    private String orderstate;
-    private String logisticsid;
-    private double freight;
-    private double amount;
+    private String OrderId;//订单编号
+    private String memberid;//发货id
+    private String membername;//发货地址
+    private String paymentname;//
+    private String delivermode;//
+    private String deliverynumber;//
+    private String orderstate;//
+    private String logisticsid;//
+    private double freight;//运费
+    private double amount;//
     private double points;
     private Date purchasetime;
     private Date deliverytime;

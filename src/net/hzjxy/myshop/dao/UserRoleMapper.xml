@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="net.hzjxy.myshop.dao.UserRoleDao">
     <insert id="addUserRole" parameterType="string">
-        INSERT INTO () VALUE ()
+        INSERT INTO USERROLE(ID,USERID,ROLEID)VALUES(#{ID},#{USERID},#{ROLEID})
     </insert>
 
     <delete id="delUserRole">

@@ -43,25 +43,30 @@
       <div class="btn-group">
         <button id="btnback" type="button" class="btn btn-success">返回</button>
       </div>
-      <!-- 开始显示商品属性form表单 -->
-      <div cless="form-actions">
+      <!--开始显示商品属性form表单 -->
+     <form id="goodsattributeform">
          <div class="form-inline">
-           <span class="lable lable-required">选择商品类型： </span>
-           <select id="goodsTypeId" name="goodsTypeId"  ></select>
-           <span class="label label-info">请选择一个商品类型</span>
+             <div class="form-inline">
+                 <span class="label label-required">商品属性名称：</span>
+                 <input id="goodSatTributeName" name="goodSatTributeName" type="text" class="small" required=""/>
+                 <span class="label label-info">请输入商品属性名称</span>
+             </div>
+             <div class="form-inline">
+                 <span class="label label-info">排序：</span>
+                 <input id="sort" name="sort" type="text" value="" class="small" required=""/>
+             </div>
+             <div class="form-inline">
+                 <label class="label label-submit"></label>
+                 <input type="hidden" id="hidBrandId" name="hidBrandId" value="" />
+                 <input class="btn btn-success" type="button" id="submit" name="submit" value="提交" />
+                 <input class="btn btn-success" type="button" id="update" name="update" value="更新" style="display: none;" />
+             </div>
          </div>
-      </div>
-       <div class="form-inline">
-        <label class="label label-submit"></label>
-        <input type="hidden" id="hidgoodsid" name="hidgoodsid" value="" />
-        <input type="hidden" id="hidproductid" name="hidproductid" value="">
-        <input class="btn btn-success" type="button" id="submit" name="submit" value="提交" />
-        <input class="btn btn-success" type="button" id="update" name="update" value="更新" style="display: none;" />
-       </div>
-      </div>
+     </form>
     </div>
   </div>
-<script type="text/javascript" src="<%=basePath%> admin/js/goods/goodsattributement.js"></script>
+</div>
+<script type="text/javascript" src="<%=basePath%> admin/js/goods/goodsattributementjs.js"></script>
 <%@include file="/admin/footer.jsp"%>
 </body>
 </html>
