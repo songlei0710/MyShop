@@ -24,8 +24,9 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<Article> findAllArticles(int currentPage, int lineSize) {
+    public int findAllArticles(int currentPage, int lineSize) {
         this.getArticleDao().findAllArticles(currentPage,lineSize);
+        return 0;
     }
 
     @Override

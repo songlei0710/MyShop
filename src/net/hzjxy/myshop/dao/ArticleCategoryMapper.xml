@@ -16,7 +16,10 @@
         UPDATE ArticleCategory SET articleCategoryTid =#{articleCategoryTid} AND sign={sign} WHERE SignwithoutMe=#{SignwithoutMe}
     </update>
     <delete id="delArticleCategory">
-        DELETE ArticleCategory SET status =#{status} ,parentId =#{parentId}AND creatorid=#{creatorid} WHERE
+       DELETE FROM ArticleCategory WHERE articleCategoryId IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
     </delete>
 
     <select id="findPathParentIdByParentId" resultType="net.hzjxy.myshop.entity.ArticleCategory">

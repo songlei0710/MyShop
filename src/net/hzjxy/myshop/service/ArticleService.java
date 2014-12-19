@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2014/12/19.
  */
-public interface ArticleService {
+public interface  ArticleService {
     /**
      * 批量删除文章
      * @param list
@@ -20,7 +20,7 @@ public interface ArticleService {
      * @param lineSize
      * @return
      */
-    public List<Article> findAllArticles(final int currentPage,final int lineSize);
+    public int findAllArticles(final int currentPage, final int lineSize);
 
     /**
      * 统计所有文章的个数
