@@ -20,7 +20,7 @@ public interface ArticleService {
      * @param lineSize
      * @return
      */
-    public List<Article> findAllArticles(final int currentPage,final int lineSize);
+    public void findAllArticles(final int currentPage, final int lineSize);
 
     /**
      * 统计所有文章的个数
