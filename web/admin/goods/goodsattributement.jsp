@@ -45,6 +45,7 @@
         <button id="btnback" type="button" class="btn btn-success">返回</button>
       </div>
       <!--开始显示商品属性form表单 -->
+      <form id="goodsattributementform">
       <div class="span10">
         <div class="alert alert-success">
           <button type="button" class="close" data-dismiss="alert">×</button>
@@ -67,6 +68,7 @@
 
 
       </div>
+      </form>
 
     </div>
 
