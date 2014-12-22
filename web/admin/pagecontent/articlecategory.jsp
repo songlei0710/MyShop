@@ -68,7 +68,7 @@
             <input id="metaDes" name="metaDes" type="text" class="small" required  />
           </div>
           <div class="form-inline">
-            <span class="label label-required">html路径: </span>
+            <span class="label label-required">html路径 </span>
             <input id="htmlPath" name="htmlPath" type="text" value="" class="medium" />
           </div>
           <div class="form-inline">
