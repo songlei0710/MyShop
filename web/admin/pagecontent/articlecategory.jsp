@@ -14,10 +14,10 @@
 <%@include file="/admin/header.jsp"%>
 <div id="navigation" class="navbar">
   <div class="navbar-innert">
-    <a class="brand" href="#">
+    <a class="articlecategory" href="#">
       <img src="<%=basePath%>admin/ui/assets/img/logo.png" width="175" height="30" alt=""></a>
-    <a class="brand" href="#">文章分类设置 </a>
-    <a class="brand2">编辑文章分类 </a>
+    <a class="articlecategory" href="#">文章分类设置 </a>
+    <a class="articlecategory2">编辑文章分类 </a>
   </div>
 </div>
 <div class="container-fluid containerb">
@@ -45,13 +45,26 @@
       <form id="brandsform">
         <div class="form-actions">
           <div class="form-inline">
+
             <span class="label label-required">文章分类名称: </span>
             <input id="brandName" name="brandName" type="text" class="small" required />
             <span class="label label-info">请输入文章分类名称</span>
           </div>
           <div class="form-inline">
-            <span class="label label-required">文章分类官方网址: </span>
-            <input id="url" name="url" type="text" value="" class="medium" />
+            <span class="label label-required">级别: </span>
+            <input id="grade" name="grade" type="text" class="small" required  />
+          </div>
+          <div class="form-inline">
+            <span class="label label-required">富类别名称: </span>
+            <input id="parentName" name="parentName" type="text" class="small" required  />
+          </div>
+          <div class="form-inline">
+            <span class="label label-required">页面描述: </span>
+            <input id="metaDes" name="metaDes" type="text" class="small" required  />
+          </div>
+          <div class="form-inline">
+            <span class="label label-required">html路径: </span>
+            <input id="htmlPath" name="htmlPath" type="text" value="" class="medium" />
           </div>
           <div class="form-inline">
             <span class="label label-required">排序: </span>
@@ -68,7 +81,7 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="<%=basePath%>admin/js/brands/brandsmentjs.js"></script>
+<script type="text/javascript" src="<%=basePath%>admin/js/pagecontent/articlecategorymentjs.js"></script>
 <%@include file="/admin/footer.jsp"%>
 </body>
 </html>
