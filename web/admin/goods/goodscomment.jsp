@@ -122,6 +122,6 @@
   });
 
 </script>
-
+<%@include file="/admin/footer.jsp"%>
 </body>
 </html>
