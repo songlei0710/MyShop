@@ -8,7 +8,7 @@ $(function(){
         var url=$('#url').val();
         var sort=$('#sort').val();
         if(sort==""){
-            formwarning("#alerterror","请填写排序");
+            formwarning("# alerterror","请填写排序");
             return false;
         }
         $.post("addBrand.action",{

@@ -8,7 +8,25 @@
                 VALUES(#{UNITID},#{unitName},#{engUnitName},#{creatorId},#{createTime})
         </insert>
         <update id="updateGoodsunit">
-                UPDATE GOODSUNIT set unitId=#{unitId}
+                UPDATE GOODSUNIT
+                <set>
+                        <if test="UNITID!=null">
+                                UNITID=#{UNITID},
+                        </if>
+                        <if test="UNITNAME!=null">
+                                UNITNAME=#{UNITNAME},
+                        </if>
+                        <if test="ENGUNITNAME!=null">
+                                ENGUNITNAME=#{ENGUNITNAME},
+                        </if>
+                        <if test="CREATORID!=null">
+                                CREATORID=#{CREATORID},
+                        </if>
+                        <if test="CREATETIME!=null">
+                                CREATETIME=#{CREATETIME},
+                        </if>
+                </set>
+                WHERE unitId=#{unitId}
         </update>
         <delete id="delGoodsunit">
                 DELETE FROM GoodsUNit WHERE unitId IN

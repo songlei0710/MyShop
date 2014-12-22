@@ -7,16 +7,238 @@
                 INSERT  INTO  MEMBER(TELNO,INTEGRATION,MEMBERGROUPNAME,MEMBERGROUPID,PAYPASSWORD,MID,MOBILE,UPDATETIME,CREATORID,CREATETIME,HEADPATH,MEMBERSTATE,ANSWER,QUESTION,POSTINGCOUNT,LOVEOTHER,BELOVE,TAG,SINAWEIBO,WEIXIN,QQ,EMAIL,DES,CONSTELLATION,BLOOD,BIRTHDAY,MERRYSTATUS,WHICHSEX,SEX,DISTRICT,CITY,REALNAME,NICK,LOGINPWD,LOGINNAME,ID,VERSIONTA) VALUES(#{TELNO},#{INTEGRATION},#{MEMBERGROUPNAME},#{MEMBERGROUPID},#{PAYPASSWORD}#{MID},#{MOBILE},#{UPDATETIME},#{CREATORID},#{CREATETIME},#{HEADPATH},#{MEMBERSTATE},#{ANSWER},#{QUESTION},#{POSTINGCOUNT},#{LOVEOTHER},#{BELOVE},#{TAG},#{SINAWEIBO},#{WEIXIN},#{QQ},#{EMAIL},#{DES},#{CONSTELLATION},#{BLOOD},#{BIRTHDAY},#{MERRYSTATUS},#{WHICHSEX},#{SEX},#{DISTRICT},#{CITY},#{REALNAME},#{NICK},#{LOGINPWD},#{LOGINNAME},#{ID},#{VERSIONTA})
         </insert>
         <update id="updateMemberT">
-            update MEMBER set  loginname=#{loginname} where  ID=#{id}
+            UPDATE MEMBER
+                <set>
+                        <if test="TELNO!=null">
+                                TELNO=#{TELNO},
+                        </if>
+                        <if test="INTEGRATION!=null">
+                                INTEGRATION=#{INTEGRATION},
+                        </if>
+                        <if test="MEMBERGROUPNAME!=null">
+                                MEMBERGROUPNAME=#{MEMBERGROUPNAME},
+                        </if>
+                        <if test="MEMBERGROUPID!=null">
+                                MEMBERGROUPID=#{MEMBERGROUPID},
+                        </if>
+                        <if test="PAYPASSWORD!=null">
+                                PAYPASSWORD=#{PAYPASSWORD},
+                        </if>
+                        <if test="MID!=null">
+                                MID=#{MID},
+                        </if>
+                        <if test="MOBILE!=null">
+                                MOBILE=#{MOBILE},
+                        </if>
+                        <if test="UPDATETIME!=null">
+                                UPDATETIME=#{UPDATETIME},
+                        </if>
+                        <if test="CREATORID!=null">
+                                CREATORID=#{CREATORID},
+                        </if>
+                        <if test="CREATETIME!=null">
+                                CREATETIME=#{CREATETIME},
+                        </if>
+                        <if test="HEADPATH!=null">
+                                HEADPATH=#{HEADPATH},
+                        </if>
+                        <if test="MEMBERSTATE!=null">
+                                MEMBERSTATE=#{MEMBERSTATE},
+                        </if>
+                        <if test="ANSWER!=null">
+                                ANSWER=#{ANSWER},
+                        </if>
+                        <if test="QUESTION!=null">
+                                QUESTION=#{QUESTION},
+                        </if>
+                        <if test="POSTINGCOUNT!=null">
+                                POSTINGCOUNT=#{POSTINGCOUNT},
+                        </if>
+                        <if test="LOVEOTHER!=null">
+                                LOVEOTHER=#{LOVEOTHER},
+                        </if>
+                        <if test="BELOVE!=null">
+                                BELOVE=#{BELOVE},
+                        </if>
+                        <if test="TAG!=null">
+                                TAG=#{TAG},
+                        </if>
+                        <if test="SINAWEIBO!=null">
+                                SINAWEIBO=#{SINAWEIBO},
+                        </if>
+                        <if test="WEIXIN!=null">
+                                WEIXIN=#{WEIXIN},
+                        </if>
+                        <if test="QQ!=null">
+                                QQ=#{QQ},
+                        </if>
+                        <if test="EMAIL!=null">
+                                EMAIL=#{EMAIL},
+                        </if>
+                        <if test="DES!=null">
+                                DES=#{DES},
+                        </if>
+                        <if test="CONSTELLATION!=null">
+                                CONSTELLATION=#{CONSTELLATION},
+                        </if>
+                        <if test="BLOOD!=null">
+                                BLOOD=#{BLOOD},
+                        </if>
+                        <if test="BIRTHDAY!=null">
+                                BIRTHDAY=#{BIRTHDAY},
+                        </if>
+                        <if test="MERRYSTATUS!=null">
+                                MERRYSTATUS=#{MERRYSTATUS},
+                        </if>
+                        <if test="WHICHSEX!=null">
+                                WHICHSEX=#{WHICHSEX},
+                        </if>
+                        <if test="SEX!=null">
+                                SEX=#{SEX},
+                        </if>
+                        <if test="DISTRICT!=null">
+                                DISTRICT=#{DISTRICT},
+                        </if>
+                        <if test="CITY!=null">
+                                CITY=#{CITY},
+                        </if>
+                        <if test="REALNAME!=null">
+                                REALNAME=#{REALNAME},
+                        </if>
+                        <if test="NICK!=null">
+                                NICK=#{NICK},
+                        </if>
+                        <if test="LOGINPWD!=null">
+                                LOGINPWD=#{LOGINPWD},
+                        </if>
+                        <if test="LOGINNAME!=null">
+                                LOGINNAME=#{LOGINNAME},
+                        </if>
+                        <if test="VERSIONTA!=null">
+                                VERSIONTA=#{VERSIONTA},
+                        </if>
+                </set>
+                WHERE Id=#{Id}
         </update>
         <update id="login">
-            SELECT * from MEMBER where LOGINNAME=#{loginName} and loginPwd=#{loginPwd}
+                UPDATE MEMBER
+                <set>
+                        <if test="TELNO!=null">
+                                TELNO=#{TELNO},
+                        </if>
+                        <if test="INTEGRATION!=null">
+                                INTEGRATION=#{INTEGRATION},
+                        </if>
+                        <if test="MEMBERGROUPNAME!=null">
+                                MEMBERGROUPNAME=#{MEMBERGROUPNAME},
+                        </if>
+                        <if test="MEMBERGROUPID!=null">
+                                MEMBERGROUPID=#{MEMBERGROUPID},
+                        </if>
+                        <if test="PAYPASSWORD!=null">
+                                PAYPASSWORD=#{PAYPASSWORD},
+                        </if>
+                        <if test="MID!=null">
+                                MID=#{MID},
+                        </if>
+                        <if test="MOBILE!=null">
+                                MOBILE=#{MOBILE},
+                        </if>
+                        <if test="UPDATETIME!=null">
+                                UPDATETIME=#{UPDATETIME},
+                        </if>
+                        <if test="CREATORID!=null">
+                                CREATORID=#{CREATORID},
+                        </if>
+                        <if test="CREATETIME!=null">
+                                CREATETIME=#{CREATETIME},
+                        </if>
+                        <if test="HEADPATH!=null">
+                                HEADPATH=#{HEADPATH},
+                        </if>
+                        <if test="MEMBERSTATE!=null">
+                                MEMBERSTATE=#{MEMBERSTATE},
+                        </if>
+                        <if test="ANSWER!=null">
+                                ANSWER=#{ANSWER},
+                        </if>
+                        <if test="QUESTION!=null">
+                                QUESTION=#{QUESTION},
+                        </if>
+                        <if test="POSTINGCOUNT!=null">
+                                POSTINGCOUNT=#{POSTINGCOUNT},
+                        </if>
+                        <if test="LOVEOTHER!=null">
+                                LOVEOTHER=#{LOVEOTHER},
+                        </if>
+                        <if test="BELOVE!=null">
+                                BELOVE=#{BELOVE},
+                        </if>
+                        <if test="TAG!=null">
+                                TAG=#{TAG},
+                        </if>
+                        <if test="SINAWEIBO!=null">
+                                SINAWEIBO=#{SINAWEIBO},
+                        </if>
+                        <if test="WEIXIN!=null">
+                                WEIXIN=#{WEIXIN},
+                        </if>
+                        <if test="QQ!=null">
+                                QQ=#{QQ},
+                        </if>
+                        <if test="EMAIL!=null">
+                                EMAIL=#{EMAIL},
+                        </if>
+                        <if test="DES!=null">
+                                DES=#{DES},
+                        </if>
+                        <if test="CONSTELLATION!=null">
+                                CONSTELLATION=#{CONSTELLATION},
+                        </if>
+                        <if test="BLOOD!=null">
+                                BLOOD=#{BLOOD},
+                        </if>
+                        <if test="BIRTHDAY!=null">
+                                BIRTHDAY=#{BIRTHDAY},
+                        </if>
+                        <if test="MERRYSTATUS!=null">
+                                MERRYSTATUS=#{MERRYSTATUS},
+                        </if>
+                        <if test="WHICHSEX!=null">
+                                WHICHSEX=#{WHICHSEX},
+                        </if>
+                        <if test="SEX!=null">
+                                SEX=#{SEX},
+                        </if>
+                        <if test="DISTRICT!=null">
+                                DISTRICT=#{DISTRICT},
+                        </if>
+                        <if test="CITY!=null">
+                                CITY=#{CITY},
+                        </if>
+                        <if test="REALNAME!=null">
+                                REALNAME=#{REALNAME},
+                        </if>
+                        <if test="NICK!=null">
+                                NICK=#{NICK},
+                        </if>
+                        <if test="LOGINPWD!=null">
+                                LOGINPWD=#{LOGINPWD},
+                        </if>
+                        <if test="LOGINNAME!=null">
+                                LOGINNAME=#{LOGINNAME},
+                        </if>
+                        <if test="VERSIONTA!=null">
+                                VERSIONTA=#{VERSIONTA},
+                        </if>
+                </set>
+                WHERE Id=#{Id}
         </update>
         <update id="updateMemberHeadpathByid">
-                UPDATE MEMBER set headPath=#{headPath}
+            UPDATE MEMBER SET HEADPATH=#{headpath} WHERE ID=#{id}
         </update>
         <update id="updateMemberPwdProctection">
-                UPDATE MEMBER SET id=#{id},question=#{question} and answer=#{answer} where PwdProctection=#{PwdProctection}
+                UPDATE MEMBER SET question=#{question} and answer=#{answer} where id=#{id}
         </update>
         <delete id="delMemberTById">
                 delete from MEMBER WHERE MENBERID=#{MenberId}

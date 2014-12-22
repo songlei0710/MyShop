@@ -7,7 +7,16 @@
         INSERT into MsgText(MSGTEXTID,TEXT,SENDTIME) VALUES(#{MSGTEXTID},#{TEXT},#{SENDTIME})
     </insert>
     <update id="updateMsgText">
-        update MSGTEXT  set TEXT=#{text} where msgTextId=#{mt}
+        UPDATE MENBERRECHARGE
+        <set>
+            <if test="TEXT!=null">
+                TEXT=#{TEXT},
+            </if>
+            <if test="SENDTIME!=null">
+                SENDTIME=#{SENDTIME},
+            </if>
+        </set>
+        WHERE MSGTEXTID=#{MSGTEXTID}
     </update>
     <delete id="delMsgText">
         DELETE FROM MSGTEXT WHERE SENDTIME IN

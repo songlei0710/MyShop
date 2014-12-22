@@ -10,7 +10,28 @@
                 INSERT INTO MENBERRECHARGE(ID,MEMBERID,MEMBERNAME,BALANCE,CREATETIME,UPDATETIME,VERSIONT) VALUES(#{ID},#{MEMBERID},#{MEMBERNAME},#{BALANCE},#{CREATETIME},#{UPDATETIME},#{VERSIONT})
         </insert>
         <update id="updateMemberRechargeT">
-                update MemberRecharge SET balance=#{balance}
+                UPDATE MENBERRECHARGE
+                <set>
+                        <if test="MEMBERID!=null">
+                                MEMBERID=#{MEMBERID},
+                        </if>
+                        <if test="MEMBERNAME!=null">
+                                MEMBERNAME=#{MEMBERNAME},
+                        </if>
+                        <if test="BALANCE!=null">
+                                BALANCE=#{BALANCE},
+                        </if>
+                        <if test="CREATETIME!=null">
+                                CREATETIME=#{CREATETIME},
+                        </if>
+                        <if test="UPDATETIME!=null">
+                                UPDATETIME=#{UPDATETIME},
+                        </if>
+                        <if test="VERSIONT!=null">
+                                VERSIONT=#{VERSIONT},
+                        </if>
+                </set>
+                WHERE Id=#{Id}
         </update>
         <delete id="delMemberRechargeT">
                 DELETE FROM MemberRecharge WHERE balance=#{balance}
