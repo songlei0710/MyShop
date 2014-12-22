@@ -60,7 +60,7 @@
           <input id="parentName" name="parentName" type="text" class="small" required  />
         </div>
           <div class="form-inline">
-            <span class="label label-required">父类别编号: </span>
+            <span class="label label-required">父类别编号 </span>
             <input id="parentId" name="parentId" type="text" class="small" required  />
 
           <div class="form-inline">
