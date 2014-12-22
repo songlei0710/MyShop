@@ -12,6 +12,7 @@ public class Serial {
     //商品品牌表主键生成
     public static final String BRAND="Brand";
 
+    public static final String ARTICLE="article";
 
 
 
