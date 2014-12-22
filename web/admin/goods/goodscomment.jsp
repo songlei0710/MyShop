@@ -82,26 +82,16 @@
             </div>
             <div class="form-inline">
               <span class="label label-required">该评论分值:</span>
-              <input type="radio" id="score1" name="score" value="1" checked="checked" />
-              <label for="score1">1分</label>
-              <input type="radio" id="score2" name="score" value="2" />
-              <label for="score2">2分 </label>
-              <input type="radio" id="score3" name="score" value="3" />
-              <label for="score3">3分</label>
-              <input type="radio" id="score4" name="score" value="4" />
-              <label for="score4">4分 </label>
-              <input type="radio" id="score5" name="score" value="5" />
-              <label for="score5">5分</label>
-              <input type="radio" id="score6" name="score" value="6" />
-              <label for="score6">6分 </label>
-              <input type="radio" id="score7" name="score" value="7" />
-              <label for="score7">7分</label>
-              <input type="radio" id="score8" name="score" value="8" />
-              <label for="score8">8分 </label>
-              <input type="radio" id="score9" name="score" value="9" />
-              <label for="score9">9分</label>
-              <input type="radio" id="score10" name="score" value="10" />
-              <label for="score10">10分 </label>
+              <input type="radio"  name="score" value="1" checked="checked" />1分
+              <input type="radio" name="score" value="2" />2分
+              <input type="radio"  name="score" value="3" />3分
+              <input type="radio" id="score4" name="score" value="4" />4分
+              <input type="radio" id="score5" name="score" value="5" />5分
+              <input type="radio" id="score6" name="score" value="6" />6分
+              <input type="radio" id="score7" name="score" value="7" />7分
+              <input type="radio" id="score8" name="score" value="8" />8分
+              <input type="radio" id="score9" name="score" value="9" />9分
+              <input type="radio" id="score10" name="score" value="10" />10分
               <span class="label label-info">分值表示该条评论的价值可用作未来店铺信用和个人信用的基础参数</span>
             </div>
 

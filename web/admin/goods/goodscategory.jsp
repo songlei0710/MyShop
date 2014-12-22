@@ -99,11 +99,9 @@
                                                                id="sort" name="sort" class="small" />
         </div>
         <div class="form-inline">
-          <span class="label label-required">同步移动平台:</span> <input
-                type="radio" id="mobilesync" name="mobilesync" value="1"
-                checked="checked" /> <label for="mobilesync">是 </label> <input
-                type="radio" id="mobilesync1" name="mobilesync" value="0" /> <label
-                for="mobilesync1">否 </label>
+          <span class="label label-required">同步移动平台:</span>
+          <input type="radio"  name="mobilesync" value="1" checked="checked" />是
+          <input type="radio"  name="mobilesync" value="0" />否
         </div>
         <div class="form-inline">
           <span class="label label-required">页面关键字:</span> <input
