@@ -55,6 +55,10 @@
             <input id="grade" name="grade" type="text" class="small" required  />
           </div>
           <div class="form-inline">
+            <span class="label label-required">父类别编号: </span>
+            <input id="parentId" name="parentId" type="text" class="small" required  />
+          </div>
+          <div class="form-inline">
             <span class="label label-required">富类别名称: </span>
             <input id="parentName" name="parentName" type="text" class="small" required  />
           </div>
