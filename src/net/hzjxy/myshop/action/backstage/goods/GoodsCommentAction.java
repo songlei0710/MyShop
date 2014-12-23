@@ -1,5 +1,8 @@
 package net.hzjxy.myshop.action.backstage.goods;
 
+import net.hzjxy.myshop.entity.GoodsComment;
+import net.hzjxy.myshop.service.GoodsCommentService;
+
 import java.util.Date;
 
 /**
@@ -21,6 +24,44 @@ public class GoodsCommentAction {
     private String title;
     private String virtualAdd;
     private String shopId;
+
+
+    private String basePath;
+    private boolean sucFlag;
+    private GoodsComment bean;
+    private GoodsCommentService goodsAttributeService;
+
+    public String getBasePath() {
+        return basePath;
+    }
+
+    public void setBasePath(String basePath) {
+        this.basePath = basePath;
+    }
+
+    public boolean isSucFlag() {
+        return sucFlag;
+    }
+
+    public void setSucFlag(boolean sucFlag) {
+        this.sucFlag = sucFlag;
+    }
+
+    public GoodsComment getBean() {
+        return bean;
+    }
+
+    public void setBean(GoodsComment bean) {
+        this.bean = bean;
+    }
+
+    public GoodsCommentService getGoodsAttributeService() {
+        return goodsAttributeService;
+    }
+
+    public void setGoodsAttributeService(GoodsCommentService goodsAttributeService) {
+        this.goodsAttributeService = goodsAttributeService;
+    }
 
     public String getCommentId() {
         return commentId;

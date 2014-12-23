@@ -1,5 +1,8 @@
 package net.hzjxy.myshop.action.backstage.goods;
 
+import net.hzjxy.myshop.entity.GoodsBlinked;
+import net.hzjxy.myshop.service.GoodsBlinkedService;
+
 import java.util.Date;
 
 /**
@@ -18,6 +21,44 @@ public class GoodsBlinkedAction {
     private String mainProductId;
     private String shopId;
     private String mainGoodsName;
+
+
+    private String basePath;
+    private boolean sucFlag;
+    private GoodsBlinked bean;
+    private GoodsBlinkedService goodsAttributeService;
+
+    public String getBasePath() {
+        return basePath;
+    }
+
+    public void setBasePath(String basePath) {
+        this.basePath = basePath;
+    }
+
+    public boolean isSucFlag() {
+        return sucFlag;
+    }
+
+    public void setSucFlag(boolean sucFlag) {
+        this.sucFlag = sucFlag;
+    }
+
+    public GoodsBlinked getBean() {
+        return bean;
+    }
+
+    public void setBean(GoodsBlinked bean) {
+        this.bean = bean;
+    }
+
+    public GoodsBlinkedService getGoodsAttributeService() {
+        return goodsAttributeService;
+    }
+
+    public void setGoodsAttributeService(GoodsBlinkedService goodsAttributeService) {
+        this.goodsAttributeService = goodsAttributeService;
+    }
 
     public String getId() {
         return id;
