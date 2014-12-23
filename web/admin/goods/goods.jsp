@@ -40,10 +40,9 @@
               <div class="form-actions">
                   <div class="form-inline">
                       <span class="label label-required">外链:</span> <input
-                          type="radio" id="isoutsite" name="isoutsite" value="1"
-                          checked="checked" /> <label for="isoutsite">是 </label> <input
-                          type="radio" id="isoutsite1" name="isoutsite" value="0" /> <label
-                          for="isoutsite1">否 </label>
+                          type="radio"  name="isoutsite" value="1"
+                          checked="checked" />是 <input
+                          type="radio"  name="isoutsite" value="0" /> 否
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">外链地址:</span> <input type="text"
@@ -154,45 +153,33 @@
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">新品:</span>
-                      <input type="radio" id="isNew" name="isNew" value="1" checked="checked" />
-                      <label for="isNew">是 </label>
-                      <input type="radio" id="isNew1" name="isNew" value="0" />
-                      <label for="isNew1">否 </label>
+                      <input type="radio"  name="isNew" value="1" checked="checked" />是
+                      <input type="radio"  name="isNew" value="0" />否
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">推荐:</span>
-                      <input type="radio" id="recommended" name="recommended" value="1" checked="checked" />
-                      <label for="recommended">是 </label>
-                      <input type="radio" id="recommended1" name="recommended" value="0" />
-                      <label for="recommended1">否 </label>
+                      <input type="radio"  name="recommended" value="1" checked="checked" />是
+                      <input type="radio"  name="recommended" value="0" />否
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">热销:</span>
-                      <input type="radio" id="hotsale" name="hotsale" value="1" checked="checked" />
-                      <label for="hotsale">是 </label>
-                      <input type="radio" id="hotsale1" name="hotsale" value="0" />
-                      <label for="hotsale1">否 </label>
+                      <input type="radio"  name="hotsale" value="1" checked="checked" />是
+                      <input type="radio"  name="hotsale" value="0" />否
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">特价:</span>
-                      <input type="radio" id="bargainprice" name="bargainprice" value="1" checked="checked" />
-                      <label for="bargainprice">是 </label>
-                      <input type="radio" id="bargainprice1" name="bargainprice" value="0" />
-                      <label for="bargainprice1">否 </label>
+                      <input type="radio"  name="bargainprice" value="1" checked="checked" />是
+                      <input type="radio"  name="bargainprice" value="0" />否
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">同步移动平台:</span>
-                      <input type="radio" id="ismobileplatformgoods" name="ismobileplatformgoods" value="1" checked="checked" />
-                      <label for="ismobileplatformgoods">是 </label>
-                      <input type="radio" id="ismobileplatformgoods1" name="ismobileplatformgoods" value="0" />
-                      <label for="ismobileplatformgoods1">否 </label>
+                      <input type="radio"  name="ismobileplatformgoods" value="1" checked="checked" />是
+                      <input type="radio"  name="ismobileplatformgoods" value="0" />否
                   </div>
                   <div class="form-inline">
                       <span class="label label-required">上架:</span>
-                      <input type="radio" id="salestate" name="salestate" value="1" checked="checked" />
-                      <label for="salestate">是 </label>
-                      <input type="radio" id="salestate1" name="salestate" value="0" />
-                      <label for="salestate1">否 </label>
+                      <input type="radio"  name="salestate" value="1" checked="checked" />是
+                      <input type="radio"  name="salestate" value="0" />否
                       <span class="label label-info">这里的上架选项和货品中的上架选项不同，这里控制多个，货品仅控制自己一个</span>
                   </div>
 

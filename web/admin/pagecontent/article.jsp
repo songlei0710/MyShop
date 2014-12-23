@@ -45,22 +45,55 @@
       <form id="articleform">
         <div class="form-actions">
           <div class="form-inline">
-            <span class="label label-required">是否外链</span>
-            <input type="radio" name="isOutSite" value="1" checked="checked"/>是
-            <input type="radio" name="isOutSite" value="0"/>否
-          </div>
-          <div class="form-inline">
+            <div class="form-inline">
+              <span class="label label-required">是否外链</span>
+              <input type="radio" name="isOutSite" value="1" checked="checked"/>是
+              <input type="radio" name="isOutSite" value="0"/>否
+            </div>
+            <div class="form-inline">
+              <span class="label label-required">外联地址: </span>
+              <input id="url" name="url" type="text" value="" class="medium" />
+            </div>
             <span class="label label-required">文章标题: </span>
             <input id="title" name="title" type="text" class="small" required />
             <span class="label label-info">请输入文章标题</span>
           </div>
           <div class="form-inline">
-            <span class="label label-required">外联地址: </span>
-            <input id="url" name="url" type="text" value="" class="medium" />
+            <span class="label label-required">文章状态: </span>
+            <input id="status" name="status" type="text" class="small" required />
+          </div>
+          <div class="form-inline">
+            <span class="label label-required">文章作者: </span>
+            <input id="author" name="author" type="text" class="small" required />
           </div>
           <div class="form-inline">
             <span class="label label-required">排序: </span>
             <input id="sort"	name="sort" type="text" value="" class="small" required/>
+          </div>
+
+          <div class="form-inline">
+            <span class="label label-required">是否发布</span>
+            <input type="radio" name="isPublication" value="1" checked="checked"/>是
+            <input type="radio" name="isPublication" value="0"/>否
+          </div>
+          <div class="form-inline">
+            <span class="label label-required">是否推荐</span>
+            <input type="radio" name="isRecommend" value="1" checked="checked"/>是
+            <input type="radio" name="isRecommend" value="0"/>否
+          </div>
+          <div class="form-inline">
+            <span class="label label-required">是否置顶</span>
+            <input type="radio" name="isTop" value="1" checked="checked"/>是
+            <input type="radio" name="isTop" value="0"/>否
+          </div>
+          <div class="form-inline">
+            <span class="label label-required">是否公告</span>
+            <input type="radio" name="isNotice" value="1" checked="checked"/>是
+            <input type="radio" name="isNotice" value="0"/>否
+          </div>
+          <div class="form-inline">
+            <span class="label label-required">排序: </span>
+            <input id="tipContent"	name="tipContent" type="text" value="" class="small" required/>
           </div>
           <div class="form-inline">
             <span class="label label-required">正文: </span>
@@ -76,6 +109,7 @@
             <span class="label label-required">操作: </span>
             <input class="btn btn-success" type="button" id="delpc" name="delpc" value="删除所选图片"/>
           </div>
+
           <div class="form-inline">
             <label class="label label-submit"></label>
             <input type="hidden" id="hidArticleId" name="hidArticleId" value="" />
