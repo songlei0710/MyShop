@@ -517,9 +517,8 @@ public interface GoodsDao {
 
     /**
      * 根据顶级分类获取手机端商品
-     *
      * @param navid
-     * @param statesale
+     * @param salestate
      * @param ismobileplatformgoods
      * @return
      */
