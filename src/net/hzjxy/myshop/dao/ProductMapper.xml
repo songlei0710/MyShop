@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.ProductDao">
         <insert id="addProduct"></insert>
-        INSERT INTO Product(PRODUCTID,PRICE,MEMBERPRICE,COST,SALEPRICE,FREEZESTORE,STORE,ISDEFAULT,ISSALESTATE,PRODUCTNAME,PRODUCTSN,SPECIFICATIONSVALUE,WAREHOUSELOCATION,PLACESTORE,WEIGHT,GOODSID,CREATORID,CREATETIME,SPECIFICATIONSID,SPECIFICATIONSNAME,UPDATETIME,UNIT,SHOPID) value({PRODUCTID},{PRICE},{MEMBERPRICE},{COST},{SALEPRICE},{FREEZESTORE},{STORE},{ISDEFAULT},{ISSALESTATE},{PRODUCTNAME},{PRODUCTSN},{SPECIFICATIONSVALUE},{WAREHOUSELOCATION},{PLACESTORE},{WEIGHT},{GOODSID},{CREATORID},{CREATETIME},{SPECIFICATIONSID},{SPECIFICATIONSNAME},{UPDATETIME},{UNIT},{SHOPID})
+        INSERT INTO Product(PRODUCTID,PRICE,MEMBERPRICE,COST,SALEPRICE,FREEZESTORE,STORE,ISDEFAULT,ISSALESTATE,PRODUCTNAME,PRODUCTSN,SPECIFICATIONSVALUE,WAREHOUSELOCATION,PLACESTORE,WEIGHT,GOODSID,CREATORID,CREATETIME,SPECIFICATIONSID,SPECIFICATIONSNAME,UPDATETIME,UNIT,SHOPID) value(#{productid},#{price},#{memberprice},#{cost},#{saleprice},#{freezeStore},#{store},#{isDefault},#{isSalestate},#{productName},#{productSn},#{specificationsValue},#{warehouseLocation},#{placeStore},#{weight},#{goodsid},#{creatorid},#{createtime},#{specificationsid},#{specificationsName},#{updatetime},#{unit},#{shopid})
         <update id="updateProduct">
                  UPDATE Product SET productName=:productName where productid=:productid
         </update>

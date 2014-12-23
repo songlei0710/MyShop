@@ -5,6 +5,8 @@ import net.hzjxy.myshop.entity.GoodsAttribute;
 import net.hzjxy.myshop.service.GoodsAttributeService;
 import net.hzjxy.myshop.service.impl.Serial;
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 
 import java.util.Date;
@@ -12,6 +14,8 @@ import java.util.Date;
 /**
  * Created by Lenovo on 2014/12/19.
  */
+@Namespace("")
+@ParentPackage("myshop")
 public class GoodsAttributeAction extends BaseTAction{
     private String goodSatTributeId;        //商品属性Id
     private String goodSatTributeName;      //商品属性名称
@@ -159,7 +163,7 @@ public class GoodsAttributeAction extends BaseTAction{
     public void setCreatorId(String creatorId) {
         this.creatorId = creatorId;
     }
-    @Action(value="addGoodsAttribute",results = {@Result(name="json",type="json")})
+    @Action(value="addAttribute",results = {@Result(name="json",type="json")})
     public String addGoodsAttribute(){
         GoodsAttribute goodsAttribute=new GoodsAttribute();
         goodsAttribute.setGoodSatTributeId(this.getSerial().SerialId(Serial.GOODSATTRIBUTE));
