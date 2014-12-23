@@ -75,7 +75,7 @@
             <input type="hidden" id="hidBrandId" name="hidBrandId" value="" />
             <input class="btn btn-success" type="button" id="submit" name="submit" value="提交" />
             <input class="btn btn-success" type="button" id="update" name="update" value="更新" style="display: none;" />
-          </div>
+           </div>
         </div>
       </form>
     </div>
