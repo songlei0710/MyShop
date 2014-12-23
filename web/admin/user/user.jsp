@@ -169,7 +169,7 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="<%=basePath%>admin/js/brands/brandsmentjs.js"></script>
+<script type="text/javascript" src="<%=basePath%>admin/js/userT/usermentjs.js"></script>
 <%@include file="/admin/footer.jsp"%>
 </body>
 </html>
