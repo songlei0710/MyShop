@@ -13,19 +13,19 @@ import java.util.List;
  */
 public  class ArticleDaoImpl  implements ArticleDao {
     @Override
-    public void delArticleT(String[] strs) {
+    public void delArticle(String[] strs) {
         SqlSession session=MybatisUtil.currentSession();
         ArticleDao articleDao=session.getMapper(ArticleDao.class);
-        articleDao.delArticleT(strs);
+        articleDao.delArticle(strs);
         session.commit();
         return ;
     }
 
     @Override
-    public Article findArticleByarticleid(String articleid) {
+    public Article findArticleByArticleId(String articleId) {
         SqlSession session=MybatisUtil.currentSession();
         ArticleDao articleDao=session.getMapper(ArticleDao.class);
-        Article article=articleDao.findArticleByarticleid(articleid);
+        Article article=articleDao.findArticleByArticleId(articleid);
         return article;
     }
 

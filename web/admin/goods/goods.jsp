@@ -37,7 +37,6 @@
                   <button id="btnback" type="button" class="btn btn-success">返回</button>
               </div>
               <!-- 开始显示商品类型form表单 -->
-              <form id="goodsform">
               <div class="form-actions">
                   <div class="form-inline">
                       <span class="label label-required">外链:</span> <input
@@ -246,7 +245,6 @@
                       <input class="btn btn-success" type="button" id="update" name="update" value="更新" style="display: none;" />
                   </div>
               </div>
-            </form>
           </div>
       </div>
   </div>

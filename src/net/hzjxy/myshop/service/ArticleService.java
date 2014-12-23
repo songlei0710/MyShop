@@ -97,4 +97,6 @@ public interface  ArticleService {
      * @return
      */
     public List<Article> findArticlesBySTypeId(String sTypeId,String status);
+
+    public int addArticle(Article article);
 }

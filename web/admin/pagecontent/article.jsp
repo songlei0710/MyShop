@@ -29,7 +29,7 @@
     <div id="mainlogic" class="span10">
       <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>说明</strong> 请根据需要编辑文章
+        <strong>说明</strong>请根据需要编辑文章
       </div>
       <div id="alerterror" style="display: none;" class="alert alert-error">
         <a class="close" data-dismiss="alert" href="#">&times;</a> <strong></strong>
@@ -42,15 +42,20 @@
         <button id="btnback" type="button" class="btn btn-success">返回</button>
       </div>
       <!-- 开始显示商品类型form表单 -->
-      <form id="brandsform">
+      <form id="articleform">
         <div class="form-actions">
           <div class="form-inline">
-            <span class="label label-required">文章名称: </span>
-            <input id="brandName" name="brandName" type="text" class="small" required />
-            <span class="label label-info">请输入文章名称</span>
+            <span class="label label-required">是否外链</span>
+            <input type="radio" name="isOutSite" value="1" checked="checked"/>是
+            <input type="radio" name="isOutSite" value="0"/>否
           </div>
           <div class="form-inline">
-            <span class="label label-required">文章官方网址: </span>
+            <span class="label label-required">文章标题: </span>
+            <input id="title" name="title" type="text" class="small" required />
+            <span class="label label-info">请输入文章标题</span>
+          </div>
+          <div class="form-inline">
+            <span class="label label-required">外联地址: </span>
             <input id="url" name="url" type="text" value="" class="medium" />
           </div>
           <div class="form-inline">
@@ -58,8 +63,22 @@
             <input id="sort"	name="sort" type="text" value="" class="small" required/>
           </div>
           <div class="form-inline">
+            <span class="label label-required">正文: </span>
+            <textarea id="contentValue" name="contentValue" cols="50" rows="12" style="width: 100%;height: 600px;visibility: hidden">
+            </textarea>
+          </div>
+          <div class="form-inline">
+            <span class="label label-required">主图: </span>
+            <div id="uploaderarticlemainpic"></div>
+            <div id="triggers"></div>
+          </div>
+          <div class="form-inline">
+            <span class="label label-required">操作: </span>
+            <input class="btn btn-success" type="button" id="delpc" name="delpc" value="删除所选图片"/>
+          </div>
+          <div class="form-inline">
             <label class="label label-submit"></label>
-            <input type="hidden" id="hidBrandId" name="hidBrandId" value="" />
+            <input type="hidden" id="hidArticleId" name="hidArticleId" value="" />
             <input class="btn btn-success" type="button" id="submit" name="submit" value="提交" />
             <input class="btn btn-success" type="button" id="update" name="update" value="更新" style="display: none;" />
           </div>
@@ -68,7 +87,42 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="<%=basePath%>admin/js/brands/brandsmentjs.js"></script>
+<script type="text/javascript" src="<%=basePath%>admin/js/pagecontent/articlementjs.js"></script>
+<script type="text/javascript" src="<%=basePath%>admin/js/plugins/kindeditor/kindeditor-min.js"></script>
+<script type="text/javascript">
+  KE.show({
+    id : 'contentValue',
+    imageUploadJson : '<%=basePath%>/admin/js/plugins/kindeditor/jsp/upload_json.jsp',
+    fileManagerJson : '<%=basePath%>/admin/js/plugins/kindeditor/jsp/file_manager_json.jsp',
+    allowFileManager : true,
+    afterCreate : function(id) {
+      KE.event.ctrl(document, 13, function() {
+        KE.util.setData(id);
+      });
+    }
+  });
+</script>
+<script type="text/javascript" src="<%=basePath%>admin/js/plugins/uploader/fileuploader.js"></script>
+<script type="text/javascript">
+  function createUploader(){
+    var uploader = new qq.FileUploader({
+      element: document.getElementById('uploaderarticlemainpic'),
+      action: '<%=basePath%>ajaxFileUploads.action;jsessionid=<%=session.getId()%>',
+      debug: true,
+      minSizeLimit:1024,
+      sizeLimit: 1073741824,
+      allowedExtensions: ['jpeg','jpg','gif','png'],
+      onComplete: function(id, fileName, responseJSON){
+        var pcpath1="<%=basePath%>"+responseJSON.success;
+        var pcpath=responseJSON.success;
+        var htm="<img id='"+id+"' src='"+pcpath1+"' rel='#"+fileName+"'/>";
+        var checkpc="<input id='"+id+"' name='pcpath' type='checkbox' value='"+pcpath+"' /> ";
+        $("#triggers").append(htm).append(checkpc);
+      }
+    });
+  }
+  window.onload = createUploader;
+</script>
 <%@include file="/admin/footer.jsp"%>
 </body>
 </html>
