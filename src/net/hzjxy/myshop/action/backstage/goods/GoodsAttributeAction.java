@@ -31,11 +31,17 @@ public class GoodsAttributeAction extends BaseTAction{
     private String isSearch;                //是否支持属性检索
     private String isSameToLink;            //是否开启属性关联
 
-
+    private String basePath;
     private boolean sucFlag;
     private GoodsAttribute bean;
     private GoodsAttributeService goodsAttributeService;
+    public String getBasePath() {
+        return basePath;
+    }
 
+    public void setBasePath(String basePath) {
+        this.basePath = basePath;
+    }
     public GoodsAttribute getBean() {
         return bean;
     }

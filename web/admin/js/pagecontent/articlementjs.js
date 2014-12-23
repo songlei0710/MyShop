@@ -1,9 +1,27 @@
 $(function() {
     $('#submit').click(function () {
         var isOutSite = $("input[name='isOutSite']:checked").val();
+        var isPublication = $("input[name='isPublication']:checked").val();
+        var isRecommend = $("input[name='isRecommend']:checked").val();
+        var isTop = $("input[name='isTop']:checked").val();
+        var isNotice = $("input[name='isNotice']:checked").val();
 
         var contentValue = $("#contentValue").val();
-
+        var title = $("#title").val();
+        var tipContent = $("#tipContent").val();
+        var sort = $("#sort").val();
+        var metaKeywords = $("#metaKeywords").val();
+        var metaDes = $("#metaDes").val();
+        var status = $("#status").val();
+        var author = $("#author").val();
+        var readCount = $("#readCount").val();
+        var htmlPath = $("#htmlPath").val();
+        var updateTime = $("#updateTime").val();
+        var sName = $("#sName").val();
+        var fName = $("#fName").val();
+        var fTypeId = $("#fTypeId").val();
+        var sTypeId = $("#sTypeId").val();
+        var outSiteLink = $("#outSiteLink").val();
         var mainPicture = "";
         $(":checkbox[name='pcpath']").each(function () {
             if ($(this).attr("checked")) {
@@ -17,7 +35,19 @@ $(function() {
             "articleName": articleName,
             "title":title,
             "tipContent":tipContent,
-            "sort": sort
+            "sort": sort,
+            "metaKeywords":metaKeywords,
+            "metaDes":metaDes,
+            "status":status,
+            "author":author,
+            "readCount":readCount,
+            "htmlPath":htmlPath,
+            "updateTime":updateTime,
+            "sName":sName,
+            "fName":fName,
+            "fTypeId":fTypeId,
+            "sTypeId":sTypeId,
+            "outSiteLink":outSiteLink
         }, function (data) {
             if (data.sucflag) {
                 window.location.href = "articlement.jsp";
@@ -36,10 +66,31 @@ $(function() {
         $.post("findArticleByArticleId.action",{"articleId":articleId},function(data){
             if(data.bean!=null){
                 $("#title").val(data.bean.title);
+                $("#sort").val(data.bean.sort);
                 if("1"==data.bean.isOutSite){
                     $("input[name='isOutSite']").get(0).checked=true;
                 }else{
                     $("input[name='isOutSite']").get(1).checked=true;
+                }
+                if("1"==data.bean.isPublication){
+                    $("input[name='isPublication']").get(0).checked=true;
+                }else{
+                    $("input[name='isPublication']").get(1).checked=true;
+                }
+                if("1"==data.bean.isRecommend){
+                    $("input[name='isRecommend']").get(0).checked=true;
+                }else{
+                    $("input[name='isPublication']").get(1).checked=true;
+                }
+                if("1"==data.bean.isTop){
+                    $("input[name='isTop']").get(0).checked=true;
+                }else{
+                    $("input[name='isTop']").get(1).checked=true;
+                }
+                if("1"==data.bean.isNotice){
+                    $("input[name='isNotice']").get(0).checked=true;
+                }else{
+                    $("input[name='isNotice']").get(1).checked=true;
                 }
                 KE.html("contentValue",data.bean.contentValue);
                 if(data.bean.mainPicture!=""){
@@ -56,8 +107,27 @@ $(function() {
      */
     updateArticle=function(){
         var isOutSite = $("input[name='isOutSite']:checked").val();
+        var isPublication = $("input[name='isPublication']:checked").val();
+        var isRecommend = $("input[name='isRecommend']:checked").val();
+        var isTop = $("input[name='isTop']:checked").val();
+        var isNotice = $("input[name='isNotice']:checked").val();
 
         var contentValue = $("#contentValue").val();
+        var title = $("#title").val();
+        var tipContent = $("#tipContent").val();
+        var sort = $("#sort").val();
+        var metaKeywords = $("#metaKeywords").val();
+        var metaDes = $("#metaDes").val();
+        var status = $("#status").val();
+        var author = $("#author").val();
+        var readCount = $("#readCount").val();
+        var htmlPath = $("#htmlPath").val();
+        var updateTime = $("#updateTime").val();
+        var sName = $("#sName").val();
+        var fName = $("#fName").val();
+        var fTypeId = $("#fTypeId").val();
+        var sTypeId = $("#sTypeId").val();
+        var outSiteLink = $("#outSiteLink").val();
 
         var mainPicture = "";
         $(":checkbox[name='pcpath']").each(function () {
@@ -69,7 +139,20 @@ $(function() {
             "articleName": articleName,
             "title":title,
             "tipContent":tipContent,
-            "sort": sort
+            "sort": sort,
+            "metaKeywords":metaKeywords,
+            "metaDes":metaDes,
+            "status":status,
+            "author":author,
+            "readCount":readCount,
+            "htmlPath":htmlPath,
+            "updateTime":updateTime,
+            "tipContent":tipContent,
+            "sName":sName,
+            "fName":fName,
+            "fTypeId":fTypeId,
+            "sTypeId":sTypeId,
+            "outSiteLink":outSiteLink
         },function(data){
             if (data.sucflag) {
                 window.location.href = "articlement.jsp";

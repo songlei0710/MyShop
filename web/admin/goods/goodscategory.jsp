@@ -46,7 +46,7 @@
       </div>
       <!-- 开始显示商品类型form表单 -->
       <form id="goodscategoryform">
-      <div class="form-actions">
+       <div class="form-actions">
         <div class="form-inline">
           <span class="label label-required">选择商品类型: </span> <select
                 id="goodsTypeId" name="goodsTypeId">

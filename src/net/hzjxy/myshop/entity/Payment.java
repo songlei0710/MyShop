@@ -5,17 +5,17 @@ package net.hzjxy.myshop.entity;
  * Created by 磊 on 2014/11/30.
  */
 public class Payment {
-    private String paymentid;
-    private String paymentname;
-    private String paymentCode;
-    private String paymentFree;
-    private String paymentInterface;
-    private String account;
-    private String safecode;
-    private String partnerid;
-    private String des;
-    private String isFast;
-    private String state;
+    private String paymentid;//付费设置ID
+    private String paymentname;//付费设置名称
+    private String paymentCode;//支付密码
+    private String paymentFree;//自由支付
+    private String paymentInterface;//支出
+    private String account;//账户
+    private String safecode;//实模式
+    private String partnerid;//合作伙伴
+    private String des;//的
+    private String isFast;//快
+    private String state;//状态
 
     public String getPaymentid() {
         return paymentid;
