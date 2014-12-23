@@ -45,7 +45,7 @@
             </div>
             <!--开始显示商品属性form表单 -->
             <form id="goodsattributeform">
-                <div class="form-inline">
+                <div class="form-actions">
                     <div class="form-inline">
                         <span class="label label-required">商品属性名称：</span>
                         <input id="goodSatTributeName" name="goodSatTributeName" type="text" class="small" required=""/>

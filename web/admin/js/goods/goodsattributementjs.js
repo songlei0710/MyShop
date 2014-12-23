@@ -12,7 +12,7 @@ $(function(){
             formwarning("# alerterror","请填写排序");
             return false;
         }
-        $.post("GoodsAttribute.action",{
+        $.post("addAttribute.action",{
             "goodSatTributeName":goodSatTributeName,
             "sort":sort
         },function(data){
