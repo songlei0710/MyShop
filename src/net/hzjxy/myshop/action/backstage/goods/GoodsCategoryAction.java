@@ -1,9 +1,13 @@
 package net.hzjxy.myshop.action.backstage.goods;
 
+import net.hzjxy.myshop.action.backstage.base.BaseTAction;
 import net.hzjxy.myshop.entity.GoodsCategory;
 import net.hzjxy.myshop.service.GoodsCategoryService;
+import net.hzjxy.myshop.service.impl.Serial;
+import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
+import org.apache.struts2.convention.annotation.Result;
 
 import java.util.Date;
 
@@ -12,7 +16,7 @@ import java.util.Date;
  */
 @Namespace("")
 @ParentPackage("myshop")
-public class GoodsCategoryAction {
+public class GoodsCategoryAction extends BaseTAction {
     private String goodsCategoryTid;
     private String grade;   //级别
     private String metaKeywords;    //关键字
@@ -37,7 +41,7 @@ public class GoodsCategoryAction {
     private String basePath;
     private boolean sucFlag;
     private GoodsCategory bean;
-    private GoodsCategoryService goodsAttributeService;
+    private GoodsCategoryService goodsCategoryService;
 
     public String getBasePath() {
         return basePath;
@@ -63,12 +67,12 @@ public class GoodsCategoryAction {
         this.bean = bean;
     }
 
-    public GoodsCategoryService getGoodsAttributeService() {
-        return goodsAttributeService;
+    public GoodsCategoryService getGoodsCategoryService() {
+        return goodsCategoryService;
     }
 
-    public void setGoodsAttributeService(GoodsCategoryService goodsAttributeService) {
-        this.goodsAttributeService = goodsAttributeService;
+    public void setGoodsCategoryService(GoodsCategoryService goodsCategoryService) {
+        this.goodsCategoryService = goodsCategoryService;
     }
 
     public String getGoodsCategoryTid() {
@@ -222,4 +226,21 @@ public class GoodsCategoryAction {
     public void setMobilesYnc(String mobilesYnc) {
         this.mobilesYnc = mobilesYnc;
     }
+    @Action(value="addGoodsCategory",results = {@Result(name="json",type="json")})
+    public String addGoodsCategory() {
+        GoodsCategory goodsCategory=new GoodsCategory();
+        goodsCategory.setGoodsCategoryTid(this.getSerial().SerialId(Serial.GOODSATTRIBUTE));
+
+
+
+        this.getGoodsCategoryService().addGoodsCategory(goodsCategory);
+        this.setSucFlag(true);
+        this.setBean(goodsCategory);
+        return JSON;
+    }
+    @Action(value = "updateGoodscategoryT",results = {@Result(name="json",type = "json")})
+    public String updateGoodscategoryT() {
+        return JSON;
+    }
+
 }

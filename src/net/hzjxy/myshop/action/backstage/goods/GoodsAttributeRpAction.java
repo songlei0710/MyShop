@@ -1,9 +1,13 @@
 package net.hzjxy.myshop.action.backstage.goods;
 
+import net.hzjxy.myshop.action.backstage.base.BaseTAction;
 import net.hzjxy.myshop.entity.GoodsAttributeRp;
 import net.hzjxy.myshop.service.GoodsAttributeRpService;
+import net.hzjxy.myshop.service.impl.Serial;
+import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
+import org.apache.struts2.convention.annotation.Result;
 
 /**
  * Created by Lenovo on 2014/12/23.
@@ -11,7 +15,7 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 
 @Namespace("")
 @ParentPackage("myshop")
-public class GoodsAttributeRpAction {
+public class GoodsAttributeRpAction extends BaseTAction {
     private String id;      //编号
     private String goodsId; //商品编号
     private String attrVal; //商品属性值
@@ -20,7 +24,7 @@ public class GoodsAttributeRpAction {
     private String basePath;
     private boolean sucFlag;
     private GoodsAttributeRp bean;
-    private GoodsAttributeRpService goodsAttributeService;
+    private GoodsAttributeRpService goodsAttributeRpService;
 
     public String getBasePath() {
         return basePath;
@@ -46,12 +50,12 @@ public class GoodsAttributeRpAction {
         this.bean = bean;
     }
 
-    public GoodsAttributeRpService getGoodsAttributeService() {
-        return goodsAttributeService;
+    public GoodsAttributeRpService getGoodsAttributeRpService() {
+        return goodsAttributeRpService;
     }
 
-    public void setGoodsAttributeService(GoodsAttributeRpService goodsAttributeService) {
-        this.goodsAttributeService = goodsAttributeService;
+    public void setGoodsAttributeRpService(GoodsAttributeRpService goodsAttributeRpService) {
+        this.goodsAttributeRpService = goodsAttributeRpService;
     }
 
     public String getId() {
@@ -77,5 +81,15 @@ public class GoodsAttributeRpAction {
     public void setAttrVal(String attrVal) {
         this.attrVal = attrVal;
     }
+    @Action(value="addGoodsAttributeRp",results = {@Result(name="json",type="json")})
+    public String addGoodsAttributeRp(){
+        GoodsAttributeRp goodsAttributeRp=new GoodsAttributeRp();
+        goodsAttributeRp.setId(this.getSerial().SerialId(Serial.ARTICLE));
 
+
+        this.getGoodsAttributeRpService().addGoodsAttributeRp(goodsAttributeRp);
+        this.setSucFlag(true);
+        this.setBean(goodsAttributeRp);
+        return JSON;
+    }
 }

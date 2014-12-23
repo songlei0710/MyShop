@@ -86,7 +86,7 @@ public class GoodsAction extends BaseTAction {
     private String basePath;
     private boolean sucFlag;
     private Goods bean;
-    private GoodsService goodsAttributeService;
+    private GoodsService goodsService;
 
     public String getGoodsId() {
         return goodsId;
@@ -608,13 +608,14 @@ public class GoodsAction extends BaseTAction {
         this.bean = bean;
     }
 
-    public GoodsService getGoodsAttributeService() {
-        return goodsAttributeService;
+    public GoodsService getGoodsService() {
+        return goodsService;
     }
 
-    public void setGoodsAttributeService(GoodsService goodsAttributeService) {
-        this.goodsAttributeService = goodsAttributeService;
+    public void setGoodsService(GoodsService goodsService) {
+        this.goodsService = goodsService;
     }
+
     @Action(value="addGoods",results = {@Result(name="json",type="json")})
     public String addGoods(){
         Goods goods=new Goods();
@@ -645,7 +646,7 @@ public class GoodsAction extends BaseTAction {
         goods.setMetaDescription(this.getMetaDescription());
 
 
-        this.getGoodsAttributeService().addGoods(goods);
+        this.getGoodsService().addGoods(goods);
         this.setSucFlag(true);
         this.setBean(goods);
         return JSON;

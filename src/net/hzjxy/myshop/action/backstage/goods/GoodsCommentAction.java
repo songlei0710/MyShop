@@ -1,9 +1,12 @@
 package net.hzjxy.myshop.action.backstage.goods;
 
+import net.hzjxy.myshop.action.backstage.base.BaseTAction;
 import net.hzjxy.myshop.entity.GoodsComment;
 import net.hzjxy.myshop.service.GoodsCommentService;
+import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
+import org.apache.struts2.convention.annotation.Result;
 
 import java.util.Date;
 
@@ -12,7 +15,7 @@ import java.util.Date;
  */
 @Namespace("")
 @ParentPackage("myshop")
-public class GoodsCommentAction {
+public class GoodsCommentAction extends BaseTAction {
     private String commentId;
     private String goodsId;
     private String goodsName;
@@ -186,4 +189,5 @@ public class GoodsCommentAction {
     public void setShopId(String shopId) {
         this.shopId = shopId;
     }
+
 }

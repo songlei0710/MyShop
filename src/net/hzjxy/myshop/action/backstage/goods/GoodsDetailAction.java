@@ -1,16 +1,19 @@
 package net.hzjxy.myshop.action.backstage.goods;
 
+import net.hzjxy.myshop.action.backstage.base.BaseTAction;
 import net.hzjxy.myshop.entity.GoodsDetail;
 import net.hzjxy.myshop.service.GoodsDetailService;
+import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
+import org.apache.struts2.convention.annotation.Result;
 
 /**
  * Created by Lenovo on 2014/12/23.
  */
 @Namespace("")
 @ParentPackage("myshop")
-public class GoodsDetailAction {
+public class GoodsDetailAction extends BaseTAction {
     private String id;
     private String goodsId;
     private String detail;
@@ -76,4 +79,5 @@ public class GoodsDetailAction {
     public void setDetail(String detail) {
         this.detail = detail;
     }
+
 }

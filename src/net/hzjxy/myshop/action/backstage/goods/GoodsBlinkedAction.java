@@ -1,9 +1,12 @@
 package net.hzjxy.myshop.action.backstage.goods;
 
+import net.hzjxy.myshop.action.backstage.base.BaseTAction;
 import net.hzjxy.myshop.entity.GoodsBlinked;
 import net.hzjxy.myshop.service.GoodsBlinkedService;
+import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
+import org.apache.struts2.convention.annotation.Result;
 
 import java.util.Date;
 
@@ -12,7 +15,7 @@ import java.util.Date;
  */
 @Namespace("")
 @ParentPackage("myshop")
-public class GoodsBlinkedAction {
+public class GoodsBlinkedAction extends BaseTAction {
     private String id;                      //编号
     private String mainGoodsId;             //主商品Id
     private String beLinkedProductInfo;     //关联商品信息
@@ -159,4 +162,5 @@ public class GoodsBlinkedAction {
     public void setMainGoodsName(String mainGoodsName) {
         this.mainGoodsName = mainGoodsName;
     }
+
 }
