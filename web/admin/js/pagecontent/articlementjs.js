@@ -88,6 +88,28 @@ $(function() {
         var isOutSite = $("input[name='isOutSite']:checked").val();
 
         var contentValue = $("#contentValue").val();
+        var isOutSite = $("input[name='isOutSite']:checked").val();
+        var isPublication = $("input[name='isPublication']").val();
+        var isRecommend = $("input[name='isRecommend']:checked").val();
+        var isTop = $("input[name='isTop']").val();
+        var isNotice = $("input[name='isNotice']").val();
+
+        var contentValue = $("#contentValue").val();
+        var title = $("#title").val();
+        var tipContent = $("#tipContent").val();
+        var sort = $("#sort").val();
+        var metaKeywords = $("#metaKeywords").val();
+        var metaDes = $("#metaDes").val();
+        var status = $("#status").val();
+        var author = $("#author").val();
+        var readCount = $("#readCount").val();
+        var htmlPath = $("#htmlPath").val();
+        var updateTime = $("#updateTime").val();
+        var sName = $("#sName").val();
+        var fName = $("#fName").val();
+        var fTypeId = $("#fTypeId").val();
+        var sTypeId = $("#sTypeId").val();
+        var outSiteLink = $("#outSiteLink").val();
 
         var mainPicture = "";
         $(":checkbox[name='pcpath']").each(function () {
