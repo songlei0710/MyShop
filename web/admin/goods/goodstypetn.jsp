@@ -44,7 +44,7 @@
         <button id="btnback" type="button" class="btn btn-success">返回</button>
       </div>
       <!-- 开始显示商品类型form表单 -->
-      <form id="brandsform">
+      <form id="goodstypetnform">
         <div class="form-actions">
           <div class="form-inline">
             <span class="label label-required">商品类型名称: </span> <input
