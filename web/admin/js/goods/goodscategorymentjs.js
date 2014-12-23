@@ -1,7 +1,7 @@
 
 $(function() {
     /*
-     * 鍒犻櫎鍥剧墖鎸夐挳
+     * 删除图片按钮delpc的chick事件
      */
     $("#delpc").click(function() {
         var str = "";
@@ -13,7 +13,7 @@ $(function() {
             }
         });
         if (sum == 0) {
-            alert('鍙湁鍦ㄩ€夋嫨鍥剧墖鍚庢墠鑳藉垹闄�');
+            alert('只有在选择图片后才能删除�');
             return false;
         }
         var array = new Array();

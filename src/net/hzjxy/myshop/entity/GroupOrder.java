@@ -34,7 +34,7 @@ public class GroupOrder {
     private String goodsName;
     private Integer needQuantity;//
     private String payState;//
-    private String shippingState//;
+    private String shippingState;//
     private String deliverAddressId;
     private String shippingUsername;
     private Date createTime;
