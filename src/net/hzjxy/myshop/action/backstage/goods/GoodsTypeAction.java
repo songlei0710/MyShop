@@ -2,12 +2,16 @@ package net.hzjxy.myshop.action.backstage.goods;
 
 import net.hzjxy.myshop.entity.GoodsType;
 import net.hzjxy.myshop.service.GoodsTypeService;
+import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 
 import java.util.Date;
 
 /**
  * Created by Lenovo on 2014/12/23.
  */
+@Namespace("")
+@ParentPackage("myshop")
 public class GoodsTypeAction {
     private String goodsTypeId;
     private String name;

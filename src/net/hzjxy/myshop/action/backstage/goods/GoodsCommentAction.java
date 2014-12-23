@@ -2,12 +2,16 @@ package net.hzjxy.myshop.action.backstage.goods;
 
 import net.hzjxy.myshop.entity.GoodsComment;
 import net.hzjxy.myshop.service.GoodsCommentService;
+import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 
 import java.util.Date;
 
 /**
  * Created by Administrator on 2014/12/23.
  */
+@Namespace("")
+@ParentPackage("myshop")
 public class GoodsCommentAction {
     private String commentId;
     private String goodsId;

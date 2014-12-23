@@ -2,12 +2,16 @@ package net.hzjxy.myshop.action.backstage.goods;
 
 import net.hzjxy.myshop.entity.GoodsCategory;
 import net.hzjxy.myshop.service.GoodsCategoryService;
+import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 
 import java.util.Date;
 
 /**
  * Created by Lenovo on 2014/12/23.
  */
+@Namespace("")
+@ParentPackage("myshop")
 public class GoodsCategoryAction {
     private String goodsCategoryTid;
     private String grade;   //级别

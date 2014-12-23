@@ -2,10 +2,15 @@ package net.hzjxy.myshop.action.backstage.goods;
 
 import net.hzjxy.myshop.entity.GoodsAttributeRp;
 import net.hzjxy.myshop.service.GoodsAttributeRpService;
+import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 
 /**
  * Created by Lenovo on 2014/12/23.
  */
+
+@Namespace("")
+@ParentPackage("myshop")
 public class GoodsAttributeRpAction {
     private String id;      //编号
     private String goodsId; //商品编号
@@ -72,4 +77,5 @@ public class GoodsAttributeRpAction {
     public void setAttrVal(String attrVal) {
         this.attrVal = attrVal;
     }
+
 }

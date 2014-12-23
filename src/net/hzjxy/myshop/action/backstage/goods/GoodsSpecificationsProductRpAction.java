@@ -2,10 +2,14 @@ package net.hzjxy.myshop.action.backstage.goods;
 
 import net.hzjxy.myshop.entity.GoodsSpecificationsProductRp;
 import net.hzjxy.myshop.service.GoodsSpecificationsProductRpService;
+import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 
 /**
  * Created by Lenovo on 2014/12/23.
  */
+@Namespace("")
+@ParentPackage("myshop")
 public class GoodsSpecificationsProductRpAction {
     private String goodsSpecificationsProductRpTid;
     private String goodsId;
