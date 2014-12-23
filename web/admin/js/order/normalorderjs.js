@@ -26,24 +26,23 @@ $(function() {
 
     });
     /**
-     * 閲嶆柊璁＄畻鍟嗗搧浠舵暟
+     *
      */
     recaluatemneedquantity=function(){
-        //鍟嗗搧浠舵暟
+        //
         var oldneedquantity=$("#needquantity").text()*1;
         $("#needquantity").text(oldneedquantity-1);
 
     },
     /**
-     * 閲嶆柊璁＄畻璁㈠崟鍟嗗搧鎬讳环鏍�
+     *
      */
         recaluatememberprice=function(memberprice){
-            //鎬婚噾棰�
             var oldamount=$("#amount").text()*1.0;
             $("#amount").text(oldamount-memberprice*1.0)
         },
     /**
-     * 閲嶆柊璁＄畻璁㈠崟鍟嗗搧搴旀敮浠�
+     *
      */
         recaluateshouldpay=function(memberprice){
             var oldshouldpay=$("#shouldpayspan").text()*1.0;
@@ -60,7 +59,7 @@ $(function() {
         },
 
     /**
-     * 閲嶆柊璁＄畻璁㈠崟淇″績骞跺垹闄ら〉闈㈣鍗曚腑鐨勫晢鍝�
+     *
      */
         delParamPChildAndReOrderInfo=function(productSn,memberprice){
             delParamPChild(productSn);
@@ -70,7 +69,7 @@ $(function() {
         }
 
     /**
-     * 鏌ヨ璐х墿
+     *选择订单商品
      */
     findProducts=function(param){
         $("#productsmanagement").flexigrid({
@@ -78,68 +77,68 @@ $(function() {
             dataType : 'json',
             cache : true,
             colModel : [ {
-                display : '璐у彿',
+                display : '货号',
                 name : 'productSn',
                 width : 100,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '璐х墿鍚嶇О',
+                display : '货物名称',
                 name : 'productName',
                 width : 500,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '甯傚満浠�',
+                display : '市场价',
                 name : 'price',
                 width : 80,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '浼氬憳浠�',
+                display : '会员价',
                 name : 'memberprice',
                 width : 80,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '鎴愭湰浠�',
+                display : '成本价',
                 name : 'cost',
                 width : 80,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '閿€鍞环',
+                display : '销售价',
                 name : 'saleprice',
                 width : 80,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '棰勮搴撳瓨',
+                display : '预警库存',
                 name : 'freezeStore',
                 width : 60,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '搴撳瓨',
+                display : '库存',
                 name : 'store',
                 width : 60,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '閲嶉噺',
+                display : '重量',
                 name : 'weight',
                 width : 40,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '鍒涘缓鏃堕棿',
+                display : '创建时间',
                 name : 'createtime',
                 width : 150,
                 sortable : true,
                 align : 'center'
             } ],
             buttons : [ {
-                name : '鍔犲叆璁㈠崟',
+                name : '查询',
                 bclass : 'add',
                 onpress : action
             }, {
@@ -173,7 +172,7 @@ $(function() {
         }
     },
     /**
-     * 灏嗗晢鍝佸姞鍏ヨ鍗曡瘯鍥句腑
+     * 订单商品选择
      * @param grid
      * @returns
      */
@@ -203,24 +202,20 @@ $(function() {
                 });
                 html+="<tr id='orderinfo"+productSn+"' class='success'><td >"+productSn+"</td><td>"+productName+"</td><td>"+memberprice+"</td><td>1</td><td>"+store+"</td><td><a href='javascript:delParamPChildAndReOrderInfo("+productSn+","+memberprice+");'>鍒犻櫎</a></td></tr>"
                 $("#orderinfo").append(html);
-                //璁剧疆闅愯棌鐨勮揣鐗﹊d瀛楃涓�
                 var oldproductid=$("#hidproductid").val();
                 $("#hidproductid").val(oldproductid+productId+",");
-                //鍟嗗搧浠舵暟
                 var oldneedquantity=$("#needquantity").text()*1;
                 if(oldneedquantity==0){
                     $("#needquantity").text(needquantity);
                 }else{
                     $("#needquantity").text(oldneedquantity+needquantity);
                 }
-                //鎬婚噾棰�
                 var oldamount=$("#amount").text()*1.0;
                 if(oldamount==0.0){
                     $("#amount").text(memberprice);
                 }else{
                     $("#amount").text(oldamount+memberprice*1);
                 }
-                //搴旀敮浠� 鎬婚噾棰�+杩愯垂=璁㈠崟鎬讳环锛堝簲鏀粯锛�
                 var oldshouldpay=$("#shouldpayspan").text()*1.0;
                 if(oldshouldpay==0.0){
                     $("#shouldpayspan").text(memberprice);
@@ -233,21 +228,21 @@ $(function() {
                 if(ordername==""){
                     $("#ordername").val(productName);
                 }
-                //订单名称
+                //运费
                 var freightspan=$("#freightspan").text()*1.0;
                 $("#freight").val(freightspan);
-                //订单名称
+                //订单总价
                 $("#shouldpay").val(freightspan+$("#shouldpayspan").text()*1.0);
 
 
             }else{
-                formwarning("#alerterror", "璇烽€夋嫨涓€鏉″晢鍝�");
+                formwarning("#alerterror", "出错了");
                 return false;
             }
         },
 
     /**
-     * 鏍规嵁浼氬憳鍚嶇О鏌ヨ鍙敤鐨勬敹璐у湴鍧€
+     *
      */
         findDeliverAddressBymemberName=function(membername){
             $("#deliveraddressmanagement").flexigrid( {
@@ -255,67 +250,67 @@ $(function() {
                 dataType : 'json',
                 cache : false,
                 colModel : [{
-                    display : '鏀惰揣浜�',
+                    display : '收货人�',
                     name : 'shippingusername',
                     width : 100,
                     sortable : true,
                     align : 'center'
                 }, {
-                    display : '鍥藉',
+                    display : '国家',
                     name : 'country',
                     width : 80,
                     sortable : true,
                     align : 'center'
                 }, {
-                    display : '鐪佷唤',
+                    display : '省份',
                     name : 'province',
                     width : 80,
                     sortable : true,
                     align : 'center'
                 }, {
-                    display : '鍩庡競',
+                    display : '城市',
                     name : 'city',
                     width : 80,
                     sortable : true,
                     align : 'center'
                 }, {
-                    display : '鍖哄煙',
+                    display : '区/县',
                     name : 'district',
                     width : 80,
                     sortable : true,
                     align : 'center'
                 }, {
-                    display : '琛楅亾',
+                    display : '详细地址',
                     name : 'street',
                     width : 150,
                     sortable : true,
                     align : 'center'
                 }, {
-                    display : '閭紪',
+                    display : '邮政编码',
                     name : 'postcode',
                     width : 80,
                     sortable : true,
                     align : 'center'
                 }, {
-                    display : '鎵嬫満鍙风爜',
+                    display : '手机号码',
                     name : 'mobile',
                     width : 100,
                     sortable : true,
                     align : 'center'
                 }, {
-                    display : '鐘舵€�',
+                    display : '固定电话�',
                     name : 'state',
                     width : 100,
                     sortable : true,
                     align : 'center'
                 }, {
-                    display : '浼氬憳ID',
+                    display : '固定电话',
                     name : 'memberid',
                     width : 100,
                     sortable : true,
                     align : 'center'
                 },{
-                    display : '鍒涘缓鏃堕棿',
+                    display : '创建时间',
                     name : 'createtime',
                     width : 100,
                     sortable : true,
@@ -325,7 +320,7 @@ $(function() {
                     separator : true
                 } ],
                 buttons:[{
-                    name:'閫夋嫨杩欎釜鏀惰揣鍦板潃',
+                    name:'保存发货地址',
                     bclass:'add',
                     onpress:action
                 }],
@@ -503,8 +498,7 @@ $(function() {
             });
         }
     /**
-     * 鐐瑰嚮淇濆瓨鏀惰揣鍦板潃
-     */
+     * 删除发货地址
     $("#savedeliveraddress").click(function(){
         var membername=$("#membername").val();
         if(membername==""){
@@ -571,9 +565,7 @@ $(function() {
      */
     var operate = $.query.get("operate");
     if (operate == "add") {
-        //璋冪敤鏌ヨ鐗╂祦鍟嗘柟娉�
         findAllLogisticsBusinessForbsOrder();
-        //璋冪敤鏌ヨ鏀粯鏂瑰紡鏂规硶
         findAllPaymentForbsOrder();
     }else if(operate=="edit"){
 
