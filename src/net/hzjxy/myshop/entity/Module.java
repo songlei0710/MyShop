@@ -8,6 +8,6 @@ import java.util.Date;
  */
 public class Module {
     private String id;//组件id
-    private String modulename;//组件名称
-    private Date createtime;//创建时间
+private String modulename;//组件名称
+private Date createtime;//创建时间
 }
