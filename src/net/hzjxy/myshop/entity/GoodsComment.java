@@ -9,10 +9,10 @@ public class GoodsComment {
     private String commentId;
     private String goodsId;
     private String goodsName;
-    private String replyOrCommentUserName;
+    private String replyOrCommentUserName;//商品评论人
     private Date postTime;
-    private String commentContent;
-    private Integer score;
+    private String commentContent;//评论内容
+    private Integer score;//该评论分值
     private String state;
     private String replyOrComment;
     private String replyId;
