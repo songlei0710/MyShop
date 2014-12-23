@@ -174,13 +174,9 @@ public class GoodsAttributeAction extends BaseTAction{
         GoodsAttribute goodsAttribute=new GoodsAttribute();
         goodsAttribute.setGoodSatTributeId(this.getSerial().SerialId(Serial.GOODSATTRIBUTE));
         goodsAttribute.setGoodSatTributeName(this.getGoodSatTributeName());
-        goodsAttribute.setGoodsTypeId(this.getGoodsTypeId());
-        goodsAttribute.setGoodsTypeName(this.getGoodsTypeName());
-        goodsAttribute.setState(this.getState());
-        goodsAttribute.setAttributeType(this.getAttributeType());
-        goodsAttribute.setAttributeList(this.getAttributeList());
         goodsAttribute.setSort(this.getSort());
-        goodsAttribute.setAttributeIndex(this.getAttributeIndex());
+        goodsAttribute.setIsSearch(this.getIsSearch());
+        goodsAttribute.setIsSameToLink(this.getIsSameToLink());
         
 
         this.getGoodsAttributeService().addGoodsAttribute(goodsAttribute);
@@ -188,6 +184,7 @@ public class GoodsAttributeAction extends BaseTAction{
         this.setBean(goodsAttribute);
         return JSON;
     }
+    @Action(value = "updateGoodsAttribute",results = {@Result(name="json",type = "json")})
     public String updateGoodsAttribute(){
         return JSON;
     }

@@ -64,7 +64,7 @@ $(function(){
     updateGoodsAttribute=function(){
         var isSearch = $("input[name='isSearch']:checked").val();
         var isSameToLink = $("input[name='isSameToLink']:checked").val();
-        $.post("updateArticle.action", {
+        $.post("updateGoodsAttribute.action", {
             "goodSatTributeName": goodSatTributeName,
             "sort":sort
         },function(data){
