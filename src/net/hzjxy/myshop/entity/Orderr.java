@@ -16,7 +16,7 @@ public class Orderr {
     private String orderstate;//
     private String logisticsid;//
     private double freight;//运费
-    private double amount;//
+    private double amount;//总商品金额
     private double points;
     private Date purchasetime;
     private Date deliverytime;
@@ -27,10 +27,10 @@ public class Orderr {
     private Date paytime;
     private String orderTag;
     private String toBuyerNotes;
-    private double shouldpay;
+    private double shouldpay;//订单总价
     private double usepoints;
     private String c;
-    private int needquantity;
+    private int needquantity;//件商品，总商品金额
     private String paystate;
     private String shippingstate;
     private String deliveraddressid;

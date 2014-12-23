@@ -102,7 +102,7 @@
     </div>
     <div class="form-inline">
         <span class="label label-required">订单名称: </span>
-        <input id="ordername" name="ordername" type="text" value="" class="medium"/
+        <input id="ordername" name="ordername" type="text" value="" class="medium"/>
         <!-- 订单价格信息 -->
     </div>
     <div class="well">
@@ -247,11 +247,7 @@
         <input type="hidden" id="hidmemberid" name="hidmemberid" value=""/>
         <!-- 隐藏的productids字符串 -->
         <input type="hidden" id="hidproductid" name="hidproductid" value=""/>
-        <input
-                class="btn btn-success" type="button" id="submitorder"
-                name="submitorder" value="提交" />
-
-
+        <input class="btn btn-success" type="button" id="submitorder" name="submitorder" value="提交" />
        </div>
      </div>
     </form>
