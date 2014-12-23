@@ -1,10 +1,10 @@
 $(function() {
     $('#submit').click(function () {
         var isOutSite = $("input[name='isOutSite']:checked").val();
-        var isPublication = $("input[name='isPublication']").val();
+        var isPublication = $("input[name='isPublication']:checked").val();
         var isRecommend = $("input[name='isRecommend']:checked").val();
-        var isTop = $("input[name='isTop']").val();
-        var isNotice = $("input[name='isNotice']").val();
+        var isTop = $("input[name='isTop']:checked").val();
+        var isNotice = $("input[name='isNotice']:checked").val();
 
         var contentValue = $("#contentValue").val();
         var title = $("#title").val();
@@ -107,13 +107,10 @@ $(function() {
      */
     updateArticle=function(){
         var isOutSite = $("input[name='isOutSite']:checked").val();
-
-        var contentValue = $("#contentValue").val();
-        var isOutSite = $("input[name='isOutSite']:checked").val();
-        var isPublication = $("input[name='isPublication']").val();
+        var isPublication = $("input[name='isPublication']:checked").val();
         var isRecommend = $("input[name='isRecommend']:checked").val();
-        var isTop = $("input[name='isTop']").val();
-        var isNotice = $("input[name='isNotice']").val();
+        var isTop = $("input[name='isTop']:checked").val();
+        var isNotice = $("input[name='isNotice']:checked").val();
 
         var contentValue = $("#contentValue").val();
         var title = $("#title").val();
