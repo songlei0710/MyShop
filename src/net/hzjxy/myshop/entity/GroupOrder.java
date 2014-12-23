@@ -3,7 +3,7 @@ package net.hzjxy.myshop.entity;
 import java.util.Date;
 
 /**
- * Created by 磊 on 2014/11/30.
+ * Created by 磊 on 2014/11/30.ss
  */
 public class GroupOrder {
     private String orderId;//订单id
@@ -32,17 +32,18 @@ public class GroupOrder {
     private String vouchersId;
     private String goodId;
     private String goodsName;
-    private Integer needQuantity;
-    private String payState;
-    private String shippingState;
+    private Integer needQuantity;//
+    private String payState;//
+    private String shippingState//;
     private String deliverAddressId;
     private String shippingUsername;
     private Date createTime;
-    private String hasPrInTexPress;
-    private String hasPrintInVoice;
-    private String hasPrintFPinVoice;
-    private String expressNumber;
-    private String tradeNo;
+    private String hasPrInTexPress;//
+    private String hasPrintInVoice;//
+    private String hasPrintFPinVoice;//
+    private String expressNumber;//
+    private String tradeNo;//
+
 
     public String getOrderId() {
         return orderId;

@@ -66,7 +66,7 @@ $(function() {
         $.post("findArticleByArticleId.action",{"articleId":articleId},function(data){
             if(data.bean!=null){
                 $("#title").val(data.bean.title);
-               
+                $("#sort").val(data.bean.sort);
                 if("1"==data.bean.isOutSite){
                     $("input[name='isOutSite']").get(0).checked=true;
                 }else{
