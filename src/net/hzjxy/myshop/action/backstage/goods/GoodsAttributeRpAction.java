@@ -84,7 +84,7 @@ public class GoodsAttributeRpAction extends BaseTAction {
     @Action(value="addGoodsAttributeRp",results = {@Result(name="json",type="json")})
     public String addGoodsAttributeRp(){
         GoodsAttributeRp goodsAttributeRp=new GoodsAttributeRp();
-        goodsAttributeRp.setId(this.getSerial().SerialId(Serial.ARTICLE));
+        goodsAttributeRp.setId(this.getSerial().SerialId(Serial.GOODSATTRIBUTERP));
 
 
         this.getGoodsAttributeRpService().addGoodsAttributeRp(goodsAttributeRp);

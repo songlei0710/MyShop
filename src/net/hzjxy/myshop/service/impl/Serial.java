@@ -13,8 +13,15 @@ public class Serial {
     public static final String BRAND="Brand";
 
     public static final String ARTICLE="article";
-    public static final String GOODSATTRIBUTE="goodsattribute";
-
+    public static final String GOODSATTRIBUTE="GoodsAttribute";
+    public static final String GOODS="Goods";
+    public static final String GOODSATTRIBUTERP="GoodsAttributeRp";
+    public static final String GOODSBLINKED="GoodsBlinked";
+    public static final String GOODSCATEGORY="GoodsCategory";
+    public static final String GOODSCOMMENT="GoodsComment";
+    public static final String GOODSDETAIL="GoodsDetail";
+    public static final String GOODSSPECIFICATIONSPRODUCTRP="GoodsSpecificationsProductRp";
+    public static final String GOODSTYPE="GoodsType";
 
     private SerialService serialService;
 

@@ -229,7 +229,7 @@ public class GoodsCategoryAction extends BaseTAction {
     @Action(value="addGoodsCategory",results = {@Result(name="json",type="json")})
     public String addGoodsCategory() {
         GoodsCategory goodsCategory=new GoodsCategory();
-        goodsCategory.setGoodsCategoryTid(this.getSerial().SerialId(Serial.GOODSATTRIBUTE));
+        goodsCategory.setGoodsCategoryTid(this.getSerial().SerialId(Serial.GOODSCATEGORY));
 
 
 

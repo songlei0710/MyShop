@@ -619,7 +619,7 @@ public class GoodsAction extends BaseTAction {
     @Action(value="addGoods",results = {@Result(name="json",type="json")})
     public String addGoods(){
         Goods goods=new Goods();
-        goods.setGoodsId(this.getSerial().SerialId(Serial.GOODSATTRIBUTE));
+        goods.setGoodsId(this.getSerial().SerialId(Serial.GOODS));
         goods.setIsOutSite(this.getIsOutSite());
         goods.setOutSiteLink(this.getOutSiteLink());
         goods.setGoodsTypeId(this.getGoodsTypeId());
