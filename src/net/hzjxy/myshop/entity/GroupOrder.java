@@ -6,12 +6,12 @@ import java.util.Date;
  * Created by 磊 on 2014/11/30.
  */
 public class GroupOrder {
-    private String orderId;
-    private String userId;
-    private String userName;
-    private String paymentId;
-    private String paymentName;
-    private String deliverMode;
+    private String orderId;//订单id
+    private String userId;//用户id
+    private String userName;//用户名
+    private String paymentId;//订单id
+    private String paymentName;//订单名称
+    private String deliverMode;//
     private String deliveryNumber;
     private String orderState;
     private String logisticsId;
