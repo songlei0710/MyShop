@@ -19,17 +19,13 @@ public class GoodsAttributeServiceImpl implements GoodsAttributeService {
         this.goodsAttributeDao = goodsAttributeDao;
     }
 
-    public GoodsAttributeServiceImpl() {
-        super();
-    }
-
     @Override
     public int addGoodsAttribute(GoodsAttribute goodsAttribute) {
-        return 0;
+        return this.getGoodsAttributeDao().addGoodsAttribute(goodsAttribute);
     }
 
     @Override
     public int updateGoodsAttribute(GoodsAttribute goodsAttribute) {
-        return 0;
+        return this.getGoodsAttributeDao().updateGoodsAttribute(goodsAttribute);
     }
 }
