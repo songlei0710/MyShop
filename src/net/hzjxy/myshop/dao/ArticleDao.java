@@ -12,6 +12,7 @@ import java.util.List;
 public interface ArticleDao {
     /**
      * 批量删除文章
+     *
      * @param list
      * @return
      */
@@ -19,4 +20,5 @@ public interface ArticleDao {
 
 
     void findAllArticles(int currentPage, int lineSize);
+
 }
