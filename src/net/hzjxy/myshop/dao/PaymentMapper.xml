@@ -4,7 +4,7 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.PaymentDao">
         <insert id="addPayment">
-                INSERT INTO Payment(PAYMENTIDPAYMENTID,PAYMENTNAME,PAYMENTCODE,PAYMENTFREE,PAYMENTINTERFACE,ACCOUNT,SAFECODE,PARTNERID,DES,ISFAST,STATE) VALUES({PAYMENTID},{PAYMENTNAME},{PAYMENTCODE},{PAYMENTFREE},{PAYMENTINTERFACE},{ACCOUNT},{SAFECODE},{PARTNERID},{DES},{ISFAST},{STATE})
+                INSERT INTO Payment(PAYMENTIDPAYMENTID,PAYMENTNAME,PAYMENTCODE,PAYMENTFREE,PAYMENTINTERFACE,ACCOUNT,SAFECODE,PARTNERID,DES,ISFAST,STATE) VALUES(#{paymentid},#{paymentname},#{paymentCode},#{paymentFree},#{paymentInterface},#{account},#{safecode},#{partnerid},#{des},#{isFast},#{state},)
         </insert>PAYMENTID
         <update id="updatePayment">
                  update Payment set paymentname:=paymentname where pm=:pm
