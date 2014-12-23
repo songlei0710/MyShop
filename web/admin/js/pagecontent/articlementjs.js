@@ -1,10 +1,10 @@
 $(function() {
     $('#submit').click(function () {
         var isOutSite = $("input[name='isOutSite']:checked").val();
-        var isPublication = $("input[name='isPublication']").val();
+        var isPublication = $("input[name='isPublication']:checked").val();
         var isRecommend = $("input[name='isRecommend']:checked").val();
-        var isTop = $("input[name='isTop']").val();
-        var isNotice = $("input[name='isNotice']").val();
+        var isTop = $("input[name='isTop']:checked").val();
+        var isNotice = $("input[name='isNotice']:checked").val();
 
         var contentValue = $("#contentValue").val();
         var title = $("#title").val();
@@ -66,10 +66,31 @@ $(function() {
         $.post("findArticleByArticleId.action",{"articleId":articleId},function(data){
             if(data.bean!=null){
                 $("#title").val(data.bean.title);
+                $("#sort").val(data.bean.sort);
                 if("1"==data.bean.isOutSite){
                     $("input[name='isOutSite']").get(0).checked=true;
                 }else{
                     $("input[name='isOutSite']").get(1).checked=true;
+                }
+                if("1"==data.bean.isPublication){
+                    $("input[name='isPublication']").get(0).checked=true;
+                }else{
+                    $("input[name='isPublication']").get(1).checked=true;
+                }
+                if("1"==data.bean.isRecommend){
+                    $("input[name='isRecommend']").get(0).checked=true;
+                }else{
+                    $("input[name='isPublication']").get(1).checked=true;
+                }
+                if("1"==data.bean.isTop){
+                    $("input[name='isTop']").get(0).checked=true;
+                }else{
+                    $("input[name='isTop']").get(1).checked=true;
+                }
+                if("1"==data.bean.isNotice){
+                    $("input[name='isNotice']").get(0).checked=true;
+                }else{
+                    $("input[name='isNotice']").get(1).checked=true;
                 }
                 KE.html("contentValue",data.bean.contentValue);
                 if(data.bean.mainPicture!=""){
@@ -86,13 +107,10 @@ $(function() {
      */
     updateArticle=function(){
         var isOutSite = $("input[name='isOutSite']:checked").val();
-
-        var contentValue = $("#contentValue").val();
-        var isOutSite = $("input[name='isOutSite']:checked").val();
-        var isPublication = $("input[name='isPublication']").val();
+        var isPublication = $("input[name='isPublication']:checked").val();
         var isRecommend = $("input[name='isRecommend']:checked").val();
-        var isTop = $("input[name='isTop']").val();
-        var isNotice = $("input[name='isNotice']").val();
+        var isTop = $("input[name='isTop']:checked").val();
+        var isNotice = $("input[name='isNotice']:checked").val();
 
         var contentValue = $("#contentValue").val();
         var title = $("#title").val();
