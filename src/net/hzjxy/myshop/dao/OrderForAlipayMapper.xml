@@ -15,7 +15,7 @@
                 UPDATE OrderForAlipay SET state=#{orderState} where orderId=#{orderId}
         </update>
         <insert id="addlorderr" parameterType="net.hzjxy.myshop.entity.OrderInvoice">
-                INSERT INTO OrderForAlipay(CARTINFOID,CARTID,ORDERID,GOODSID,GOODSNAME,USERID,USERNAME,PRICE,FAVORABLE,CHANGEPRICE,POINTS,SUBTOTAL,ADDTIME,QUANTITY,PICTURE,USERSETNUM,WEIGHT,STATE,HTMLPATH,PRODUCTID,ORDERTAG,PRODUCTNAME,CARTTAG,MEMBERID,MEMBERNAME,STORETAG,SHOPID,SHIPPINGADDRESSID,ID,NEEDQUANT) VALUES(#{CARTINFOID},#{CARTID},#{ORDERID},#{GOODSID},#{GOODSNAME},#{USERID},#{USERNAME},#{PRICE},#{FAVORABLE},#{CHANGEPRICE},#{POINTS},#{SUBTOTAL},#{ADDTIME},#{QUANTITY},#{PICTURE},#{USERSETNUM},#{WEIGHT},#{STATE},#{HTMLPATH},#{PRODUCTID},#{ORDERTAG},#{PRODUCTNAME},#{CARTTAG},#{MEMBERID}，#{MEMBERNAME},#{STORETAG},#{HOPID},#{SHIPPINGADDRESSID},#{ID},#{NEEDQUANT})
+                INSERT INTO OrderForAlipay(CARTINFOID,CARTID,ORDERID,GOODSID,GOODSNAME,USERID,USERNAME,PRICE,FAVORABLE,CHANGEPRICE,POINTS,SUBTOTAL,ADDTIME,QUANTITY,PICTURE,USERSETNUM,WEIGHT,STATE,HTMLPATH,PRODUCTID,ORDERTAG,PRODUCTNAME,CARTTAG,MEMBERID,MEMBERNAME,STORETAG,SHOPID,SHIPPINGADDRESSID,ID,NEEDQUANT) VALUES(#{cartinfoid},#{cartid},#{orderid},#{goodsid},#{goodsname},#{userid},#{username},#{price},#{favorable},#{changeprice},#{points},#{subtotal},#{addtime},#{quantity},#{picture},#{usersetnum},#{weight},#{state},#{htmlpath},#{productid},#{ordertag},#{productname},#{carttag},#{memberid}，#{membername},#{storetag},#{hopid},#{shippingaddressid},#{id},#{needquant})
         </insert>
 </mapper>
 
