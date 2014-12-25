@@ -3,6 +3,7 @@ package net.hzjxy.myshop.action.backstage.goods;
 import net.hzjxy.myshop.action.backstage.base.BaseTAction;
 import net.hzjxy.myshop.entity.GoodsComment;
 import net.hzjxy.myshop.service.GoodsCommentService;
+import net.hzjxy.myshop.service.impl.Serial;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -36,7 +37,7 @@ public class GoodsCommentAction extends BaseTAction {
     private String basePath;
     private boolean sucFlag;
     private GoodsComment bean;
-    private GoodsCommentService goodsAttributeService;
+    private GoodsCommentService goodsCommentService;
 
     public String getBasePath() {
         return basePath;
@@ -62,12 +63,12 @@ public class GoodsCommentAction extends BaseTAction {
         this.bean = bean;
     }
 
-    public GoodsCommentService getGoodsAttributeService() {
-        return goodsAttributeService;
+    public GoodsCommentService getGoodsCommentService() {
+        return goodsCommentService;
     }
 
-    public void setGoodsAttributeService(GoodsCommentService goodsAttributeService) {
-        this.goodsAttributeService = goodsAttributeService;
+    public void setGoodsCommentService(GoodsCommentService goodsCommentService) {
+        this.goodsCommentService = goodsCommentService;
     }
 
     public String getCommentId() {
@@ -189,5 +190,20 @@ public class GoodsCommentAction extends BaseTAction {
     public void setShopId(String shopId) {
         this.shopId = shopId;
     }
+    @Action(value="addGoodsComment",results={@Result(name="json",type="json")})
+    public String addGoodsComment(){
+        GoodsComment goodsComment=new GoodsComment();
+        goodsComment.setCommentId(this.getSerial().SerialId(Serial.GOODSCOMMENT));
+        goodsComment.setReplyOrCommentUserName(this.getReplyOrCommentUserName());
+        goodsComment.setCommentContent(this.getCommentContent());
 
+        this.getGoodsCommentService().addGoodsComment(goodsComment);
+        this.setSucFlag(true);
+        this.setBean(goodsComment);
+        return  JSON;
+    }
+   @Action(value = "updateGoodsComment",results = {@Result(name="json",type = "json")})
+    public String updateGoodsComment(){
+        return JSON;
+    }
 }
