@@ -1,6 +1,4 @@
-/**
- * Created by Administrator on 2014/12/25.
- */
+
 $(function() {
     $('#submit').click(function () {
         var grade = $("#grade").val();
@@ -37,7 +35,7 @@ $(function() {
          if(articlecategoryId==""){
           return false;
           }
-    $.post("findArticleByArticlecategoryId.action",{"articlecategoryId":articlecategoryId},function(data){
+    $.post("findArticlecategoryByArticlecategoryId.action",{"articlecategoryId":articlecategoryId},function(data){
         if(data.bean!=null){
             $("#grade").val(data.bean.grade);
             $("#sort").val(data.bean.sort);
