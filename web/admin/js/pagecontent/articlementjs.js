@@ -117,7 +117,6 @@ $(function() {
         var tipContent = $("#tipContent").val();
         var sort = $("#sort").val();
         var metaKeywords = $("#metaKeywords").val();
-        var metaDes = $("#metaDes").val();
         var status = $("#status").val();
         var author = $("#author").val();
         var readCount = $("#readCount").val();
