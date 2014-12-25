@@ -8,14 +8,14 @@ import net.hzjxy.myshop.service.GoodsCategoryService;
  * Created by Administrator on 2014/12/15.
  */
 public class GoodsCategoryServiceImpl implements GoodsCategoryService {
-    private net.hzjxy.myshop.dao.GoodsCategoryDao GoodsCategoryDao;
+    private GoodsCategoryDao goodsCategoryDao;
 
     public GoodsCategoryDao getGoodsCategoryDao() {
-        return GoodsCategoryDao;
+        return goodsCategoryDao;
     }
 
     public void setGoodsCategoryDao(GoodsCategoryDao goodsCategoryDao) {
-        GoodsCategoryDao = goodsCategoryDao;
+        this.goodsCategoryDao = goodsCategoryDao;
     }
 
     @Override
