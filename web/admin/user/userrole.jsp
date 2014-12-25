@@ -70,7 +70,7 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="<%=basePath%>admin/js/userT/usermentjs.js"></script>
+<script type="text/javascript" src="<%=basePath%>admin/js/userT/userrolejs.js"></script>
 <%@include file="/admin/footer.jsp"%>
 </body>
 </html>
