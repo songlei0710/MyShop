@@ -85,11 +85,13 @@ public class GoodsAttributeRpAction extends BaseTAction {
     public String addGoodsAttributeRp(){
         GoodsAttributeRp goodsAttributeRp=new GoodsAttributeRp();
         goodsAttributeRp.setId(this.getSerial().SerialId(Serial.GOODSATTRIBUTERP));
-
+        goodsAttributeRp.setGoodsId(this.getGoodsId());
+        goodsAttributeRp.setAttrVal(this.getAttrVal());
 
         this.getGoodsAttributeRpService().addGoodsAttributeRp(goodsAttributeRp);
         this.setSucFlag(true);
         this.setBean(goodsAttributeRp);
         return JSON;
     }
+
 }

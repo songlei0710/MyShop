@@ -3,6 +3,7 @@ package net.hzjxy.myshop.action.backstage.goods;
 import net.hzjxy.myshop.action.backstage.base.BaseTAction;
 import net.hzjxy.myshop.entity.GoodsBlinked;
 import net.hzjxy.myshop.service.GoodsBlinkedService;
+import net.hzjxy.myshop.service.impl.Serial;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -33,7 +34,7 @@ public class GoodsBlinkedAction extends BaseTAction {
     private String basePath;
     private boolean sucFlag;
     private GoodsBlinked bean;
-    private GoodsBlinkedService goodsAttributeService;
+    private GoodsBlinkedService goodsBlinkedService;
 
     public String getBasePath() {
         return basePath;
@@ -59,12 +60,12 @@ public class GoodsBlinkedAction extends BaseTAction {
         this.bean = bean;
     }
 
-    public GoodsBlinkedService getGoodsAttributeService() {
-        return goodsAttributeService;
+    public GoodsBlinkedService getGoodsBlinkedService() {
+        return goodsBlinkedService;
     }
 
-    public void setGoodsAttributeService(GoodsBlinkedService goodsAttributeService) {
-        this.goodsAttributeService = goodsAttributeService;
+    public void setGoodsBlinkedService(GoodsBlinkedService goodsBlinkedService) {
+        this.goodsBlinkedService = goodsBlinkedService;
     }
 
     public String getId() {
@@ -162,5 +163,29 @@ public class GoodsBlinkedAction extends BaseTAction {
     public void setMainGoodsName(String mainGoodsName) {
         this.mainGoodsName = mainGoodsName;
     }
+   @Action(value="addGoodsBlinked",results={@Result(name="json",type="json")})
+    public String addGoodsBlinked(){
+        GoodsBlinked goodsBlinked=new GoodsBlinked();
+       goodsBlinked.setId(this.getSerial().SerialId(Serial.GOODSBLINKED));
+       goodsBlinked.setMainGoodsId(this.getMainGoodsId());
+       goodsBlinked.setBeLinkedProductInfo(this.getBeLinkedProductInfo());
+       goodsBlinked.setbMode(this.getbMode());
+       goodsBlinked.setState(this.getState());
+       goodsBlinked.setCreateTime(this.getCreateTime());
+       goodsBlinked.setUpdateTime(this.getUpdateTime());
+       goodsBlinked.setSxLinkedGoodsId(this.getSxLinkedGoodsId());
+       goodsBlinked.setMainProductId(this.getMainProductId());
+       goodsBlinked.setMainGoodsName(this.getMainGoodsName());
+       goodsBlinked.setShopId(this.getShopId());
 
+
+       this.getGoodsBlinkedService().addGoodsBlinked(goodsBlinked);
+       this.setSucFlag(true);
+       this.setBean(goodsBlinked);
+       return  JSON;
+    }
+   @Action(value = "updateGoodsBelinked",results = {@Result(name="json",type = "json")})
+    public String updateGoodsBelinked(){
+        return JSON;
+    }
 }

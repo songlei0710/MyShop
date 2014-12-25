@@ -230,8 +230,23 @@ public class GoodsCategoryAction extends BaseTAction {
     public String addGoodsCategory() {
         GoodsCategory goodsCategory=new GoodsCategory();
         goodsCategory.setGoodsCategoryTid(this.getSerial().SerialId(Serial.GOODSCATEGORY));
-
-
+        goodsCategory.setUpdateTime(this.getUpdateTime());
+        goodsCategory.setCreateTime(this.getCreateTime());
+        goodsCategory.setGoodsTypeId(this.getGoodsTypeId());
+        goodsCategory.setHtmlPath(this.htmlPath);
+        goodsCategory.setGrade(this.getGrade());
+        goodsCategory.setLogo(this.getLogo());
+        goodsCategory.setMetaDes(this.getMetaDes());
+        goodsCategory.setMetaKeywords(this.getMetaKeywords());
+        goodsCategory.setMobilesYnc(this.getMobilesYnc());
+        goodsCategory.setName(this.getName());
+        goodsCategory.setParentId(this.getParentId());
+        goodsCategory.setPath(this.getPath());
+        goodsCategory.setSign(this.getSign());
+        goodsCategory.setSort(this.getSort());
+        goodsCategory.setState(this.getState());
+        goodsCategory.setParentName(this.getParentName());
+        goodsCategory.setVersion(this.getVersion());
 
         this.getGoodsCategoryService().addGoodsCategory(goodsCategory);
         this.setSucFlag(true);

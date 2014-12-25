@@ -3,6 +3,7 @@ package net.hzjxy.myshop.action.backstage.goods;
 import net.hzjxy.myshop.action.backstage.base.BaseTAction;
 import net.hzjxy.myshop.entity.GoodsSpecificationsProductRp;
 import net.hzjxy.myshop.service.GoodsSpecificationsProductRpService;
+import net.hzjxy.myshop.service.impl.Serial;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -24,7 +25,7 @@ public class GoodsSpecificationsProductRpAction extends BaseTAction {
     private String basePath;
     private boolean sucFlag;
     private GoodsSpecificationsProductRp bean;
-    private GoodsSpecificationsProductRpService goodsAttributeService;
+    private GoodsSpecificationsProductRpService goodsSpecificationsProductRpService;
 
     public String getBasePath() {
         return basePath;
@@ -50,12 +51,12 @@ public class GoodsSpecificationsProductRpAction extends BaseTAction {
         this.bean = bean;
     }
 
-    public GoodsSpecificationsProductRpService getGoodsAttributeService() {
-        return goodsAttributeService;
+    public GoodsSpecificationsProductRpService getGoodsSpecificationsProductRpService() {
+        return goodsSpecificationsProductRpService;
     }
 
-    public void setGoodsAttributeService(GoodsSpecificationsProductRpService goodsAttributeService) {
-        this.goodsAttributeService = goodsAttributeService;
+    public void setGoodsSpecificationsProductRpService(GoodsSpecificationsProductRpService goodsSpecificationsProductRpService) {
+        this.goodsSpecificationsProductRpService = goodsSpecificationsProductRpService;
     }
 
     public String getGoodsSpecificationsProductRpTid() {
@@ -89,5 +90,20 @@ public class GoodsSpecificationsProductRpAction extends BaseTAction {
     public void setProductId(String productId) {
         this.productId = productId;
     }
+    @Action(value="addGoodsSpecificationsProductRp",results={@Result(name="json",type="json")})
+    public String addGoodsSpecificationsProductRp(){
+        GoodsSpecificationsProductRp goodsSpecificationsProductRp=new GoodsSpecificationsProductRp();
+        goodsSpecificationsProductRp.setGoodsSpecificationsProductRpTid(this.getSerial().SerialId(Serial.GOODSSPECIFICATIONSPRODUCTRP));
+        goodsSpecificationsProductRp.setGoodsId(this.getGoodsId());
+        goodsSpecificationsProductRp.setSpecificationsId(this.getSpecificationsId());
 
+        this.getGoodsSpecificationsProductRpService().addGoodsSpecificationsProductRp(goodsSpecificationsProductRp);
+        this.setSucFlag(true);
+        this.setBean(goodsSpecificationsProductRp);
+        return  JSON;
+    }
+   @Action(value = "updateGoodsAssociatedProductById",results = {@Result(name="json",type = "json")})
+    public String updateGoodsAssociatedProductById(){
+        return JSON;
+    }
 }
