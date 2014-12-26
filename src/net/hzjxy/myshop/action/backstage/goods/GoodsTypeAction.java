@@ -26,6 +26,15 @@ public class GoodsTypeAction extends BaseTAction {
     private String basePath;
     private boolean sucFlag;
     private GoodsType bean;
+    private GoodsTypeService goodsTypeServic;
+
+    public GoodsTypeService getGoodsTypeServic() {
+        return goodsTypeServic;
+    }
+
+    public void setGoodsTypeServic(GoodsTypeService goodsTypeServic) {
+        this.goodsTypeServic = goodsTypeServic;
+    }
 
     public GoodsTypeService getGoodsTypeService() {
         return goodsTypeService;
