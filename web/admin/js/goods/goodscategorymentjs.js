@@ -109,7 +109,7 @@ $(function() {
     $('#submit').click(function() {
         var name = $('#name').val();
         if (name == "") {
-            formwarning("#alerterror","璇峰～鍐欏垎绫诲悕绉�");
+            formwarning("#alerterror","请填写商品类型名称");
             return false;
         }
         var parentId = $('#parentId').val();
@@ -125,27 +125,27 @@ $(function() {
         } else if (parentId != "0" && parentId != "-1" && parentId1 != "-1") {
             grade = "2";
         } else if (parentId == "-1") {
-            formwarning("#alerterror","璇烽€夋嫨鍒嗙被");
+            formwarning("#alerterror","上级分类增加失败");
             return false;
         }
         var goodsTypeId = $('#goodsTypeId').val();
         if (goodsTypeId == "0") {
-            formwarning("#alerterror","璇烽€夋嫨鍟嗗搧绫诲瀷");
+            formwarning("#alerterror","商品分类增加失败");
             return false;
         }
         var sort = $('#sort').val();
         if (sort == "") {
-            formwarning("#alerterror","璇峰～鍐欐帓搴�");
+            formwarning("#alerterror","排序添加失败");
             return false;
         }
         var sign = $('#sign').val();
         if (sign == "") {
-            formwarning("#alerterror","璇峰～鍐欓潤鎬佸寲鏍囩ず");
+            formwarning("#alerterror","静态化标示添加失败");
             return false;
         }
         var metaKeywords = $('#metaKeywords').val();
         var metaDes = $('#metaDes').val();
-        // 鑾穕ogo璺緞闆嗗悎
+        // 更新路径
         var logoPath = "";
         $(":checkbox[name='pcpath']").each(function() {
             if($(this).attr("checked")){
@@ -168,7 +168,7 @@ $(function() {
                 if (data.sucflag) {
                     window.location.href = "goodscategoryment.jsp?operate=find&folder=goods";
                 } else {
-                    formwarning("#alerterror","鍒嗙被鍚嶇О鎴栬€呮爣绀轰笉鑳藉拰鍏朵粬鍒嗙被鍜屾爣绀洪噸澶�");
+                    formwarning("#alerterror","商品分类增加失败");
                     return false;
                 }
             });
@@ -189,7 +189,7 @@ $(function() {
                 if (data.sucflag) {
                     window.location.href = "goodscategoryment.jsp?operate=find&folder=goods";
                 } else {
-                    formwarning("#alerterror","鍒嗙被鍚嶇О鎴栬€呮爣绀轰笉鑳藉拰鍏朵粬鍒嗙被鍜屾爣绀洪噸澶�");
+                    formwarning("#alerterror","商品分类二维码增加失败");
                     return false;
                 }
             });
@@ -211,7 +211,7 @@ $(function() {
                 if (data.sucflag) {
                     window.location.href = "goodscategoryment.jsp?operate=find&folder=goods";
                 } else {
-                    formwarning("#alerterror","鍒嗙被鍚嶇О鎴栬€呮爣绀轰笉鑳藉拰鍏朵粬鍒嗙被鍜屾爣绀洪噸澶�");
+                    formwarning("#alerterror","商品分类三级增加失败");
                     return false;
                 }
             });
@@ -219,7 +219,7 @@ $(function() {
     });
 
     /**
-     * 鏍规嵁鍟嗗搧鍒嗙被id鑾峰彇鍒嗙被淇℃伅
+     * 查找商品分类
      */
     findGoodscategoryBygoodscategoryId=function(){
         var goodsCategoryTid = $.query.get('goodsCategoryTid');
@@ -233,7 +233,7 @@ $(function() {
                 $('#name').attr("value", data.bean.name);
                 var grade=data.bean.grade;
                 if(grade=="0"){
-                    $('#parentName').attr("value", "椤剁骇鍒嗙被");
+                    $('#parentName').attr("value", "上一级");
                 }else{
                     $('#parentName').attr("value", data.bean.parentName);
                 }
@@ -257,7 +257,7 @@ $(function() {
 
                 $('#submit').hide();
                 $('#addfl').hide();
-                $('#modfl').show();//涓婄骇鍒嗙被鏄剧ず鍖哄煙
+                $('#modfl').show();
                 $('#update').show();
             }
         });
@@ -265,17 +265,17 @@ $(function() {
 
 
     /**
-     * 鏇存柊鍟嗗搧鍒嗙被
+     * 更新商品分类
      */
         $('#update').click(function() {
             var name = $('#name').val();
             if (name == "") {
-                formwarning("#alerterror","璇峰～鍐欏垎绫诲悕绉�");
+                formwarning("#alerterror","请选择要标记名称");
                 return false;
             }
             var goodsTypeId = $('#goodsTypeId').val();
             if (goodsTypeId == "0") {
-                formwarning("#alerterror","璇烽€夋嫨鍟嗗搧绫诲瀷");
+                formwarning("#alerterror","请选择要标记类型编号");
                 return false;
             }
             var sort = $('#sort').val();
@@ -283,14 +283,14 @@ $(function() {
             var metaKeywords = $('#metaKeywords').val();
             var metaDes = $('#metaDes').val();
             var goodsCategoryTid = $('#hidgoodsCategoryTid').val();
-            // 鑾穕ogo璺緞闆嗗悎
+            // 路径
             var logoPath = "";
             $(":checkbox[name='pcpath']").each(function() {
                 if($(this).attr("checked")){
                     logoPath=this.value;
                 }
             });
-            //杩欓噷闇€瑕侀噸鏂板畾涔�
+            //获取各个属性值
             var parentId = $('#parentId').val();
             var parentName = $('#parentId').find("option:selected").text();
             var parentId1 = $('#parentId1').val();
@@ -315,7 +315,7 @@ $(function() {
                         }
                     } else if (parentId == "-1") {
                         if(grade==""){
-                            formwarning("#alerterror","璇烽€夋嫨鍒嗙被");
+                            formwarning("#alerterror","更新失败");
                             return false;
                         }
                     }
@@ -338,7 +338,7 @@ $(function() {
                         }
                     } else if (parentId == "-1") {
                         if(grade==""){
-                            formwarning("#alerterror","璇烽€夋嫨鍒嗙被");
+                            formwarning("#alerterror","更新上级名称失败");
                             return false;
                         }
                         parentName=$("#parentName").val();
@@ -362,7 +362,7 @@ $(function() {
                         }
                     } else if (parentId == "-1") {
                         if(grade==""){
-                            formwarning("#alerterror","璇烽€夋嫨鍒嗙被");
+                            formwarning("#alerterror","更新上级编号失败");
                             return false;
                         }
                         parentName1=$("#parentName").val();
@@ -387,7 +387,7 @@ $(function() {
                     if (data.sucflag) {
                         window.location.href = "goodscategoryment.jsp?operate=find&folder=goods";
                     } else {
-                        formwarning("#alerterror","鍒嗙被鍚嶇О鎴栬€呮爣绀轰笉鑳藉拰鍏朵粬鍒嗙被鍜屾爣绀洪噸澶�");
+                        formwarning("#alerterror","请选择一条信息");
                         return false;
                     }
                 });
@@ -409,7 +409,7 @@ $(function() {
                     if (data.sucflag) {
                         window.location.href = "goodscategoryment.jsp?operate=find&folder=goods";
                     } else {
-                        formwarning("#alerterror","鍒嗙被鍚嶇О鎴栬€呮爣绀轰笉鑳藉拰鍏朵粬鍒嗙被鍜屾爣绀洪噸澶�");
+                        formwarning("#alerterror","更新失败");
                         return false;
                     }
                 });
@@ -432,7 +432,7 @@ $(function() {
                     if (data.sucflag) {
                         window.location.href = "goodscategoryment.jsp?operate=find&folder=goods";
                     } else {
-                        formwarning("#alerterror","鍒嗙被鍚嶇О鎴栬€呮爣绀轰笉鑳藉拰鍏朵粬鍒嗙被鍜屾爣绀洪噸澶�");
+                        formwarning("#alerterror","更新失败");
                         return false;
                     }
                 });
@@ -467,65 +467,65 @@ $(function() {
         dataType : 'json',
         cache : false,
         colModel : [{
-            display : '鍒嗙被鍚嶇О',
+            display : '名称',
             name : 'name',
             width : 215,
             sortable : true,
             align : 'center'
         }, {
-            display : '涓婄骇鍒嗙被',
+            display : '上一级名称',
             name : 'parentName',
             width : 215,
             sortable : true,
             align : 'center'
         }, {
-            display : '鍒嗙被绛夌骇',
+            display : '商品',
             name : 'grade',
             width : 115,
             sortable : true,
             align : 'center'
         }, {
-            display : '鏍囩ず',
+            display : '标记',
             name : 'sign',
             width : 215,
             sortable : true,
             align : 'center'
         }, {
-            display : '鎺掑簭',
+            display : '排序',
             name : 'sort',
             width : 115,
             sortable : true,
             align : 'center'
         }, {
-            display : '鍒涘缓鏃堕棿',
+            display : '创建时间',
             name : 'createtime',
             width : 214,
             sortable : true,
             align : 'center'
 
         }, {
-            display : '鍒涘缓鑰呯紪鍙�',
+            display : '创建编号',
             name : 'creatorid',
             width : 200,
             sortable : true,
             align : 'center'
         }, {
-            display : '鎿嶄綔',
+            display : '操作',
             name : 'operating',
             width : 200,
             sortable : true,
             align : 'center'
         } ],
         buttons : [ {
-            name : '娣诲姞',
+            name : '添加',
             bclass : 'add',
             onpress : action
         }, {
-            name : '缂栬緫',
+            name : '编辑商品',
             bclass : 'edit',
             onpress : action
         }, {
-            name : '鍒犻櫎',
+            name : '删除',
             bclass : 'del',
             onpress : action
         }, {
@@ -533,15 +533,15 @@ $(function() {
         } ],
 
         searchitems : [ {
-            display : '璇烽€夋嫨鎼滅储鏉′欢',
+            display : '请选择搜索条件',
             name : 'sc',
             isdefault : true
         }, {
-            display : '鍒嗙被鍚嶇О',
+            display : '名称',
             name : 'name',
             isdefault : true
         }, {
-            display : '鍒嗙被绛夌骇',
+            display : '商品',
             name : 'grade',
             isdefault : true
         } ],
@@ -555,24 +555,24 @@ $(function() {
         showTableToggleBtn : true,
         width : 'auto',
         height : 'auto',
-        pagestat : '鏄剧ず{from}鍒皗to}鏉★紝鍏眥total}鏉¤褰�',
-        procmsg : '姝ｅ湪鑾峰彇鏁版嵁锛岃绋嶅€�...',
+        pagestat : '显示{from}到{to}条，共{total}条记录',
+        procmsg : '正在获取数据，请稍候...',
         checkbox : true
     });
     function action(com, grid) {
-        if (com == '娣诲姞') {
+        if (com == '添加商品') {
             window.location.href = "goodscategory.jsp?operate=add&folder=goods";
             return;
-        } else if (com == '缂栬緫') {
+        } else if (com == '添加货物') {
             if ($('.trSelected', grid).length == 1) {
                 var str = $('.trSelected', grid)[0].id.substr(3);
                 window.location.href = "goodscategory.jsp?operate=edit&folder=goods&goodsCategoryTid=" + str;
                 return;
             } else {
-                formwarning("#alerterror", "璇烽€夋嫨涓€鏉′俊鎭�");
+                formwarning("#alerterror", "请选择需要添加货物的商品");
                 return false;
             }
-        } else if (com == '鍒犻櫎') {
+        } else if (com == '编辑商品') {
             if ($('.trSelected', grid).length > 0) {
                 var str = "";
                 $('.trSelected', grid).each(function() {
@@ -584,13 +584,13 @@ $(function() {
                     if(data.sucflag){
                         $('#goodscategorymanagement').flexReload();
                     }else{
-                        formwarning("#alerterror", "璇蜂笉瑕佸垹闄ら《绾у垎绫�,璇烽€氳繃缂栬緫淇敼鍐呭");
+                        formwarning("#alerterror", "请选择一条信息");
                         $('#goodscategorymanagement').flexReload();
                     }
                 });
                 return;
             } else {
-                formwarning("#alerterror", "璇烽€夋嫨瑕佸垹闄ょ殑淇℃伅");
+                formwarning("#alerterror", "删除失败");
                 return false;
             }
 
