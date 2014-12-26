@@ -3,6 +3,7 @@ package net.hzjxy.myshop.action.backstage.goods;
 import net.hzjxy.myshop.action.backstage.base.BaseTAction;
 import net.hzjxy.myshop.entity.GoodsType;
 import net.hzjxy.myshop.service.GoodsTypeService;
+import net.hzjxy.myshop.service.impl.Serial;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -25,7 +26,16 @@ public class GoodsTypeAction extends BaseTAction {
     private String basePath;
     private boolean sucFlag;
     private GoodsType bean;
-    private GoodsTypeService goodsAttributeService;
+
+    public GoodsTypeService getGoodsTypeService() {
+        return goodsTypeService;
+    }
+
+    public void setGoodsTypeService(GoodsTypeService goodsTypeService) {
+        this.goodsTypeService = goodsTypeService;
+    }
+
+    private GoodsTypeService goodsTypeService;
 
     public String getBasePath() {
         return basePath;
@@ -51,13 +61,7 @@ public class GoodsTypeAction extends BaseTAction {
         this.bean = bean;
     }
 
-    public GoodsTypeService getGoodsAttributeService() {
-        return goodsAttributeService;
-    }
 
-    public void setGoodsAttributeService(GoodsTypeService goodsAttributeService) {
-        this.goodsAttributeService = goodsAttributeService;
-    }
 
     public String getGoodsTypeId() {
         return goodsTypeId;
@@ -98,5 +102,17 @@ public class GoodsTypeAction extends BaseTAction {
     public void setGoodsParameter(String goodsParameter) {
         this.goodsParameter = goodsParameter;
     }
-
+    public String addGoodsType(){
+        GoodsType goodsType=new GoodsType();
+        goodsType.setGoodsTypeId(this.getSerial().SerialId(Serial.GOODSTYPE));
+        goodsType.setName(this.getName());
+        this.getGoodsTypeService().addGoodsType(goodsType);
+        this.setSucFlag(true);
+        this.setBean(goodsType);
+        return  JSON;
+    }
+  @Action(value = "updateGoodsTypeTN",results = {@Result(name="json",type = "json")})
+    public String updateGoodsTypeTN(){
+        return JSON;
+    }
 }

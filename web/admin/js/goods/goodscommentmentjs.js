@@ -6,13 +6,6 @@ $(function(){
             formwarning("#alerterror","请填写商品评论");
             return false;
         }
-        $.post("addGoodsComment.action",{
-            "replyorcommentusername":replyorcommentusername
-        },function(data){
-            if(data.sucflag){
-                window.location.href="goodscomment.jsp";
-            }
-        });
         this.value = "提交中";
         this.disabled = true;
         $.post("addGoodsComment.action", {
@@ -31,7 +24,7 @@ $(function(){
         if(commentId==""){
             return false;
         }
-        $.post("findArticleByArticleId.action",{"articleId":articleId},function(data){
+        $.post("findGoodsCommentBycommentId.action",{"commentId":commentId},function(data){
             if(data.bean!=null){
                 $("#replyorcommentusername").val(date.bean.replyorcommentusername);
                 KE.html("commentContent",data.bean.commentContent);
