@@ -1,10 +1,9 @@
 $(function(){
-    //鍏ㄥ眬鍏宠仈瀛愬晢鍝乮d
     var belinkedproductid="";
     $("#maintag").val("");
     $("#subtag").val("");
     /**
-     * 璇诲彇鍟嗗搧涓€绾у垎绫�
+     * 根据GradeZeroone获取商品分类列表
      */
     findGoodsCategoryByGradeZeroone=function(){
         $.ajax({
@@ -14,7 +13,7 @@ $(function(){
             async:false,
             success:function(data){
                 if (data.sucflag) {
-                    var header="<option value='-1'>---璇烽€夋嫨---</option>";
+                    var header="<option value='-1'>---请选择---</option>";
                     if (data.goodscategoryzero == "") {
                         $('#navid').append(header);
                         $('#ltypeid').hide();
@@ -30,12 +29,12 @@ $(function(){
         });
     },
     /**
-     * 绾ц仈璇诲彇涓€绾у垎绫荤殑浜岀骇鏍忕洰
+     * 级联读取一级分类的二级栏目
      */
         $('#navid').change(function() {
             var navid = $('#navid').val();
-            //navid=0琛ㄧず椤剁骇鍒嗙被锛宯avid=-1琛ㄧず璇烽€夋嫨锛屼篃灏辨槸褰撻兘涓嶆槸杩欎袱涓潯浠舵椂鎵ц涓€绾ф爮鐩搴旂殑涓嬬骇鏍忕洰鐨勬悳绱�
-            //杩欓噷鍐嶈鍙栦簩绾у垎绫诲唴瀹�
+            //navid=0表示顶级分类，navid=-1表示请选择，也就是当都不是这两个条件时执行一级栏目对应的下级栏目的搜索
+            //这里再读取二级分类内容
             if (navid != "0" && navid != "-1") {
                 $.post("findGoodscategoryByparentId.action",{"parentId":navid}, function(data) {
                     if (data.sucflag) {
@@ -45,12 +44,12 @@ $(function(){
             }
         });
     /**
-     * 绾ц仈璇诲彇浜岀骇鍒嗙被瀵瑰簲鐨勪笁绾у垎绫�
+     * 级联读取二级分类对应的三级分类
      */
     $('#ltypeid').change(function(){
         var ltypeid = $('#ltypeid').val();
-        //parentid=0琛ㄧず椤剁骇鍒嗙被锛宲arentid=-1琛ㄧず璇烽€夋嫨锛屼篃灏辨槸褰撻兘涓嶆槸杩欎袱涓潯浠舵椂鎵ц涓€绾ф爮鐩搴旂殑涓嬬骇鏍忕洰鐨勬悳绱�
-        //杩欓噷鍐嶈鍙栦笁绾у垎绫诲唴瀹�
+        //parentid=0表示顶级分类，parentid=-1表示请选择，也就是当都不是这两个条件时执行一级栏目对应的下级栏目的搜索
+        //这里再读取三级分类内容
         if (ltypeid != "0" && ltypeid != "-1") {
             $.post("findGoodscategoryStypeid.action",{"parentId":ltypeid}, function(data) {
                 if (data.sucflag) {
@@ -63,7 +62,7 @@ $(function(){
 
 
     /**
-     * 楠岃瘉鍒嗙被閫夋嫨
+     *  验证分类选择
      */
     $("#navid").change(function() {
         var navid = $('#navid').val();
@@ -76,11 +75,11 @@ $(function(){
             $('#ltypeid').show();
         }
         if (ltypeid == "-1") {
-            $('#stypeid').hide();
-        }
+        $('#stypeid').hide();
+    }
     });
     /**
-     * 鎼滅储鍟嗗搧
+     * 获取所有商品分类列表
      */
     findAllGoodsByCategory=function(param){
         $("#goodsmanagement").flexigrid({
@@ -88,78 +87,78 @@ $(function(){
             dataType : 'json',
             cache : false,
             colModel : [ {
-                display : '鍟嗗搧鍚嶇О',
+                display : '商品名称',
                 name : 'goodsname',
                 width : 400,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '鍟嗗搧缂栧彿',
+                display : '商品编号',
                 name : 'usersetnum',
                 width : 150,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '浼氬憳浠�',
+                display : '会员价',
                 name : 'memberprice',
                 width : 120,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '鍒嗙被',
+                display : '分类',
                 name : 'sname',
                 width : 150,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '涓婃灦',
+                display : '上架',
                 name : 'salestate',
                 width : 60,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '鏂板搧',
+                display : '新品',
                 name : 'isNew',
                 width : 60,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '鐗逛环',
+                display : '特价',
                 name : 'bargainprice',
                 width : 60,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '鐑攢',
+                display : '热销',
                 name : 'hotsale',
                 width : 60,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '鎺ㄨ崘',
+                display : '推荐',
                 name : 'recommended',
                 width : 60,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '搴撳瓨',
+                display : '库存',
                 name : 'quantity',
                 width : 100,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '鎿嶄綔',
+                display : '操作',
                 name : 'operating',
                 width : 110,
                 sortable : true,
                 align : 'center'
             } ],
             buttons : [ {
-                name : '閫夋嫨涓轰富鍟嗗搧',
+                name : '标记移动平台',
                 bclass : 'add',
                 onpress : action
             },{
-                name : '閫夋嫨涓哄瓙鍟嗗搧',
+                name : '重置标记',
                 bclass : 'add',
                 onpress : action
             }, {
@@ -167,11 +166,11 @@ $(function(){
             } ],
 
             searchitems : [ {
-                display : '璇烽€夋嫨鎼滅储鏉′欢',
+                display : '请选择搜索条件',
                 name : 'sc',
                 isdefault : true
             }, {
-                display : '鍟嗗搧鍚嶇О',
+                display : '商品名称',
                 name : 'goodsname'
             } ],
             sortname : "createtime",
@@ -185,16 +184,16 @@ $(function(){
             showToggleBtn : true,
             width : 'auto',
             height : 'auto',
-            pagestat : '鏄剧ず{from}鍒皗to}鏉★紝鍏眥total}鏉¤褰�',
-            procmsg : '姝ｅ湪鑾峰彇鏁版嵁锛岃绋嶅€�...',
+            pagestat : '显示{from}到{to}条，共{total}条记录',
+            procmsg : '正在获取数据，请稍候...',
             checkbox : true
         });
         function action(com, grid) {
-            if (com == '閫夋嫨涓轰富鍟嗗搧') {
+            if (com == '添加商品') {
                 setMainProduct(grid);
                 return;
 
-            }else if(com=="閫夋嫨涓哄瓙鍟嗗搧"){
+            }else if(com=="添加货物"){
                 setSubProduct(grid);
                 return;
             }
@@ -202,14 +201,14 @@ $(function(){
         }
     },
     /**
-     * 鍒犻櫎涓诲晢鍝�
+     * 删除参数ChildMainInfo
      */
         delParamChildMainInfo=function(rid){
             $('#belinkedmaininfo'+rid).remove();
             $("#maintag").val("");
         },
     /**
-     * 鍒犻櫎瀛愬晢鍝�
+     * 删除参数ChildSubInfo
      */
         delParamChildSubInfo=function(rid){
             $('#belinkedsubinfo'+rid).remove();
@@ -223,13 +222,13 @@ $(function(){
         }
 
     /**
-     * 璁剧疆鎴愪富鍟嗗搧璐х墿
+     * 设置MainProduct
      */
     setMainProduct=function(grid){
         if($('.trSelected',grid).length==1){
             var maintag=$("#maintag").val();
             if(maintag!==""){
-                formwarning("#alerterror", "鍙兘閫夋嫨涓€涓富鍟嗗搧");
+                formwarning("#alerterror", "请选择需要添加货物的商品");
                 return false;
             }
 
@@ -250,12 +249,12 @@ $(function(){
             $("#belinkedmaininfo").append(html);
             $("#maintag").val(goodsid);
         }else{
-            formwarning("#alerterror", "璇烽€夋嫨涓€鏉″晢鍝�");
+            formwarning("#alerterror", "请选择需要添加货物的商品");
             return false;
         }
     },
     /**
-     * 璁剧疆鎴愬瓙鍟嗗搧璐х墿
+     * 编辑SubProduct
      */
         setSubProduct=function(grid){
             if($('.trSelected',grid).length==1){
@@ -269,7 +268,7 @@ $(function(){
                 });
                 var subtag=$("#subtag").val();
                 if(subtag===goodsid){
-                    formwarning("#alerterror", "璇蜂笉瑕侀€夋嫨閲嶅鐨勫瓙鍟嗗搧");
+                    formwarning("#alerterror", "请选择需要编辑货物的商品");
                     return false;
                 }
                 $(".trSelected td:nth-child(2) div", $('#goodsmanagement')).each(function(i){
@@ -284,7 +283,7 @@ $(function(){
                 $("#subtag").val(goodsid);
                 belinkedproductid+=goodsid+",";
             }else{
-                formwarning("#alerterror", "璇烽€夋嫨涓€鏉″晢鍝�");
+                formwarning("#alerterror", "更改商品成功");
                 return false;
             }
         }
@@ -296,21 +295,21 @@ $(function(){
             "belinkedproductinfo":belinkedproductinfo
         },function(data){
             if(data.sucflag){
-                formwarning("#alertinfo", "澧炲姞鍏宠仈鍟嗗搧鎴愬姛");
+                formwarning("#alertinfo", "请选择顶级商品分类");
                 return false;
             }
         })
     }
 
     /**
-     * 澧炲姞鏂板叧鑱斿晢鍝佸晢鍝�
+     * 保存或更改关联销售商品信息
      */
     $("#submit").click(function(){
         saveOrUpdateGoodsBelinkedT();
     }),
 
     /**
-     * 鎼滅储鍟嗗搧
+     * 搜索
      */
         $("#search").click(function(){
             var navid = $('#navid').val();
@@ -323,7 +322,7 @@ $(function(){
                 stypeid="-1";
             }
             if("-1"==navid&&"-1"==ltypeid&&"-1"==stypeid){
-                formwarning("#alerterror", "璇烽€夋嫨鍟嗗搧鍒嗙被");
+                formwarning("#alerterror", "请选择需要添加货物的商品");
                 return false;
             }else{
 
@@ -338,30 +337,30 @@ $(function(){
             dataType : 'json',
             cache : false,
             colModel : [ {
-                display : '涓诲晢鍝佸悕绉�',
+                display : '商品名称',
                 name : 'goodsname',
                 width : 300,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '瀛愬晢鍝佸悕绉�',
+                display : '产品名称',
                 name : 'productName',
                 width : 600,
                 sortable : true,
                 align : 'center'
             }, {
-                display : '鍒涘缓鏃堕棿',
+                display : '创建时间',
                 name : 'createtime',
                 width : 150,
                 sortable : true,
                 align : 'center'
             } ],
             buttons : [ {
-                name : '澧炲姞鍏宠仈鍟嗗搧',
+                name : '重置标记',
                 bclass : 'add',
                 onpress : action
             }, {
-                name : '鍒犻櫎',
+                name : '删除',
                 bclass : 'del',
                 onpress : action
             }, {
@@ -369,7 +368,7 @@ $(function(){
             } ],
 
             searchitems : [ {
-                display : '璇烽€夋嫨鎼滅储鏉′欢',
+                display : '请选择搜索条件',
                 name : 'sc',
                 isdefault : true
             } ],
@@ -384,15 +383,15 @@ $(function(){
             showToggleBtn : true,
             width : 'auto',
             height : 'auto',
-            pagestat : '鏄剧ず{from}鍒皗to}鏉★紝鍏眥total}鏉¤褰�',
-            procmsg : '姝ｅ湪鑾峰彇鏁版嵁锛岃绋嶅€�...',
+            pagestat : '显示{from}到{to}条，共{total}条记录',
+            procmsg : '正在获取数据，请稍候...',
             checkbox : true
         });
         function action(com, grid) {
-            if (com == '澧炲姞鍏宠仈鍟嗗搧') {
+            if (com == '添加商品') {
                 window.location.href="goodsbelinkedsale.jsp?operate=add&folder=goods";
                 return;
-            }else if(com=='鍒犻櫎'){
+            }else if(com=='添加货物'){
                 if($('.trSelected',grid).length>0){
                     var str="";
                     $('.trSelected',grid).each(function(){
@@ -400,11 +399,11 @@ $(function(){
                     });
                     $.post("delGoodsBelinked.action",{"id":str},function(data){
                         $('#goodsbelinkedment').flexReload();
-                        forminfo("#alertinfo","鍒犻櫎鎴愬姛");
+                        forminfo("#alertinfo","添加商品成功");
                     });
                     return;
                 }else{
-                    formwarning("#alerterror", "璇烽€夋嫨瑕佸垹闄ょ殑淇℃伅");
+                    formwarning("#alerterror", "请选择需要添加货物的商品");
                     return false;
                 }
             }
