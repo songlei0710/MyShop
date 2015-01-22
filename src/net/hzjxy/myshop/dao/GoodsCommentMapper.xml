@@ -3,7 +3,7 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.hzjxy.myshop.dao.GoodsCommentDao">
-    <insert id="addGoodsComment"parameterType="net.hzjxy.myshop.entity.GoodsComment">
+    <insert id="addGoodsComment" parameterType="net.hzjxy.myshop.entity.GoodsComment">
         INSERT INTO GoodsComment(COMMENTID,GOODSID,GOODSNAME,REPLYORCOMMENTUSERNAME,POSTTIME,COMMENTCONTENT,SCORE,STATE,REPLYORCOMMENT,REPLYID,REPLYORCOMMENTUSERID,EMAILABLE,TITLE,VIRTUALADD,SHOPID)
         VALUES (#{COMMENTID},#{GOODSID},#{GOODSNAME},#{REPLYORCOMMENTUSERNAME},#{POSTTIME},#{COMMENTCONTENT},#{SCORE},#{STATE},#{REPLYORCOMMENT},#{REPLYID},#{REPLYORCOMMENTUSERID},#{EMAILABLE},#{TITLE},#{VIRTUALADD},#{SHOPID})
     </insert>
@@ -62,15 +62,45 @@
     <delete id="delGoodsComment" parameterType="string">
         DELETE replyOrComment=#{replyOrComment}  FROM GoodsComment WHERE commentId=#{commentIdcommentId}
     </delete>
-    <select id="findGoodsCommentByGoodsid" resultType="net.hzjxy.myshop.entity.GoodsComment"></select>
+    <select id="findGoodsCommentByGoodsid" resultType="net.hzjxy.myshop.entity.GoodsComment" parameterType="map">
+       SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM GoodsComment  DESC goodsid=#{goodsid}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindGoodsCommentByGoodsid" resultType="java.lang.Integer" parameterType="string">
         SELECT count(*) FROM GoodsComment WHERE goodsId=#{goodsId}
     </select>
-    <select id="findAllGoodsComment" resultType="net.hzjxy.myshop.entity.GoodsComment"></select>
+    <select id="findAllGoodsComment" resultType="net.hzjxy.myshop.entity.GoodsComment" parameterType="map">
+        SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM GoodsComment
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="countfindAllGoodsComment" resultType="java.lang.Integer">
         SELECT count(commentContent) FROM GoodsComment
     </select>
-    <select id="sortAllGoodsComment" resultType="net.hzjxy.myshop.entity.GoodsComment"></select>
+    <select id="sortAllGoodsComment" resultType="net.hzjxy.myshop.entity.GoodsComment" parameterType="map">
+       SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM GoodsComment ORDER BY queryString DESC
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
+    </select>
     <select id="findGoodsCommentById" resultType="net.hzjxy.myshop.entity.GoodsComment" parameterType="string">
         SELECT * FROM GoodsComment WHERE goodsId=#{goodsId}
     </select>
