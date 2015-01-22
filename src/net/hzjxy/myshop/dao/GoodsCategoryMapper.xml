@@ -5,10 +5,10 @@
 <mapper namespace="net.hzjxy.myshop.dao.GoodsCategoryDao">
     <insert id="addGoodsCategory" parameterType="net.hzjxy.myshop.entity.GoodsCategory">
         INSERT INTO GoodsCategory(GOODSCATEGORYTID,GRADE,METAKEYWORDS,METADES,NAME,STATE,PATH,SORT,SIGN,GOODSTYPEID,PARENTID,CREATETIME,CREATORID,PARENTNAME,HTMLPATH,UPDATETIME,VERSION,LOGO,MOBILESYNC)
-        VALUES (#{GOODSCATEGORYTID},#{GRADE},#{METAKEYWORDS},#{METADES},#{NAME},#{STATE},#{PATH},#{SORT},#{SIGN},#{GOODSTYPEID},#{PARENTID},#{CREATETIME},#{CREATORID},#{PARENTNAME},#{HTMLPATH},#{UPDATETIME},#{VERSION},#{LOGO},#{MOBILESYNC})
+        VALUES (#{goodsCategoryTid},#{grade},#{metaKeywords},#{metaDes},#{name},#{state},#{path},#{sort},#{sign},#{goodsTypeId},#{parentId},#{createTime},#{creatorId},#{parentName},#{htmlPath},#{updateTime},#{version},#{logo},#{mobilesYnc})
     </insert>
-    <update id="updateGoodscategoryT">
-        UPDATE GoodsCategory
+    <update id="updateGoodscategoryT" parameterType="net.hzjxy.myshop.entity.GoodsGroup">
+        UPDATE GOODSCATEGORY
         <set>
             <if test="goodsCategoryTid!=null">
                 goodsCategoryTid=#{goodsCategoryTid},
@@ -31,7 +31,7 @@
             <if test="path!=null">
                 path=#{path},
             </if>
-            <if test="sort!=null">
+            <if test="sort!=0">
                 sort=#{sort},
             </if>
             <if test="sign!=null">
@@ -58,7 +58,7 @@
             <if test="updateTime!=null">
                 updateTime=#{updateTime},
             </if>
-            <if test="version!=null">
+            <if test="version!=0">
                 version=#{version},
             </if>
             <if test="logo!=null">
@@ -70,19 +70,22 @@
         </set>
         WHERE goodsCategoryTid=#{goodsCategoryTid}
     </update>
-    <update id="updateHtmlPath" parameterType="string">
-        update GoodsCategory as u set u.goodsCategoryTid=:goodsCategoryTid,u.htmlpath=:htmlpath
+    <update id="updateHtmlPath" parameterType="map">
+        update GoodsCategory  set htmlpath=#{htmlpath} WHERE goodsCategoryTid=#{goodsCategoryTid}
     </update>
-    <delete id="delGoodscategoryT" parameterType="string">
-        DELETE FROM GoodsCategory WHERE goodsCategoryTid IN
+    <delete id="delGoodscategoryT">
+        DELETE FROM GOODSCATEGORY WHERE GOODSCATEGORYTID IN
+        <foreach collection="array" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
     </delete>
     <delete id="delGoodscategoryS" parameterType="map">
-
+      DELETE FROM GOODSCATEGORY WHERE GOODSCATEGORYTID=#{goodsCategoryTid} AND state=0
     </delete>
     <select id="findPathParentIdByParentId" resultType="net.hzjxy.myshop.entity.GoodsCategory">
-        SELECT * FROM GoodsCategory WHERE PathParentId=#{PathParentId} and ParentId=#{ParentId}
+        SELECT * FROM GoodsCategory WHERE ParentId=#{ParentId}
     </select>
-    <select id="findGoodsCategoryByGrade" resultType="net.hzjxy.myshop.entity.GoodsCategory">
+    <select id="findGoodsCategoryByGrade" resultType="net.hzjxy.myshop.entity.GoodsCategory" parameterType="map">
         SELECT * FROM GoodsCategory WHERE grade=#{grade} and state=#{state}
     </select>
     <select id="checkGoodscategoryName" resultType="java.lang.Integer">
@@ -91,40 +94,50 @@
     <select id="checkGoodscategorySign" resultType="java.lang.Integer">
         SELECT * FROM GoodsCategory WHERE sign=#{sign}
     </select>
-    <select id="findAllGoodsCategoryT" resultType="net.hzjxy.myshop.entity.GoodsCategory" parameterType="string"></select>
+    <select id="findAllGoodsCategoryT" resultType="net.hzjxy.myshop.entity.GoodsCategory">
+         SELECT * FROM GoodsCategory WHERE STATE=1
+    </select>
     <select id="countfindAllGoodsCategoryT" resultType="java.lang.Integer" parameterType="string">
         SELECT COUNT(*) FROM GoodsCategory
     </select>
-    <select id="findAllGoodsCategoryTByGrade" resultType="net.hzjxy.myshop.entity.GoodsCategory">
-        SELECT GoodsCategoryT FROM GoodsCategory WHERE name=#{name} and state=#{state}
+    <select id="findAllGoodsCategoryTByGrade" resultType="net.hzjxy.myshop.entity.GoodsCategory" parameterType="map">
+        SELECT * FROM
+        (
+        SELECT A.*,ROWNUM RN FROM
+        (
+        SELECT * FROM GoodsCategory  WHERE state=#{state} AND grade=#{grade}
+        ) A
+        WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
+        )
+        WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
-    <select id="countfindAllGoodsCategoryTByGrade" resultType="java.lang.Integer" parameterType="string">
+    <select id="countfindAllGoodsCategoryTByGrade" resultType="java.lang.Integer" parameterType="map">
         SELECT COUNT(*) FROM GoodsCategory where grade=#{grade} and state=#{state}
     </select>
     <select id="findGoodscategoryBygoodscategoryId" resultType="net.hzjxy.myshop.entity.GoodsCategory">
-        SELECT Goodscategory FROM GoodsCategory WHERE goodscategoryId=#{goodscategoryId}
+        SELECT * FROM GoodsCategory WHERE goodsCategoryTid=#{goodsCategoryTid}
     </select>
-    <select id="checkGoodscategoryNamewithoutMe" resultType="java.lang.Integer">
-        SELECT name=#{name} from Goodscategory where goodsCategoryTid=#{goodsCategoryTid}
+    <select id="checkGoodscategoryNamewithoutMe" resultType="java.lang.Integer" parameterType="map">
+        SELECT * from Goodscategory where goodsCategoryTid=#{goodsCategoryTid} AND name=#{name}
     </select>
-    <select id="checkGoodscategorySignwithoutMe" resultType="java.lang.Integer">
-        SELECT sign=#{sign} from Goodscategory where goodsCategoryTid=#{goodsCategoryTid}
+    <select id="checkGoodscategorySignwithoutMe" resultType="java.lang.Integer" parameterType="map">
+        SELECT * from Goodscategory where goodsCategoryTid=#{goodsCategoryTid} AND sign=#{sign}
     </select>
-    <select id="findGoodscategoryByparentId" resultType="net.hzjxy.myshop.entity.GoodsCategory">
-        SELECT Goodscategory FROM GoodsCategory WHERE parentId=#{parentId} and state=#{state}
+    <select id="findGoodscategoryByparentId" resultType="net.hzjxy.myshop.entity.GoodsCategory" parameterType="map">
+        SELECT * FROM GoodsCategory WHERE parentId=#{parentId} and state=#{state}
     </select>
     <select id="findGoodscategoryByparentIdnull" resultType="net.hzjxy.myshop.entity.GoodsCategory">
-        SELECT Goodscategory FROM GoodsCategory WHERE state=#{state}
+        SELECT * FROM GoodsCategory WHERE state=#{state}
     </select>
     <select id="findAllGoodsCategoryBycreatorid" resultType="net.hzjxy.myshop.entity.GoodsCategory">
-        SELECT Goodscategory FROM GoodsCategory WHERE creatorid=#{creatorid}
+        SELECT * FROM GoodsCategory WHERE creatorid=#{creatorid}
     </select>
     <select id="sortAllGoodsCategoryT" resultType="net.hzjxy.myshop.entity.GoodsCategory" parameterType="map">
          SELECT * FROM
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM Category ORDER BY  sort DESC
+        SELECT * FROM GOODSCATEGORY ORDER BY  queryString DESC WHERE STATE=#{state}
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )
@@ -135,13 +148,13 @@
         (
         SELECT A.*,ROWNUM RN FROM
         (
-        SELECT * FROM Category ORDER BY createtime DESC
+        SELECT * FROM GOODSCATEGORY ORDER BY createtime DESC WHERE STATE=1
         ) A
         WHERE ROWNUM&lt;=#{currentPage}*#{lineSize}
         )
         WHERE RN&gt;=(#{currentPage}-1)*#{lineSize}+1
     </select>
     <select id="findAllCategoryByNoTrem" resultType="net.hzjxy.myshop.entity.GoodsCategory">
-        SELECT Category FROM GoodsCategory
+        SELECT * FROM GOODSCATEGORY
     </select>
 </mapper>

@@ -1,7 +1,9 @@
 package net.hzjxy.myshop.dao.impl;
 
 import net.hzjxy.myshop.dao.OrderForAlipayDao;
+import net.hzjxy.myshop.dao.OrderInvoiceDao;
 import net.hzjxy.myshop.dao.UserTDao;
+import net.hzjxy.myshop.entity.Orderr;
 import org.apache.ibatis.session.SqlSession;
 
 /**
@@ -29,6 +31,14 @@ public class OrderForAlipayDaoImpl implements OrderForAlipayDao {
         SqlSession session=MybatisUtil.currentSession();
         OrderForAlipayDao  OrderForAlipayDao=session.getMapper(OrderForAlipayDao.class);
         int order=OrderForAlipayDao.updateOrderStateByorderId(orderId,orderState);
+        return order;
+    }
+
+    @Override
+    public int addlorderr(Orderr orderr) {
+        SqlSession session=MybatisUtil.currentSession();
+        OrderForAlipayDao OrderForAlipayDao=session.getMapper(OrderForAlipayDao.class);
+        int order=OrderForAlipayDao.addlorderr(orderr);
         return order;
     }
 }

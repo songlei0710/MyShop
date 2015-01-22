@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.hzjxy.myshop.dao.WebSiteMsgDao">
+        <update id="updateWebsiteMsgState" parameterType="map">
+                UPDATE WebsiteMsgState WHERE list=#{list} and state=#{state}
+        </update>
+
+        <delete id="delWebsiteMsgT" parameterType="string">
+                DELETE  WebsiteMsgT WHERE list=#{list}
+        </delete>
+
+        <select id="findAllWebsiteMsgByFromUserid" resultType="net.hzjxy.myshop.entity.WebSiteMsg" parameterType="map">
+                SELECT * FROM WebsiteMsg WHERE currentPage=#{currentPage} and lineSize=#{lineSize} userId=#{userId}
+        </select>
+
+        <select id="countFindAllWebsiteMsgByFromUserId" resultType="java.lang.Integer" parameterType="string">
+                SELECT * FROM WebsiteMsg WHERE userId=#{userId}
+        </select>
+
+        <select id="findAllWebsiteMsgByToUsername" resultType="net.hzjxy.myshop.entity.WebSiteMsg" parameterType="map">
+                SELECT * FROM WebsiteMsg WHERE currentPage=#{msgToUsername} and lineSize=#{lineSize}and msgToUsername=#{msgToUsername}
+        </select>
+
+        <select id="countFindAllWebsiteMsgByToUsername" resultType="java.lang.Integer" parameterType="string">
+                SELECT COUNT(*) FROM WebsiteMsg
+        </select>
+
+        <select id="countFindAllWebSiteMsgOfStateByToUsername" resultType="java.lang.Integer" parameterType="map">
+                SELECT  COUNT (*) FROM WebsiteMsg WHERE msgToUsername=#{msgToUsername} and state=#{state}
+        </select>
+
+        <select id="findMsgTextById" resultType="net.hzjxy.myshop.entity.WebSiteMsg" parameterType="string">
+                SELECT WebsiteMsg FROM WebsiteMsg WHERE id=#{id}
+        </select>
+</mapper>
